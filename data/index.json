@@ -1,6 +1,6 @@
 {
- "updated": "2026-07-30T14:45:00+08:00",
- "updatedLabel": "7/30 14:45",
+ "updated": "2026-07-30T15:10:00+08:00",
+ "updatedLabel": "7/30 15:10",
  "days": [
   {
    "date": "2026-07-30",
@@ -16,13 +16,15 @@
    "date": "2026-07-29",
    "label": "2026年7月29日（週三）",
    "short": "7/29 週三",
-   "episodeCount": 5,
+   "episodeCount": 7,
    "shows": [
     "All-In Podcast",
-    "Bloomberg Surveillance",
     "MacroVoices",
     "The Market Huddle",
-    "Unhedged (FT)"
+    "Unhedged (FT)",
+    "Bloomberg Surveillance",
+    "Latent Space",
+    "Lex Fridman Podcast"
    ]
   }
  ]
