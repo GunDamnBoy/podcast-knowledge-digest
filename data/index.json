@@ -1,7 +1,17 @@
 {
- "updated": "2026-07-30T15:10:00+08:00",
- "updatedLabel": "7/30 15:10",
+ "updated": "2026-08-02T16:30:00+08:00",
+ "updatedLabel": "8/2 16:30",
  "days": [
+  {
+   "date": "2026-07-31",
+   "label": "2026年7月31日（週五）",
+   "short": "7/31 週五",
+   "episodeCount": 3,
+   "shows": [
+    "MacroVoices",
+    "Bloomberg Surveillance"
+   ]
+  },
   {
    "date": "2026-07-30",
    "label": "2026年7月30日（週四）",
