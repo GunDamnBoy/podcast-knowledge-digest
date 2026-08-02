@@ -310,6 +310,7 @@
       return;
     }
     getDay(S.day).then(function(day){
+      function cnZh(n){ return ['零','一','兩','三','四','五','六','七','八','九','十'][n] || String(n); }
       renderDays(); renderFilters(day);
       var eps = day.episodes.filter(function(e){ return S.show==='all' || e.showKey===S.show; });
       var html = '';
@@ -321,7 +322,7 @@
           '<div id="ccbody" style="display:none">'+
           (cc.points||[]).map(function(p){
             return '<div class="ccpt"><h3>'+esc(p.title)+'</h3><p>'+esc(p.body)+'</p></div>'; }).join('')+
-          '</div><button class="more" id="ccmore">展開四條主線 ▾</button></section>';
+          '</div><button class="more" id="ccmore" data-n="'+((cc.points||[]).length)+'">展開'+cnZh((cc.points||[]).length)+'條主線 ▾</button></section>';
       }
       html += eps.map(function(e){ return epCard(e, day.date, ''); }).join('');
       if(day.postscript && S.show==='all'){
@@ -335,7 +336,7 @@
       if(m) m.onclick = function(){
         var b = $('ccbody'), open = b.style.display!=='none';
         b.style.display = open?'none':'block';
-        m.textContent = open ? '展開四條主線 ▾' : '收合 ▴';
+        m.textContent = open ? ('展開'+cnZh(+m.getAttribute('data-n')||0)+'條主線 ▾') : '收合 ▴';
       };
     }).catch(function(err){
       host.innerHTML = '<div class="empty">'+esc(err.message)+'</div>';
