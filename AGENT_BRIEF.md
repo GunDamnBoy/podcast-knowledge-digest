@@ -31,7 +31,7 @@
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
 | Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（每週更新，PDF 可直接 WebFetch） |
 | Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<標題 kebab-case>`（逐字稿內嵌頁面） |
-| Unhedged (FT) | FT 站內搜尋 `ft.com/search?q=<關鍵字>` → 標題為「Transcript: ⋯」的那篇（**需在使用者已登入的 Chrome 中讀**） |
+| Unhedged (FT) | **直接讀 `https://www.ft.com/unhedged`**——這是逐日清單（日期＋標題＋作者＋PREMIUM 標記），比站內搜尋 `ft.com/search` 可靠得多。用 `find` 取得目標日期文章的 `href` 後 `navigate` 進去，再 `get_page_text` 取全文。Podcast 逐字稿版（標題為「Transcript: ⋯」）若有則優先，沒有就用當日 newsletter 正文 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
 **B. YouTube 字幕（需使用者桌機 Chrome）**
@@ -195,7 +195,10 @@ podcast-knowledge-digest/
 - **背景推送腳本**：`~/.dashpush/auto-push.sh`，**多 repo 版**，會依序處理 `advisory-knowledge-hub` 與 `podcast-knowledge-digest`；由 launchd agent `com.kenny.dashpush` 每 180 秒觸發。
 - **模式限制備忘**：互動／排程階段能讀 Chrome，但雲端不能直接推 GitHub；因此一律由本機背景程式負責推送。
 - **連線資料夾（重要）**：不論用哪種寫入方式，都只能寫進「已連線的資料夾」。排程是無人值守執行，當下沒有人能按核准對話框，因此 `~/podcast-knowledge-digest` 必須事先在 Claude 桌面 App 以「Add folder」加為連線資料夾。若某次執行寫不進去，退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
-- **登入狀態（每次執行先確認）**：YouTube 與 FT 都必須是 Chrome 已登入狀態。FT 若未登入，Unhedged 一定抓不到全文（頁面右上角出現 Subscribe／Sign In 就是未登入）。Claude 不會、也不應代為輸入帳密——發現未登入就走退援並在交付時告知使用者。
+- **登入狀態（每次執行先確認）**：YouTube 必須是 Chrome 已登入狀態。Claude 不會、也不應代為輸入帳密——發現未登入就走退援並在交付時告知使用者。
+- **FT 存取現況（2026-08-02 實測，重要）**：這台機器的 Chrome **並未登入 FT 帳號**（首頁右上角仍是 Subscribe／Sign In），但擁有一張有效的 **syndication 授權 cookie**：FT 會自動在站內所有連結後面補上 `?syn-25a6b1a6=1`，premium 文章因此可完整讀取。已用一篇標示 PREMIUM CONTENT、未曾以 token 開啟過的文章驗證：輸入裸網址 → FT 自動改寫補參數 → 取得 7,799 字完整內文、無付費牆訊號。
+
+  **這是脆弱的依賴**：syndication cookie 會過期，清快取、換 Chrome profile 都會失效，而且**失效時不會報錯**，只會安靜退回付費牆，讓排程產出一篇薄摘要而沒人察覺。因此每次處理 FT 內容時，**務必先驗證取到的正文長度是否合理**（Unhedged newsletter 正文通常 5,000 字元以上）；若明顯偏短或出現 `Subscribe to unlock`／`Complete digital access` 等字樣，即視為存取失效，走退援並在交付訊息中明確告知使用者「FT 存取已失效，需重新登入或更新授權」。長期解法仍是登入真正的 FT 帳號。
 - **`index.html` 的動態欄位**：交叉觀察的展開按鈕標籤已改為依 `crossCut.points` 實際條數產生（`cnZh` 函式），不再寫死「四條主線」。新增節目時仍需在 CSS 補一組 `.ep.s-<key>::before` 與 `.b-<key>`，沒補會走預設藍色，不影響功能。
 
 ---
