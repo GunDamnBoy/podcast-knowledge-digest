@@ -38,7 +38,7 @@
 | Unhedged (FT) | **直接讀 `https://www.ft.com/unhedged`**——這是逐日清單（日期＋標題＋作者＋PREMIUM 標記），比站內搜尋 `ft.com/search` 可靠得多。用 `find` 取得目標日期文章的 `href` 後 `navigate` 進去，再 `get_page_text` 取全文。Podcast 逐字稿版（標題為「Transcript: ⋯」）若有則優先，沒有就用當日 newsletter 正文 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
-**B. YouTube 字幕（需使用者桌機 Chrome）**
+**B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 以下節目沒有官方逐字稿，一律走音檔轉錄。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，不需要 YouTube。
 
 All-In `@allin`／BG2 `@Bg2Pod`／Pivot `@pivot`／Hard Fork `@hardfork`／20VC `@20VC`／No Priors `@NoPriorsPodcast`／Lenny's `@LennysPodcast`／Invest Like the Best `@ILTB_Podcast`／Capital Allocators `UCbzQ_YWf9RsBP9ATbmv5kxQ`／Odd Lots 與 Bloomberg Surveillance `@BloombergPodcasts`／Macro Voices `UCICRehoZjq3ZtAWgRJX118A`／The Market Huddle `UCTNgTBKATr18Z7kR32rKOBw`
 
@@ -70,7 +70,72 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 ---
 
-## 2. YouTube 字幕操作要領（已實測）
+## 2. 全文取得：本機 podfetch 管線（2026-08-02 起為主要方式）
+
+**背景**：2026-08-02 當天 YouTube 轉錄稿在本機 Chrome 上全面失效——面板可開啟但內容永遠停在載入中，`timedtext` 回傳空字串，InnerTube `get_transcript` 回 `FAILED_PRECONDITION`。在兩支不相干影片上重現，確認為環境層級故障。當日六集全部沒有逐字稿。
+
+該次事故暴露的真正問題是架構：全文取得被綁死在「Chrome 開著 ＋ YouTube 已登入 ＋ YouTube 沒改版」三個條件上，任一失效就整天報廢，而且是**安靜失效**。
+
+**修法**：改用 podcast 原始 MP3 ＋ Gemini API 語音轉錄。iTunes Lookup API 的每個 `podcastEpisode` 都帶有 `episodeUrl`（直接 MP3 網址），20 檔節目全部確認可取得——這套系統從一開始就不需要 YouTube。
+
+**元件**
+
+| 項目 | 位置 |
+|---|---|
+| 主程式 | `~/.podfetch/podfetch.py`（**零外部相依**，只用 Python 標準函式庫） |
+| 設定 | `~/.podfetch/config.json`、`~/.podfetch/shows.json` |
+| API key | `~/.podfetch/gemini.key`（權限 600，**絕不進 repo**） |
+| 執行狀態 | `~/.podfetch/state.json`（`last_run_utc` ＋ 30 天內已處理的 trackId） |
+| 紀錄 | `~/.podfetch/logs/YYYY-MM-DD.log` |
+| 逐字稿輸出 | `~/podcast-transcripts/YYYY-MM-DD/`（**repo 外部**，須另外加為 Cowork 連線資料夾） |
+| 排程 | launchd `com.kenny.podfetch`，每天 07:00（比 Cowork 任務早兩小時） |
+
+**流程**：iTunes 偵測 → 下載 MP3 → 切成 25 分鐘段（見下）→ 每段以 base64 內嵌送 Gemini `generateContent`（不需 File API）→ 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。
+
+**切段方式（2026-08-02 改版）**：原本用 ffmpeg，但使用者的 Mac 沒有 Homebrew，為了一個切檔動作要求安裝套件管理器不合理。改為**用純 Python 解析 MPEG Layer III 的 frame 標頭、在 frame 邊界切檔**，不重新編碼，因此零外部相依。單段同時受「秒數」與「9 MiB」兩個上限約束（base64 膨脹約 1.34 倍，須低於 Gemini 的 20MB 請求上限），高位元速率的檔案會自動切得更短。第一個 frame 若是 Xing／Info／VBRI 標頭會跳過——它記的是整個原檔的長度，複製到第一段會讓解碼器誤判時長。若系統剛好有 ffmpeg 則優先使用（會順便降到 16kHz 單聲道 32kbps，上傳量小很多），失敗時自動退回內建切檔器。
+
+**兩個設計重點，改動前請先理解**
+
+1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 舊版固定窗口在漏跑一天時會產生無法察覺的缺口（2026-08-02 就發生了，7/31 22:53 到 8/1 15:24 之間整段掉出去）。新版從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口。**
+2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 130 字估算期望值，低於 55% 就重試該段；重試後仍不足則標為 `DEGRADED` 並把原因寫進檔案的 YAML front matter 與 manifest。**這個檢查不要拿掉**——沒有它，某天產出一份薄摘譯會沒有任何人察覺。
+
+**逐字稿格式**：檔頭是 YAML front matter（`show`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`words`／`expected_words`／`completeness`／`status`／`warnings`），正文為 `[MM:SS] 講者姓名：內容`。
+
+**講者姓名是新流程最大的增值**。`shows.json` 為每檔節目預先寫入主持人名單，轉錄 prompt 會要求 Gemini 用真名而非 `Speaker A`。跨節目交叉觀察因此可以具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」），這是 YouTube 自動字幕從來給不了的維度。
+
+**免費層的額度長這樣（2026-08-02 從 AI Studio Console 實測，同一專案內）**：
+
+| 模型 | RPM | TPM | RPD |
+|---|---|---|---|
+| Flash（2.5／3／3.5／3.6） | 5 | 250K | **20** |
+| Flash-Lite 2.5 | 10 | 250K | 20 |
+| **Flash-Lite 3.1／3.5** | 15 | 250K | **500** |
+
+新版 Flash-Lite 的日額度是一般 Flash 的 **25 倍**，這是整個設計裡最重要的一個數字。模型池因此固定為「3 個 Flash（品質優先）＋ 3 個 Flash-Lite（溢流）」，合計逾 1,000 RPD，而一天只需約 15 個請求。**不要把 Lite 名額拿掉**，那等於自願放棄 25 倍額度。另註：`gemini-flash-latest` 目前對應 Gemini 3.6 Flash，屬 20 RPD 那一組；`gemini-2.5-flash` 已對新專案關閉（呼叫回 404），`gemini-2 flash`／`gemini-3.1 pro`／`gemini-2.5 pro` 在免費層是 0/0 不開放。
+
+**免費層真正的瓶頸是 RPD，不是 TPM（2026-08-02 從 Console 實測數據確認）。** 每個模型每天只有 **20 個請求**，而 TPM 上限 250K 實際只用到 12%（約 30K）。這徹底推翻了直覺——正確策略是「少而大」的請求，不是「多而小」。因此：每段拉長到 **30 分鐘**（425 分鐘的一天約 15 個請求）；30 分鐘的 MP3 約 20–30MB 超過 inline base64 的 20MB 上限，所以改走 **Files API**（上傳免費且不計入 RPD）；每個模型各有獨立的 20 RPD，因此組成 **4 個模型的輪替池**，撞到日額度就換下一個，可用量變 4 倍。處理順序改為**依日報優先序**（All-In 最前），額度不足時犧牲的是邊際節目而不是主秀。
+
+**成本：目前跑在免費層，月費 0 元。** 2026-08-02 初次測試時撞到 rate limit，原因有二：(1) 自動挑到 `gemini-3-flash-preview`，**preview 模型的免費額度比穩定版嚴格得多**；(2) 三個請求並行，每段 25 分鐘約 4.8 萬 audio token，瞬間 14 萬 token 直接撞 TPM 上限。
+
+修正後的設定（`config.json`）：`avoid_preview_models: true` 強制走穩定版 `gemini-2.5-flash`（免費層 10 RPM／250 RPD／250K TPM）、`parallel: 1`、`min_request_interval_seconds: 7`、`segment_seconds: 900`（15 分鐘一段約 2.9 萬 token）。一天約 26 個請求，遠低於 250 RPD；代價是改為循序處理，六集約需 30–45 分鐘，07:00 起跑仍有兩小時餘裕。
+
+**額度用完時的行為**：429 會讀取 Google 回傳的 `retryDelay` 照建議等待；若判定為日額度耗盡則丟出 `QuotaExhausted`，停止本次執行，**已完成的段落留在 `~/.podfetch/cache/`，下次執行直接沿用不重跑**，且未完成的集數不寫進 `seen`、`last_run_utc` 也不推進，因此下次視窗仍涵蓋得到。若哪天真的要加量再考慮付費，換算約 US$0.12／小時音檔。
+
+**手動執行與排錯**
+
+```
+python3 ~/.podfetch/podfetch.py              # 立即跑一次
+tail -f ~/.podfetch/logs/$(date +%F).log     # 看進度
+launchctl list | grep com.kenny.podfetch     # 確認排程存在
+```
+
+`status` 的三種值：`OK` 正常；`DEGRADED` 完整度不足，摘譯照做但要在 `source` 註明；`FAILED` 沒有逐字稿，走退援。
+
+**退援順序**：官方逐字稿（A 類節目，永遠優於機器轉錄）→ podfetch → FT 專用流程 → YouTube 字幕（已知不穩，最後手段）→ 節目說明＋WebSearch 寫 500 字精簡摘要並標 ⚠︎。
+
+---
+
+## 2B. YouTube 字幕操作要領（2026-08-02 起已知失效，僅存查）
 
 **先找到影片**：用 `https://www.youtube.com/results?search_query=%22<完整標題>%22`（加引號精確比對）比逐頁捲頻道 `/videos` 快得多。用 `read_page` 帶 `ref_id` 取得結果的 `href` 拿到 `watch?v=` 連結，並核對片長與 Apple 的 `trackTimeMillis` 是否吻合。
 
@@ -200,6 +265,10 @@ podcast-knowledge-digest/
 - **GitHub**：`GunDamnBoy/podcast-knowledge-digest`，Public，GitHub Pages（Source ＝ GitHub Actions）。
 - **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT →
   `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
+- **逐字稿管線**：`~/.podfetch/`（見第 2 節），launchd agent `com.kenny.podfetch` 每天 07:00 執行。輸出到 `~/podcast-transcripts/`，**刻意放在 repo 外部**——本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送程式帶上 GitHub 會是實質的著作權問題。不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。
+- **背景推送會無聲失敗，每次都要驗證（2026-08-03 事故）**：8/2 18:20 `auto-push.sh` 被改成只含 `REPO="$HOME/advisory-knowledge-hub"` 的單一 repo 版，本 repo 從此完全脫離自動推送。整個失效過程**沒有任何外顯徵兆**——launchd 回報 exit 0、`push.log` 沒有新行（因為原版在「無變更」時直接 `exit 0` 且不留紀錄）、`data/` 檔案照常寫入、排程任務照常回報成功，只有網站悄悄停在舊版。發現方式是比對 `.git/logs/HEAD` 最後一次 commit 的時間戳與檔案 mtime。
+  - **因此第 5 節的驗證步驟必須比對 `updatedLabel` 是否為本次執行時間，不能只看 `days[0].date`**——事故當天 `days[0].date` 早就已經是當天日期，光看它會被騙過去。
+  - 修復後的腳本改為多 repo 迴圈、以 `continue` 而非 `exit` 跳過個別 repo、無變更時也寫入 log，並在推送成功後記錄 HEAD 短雜湊。**「靜默」必須是可辨識的狀態，不能與正常運作無法區分。**
 - **背景推送腳本**：`~/.dashpush/auto-push.sh`，**多 repo 版**，會依序處理 `advisory-knowledge-hub` 與 `podcast-knowledge-digest`；由 launchd agent `com.kenny.dashpush` 每 180 秒觸發。
 - **模式限制備忘**：互動／排程階段能讀 Chrome，但雲端不能直接推 GitHub；因此一律由本機背景程式負責推送。
 - **連線資料夾（重要）**：不論用哪種寫入方式，都只能寫進「已連線的資料夾」。排程是無人值守執行，當下沒有人能按核准對話框，因此 `~/podcast-knowledge-digest` 必須事先在 Claude 桌面 App 以「Add folder」加為連線資料夾。若某次執行寫不進去，退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
