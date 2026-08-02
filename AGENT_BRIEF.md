@@ -13,9 +13,13 @@
 1. **Word 報告**（.docx）— 交付到對話中供轉發與引用（Cowork 用 `present_files`；若環境有 `SendUserFile` 亦可）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供手機／平板／桌機隨時閱讀與全文搜尋。
 
-排程任務：應為台北平日 08:30 執行。
+排程任務：`podcast-digest-daily`，**每天 09:00（台北，含週末）**，cron `0 9 * * *`。
 
-> ⚠️ **2026-08-02 狀態**：舊的 trigger `trig_015cf7Kr4zHWmtHtPMh1NYuR` 在目前這台 Mac 的 Cowork 排程清單中**並不存在**（`list_scheduled_tasks` 回傳空）。也就是說目前沒有任何東西會自動執行，每日產出都得手動觸發。要恢復自動化，需以 `create_scheduled_task` 重建（cron `30 8 * * 1-5`，Cowork 的 cron 以**本機時區**計算，所以直接寫 08:30 即可，不要再換算成 UTC），且 prompt 必須自包含——排程每次執行都是全新工作階段，讀不到任何過往對話。
+> Cowork 的 cron 以**本機時區**計算，直接寫 09:00 即可，不要換算成 UTC。排程每次執行都是全新工作階段，讀不到任何過往對話，因此任務 prompt 必須自包含（現行版本的做法是：要求執行者先完整讀過本檔案再開工）。
+>
+> 舊的 trigger `trig_015cf7Kr4zHWmtHtPMh1NYuR`（平日 08:30）已不存在，2026-08-02 以本任務取代。
+>
+> **排程只在 Claude 桌面 App 開著時執行**；App 關閉時錯過的排程會在下次啟動時補跑。
 
 ---
 
@@ -52,7 +56,11 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜Capital Allocators 1223764016｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991
 
-**時間窗口**（台北時間）：週二至週五抓過去 26 小時發布的集數；週一抓過去 74 小時（涵蓋週末）。
+**時間窗口**（台北時間）：**每天**（含週末）抓過去 **26 小時**發布的集數。
+
+> 2026-08-02 起改為每日 09:00 執行、七天不間斷，因此不再需要舊版「週一抓 74 小時涵蓋週末」的規則。每日 26 小時窗口對 24 小時的執行間隔留有 2 小時重疊，用意是吸收執行延遲，**代價是相鄰兩天會重複命中同一集**。所以產檔前**必須去重**：讀取前一天的 `data/YYYY-MM-DD.json`，比對 `url` 與 `title`，已收錄過的集數一律略過。
+>
+> 週末新集數通常很少，允許出現「當日 0 集」。此時**不要產生空檔案、也不要動 `index.json`**，直接向使用者回報今天沒有新集數即可。
 
 換算方式：台北 ＝ UTC+8，所以「台北 7/31 全天」＝ `releaseDate` 落在 `2026-07-30T16:00:00Z` 至 `2026-07-31T15:59:59Z`。務必先換算再篩選，美東晚間發布的集數在台北會落到隔天，很容易算錯一天。
 
