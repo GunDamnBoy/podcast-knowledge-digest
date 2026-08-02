@@ -10,10 +10,12 @@
 
 每個平日早上自動偵測 20 檔 Podcast／YouTube 節目的新集數，取得**全文**（官方逐字稿或 YouTube 字幕），為每一集撰寫約 2,000–3,000 字的繁體中文完整摘譯＋3–5 個核心重點，同時交付兩種形式：
 
-1. **Word 報告**（.docx）— 透過 `SendUserFile` 送到對話中，供轉發與引用。
+1. **Word 報告**（.docx）— 交付到對話中供轉發與引用（Cowork 用 `present_files`；若環境有 `SendUserFile` 亦可）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供手機／平板／桌機隨時閱讀與全文搜尋。
 
-排程任務：`trig_015cf7Kr4zHWmtHtPMh1NYuR`（cron `30 0 * * 1-5` UTC ＝ 台北平日 08:30）。
+排程任務：應為台北平日 08:30 執行。
+
+> ⚠️ **2026-08-02 狀態**：舊的 trigger `trig_015cf7Kr4zHWmtHtPMh1NYuR` 在目前這台 Mac 的 Cowork 排程清單中**並不存在**（`list_scheduled_tasks` 回傳空）。也就是說目前沒有任何東西會自動執行，每日產出都得手動觸發。要恢復自動化，需以 `create_scheduled_task` 重建（cron `30 8 * * 1-5`，Cowork 的 cron 以**本機時區**計算，所以直接寫 08:30 即可，不要再換算成 UTC），且 prompt 必須自包含——排程每次執行都是全新工作階段，讀不到任何過往對話。
 
 ---
 
@@ -36,27 +38,56 @@
 
 All-In `@allin`／BG2 `@Bg2Pod`／Pivot `@pivot`／Hard Fork `@hardfork`／20VC `@20VC`／No Priors `@NoPriorsPodcast`／Lenny's `@LennysPodcast`／Invest Like the Best `@ILTB_Podcast`／Capital Allocators `UCbzQ_YWf9RsBP9ATbmv5kxQ`／Odd Lots 與 Bloomberg Surveillance `@BloombergPodcasts`／Macro Voices `UCICRehoZjq3ZtAWgRJX118A`／The Market Huddle `UCTNgTBKATr18Z7kR32rKOBw`
 
-**偵測新集數**一律讀 Apple Podcasts 頁面 `https://podcasts.apple.com/us/podcast/id<AppleID>`：
+**偵測新集數**用 iTunes Lookup API（2026-08-02 實測：比爬 Apple 網頁快且穩，回傳結構化 JSON，不需 Chrome）：
+
+```
+https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode&limit=8
+```
+
+用 `web_fetch` 取得即可。每集看 `releaseDate`（**UTC**）、`trackName`、`trackTimeMillis`（毫秒）、`description`、`trackViewUrl`。Bloomberg Surveillance 一天發多集，該檔要用 `limit=20`。
+
+注意：回傳的第一筆是節目本身（`wrapperType":"track"`），其 `releaseDate` 是舊資料，不要誤判為新集數；真正的集數是 `wrapperType":"podcastEpisode"` 那些。
+
+各節目 AppleID：
 
 All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜Capital Allocators 1223764016｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991
 
 **時間窗口**（台北時間）：週二至週五抓過去 26 小時發布的集數；週一抓過去 74 小時（涵蓋週末）。
 
+換算方式：台北 ＝ UTC+8，所以「台北 7/31 全天」＝ `releaseDate` 落在 `2026-07-30T16:00:00Z` 至 `2026-07-31T15:59:59Z`。務必先換算再篩選，美東晚間發布的集數在台北會落到隔天，很容易算錯一天。
+
+**檔名慣例**：`data/YYYY-MM-DD.json` 的日期是**執行當天**（台北），內容是該執行時點往前推 26／74 小時窗口內發布的集數——所以 `2026-07-30.json` 裝的是 7/29 晚間至 7/30 上午發布的集數。補跑歷史某天時要沿用同一慣例，否則日期會對不上。
+
+**注意窗口接縫**：26 小時窗口是以每天 08:30 執行為前提；若某天沒跑或延後跑，前一次窗口結束到這次窗口開始之間的集數會整個掉出去。補跑時務必回頭檢查前一份檔案的實際涵蓋範圍，別假設它蓋滿了整個日曆日。
+
 ---
 
 ## 2. YouTube 字幕操作要領（已實測）
 
-1. `tabs_context_mcp{createIfEmpty:true}` → `navigate` 到頻道 `/videos`
-2. 點開目標影片 → 按 `k` 暫停
-3. 點描述區「⋯更多內容」展開
-4. `find`「顯示轉錄稿」按鈕（在**展開後描述的最底部**，不是側欄）
-5. 點擊後右側開啟「字幕記錄」面板，等 5 秒讓它載入
-6. `browser_batch` 呼叫 `get_page_text` 並帶 `max_chars: 250000`
-7. 擷取「影片相關資訊」／「字幕記錄」與「英文 (自動產生)」之間的段落即為逐字稿；移除時間戳行後合併
+**先找到影片**：用 `https://www.youtube.com/results?search_query=%22<完整標題>%22`（加引號精確比對）比逐頁捲頻道 `/videos` 快得多。用 `read_page` 帶 `ref_id` 取得結果的 `href` 拿到 `watch?v=` 連結，並核對片長與 Apple 的 `trackTimeMillis` 是否吻合。
+
+**取字幕（2026-08-02 重新實測，以下為實際可行的順序）**：
+
+1. `navigate` 到 `watch` 頁，等 4 秒
+2. `find`「`...更多內容`」按鈕並點擊，展開影片說明，等 3 秒
+3. 用 `computer` 的 `scroll` 往下捲約 10–12 格，直到畫面出現標題「**字幕記錄**」與藍色按鈕「**顯示轉錄稿**」。先 `screenshot` 確認位置
+4. **用座標點擊**那顆「顯示轉錄稿」按鈕，等 6 秒
+5. 按 `Home` 回頁面頂端，等 3 秒，再 `get_page_text`
+6. 頁面文字中「字幕記錄／搜尋轉錄稿」之後、到片尾台詞之前的整段（含時間戳）即為逐字稿；移除時間戳行後合併
+
+**已知的坑（別再踩）**：
+
+- 用 `find` 拿到的「顯示轉錄稿」ref 直接點**經常沒有反應**（頁面上有兩個同名節點，且影片播放會讓描述自動收合）。要捲到該區塊、用座標點才穩。
+- 影片右上角的「⋯」選單**沒有**轉錄稿選項，只有下載與檢舉，別浪費時間。
+- 想抄捷徑用 `javascript_tool` 讀 `ytInitialPlayerResponse.captions` 再 fetch 字幕檔：**行不通**。YouTube 有 Trusted Types，`DOMParser` 會被擋；改用 `&fmt=json3` 則回傳空字串（baseUrl 需要 POT token）。乖乖走 UI。
+- 純音訊型 Podcast 影片（如 Bloomberg Surveillance）一樣有自動字幕，流程相同。
 
 每集在 Chrome 上最多嘗試 8 分鐘，失敗就走退援。
 
-**退援規則**：若 Chrome／桌面裝置不可用，B 類節目改以 Apple 頁面節目說明＋WebSearch 相關報導撰寫約 500 字精簡摘要，並在該集 `source` 欄標註「⚠︎ 全文摘譯待補（執行當下無法連線使用者電腦）」。
+**退援規則（兩種情況）**：
+
+1. *Chrome／桌面裝置不可用* — B 類節目改以 Apple 節目說明＋WebSearch 相關報導撰寫約 500 字精簡摘要，`source` 欄標註「⚠︎ 全文摘譯待補（執行當下無法連線使用者電腦）」。
+2. *該集根本不在 YouTube 上* — 這確實會發生。2026-07-31 補跑時，Bloomberg 的 *Reacting to PCE, GDP, and Kevin Warsh*（42:23）全站搜尋無結果，官方播放清單當日只有四則且顯示「已隱藏無法播放的影片」。此時**不要硬湊內容**：若該集落在窗口內，就寫 500 字精簡摘要並在 `source` 標註「⚠︎ 該集未上架 YouTube，僅依節目說明整理」；若它本來就在窗口邊緣，寧可不收錄，並在交付訊息中明確告知使用者這一集沒被涵蓋。
 
 ---
 
@@ -139,15 +170,19 @@ podcast-knowledge-digest/
 
 ## 5. 發布流程
 
-1. 產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`（在雲端沙箱寫好）。
-2. `SendUserFile` 送出當日 Word 報告。
-3. **寫入使用者 Mac 的 repo**：`mcp__remote-devices__device_commit_files`，寫到
+1. 產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`。
+2. **寫入本機 repo 的 `data/` 目錄**：
    - `~/podcast-knowledge-digest/data/YYYY-MM-DD.json`
    - `~/podcast-knowledge-digest/data/index.json`
-   （`force: true`）
-4. 之後**不需手動 push**：Mac 上的 launchd 背景程式 `com.kenny.dashpush`（每 180 秒）會自動 `git add`＋`commit`＋`push`；GitHub Actions 再自動部署到 GitHub Pages。
 
-**重要操作禁忌**：不要用 `device_bash` 跑任何 `git` 指令（含 `git status`）。device_bash 是無網路的沙箱、且不能刪檔，跑 git 會留下 `.git/index.lock` 鎖檔擋住背景推送。只用 `cat`／`ls`／`grep` 等唯讀指令檢查狀態即可。
+   **寫入方式依當次可用工具擇一**（2026-08-02 實測：`mcp__remote-devices__*` 整組可能根本沒掛載，不要假設它存在）：
+   - **優先**：若 `~/podcast-knowledge-digest` 是本次工作階段的連線資料夾，直接用一般檔案工具（Write／Edit）寫入即可，效果與 `device_commit_files` 完全相同。
+   - **次選**：`mcp__remote-devices__device_commit_files`（`force: true`），僅在該工具確實存在時使用。
+3. 交付當日 Word 報告給使用者。**Word 檔不要放進 repo 目錄**——這個 repo 是 Public，放進去會被背景程式一起推上 GitHub。寫到暫存輸出資料夾再交付給使用者。
+4. 之後**不需手動 push**：Mac 上的 launchd 背景程式 `com.kenny.dashpush`（每 180 秒）會自動 `git add`＋`commit`＋`push`；GitHub Actions 再自動部署到 GitHub Pages。實測從寫檔到 Pages 生效約 2–4 分鐘。
+5. 驗證上線：抓 `https://gundamnboy.github.io/podcast-knowledge-digest/data/index.json`，確認 `days[0].date` 是當天。
+
+**重要操作禁忌**：不要跑任何 `git` 指令（含 `git status`），不論是透過 `device_bash` 或沙箱 bash。跑 git 可能留下 `.git/index.lock` 鎖檔擋住背景推送。只用 `cat`／`ls`／`grep` 等唯讀指令檢查狀態即可。
 
 ---
 
@@ -159,7 +194,9 @@ podcast-knowledge-digest/
   `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
 - **背景推送腳本**：`~/.dashpush/auto-push.sh`，**多 repo 版**，會依序處理 `advisory-knowledge-hub` 與 `podcast-knowledge-digest`；由 launchd agent `com.kenny.dashpush` 每 180 秒觸發。
 - **模式限制備忘**：互動／排程階段能讀 Chrome，但雲端不能直接推 GitHub；因此一律由本機背景程式負責推送。
-- **連線資料夾（重要）**：`device_commit_files` 只能寫入「已連線的資料夾」。排程是無人值守執行，當下沒有人能按核准對話框，因此 `~/podcast-knowledge-digest` 必須事先在 Claude 桌面 App 以「Add folder」加為連線資料夾。若某次執行寫不進去（工具回報未連線），退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 用 `SendUserFile` 送到對話中，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
+- **連線資料夾（重要）**：不論用哪種寫入方式，都只能寫進「已連線的資料夾」。排程是無人值守執行，當下沒有人能按核准對話框，因此 `~/podcast-knowledge-digest` 必須事先在 Claude 桌面 App 以「Add folder」加為連線資料夾。若某次執行寫不進去，退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
+- **登入狀態（每次執行先確認）**：YouTube 與 FT 都必須是 Chrome 已登入狀態。FT 若未登入，Unhedged 一定抓不到全文（頁面右上角出現 Subscribe／Sign In 就是未登入）。Claude 不會、也不應代為輸入帳密——發現未登入就走退援並在交付時告知使用者。
+- **`index.html` 的動態欄位**：交叉觀察的展開按鈕標籤已改為依 `crossCut.points` 實際條數產生（`cnZh` 函式），不再寫死「四條主線」。新增節目時仍需在 CSS 補一組 `.ep.s-<key>::before` 與 `.b-<key>`，沒補會走預設藍色，不影響功能。
 
 ---
 
