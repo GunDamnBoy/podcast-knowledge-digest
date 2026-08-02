@@ -142,8 +142,8 @@ podcast-knowledge-digest/
 1. 產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`（在雲端沙箱寫好）。
 2. `SendUserFile` 送出當日 Word 報告。
 3. **寫入使用者 Mac 的 repo**：`mcp__remote-devices__device_commit_files`，寫到
-   - `/Users/kennychiang/podcast-knowledge-digest/data/YYYY-MM-DD.json`
-   - `/Users/kennychiang/podcast-knowledge-digest/data/index.json`
+   - `~/podcast-knowledge-digest/data/YYYY-MM-DD.json`
+   - `~/podcast-knowledge-digest/data/index.json`
    （`force: true`）
 4. 之後**不需手動 push**：Mac 上的 launchd 背景程式 `com.kenny.dashpush`（每 180 秒）會自動 `git add`＋`commit`＋`push`；GitHub Actions 再自動部署到 GitHub Pages。
 
@@ -153,7 +153,7 @@ podcast-knowledge-digest/
 
 ## 6. 基礎設施備忘
 
-- **Repo（本機）**：`/Users/kennychiang/podcast-knowledge-digest`（放在家目錄下，不要放進 `~/Documents`，macOS TCC 會擋背景程式存取受保護資料夾）。
+- **Repo（本機）**：`~/podcast-knowledge-digest`（放在家目錄下，不要放進 `~/Documents`，macOS TCC 會擋背景程式存取受保護資料夾）。
 - **GitHub**：`GunDamnBoy/podcast-knowledge-digest`，Public，GitHub Pages（Source ＝ GitHub Actions）。
 - **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT →
   `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
