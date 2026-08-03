@@ -46,7 +46,9 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／Capital Allocators／Odd Lots／Bloomberg Surveillance／The Market Huddle
+All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／Capital Allocators／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**
+
+> Masters in Business 兩邊都在：`ritholtz.com` 的官方逐字稿晚 1–2 週，所以**當天一定是走 B**，等官方稿補上是之後補跑才用得到的東西。日常執行把它當 B 類處理即可。
 
 **偵測新集數**用 iTunes Lookup API（不需 Chrome，回傳結構化 JSON）：
 
@@ -59,7 +61,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 **三個已知陷阱**：
 
 - 回傳第一筆是節目本身（`"wrapperType":"track"`），其 `releaseDate` 是舊資料，**不要誤判為新集數**；真正的集數是 `"wrapperType":"podcastEpisode"`。
-- **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。交叉驗證改用 GB／AU 商店，實測是即時的。
+- **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。上面的 `limit=8` 只是起手式；**只要某一檔回傳的最新集數看起來太舊（例如距今超過該節目正常更新間隔），就換 GB 或 AU 商店重查一次**——把網址的 `itunes.apple.com/lookup` 前面加上國別即可（`https://itunes.apple.com/gb/lookup?...`）。實測 GB／AU 是即時的。2026-08-03 實例：US 商店回報 All-In 最新只到 7/18，GB 商店拿到的是 7/31。**這一條若漏掉，退援路徑會安靜漏抓主秀。**
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
 
 各節目 AppleID：
@@ -76,9 +78,11 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **時區換算**：台北 ＝ UTC+8，「台北 7/31 全天」＝ `releaseDate` 落在 `2026-07-30T16:00:00Z` 至 `2026-07-31T15:59:59Z`。務必先換算再篩選，美東晚間發布的集數在台北會落到隔天，很容易算錯一天。
 
-**檔名慣例**：`data/YYYY-MM-DD.json` 的日期是**執行當天**（台北），內容是該時點往前推 26 小時窗口內發布的集數——所以 `2026-07-30.json` 裝的是 7/29 晚間至 7/30 上午發布的集數。補跑歷史某天時沿用同一慣例。
+**檔名慣例**：`data/YYYY-MM-DD.json` 的日期是**執行當天**（台北），內容是該時點往前推 26 小時窗口內發布的集數。以 03:00 執行為例，`2026-08-04.json` 涵蓋的是**台北 8/3 01:00 至 8/4 03:00** 發布的集數——注意它**不含** 8/4 凌晨 03:00 之後的內容（那批是隔天那一版的）。補跑歷史某天時沿用同一慣例。
 
-**注意窗口接縫**：26 小時窗口以每天固定同一時刻執行為前提；某天沒跑或延後跑，前一次窗口結束到這次窗口開始之間的集數會整個掉出去。補跑時要回頭檢查前一份檔案的實際涵蓋範圍，別假設它蓋滿整個日曆日。
+**注意窗口接縫**：26 小時窗口以每天固定同一時刻執行為前提，某天沒跑或延後跑就會在兩次窗口之間留下空隙。**但這個空隙通常不會真的掉集數**，因為真正決定「有哪幾集」的是 podfetch，而 podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時）、下次執行會自動往回補（見第 2 節）。
+
+**真正會掉集數的只有一種情況：podfetch 也一起漏跑，而且中斷超過 72 小時。** 此外走 iTunes 退援路徑時沒有 `last_run_utc` 兜底，26 小時窗口就是硬邊界——**這種時候才需要手動把窗口往前延伸到接上前一份檔案為止**。補跑時一律回頭確認前一份檔案的實際涵蓋範圍，別假設它蓋滿整個日曆日。
 
 ---
 
@@ -140,11 +144,11 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
 **排查第 2 點時，順手看日誌開頭的時間戳。** 正常應為 `[01:00:0x]`。**若不是，代表當天 podfetch 延後補跑了，日報有可能搶在它前面執行**——這種失效是安靜的：podfetch 本身完全正常，只有日報品質悄悄掉一級。要在當日回報中明講，並依這個順序提示使用者排查（**兩種成因都要驗，不要跳過任何一步**）：
 
-1. `pmset -g custom` — AC Power 段的 `sleep` 應為 `0`（**這是主要保障**，插電時永不睡眠）
-2. `pmset -g sched` — 應有 `wakepoweron at 0:55AM every day`（後備）
-3. `/usr/libexec/PlistBuddy -c "Print :StartCalendarInterval" ~/Library/LaunchAgents/com.kenny.podfetch.plist` — 應為 `Hour = 1, Minute = 0`
+1. `/usr/libexec/PlistBuddy -c "Print :StartCalendarInterval" ~/Library/LaunchAgents/com.kenny.podfetch.plist` — 應為 `Hour = 1, Minute = 0`。**先查這一項**：它最便宜、最確定，而且時間戳若剛好落在某個整點又只差一兩秒（例如 `[07:00:01]`），那正是 `StartCalendarInterval` 準時觸發的特徵，指向設定值而非喚醒失敗
+2. `pmset -g custom` — AC Power 段的 `sleep` 應為 `0`（**這是主要保障**，插電時永不睡眠）
+3. `pmset -g sched` — 應有 `wakepoweron at 0:55AM every day`（後備）
 
-2026-08-03 那次的真相是機器睡眠（第 1、2 項），plist 本來就正確——**但那是一次性的查證結果，不是可以永久假設的前提**，排查時三項都要看。經過與教訓見 `MAINTENANCE.md` 第 7 節，環境設定全貌見第 9 節。
+**三項都要看，不要查到一項就收手。** 兩類成因（設定值錯、機器睡著）會產生一模一樣的症狀，而且**先查到的那一項若已經被人改過，很容易把「修改後的狀態」誤讀成「修改前的證據」**。若 plist 正確而時間戳仍偏晚，才往喚醒方向查；環境設定全貌見 `MAINTENANCE.md` 第 9 節。
 
 漏跑一天不會造成缺口：podfetch 視窗以 `last_run_utc` 為起點（上限 72 小時），下次執行會自動補回。
 
@@ -152,7 +156,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
 1. **官方逐字稿**（第 1 節 A 類）— 永遠優先。**manifest 決定「有哪幾集」，不決定「用哪份全文」**：A 類節目即使 podfetch 已轉錄，仍要去抓官方稿，抓不到才退回 podfetch 版本，並據實填 `source`。
 2. **podfetch 逐字稿** — B 類節目的主要來源。
-3. **FT 專用流程**（Unhedged）— **取到後必須檢查正文長度**，通常 5,000 字元以上；明顯偏短或出現 `Subscribe to unlock`／`Complete digital access` 即視為 FT 存取失效，走下一層並明確告知使用者。
+3. **FT 專用流程**（Unhedged）— Unhedged 屬於第 1 節 A 類，**它的「官方逐字稿」就是走這條 FT 流程取得**，不是獨立於第 1 層之外的另一層；列在這裡只是因為它有專屬的失效檢查。**取到後必須檢查正文長度**，通常 5,000 字元以上；明顯偏短或出現 `Subscribe to unlock`／`Complete digital access` 即視為 FT 存取失效，走下一層並明確告知使用者。
 4. **YouTube 字幕** — 2026-08-02 起已知全面失效，只當最後手段，每集最多試 5 分鐘。須為 Chrome 已登入 YouTube 的狀態，未登入就直接走下一層並告知，不要嘗試代為登入。操作要領見 `MAINTENANCE.md` 第 8 節。
 5. **都拿不到** — 依節目說明＋WebSearch 公開報導寫約 500 字精簡摘要，`source` 標註「⚠︎ 全文摘譯待補」及原因，**該集 `quotes` 留空陣列**。若某集本來就在窗口邊緣且拿不到全文，寧可不收錄，並在交付訊息中明講這一集沒被涵蓋。
 
@@ -285,13 +289,13 @@ podcast-knowledge-digest/
   sudo pmset repeat wakeorpoweron MTWRFSU 00:55:00   # 後備：萬一仍睡著
   ```
 
-  **`sleep 0` 是主要保障，`repeat wakeorpoweron` 是後備，兩者都要留。** 只有後備而沒有主要保障時，機器會在 00:55 醒來、閒置後又睡回去，03:00 就接不到——2026-08-03 那起延後補跑事故就是這個結構。
+  **`sleep 0` 是主要保障，`repeat wakeorpoweron` 是後備，兩者都要留。** 只有後備而沒有主要保障時，機器會在 00:55 醒來、閒置後又睡回去，03:00 就接不到。
 
   **驗證**：`pmset -g custom`（AC Power 段 `sleep` 應為 0）、`pmset -g sched`、`pmset -g ps`（應顯示 `AC Power`）。
 
   **這一整組設定都不存在於任何設定檔裡，重灌或換機不會跟著遷移**，還包括幾個沒有指令可查的前提：蓋子要打開、Claude 桌面版要在登入項目、不要裝會讓 Mac 插電時改用電池的充電管理軟體（會使 `-c sleep 0` 整個失效，且失效方式是安靜的）。清單見 `MAINTENANCE.md` 第 9 節。
 
-- **podfetch 排程時刻**：必須在 01:00，比日報早兩小時。`~/.podfetch/fix-schedule.sh` 可把 plist 的 `StartCalendarInterval` 寫回 01:00 並重新 `launchctl load`，但這是**驗證／還原工具，不是例行修復**——時間戳不對時多半是喚醒問題而非設定問題。腳本刻意放在 repo 外部。
+- **podfetch 排程時刻**：必須在 01:00，比日報早兩小時。`~/.podfetch/fix-schedule.sh` 可把 plist 的 `StartCalendarInterval` 寫回 01:00 並重新 `launchctl load`。**動它之前先照第 2 節的三項排查確認成因**——設定值錯與機器睡著會產生相同症狀，盲目套用這支腳本在後者情境下會造成「看起來修好了但問題沒動」的假性修復。腳本刻意放在 repo 外部。
 - **逐字稿輸出刻意放在 repo 外部**：本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送帶上 GitHub 會是實質的著作權問題。**不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。**
 
 - **連線資料夾**：本系統需要三個——`~/podcast-knowledge-digest`（寫網站資料）、`~/podcast-transcripts`（讀逐字稿）、`~/.podfetch`（排錯讀 log 與 state）。
@@ -318,6 +322,15 @@ podcast-knowledge-digest/
 
 **維護規則**：本檔與排程任務 `podcast-digest-daily` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
 
+### 2026-08-03（第四次，同步巡檢）
+
+- **撤銷「podfetch 延後補跑」這個根因判定，`MAINTENANCE.md` 該篇事故紀錄已刪除。** 該篇宣稱 08-03 日誌是 `[07:00:01]` 的原因是機器睡眠、且「plist 一直都是 `Hour = 1`」。實情相反：**當天 plist 就是 `Hour = 7`**（那也是重整前本檔第 6 節記載的設計值），是當日稍晚才由使用者改成 1；調查者讀到的 `Hour = 1` 是修改後的狀態，卻被當成修改前的證據。`[07:00:01]` 這種「整點加一秒」正是 `StartCalendarInterval` 準時觸發的特徵，不是喚醒補跑。**`pmset` 那組電源設定獨立保留**——01:00 的工作在會睡眠的 Mac 上確實需要它，那部分的決策沒有問題（第 6 節、`MAINTENANCE.md` 第 9 節）。
+- **時間戳排查順序改為 plist 優先**（原為 `pmset -g custom` → `pmset -g sched` → plist）。plist 最便宜也最確定，且「整點加一秒」的特徵直接指向設定值。同時加上一條通則：**先查到的那一項若已經被人改過，很容易把「修改後的狀態」誤讀成「修改前的證據」**，所以三項都要看完。
+- **補上排程 SKILL.md 給 iTunes 子代理的指示裡缺的「US 商店快取」規則。** 子代理讀不到本檔，而該規則只寫在本檔第 1 節，實測會導致退援路徑漏抓 All-In（US 商店回報最新只到 7/18，GB 商店為 7/31）。同時把「怎麼換國別商店」寫成具體網址格式，不再只說「改用 GB／AU」。
+- **SKILL.md 補上指向第 7 節「合規與語氣」的入口**。第三次重整時漏了，導致來源標註、付費來源只做重點濃縮、非投資建議這些會影響交付內容的規則沒有任何入口。
+- **修掉四處內部矛盾**：窗口接縫敘述與 `last_run_utc` 自癒機制對撞（已釐清為「只有走 iTunes 退援路徑時 26 小時才是硬邊界」）、檔名慣例的舉例仍停留在 09:00 時代、Unhedged 同時被放在退援第 1 層與第 3 層（已說明 FT 流程就是它取得官方稿的方式）、Masters in Business 在 A 類表格說「新集數改走 B」但 B 類清單裡沒有它。
+- **釐清 `limit=8` 與「limit 越小快取越舊」的拉扯**：`limit=8` 是起手式，發現回傳過舊就換國別商店重查。
+
 ### 2026-08-03（第三次，結構重整）
 
 - **本檔與 `MAINTENANCE.md` 重新分工**：brief 只留規格與判斷規則，事故經過／誤判過程／被否決的選項全部搬到 `MAINTENANCE.md` 第 7 節「事故與決策檔案」，YouTube 操作要領搬到第 8 節。**動機是本檔已膨脹到 42 KB 而排程每天要完整讀一次**，其中很大一部分是執行者根本不需要知道的歷史；而且同一件事在兩處各寫一份，反而讓「哪個是現行規格」變得不清楚。
@@ -328,7 +341,7 @@ podcast-knowledge-digest/
 - **重構後的回歸檢查抓到九處問題，一併修掉**（子代理獨立比對）：
   - **給 iTunes 子代理的指示缺了完成任務所需的定義。** SKILL.md 把「窗口判定」外包給子代理，但子代理讀不到 brief，而 26 小時窗口、`releaseDate` 是 UTC、台北 ＝ UTC+8、Bloomberg 要用 `limit=20` 全都只寫在 brief 裡。**瘦身的代價就在這裡：指向章節對主代理有效，對子代理無效**，凡是外包出去的步驟，定義必須隨指示一起傳。
   - 「窗口邊緣又拿不到全文的集數不收錄」原本沒進 SKILL.md 的主動回報清單（那是封閉列舉的六項），被排除的集數不會出現在 manifest 狀態裡，等於靜默掉一集。已補為第 4 項。
-  - **A 與 `MAINTENANCE.md` 對「日誌時間戳不對」的第一步互相牴觸**：brief 寫「不要建議去改 plist」，MAINTENANCE 寫「兩種成因都要驗、先驗 plist」。前者把 08-03 那次的一次性查證結果固化成永久前提，是錯的——已改為三項依序全查（`pmset -g custom` → `pmset -g sched` → plist）。
+  - **本檔與 `MAINTENANCE.md` 對「日誌時間戳不對」的第一步互相牴觸**：brief 寫「不要建議去改 plist」，MAINTENANCE 寫「兩種成因都要驗、先驗 plist」。前者把一次性的查證結果固化成永久前提，是錯的——已改為三項依序全查（順序於第四次修訂再調整為 plist 優先）。
   - **`pmset -c sleep 0` 這個主要保障原本完全不在 brief**，只有後備的 `repeat wakeorpoweron`。實際需要的是 01:00 到中午的連續清醒，只靠排定喚醒會在閒置後睡回去、03:00 接不到。同時刪掉「唯一一個不在設定檔裡的依賴」這句——蓋子、登入項目、充電管理軟體等前提同樣不在設定檔裡。
   - `~/.podfetch/cache/` 補進元件表（額度中斷時的續跑機制，排錯時看不到會困惑）。
   - `config.json` 的 `show_priority` 與 `model_preference` 補進說明，並註明 `healthcheck.py` 只檢查數值型、這兩個清單型的檢查不到。
@@ -337,13 +350,13 @@ podcast-knowledge-digest/
 
 ### 2026-08-03（第二次，維護巡檢）
 
-- **修正 podfetch 與日報的時序倒置**：podfetch 實際跑在 07:00 而非 01:00，日報 cron 改 03:00 後會每天搶先執行、誤判成「podfetch 失效」而掉進已死的 YouTube 退援。根因是機器睡眠導致延後補跑（**不是** plist 設定錯誤），修法為 `pmset repeat wakeorpoweron`。經過見 `MAINTENANCE.md` 第 7 節。
+- **修正 podfetch 與日報的時序倒置**：podfetch 實際跑在 07:00 而非 01:00，日報 cron 改 03:00 後會每天搶先執行、誤判成「podfetch 失效」而掉進已死的 YouTube 退援。修法是把 plist 的 `StartCalendarInterval` 從 `Hour = 7` 改為 `Hour = 1`。
 - **第 2 節加入「時刻漂移」守衛**：排查時要順手確認日誌開頭時間戳是 `[01:`，不是就在當日回報中明講。
-- **`pmset` 排定喚醒登記為基礎設施依賴**（第 6 節），它是唯一不存在於任何設定檔的依賴。
+- **`pmset` 電源設定登記為基礎設施依賴**（第 6 節）。它與 plist 時刻是兩件獨立的事：plist 決定「幾點跑」，`pmset` 決定「那個時刻機器醒不醒著」，兩者都要對。
 - **補齊 `index.html` 四組節目徽章**（`latentspace`／`lex`／`mib`／`twentyvc`），這四個 showKey 早已出現在資料裡卻一直走預設藍。同時要求 showKey 一律沿用 `shows.json` 的鍵值。
-- **統一 YouTube 嘗試上限為 5 分鐘**（原第 2B 節寫 8 分鐘，與其他三處牴觸）。
-- **修掉本檔內部四處自打架的過期數值**：20 分鐘段／Files API（原寫 25 分鐘／base64）、`max_chunk_mb: 48`（原寫 9 MiB）、約 22 個請求（原寫 15）、「每天（含週末）」（原寫「每個平日」）、26 小時（原殘留「26／74 小時」）。
-- **補上排程 SKILL.md 缺的四條規則**：A 類節目仍須抓官方稿（原本的「不要開 Chrome」會讓官方稿永遠拿不到）、podfetch 主路徑同樣要去重、寫不進 repo 時的退援、YouTube 登入前提與合規要求。
+- **統一 YouTube 嘗試上限為 5 分鐘**（當時的 YouTube 操作章節寫 8 分鐘，與其他三處牴觸；該章節已於第三次重整搬到 `MAINTENANCE.md` 第 8 節）。
+- **修掉本檔內部自打架的過期數值**：20 分鐘段／Files API（原寫 25 分鐘／base64）、`max_chunk_mb: 48`（原寫 9 MiB）、每日請求數（該數值已不列在本檔，改由 `config.json` 註解與 `MAINTENANCE.md` 第 7 節記載）、「每天（含週末）」（原寫「每個平日」）、26 小時（原殘留「26／74 小時」）。
+- **補上排程 SKILL.md 缺的四條規則**：A 類節目仍須抓官方稿（原本的「不要開 Chrome」會讓官方稿永遠拿不到）、podfetch 主路徑同樣要去重、寫不進 repo 時的退援、YouTube 登入前提。
 
 ### 2026-08-03（第一次）
 
