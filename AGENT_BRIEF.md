@@ -127,7 +127,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **成本：目前跑在免費層，月費 0 元。** 2026-08-02 初次測試時撞到 rate limit，原因有二：(1) 自動挑到 `gemini-3-flash-preview`，**preview 模型的免費額度比穩定版嚴格得多**；(2) 三個請求並行，每段 25 分鐘約 4.8 萬 audio token，瞬間 14 萬 token 直接撞 TPM 上限。
 
-**`config.json` 現行實際值（2026-08-03 核對）**：`segment_seconds: 1200`（20 分鐘）、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。`model_preference` 依序為 `gemini-3-flash`／`gemini-flash-latest`／`gemini-3.5-flash`／`gemini-2.5-flash`／`gemini-3.5-flash-lite`／`gemini-3.1-flash-lite`／`flash-lite`／`flash`。循序處理，六集約需 30–45 分鐘，07:00 起跑仍有兩小時餘裕。
+**`config.json` 現行實際值（2026-08-03 核對）**：`segment_seconds: 1200`（20 分鐘）、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。`model_preference` 依序為 `gemini-3-flash`／`gemini-flash-latest`／`gemini-3.5-flash`／`gemini-2.5-flash`／`gemini-3.5-flash-lite`／`gemini-3.1-flash-lite`／`flash-lite`／`flash`。循序處理，六集約需 30–45 分鐘，01:00 起跑到 03:00 的日報仍有兩小時餘裕。
 
 > 上一版 brief 寫的 `gemini-2.5-flash`／`parallel: 1`／`min_request_interval_seconds: 7`／`segment_seconds: 900` 都已過期，勿再引用。
 
@@ -150,7 +150,7 @@ launchctl list | grep com.kenny.podfetch     # 確認排程存在
 **「當天沒有目錄」≠「podfetch 掛了」（2026-08-03 教訓）。** 0 集時 podfetch 正常結束但不建立當天目錄，所以 `~/podcast-transcripts/<今天>/manifest.json` 讀不到有三種可能，判斷順序如下：
 
 1. **資料夾根本沒連線** → 先 `request_cowork_directory` 連上再重讀（見第 6 節）。
-2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。有 `[07:00:0x] 沒有新集數。` 就是真的 0 集，一切正常；日誌根本不存在或停在異常處，才是 podfetch 失效。也可比對 `~/.podfetch/state.json` 的 `last_run_utc` 是否已推進到今天。
+2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。有 `[01:00:0x] 沒有新集數。` 就是真的 0 集，一切正常；日誌根本不存在或停在異常處，才是 podfetch 失效。也可比對 `~/.podfetch/state.json` 的 `last_run_utc` 是否已推進到今天。
 3. **確認 podfetch 失效** → 才走第 2 步的 iTunes 退援偵測，並在交付訊息中明講。
 
 漏跑一天不會造成缺口：podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時），下次執行會自動補回。
@@ -297,7 +297,7 @@ podcast-knowledge-digest/
 - **GitHub**：`GunDamnBoy/podcast-knowledge-digest`，Public，GitHub Pages（Source ＝ GitHub Actions）。
 - **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT →
   `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
-- **逐字稿管線**：`~/.podfetch/`（見第 2 節），launchd agent `com.kenny.podfetch` 每天 07:00 執行。輸出到 `~/podcast-transcripts/`，**刻意放在 repo 外部**——本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送程式帶上 GitHub 會是實質的著作權問題。不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。
+- **逐字稿管線**：`~/.podfetch/`（見第 2 節），launchd agent `com.kenny.podfetch` 每天 01:00 執行。輸出到 `~/podcast-transcripts/`，**刻意放在 repo 外部**——本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送程式帶上 GitHub 會是實質的著作權問題。不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。
 - **背景推送會無聲失敗，每次都要驗證（2026-08-03 事故）**：8/2 18:20 `auto-push.sh` 被改成只含 `REPO="$HOME/advisory-knowledge-hub"` 的單一 repo 版，本 repo 從此完全脫離自動推送。整個失效過程**沒有任何外顯徵兆**——launchd 回報 exit 0、`push.log` 沒有新行（因為原版在「無變更」時直接 `exit 0` 且不留紀錄）、`data/` 檔案照常寫入、排程任務照常回報成功，只有網站悄悄停在舊版。發現方式是比對 `.git/logs/HEAD` 最後一次 commit 的時間戳與檔案 mtime。
   - **因此第 5 節的驗證步驟必須比對 `updatedLabel` 是否為本次執行時間，不能只看 `days[0].date`**——事故當天 `days[0].date` 早就已經是當天日期，光看它會被騙過去。
   - 修復後的腳本改為多 repo 迴圈、以 `continue` 而非 `exit` 跳過個別 repo、無變更時也寫入 log，並在推送成功後記錄 HEAD 短雜湊。**「靜默」必須是可辨識的狀態，不能與正常運作無法區分。**
