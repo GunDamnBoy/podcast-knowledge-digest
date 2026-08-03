@@ -153,6 +153,10 @@ launchctl list | grep com.kenny.podfetch     # 確認排程存在
 2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。有 `[01:00:0x] 沒有新集數。` 就是真的 0 集，一切正常；日誌根本不存在或停在異常處，才是 podfetch 失效。也可比對 `~/.podfetch/state.json` 的 `last_run_utc` 是否已推進到今天。
 3. **確認 podfetch 失效** → 才走第 2 步的 iTunes 退援偵測，並在交付訊息中明講。
 
+**排查時務必看日誌的時間戳，不是只看內容（2026-08-03 事故）。** 08-03 的日誌開頭是 `[07:00:01]` 而非 `[01:00:0x]`——launchd `com.kenny.podfetch` 的 `StartCalendarInterval` 實際設在 **07:00**，比日報的 03:00 晚四小時。當天沒有爆掉純粹是因為日報那次仍跑在舊的 09:00；cron 一改成 03:00，日報每天都會在 podfetch 之前執行，於是**永遠讀不到當天目錄、也讀不到當天日誌，會被上面第 3 點誤判成「podfetch 失效」而掉進已死的 YouTube 退援路徑，每天產出降級內容並誤報故障**。
+
+**這種失效同樣是安靜的**：podfetch 自己完全正常，日報也會照常交付，只是內容品質悄悄掉一級。因此排查第 2 點時，**看到日誌存在就要順手確認開頭時間戳是不是 `01:`**；若不是，代表 launchd 排程被改動過，**必須在當日回報中明講**，不要當成偶發。修法見第 6 節「podfetch 排程時刻」。
+
 漏跑一天不會造成缺口：podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時），下次執行會自動補回。
 
 **退援順序**：官方逐字稿（A 類節目，永遠優於機器轉錄）→ podfetch → FT 專用流程 → YouTube 字幕（已知不穩，最後手段）→ 節目說明＋WebSearch 寫 500 字精簡摘要並標 ⚠︎。
@@ -301,6 +305,7 @@ podcast-knowledge-digest/
 - **GitHub**：`GunDamnBoy/podcast-knowledge-digest`，Public，GitHub Pages（Source ＝ GitHub Actions）。
 - **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT →
   `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
+- **podfetch 排程時刻（2026-08-03 修正）**：launchd `com.kenny.podfetch` 必須在 **01:00**，比日報的 03:00 早兩小時。08-03 發現實際被設在 07:00（日報之後），修正腳本為 `~/.podfetch/fix-schedule.sh`（改 plist 的 `StartCalendarInterval` 後 `launchctl unload`／`load`）。**驗證方式**：`launchctl list | grep com.kenny.podfetch` 確認存在，隔天早上看 `~/.podfetch/logs/<日期>.log` 開頭時間戳是否為 `[01:00:0x]`。這個腳本刻意放在 `~/.podfetch/`（repo 外部），不要移進 repo。
 - **逐字稿管線**：`~/.podfetch/`（見第 2 節），launchd agent `com.kenny.podfetch` 每天 01:00 執行。輸出到 `~/podcast-transcripts/`，**刻意放在 repo 外部**——本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送程式帶上 GitHub 會是實質的著作權問題。不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。
 - **背景推送會無聲失敗，每次都要驗證（2026-08-03 事故）**：8/2 18:20 `auto-push.sh` 被改成只含 `REPO="$HOME/advisory-knowledge-hub"` 的單一 repo 版，本 repo 從此完全脫離自動推送。整個失效過程**沒有任何外顯徵兆**——launchd 回報 exit 0、`push.log` 沒有新行（因為原版在「無變更」時直接 `exit 0` 且不留紀錄）、`data/` 檔案照常寫入、排程任務照常回報成功，只有網站悄悄停在舊版。發現方式是比對 `.git/logs/HEAD` 最後一次 commit 的時間戳與檔案 mtime。
   - **因此第 5 節的驗證步驟必須比對 `updatedLabel` 是否為本次執行時間，不能只看 `days[0].date`**——事故當天 `days[0].date` 早就已經是當天日期，光看它會被騙過去。
@@ -334,6 +339,13 @@ podcast-knowledge-digest/
 ## 8. 變更紀錄（CHANGELOG）
 
 **維護規則**：這份 brief 與排程任務 `podcast-digest-daily` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。詳見 `MAINTENANCE.md`。日期由新到舊。
+
+### 2026-08-03（第二次，維護巡檢）
+
+- **修正 podfetch 與日報的時序倒置（本次最重要的一項）**。巡檢發現 launchd `com.kenny.podfetch` 實際跑在 **07:00** 而非 brief 與 SKILL.md 都寫的 01:00。當天沒有出事，只是因為日報那次仍跑在改制前的 09:00；cron 一改成 03:00，日報就會每天早於 podfetch 四小時執行，**每天讀不到當天目錄與日誌 → 被三段排查的第 3 點誤判成「podfetch 失效」→ 掉進已死的 YouTube 退援路徑**。之所以特別記一筆，是因為這個失效模式與 8/2 的 `auto-push.sh` 事故同一種：元件本身完全正常，只有品質悄悄降級，沒有任何外顯徵兆。修法是把 plist 改回 01:00（腳本 `~/.podfetch/fix-schedule.sh`）。
+- **並在第 2 節加入「時刻漂移」守衛**：排查時不能只看日誌內容，要順手確認開頭時間戳是 `[01:` ；不是就代表排程被改動過，當日回報必須明講。單靠文件寫「01:00」擋不住這種漂移，得讓每天的執行者實際去看一眼。
+- **補齊 `index.html` 四組節目徽章**（`latentspace`／`lex`／`mib`／`twentyvc`）。這四個 `showKey` 早已出現在 `data/*.json` 裡，但 CSS 只定義了 5 組，等於一直走預設藍。同時把第 4 節的 `showKey` 說明改為列出 20 檔節目的完整鍵值，並要求一律沿用 `shows.json` 的鍵，避免 podfetch 與網站兩邊各取一個名字。
+- **統一 YouTube 嘗試上限為 5 分鐘**。第 2B 節原寫 8 分鐘，與第 2 節退援順序、SKILL.md、`MAINTENANCE.md` 的 5 分鐘牴觸。該路徑已知失效，取短的那個值。
 
 ### 2026-08-03
 
