@@ -179,7 +179,7 @@ launchctl list | grep com.kenny.podfetch     # 確認排程存在
 - 想抄捷徑用 `javascript_tool` 讀 `ytInitialPlayerResponse.captions` 再 fetch 字幕檔：**行不通**。YouTube 有 Trusted Types，`DOMParser` 會被擋；改用 `&fmt=json3` 則回傳空字串（baseUrl 需要 POT token）。乖乖走 UI。
 - 純音訊型 Podcast 影片（如 Bloomberg Surveillance）一樣有自動字幕，流程相同。
 
-每集在 Chrome 上最多嘗試 8 分鐘，失敗就走退援。
+每集在 Chrome 上最多嘗試 **5 分鐘**，失敗就走退援。（2026-08-03 更正：本節原寫 8 分鐘，與第 2 節退援順序、排程 SKILL.md、`MAINTENANCE.md` 的 5 分鐘不一致，一律以 5 分鐘為準。）
 
 **退援規則（兩種情況）**：
 
@@ -261,7 +261,11 @@ podcast-knowledge-digest/
 }
 ```
 
-`showKey` 決定卡片色條與徽章顏色，現有值：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`。新增節目時在 `index.html` 的 CSS 加一組 `.ep.s-<key>::before` 與 `.b-<key>`，沒加也能正常顯示（走預設藍）。
+`showKey` 決定卡片色條與徽章顏色。**`index.html` 現已定義 9 組**（2026-08-03 補齊）：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`。
+
+`showKey` 一律採用 `~/.podfetch/shows.json` 的鍵值，20 檔節目的完整鍵值為：`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`capitalallocators`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`。**不要為同一檔節目在 podfetch 與網站兩邊各取一個名字**，否則徽章永遠對不上。
+
+尚未定義 CSS 的 11 個鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致。收錄新節目時在 `index.html` 補一組 `.ep.s-<key>::before` 與 `.b-<key>`，深色模式的 `html[data-theme="dark"] .b-<key>` 也要一併補。
 
 ---
 
