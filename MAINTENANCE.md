@@ -231,9 +231,14 @@ podfetch 舊版用固定 26 小時窗口，漏跑一天就會產生缺口——7
 sudo pmset -c sleep 0          # 插電時永不睡眠（螢幕仍可關）
 sudo pmset -c disksleep 0
 sudo pmset -c womp 1           # 允許網路喚醒
-sudo pmset -c autorestart 1    # 斷電復電後自動開機
 sudo pmset repeat wakeorpoweron MTWRFSU 00:55:00   # 保險：萬一仍睡著
 ```
+
+**2026-08-03 實測驗證**（`pmset -g custom | awk '/AC Power/,0'`）：`sleep 0`、`disksleep 0`、`womp 1`、`displaysleep 10` 皆已生效；`pmset -g ps` 顯示 `AC Power`；`pmset -g sched` 顯示 `wakepoweron at 0:55AM every day`。
+
+**待確認**：`sudo pmset -c autorestart 1`（斷電復電後自動開機）未出現在 AC Power 清單中。可能尚未執行，也可能機型不支援——Apple Silicon 已移除此鍵（預設即復電開機），僅 Intel 機種會列出。
+
+**建議一併調整**：`sudo pmset -b sleep 30`。電池模式預設 `sleep 1`，代表電源瞬斷切到電池後一分鐘就睡——**這會直接打斷正在跑的 01:00 轉錄或 03:00 日報**。改成 30 分鐘可撐過短暫停電。
 
 `sleep 0` 是主要保障，`repeat wakeorpoweron` 是後備。**兩者都要留**——第 7 節的教訓就是只有後備、沒有主要保障時，launchd 會安靜地延後補跑。
 
