@@ -10,7 +10,7 @@
 
 ## 0. 這個系統在做什麼
 
-每天早上（含週末）自動偵測 20 檔 Podcast 的新集數，取得**全文**，為每一集撰寫約 2,000–3,000 字的繁體中文完整摘譯＋3–5 個核心重點，同時交付兩種形式：
+每天早上（含週末）自動偵測 22 檔 Podcast 的新集數，取得**全文**，為每一集撰寫約 2,000–3,000 字的繁體中文完整摘譯＋3–5 個核心重點，同時交付兩種形式：
 
 1. **Word 報告**（.docx）— 交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供隨時閱讀與全文搜尋。
@@ -29,7 +29,7 @@
 
 ---
 
-## 1. 節目清單與全文來源（20 檔）
+## 1. 節目清單與全文來源（22 檔）
 
 **A. 官方逐字稿——永遠優於機器轉錄，這類節目每天都要去抓**
 
@@ -46,7 +46,13 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／Capital Allocators／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**
+All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle
+
+> **Business Breakdowns**（Colossus 出品，與 ILTB 同門）每集拆解一家公司的商業模式、單位經濟、護城河、估值框架與風險，來賓多是實際持有該檔股票的 buy-side。**Colossus 在 `joincolossus.com` 的集數頁有官方逐字稿**，若哪天要把它升到 A 類可從那裡取，目前先走 podfetch。
+>
+> **In Good Company** 是挪威主權基金 CEO Nicolai Tangen 訪談各大企業 CEO，約 25 分鐘，節奏比其他節目快很多。
+>
+> **The Compound and Friends** 是美股市場週評，與 Bloomberg／Market Huddle／Unhedged 題材有重疊，摘譯時注意不要在交叉觀察裡重複同一件事。／**Masters in Business（新集數）**
 
 > Masters in Business 兩邊都在：`ritholtz.com` 的官方逐字稿晚 1–2 週，所以**當天一定是走 B**，等官方稿補上是之後補跑才用得到的東西。日常執行把它當 B 類處理即可。
 
@@ -63,10 +69,14 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 - 回傳第一筆是節目本身（`"wrapperType":"track"`），其 `releaseDate` 是舊資料，**不要誤判為新集數**；真正的集數是 `"wrapperType":"podcastEpisode"`。
 - **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。上面的 `limit=8` 只是起手式；**只要某一檔回傳的最新集數看起來太舊（例如距今超過該節目正常更新間隔），就換 GB 或 AU 商店重查一次**——把網址的 `itunes.apple.com/lookup` 前面加上國別即可（`https://itunes.apple.com/gb/lookup?...`）。實測 GB／AU 是即時的。2026-08-03 實例：US 商店回報 All-In 最新只到 7/18，GB 商店拿到的是 7/31。**這一條若漏掉，退援路徑會安靜漏抓主秀。**
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
+- **`lookup` 端點正常，但 `search` 端點透過 `web_fetch` 回空字串**（沙箱 bash 也連不到 iTunes）。要找新節目的 AppleID 時不能靠 `search`，改用 WebSearch，或直接從 Apple Podcasts 網址的 `id<數字>` 取。
+- **節目層那筆的 `releaseDate` 可能落後好幾個月**，用它判斷節目是否停更會出錯。**一律看 `entity=podcastEpisode` 回傳的集數層日期。**
 
 各節目 AppleID：
 
-All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜Capital Allocators 1223764016｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991
+All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Business Breakdowns 1559120677**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991
+
+**權威來源是 `~/.podfetch/shows.json`**（含 AppleID、節目名、主持人名單，Bloomberg 的 `limit: 20` 也在那裡）。上面這份清單是給人看的，兩邊不一致時以 `shows.json` 為準。
 
 ### 時間窗口與去重
 
@@ -245,11 +255,13 @@ podcast-knowledge-digest/
 
 ### showKey
 
-`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。20 檔完整鍵值：
+`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔完整鍵值：
 
-`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`capitalallocators`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
+`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
 
-**`index.html` 目前定義了 9 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`。其餘 11 個第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 12 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`。其餘 10 個第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+
+> `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 
 `index.html` 的交叉觀察展開按鈕標籤依 `crossCut.points` 實際條數產生（`cnZh` 函式），不寫死條數。
 
@@ -336,6 +348,14 @@ podcast-knowledge-digest/
 - **釐清 `limit=8` 與「limit 越小快取越舊」的拉扯**：`limit=8` 是起手式，發現回傳過舊就換國別商店重查。
 - **SKILL.md 的主動回報清單由七項增為八項**，補上「寫不進 repo `data/`」——該情境的處置本來就寫在本檔第 5 節，但沒進封閉列舉的回報清單，等於會安靜地不被講出來。
 - **補上時刻漂移守衛的死角**：守衛原本掛在「今天的日誌」上，但若 podfetch 的時刻漂到 03:00 之後，日報執行當下今天的日誌必然不存在，會直接落進「podfetch 失效」分支，守衛永遠不會觸發。已在三段排查加入第 3 格：今天的日誌不存在時，**先讀 `logs/` 裡最新那一份的開頭時間戳**來區分「時刻漂移」與「真失效」，兩者的修法完全不同。
+
+### 2026-08-03（第四次，節目異動）
+
+- **移除 Capital Allocators，加入 Business Breakdowns（1559120677）、In Good Company（1614211565）、The Compound and Friends（1456467014）。節目數 20 → 22。** Capital Allocators 本身完全正常（812 集，當天還發了新集），移除是取捨不是汰換：它談的是機構配置者與 LP-GP 關係，在這份清單裡最不直接可用。
+- **補上的是一個真正的缺口：個股／公司基本面拆解。** 原本 20 檔裡沒有任何一檔在做這件事——ILTB 是投資人訪談，不是公司拆解。Business Breakdowns 每集拆一家公司的商業模式、單位經濟、護城河、估值與風險，來賓多是實際持有部位的 buy-side。
+- 三檔都已加進 `shows.json`、`config.json` 的 `show_priority`，`index.html` 也補了三組 CSS（現為 12 組）。
+- **驗證候選時踩到 brief 早就警告過的坑，值得記一筆**：Business Breakdowns 的節目層 `releaseDate` 顯示 2026-05-29，看起來停更兩個月；拉集數層才發現最新是 07-27。**節目層那個日期就是第 1 節說的「舊資料，不要誤判」**，差點因此把一檔活著的節目判死。挑選節目時一律要看 `entity=podcastEpisode` 的結果。
+- **另外發現 iTunes 的 `search` 端點透過 `web_fetch` 回空字串，`lookup` 正常。** 找新節目的 AppleID 不能靠 `search`，要用 WebSearch 或直接從 Apple Podcasts 網址取 id。已補進第 1 節的已知陷阱。
 
 ### 2026-08-03（第三次，結構重整）
 

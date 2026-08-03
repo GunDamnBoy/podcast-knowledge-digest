@@ -4,7 +4,7 @@
 
 **網站**：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
-每天早上（含週末）自動執行：偵測 20 檔節目的新集數 → 取得全文逐字稿 → 每集產出約 2,000–3,000 字繁體中文完整摘譯與 3–5 個核心重點 → 發布到本站，同時產出一份 Word 報告。
+每天早上（含週末）自動執行：偵測 22 檔節目的新集數 → 取得全文逐字稿 → 每集產出約 2,000–3,000 字繁體中文完整摘譯與 3–5 個核心重點 → 發布到本站，同時產出一份 Word 報告。
 
 轉錄在台北時間 01:00 跑，摘譯在 03:00 跑。因為台北 03:00 等於美東前一天下午，**前一晚的美東晚間集數會出現在隔天那一版**——這是排程時段的取捨，不是遺漏，沒有任何集數會掉。
 
@@ -12,7 +12,9 @@
 
 **科技／創投／AI**：All-In、Acquired、20VC、Pivot、No Priors、Lenny's Podcast、Lex Fridman、BG2 Pod、Hard Fork、Dwarkesh Podcast、Latent Space
 
-**總經／市場／資本配置**：Invest Like the Best、Odd Lots、Macro Voices、The Market Huddle、Unhedged (FT)、Bloomberg Surveillance、Capital Allocators、Masters in Business、Exchanges at Goldman Sachs
+**總經／市場**：Odd Lots、Macro Voices、The Market Huddle、Unhedged (FT)、Bloomberg Surveillance、The Compound and Friends、Exchanges at Goldman Sachs
+
+**投資與公司基本面**：Invest Like the Best、Business Breakdowns、In Good Company、Masters in Business
 
 ## 內容結構
 
