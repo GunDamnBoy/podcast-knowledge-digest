@@ -126,11 +126,11 @@ brief 裡看到「見 `MAINTENANCE.md` 第 7 節」時就是指這裡。寫這�
 
 修復後的腳本改為多 repo 迴圈、以 `continue` 而非 `exit` 跳過個別 repo、**無變更時也寫入 log**，並在推送成功後記錄 HEAD 短雜湊。
 
-**教訓：「靜默」必須是可辨識的狀態，不能與正常運作無法區分。** 這條原則後來也用在別處——日報的 `notifyOnCompletion`、podfetch 的字數檢查、FT 的正文長度檢查，全都是同一件事的不同版本。也因為這次，第 5 節的上線驗證必須比對 `updatedLabel` 而不能只看 `days[0].date`（事故當天 `days[0].date` 早就是當天日期，光看它會被騙過去）。
+**教訓：「靜默」必須是可辨識的狀態，不能與正常運作無法區分。** 這條原則後來也用在別處——日報的 `notifyOnCompletion`、podfetch 的字數檢查、FT 的正文長度檢查，全都是同一件事的不同版本。也因為這次，`AGENT_BRIEF.md` 第 5 節的上線驗證必須比對 `updatedLabel` 而不能只看 `days[0].date`（事故當天 `days[0].date` 早就是當天日期，光看它會被騙過去）。
 
 ### 2026-08-03　執行時段從 09:00 改到 03:00
 
-**動機**：一是希望起床就看得到成果；二是與 07:30 的 `advisory-dashboard-daily` 拉開 token 用量。
+**動機**：一是希望起床就看得到成果；二是與 `advisory-dashboard-daily` 拉開 token 用量（那條線 cron 設 07:30，實際帶 jitter 約 07:35 觸發）。
 
 **代價是結構性的**：台北 03:00 ＝ 美東前一天 15:00（EDT），而主要節目全部集中在台北 04:00–06:30 落地（Bloomberg TV 04:01、Bloomberg Money 04:25、MiB 05:00、All-In 06:23）。這些在 03:00 那一刻還沒發布，所以每天的日報固定收不到前一晚的美東晚間集數。All-In 因此大約在發布後 21 小時才進日報，而不是原本的 3 小時。podfetch 在 01:00 跑，看到的更早（美東 13:00 為止），13:00–15:00 EDT 之間發布的同樣順延一版。
 
@@ -234,11 +234,17 @@ sudo pmset -c womp 1           # 允許網路喚醒
 sudo pmset repeat wakeorpoweron MTWRFSU 00:55:00   # 保險：萬一仍睡著
 ```
 
-**2026-08-03 實測驗證**（`pmset -g custom | awk '/AC Power/,0'`）：`sleep 0`、`disksleep 0`、`womp 1`、`displaysleep 10` 皆已生效；`pmset -g ps` 顯示 `AC Power`；`pmset -g sched` 顯示 `wakepoweron at 0:55AM every day`。
+另加一項：
 
-**待確認**：`sudo pmset -c autorestart 1`（斷電復電後自動開機）未出現在 AC Power 清單中。可能尚未執行，也可能機型不支援——Apple Silicon 已移除此鍵（預設即復電開機），僅 Intel 機種會列出。
+```bash
+sudo pmset -b sleep 30    # 電池模式改 30 分鐘
+```
 
-**建議一併調整**：`sudo pmset -b sleep 30`。電池模式預設 `sleep 1`，代表電源瞬斷切到電池後一分鐘就睡——**這會直接打斷正在跑的 01:00 轉錄或 03:00 日報**。改成 30 分鐘可撐過短暫停電。
+電池模式原為 `sleep 1`，代表電源瞬斷切到電池後一分鐘就睡——**這會直接打斷正在跑的 01:00 轉錄或 03:00 日報**。30 分鐘可撐過短暫停電。
+
+**2026-08-03 實測驗證通過**：AC Power 為 `sleep 0`、`disksleep 0`、`womp 1`、`displaysleep 10`；Battery Power 為 `sleep 30`；`pmset -g ps` 顯示 `AC Power`；`pmset -g sched` 顯示 `wakepoweron at 0:55AM every day`。
+
+**`autorestart` 無法驗證，不要當成保障。** `sudo pmset -c autorestart 1` 執行未報錯，但 `pmset -g custom` 的 AC Power 清單**不會列出這個鍵**，無從確認是否生效。Apple Silicon 機種已移除此鍵（預設即復電自動開機），Intel 機種應會列出。要確認機型跑 `uname -m`（`arm64` ＝ Apple Silicon、`x86_64` ＝ Intel）。**工作假設一律採保守版：停電當天需人工介入，該日產出視為會缺。**
 
 `sleep 0` 是主要保障，`repeat wakeorpoweron` 是後備。**兩者都要留**——第 7 節的教訓就是只有後備、沒有主要保障時，launchd 會安靜地延後補跑。
 

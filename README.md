@@ -1,10 +1,12 @@
 # 節目知識庫 · Podcast Knowledge Digest
 
-把每天沒時間聽完的頂級 Podcast 與 YouTube 節目，變成可以在手機上讀完的完整中文摘譯。
+把每天沒時間聽完的頂級財經 Podcast，變成可以在手機上讀完的完整中文摘譯。
 
 **網站**：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
-每個平日早上 08:30（台北）自動執行：偵測 20 檔節目的新集數 → 取得全文逐字稿 → 每集產出約 2,000–3,000 字繁體中文完整摘譯與 3–5 個核心重點 → 發布到本站，同時產出一份 Word 報告。
+每天早上（含週末）自動執行：偵測 20 檔節目的新集數 → 取得全文逐字稿 → 每集產出約 2,000–3,000 字繁體中文完整摘譯與 3–5 個核心重點 → 發布到本站，同時產出一份 Word 報告。
+
+轉錄在台北時間 01:00 跑，摘譯在 03:00 跑。因為台北 03:00 等於美東前一天下午，**前一晚的美東晚間集數會出現在隔天那一版**——這是排程時段的取捨，不是遺漏，沒有任何集數會掉。
 
 ## 追蹤的節目
 
@@ -18,7 +20,11 @@
 
 ## 全文來源
 
-優先使用官方逐字稿（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）；其餘節目讀 YouTube 官方頻道字幕。自動字幕存在語音辨識誤差，摘譯時已依上下文校正，不確定處採保守表述。
+**優先使用官方逐字稿**（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）。
+
+其餘節目走**本機語音轉錄管線**：抓取節目原始音檔，經 Gemini API 轉為逐字稿。轉錄時會帶入各節目的主持人名單，因此逐字稿標的是真實姓名而非「講者 A」，跨節目比較才能具體到人。轉錄結果會做字數完整度檢查，不足門檻的集數會在該集標記出來。
+
+機器轉錄存在語音辨識誤差（人名、專有名詞尤其明顯），摘譯時已依上下文校正，不確定處採保守表述。
 
 ## 網站特色
 
@@ -32,9 +38,12 @@
 ├── data/index.json            # 日期清單
 ├── data/YYYY-MM-DD.json       # 每日內容
 ├── robots.txt                 # 全站 noindex
-├── AGENT_BRIEF.md             # 每日產出的標準作業說明
+├── AGENT_BRIEF.md             # 每日產出的完整規格
+├── MAINTENANCE.md             # 維護說明與事故／決策檔案
 └── .github/workflows/deploy.yml
 ```
+
+逐字稿本身**不放在這個 repo**——這是 Public repo，付費來源的完整逐字稿不適合公開存放。
 
 ## 免責
 

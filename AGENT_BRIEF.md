@@ -92,6 +92,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 | 設定 | `~/.podfetch/config.json`、`~/.podfetch/shows.json` |
 | API key | `~/.podfetch/gemini.key`（權限 600，**絕不進 repo**） |
 | 執行狀態 | `~/.podfetch/state.json`（`last_run_utc` ＋ 30 天內已處理的 trackId） |
+| 段落快取 | `~/.podfetch/cache/`——額度用完中斷時，**已完成的段落留在這裡，下次執行直接沿用不重跑**。未完成的集數不寫進 `seen`、`last_run_utc` 也不推進，所以下次視窗仍涵蓋得到 |
 | 紀錄 | `~/.podfetch/logs/YYYY-MM-DD.log` |
 | 逐字稿輸出 | `~/podcast-transcripts/YYYY-MM-DD/`（**repo 外部**，須另外加為 Cowork 連線資料夾） |
 | 健康檢查 | `~/.podfetch/healthcheck.py`（唯讀，見 `MAINTENANCE.md` 第 3 節） |
@@ -111,7 +112,12 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
 
-> 改設定時記得 `healthcheck.py` 會比對本節數值與 `config.json` 是否一致——這一項專門抓「改了設定卻漏改 brief」。額度實測數據、模型選擇的來龍去脈見 `MAINTENANCE.md` 第 7 節。
+另有兩個**清單型**設定，內容不列在這裡（會過期），直接看檔案：
+
+- `show_priority` — 額度不足時的處理順序，All-In 最前，犧牲的是排在後面的邊際節目。**新增節目時要記得插進去。**
+- `model_preference` — 模型輪替池的優先序。
+
+> `healthcheck.py` 會比對上面**數值型**設定與 `config.json` 是否一致，專門抓「改了設定卻漏改 brief」；**清單型的那兩個它檢查不到**，改動時要自己確認。額度實測數據、模型選擇的來龍去脈見 `MAINTENANCE.md` 第 7 節。
 
 **手動執行與排錯**
 
@@ -132,7 +138,13 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。有 `沒有新集數。` 就是真的 0 集，一切正常；日誌不存在或停在異常處，才是 podfetch 失效。也可看 `state.json` 的 `last_run_utc` 是否已推進到今天。
 3. **確認失效** → 才走 iTunes 退援偵測，並在交付訊息中明講。
 
-**排查第 2 點時，順手看日誌開頭的時間戳。** 正常應為 `[01:00:0x]`。**若不是，代表當天 podfetch 延後補跑了，日報有可能搶在它前面執行**——這種失效是安靜的：podfetch 本身完全正常，只有日報品質悄悄掉一級。此時要在當日回報中明講，並提示使用者跑 `pmset -g sched` 確認 00:55 的排定喚醒還在（應顯示 `wakepoweron at 0:55AM every day`）。**不要建議去改 plist**——已驗證 `StartCalendarInterval` 一直是 01:00，那不是問題所在。經過見 `MAINTENANCE.md` 第 7 節。
+**排查第 2 點時，順手看日誌開頭的時間戳。** 正常應為 `[01:00:0x]`。**若不是，代表當天 podfetch 延後補跑了，日報有可能搶在它前面執行**——這種失效是安靜的：podfetch 本身完全正常，只有日報品質悄悄掉一級。要在當日回報中明講，並依這個順序提示使用者排查（**兩種成因都要驗，不要跳過任何一步**）：
+
+1. `pmset -g custom` — AC Power 段的 `sleep` 應為 `0`（**這是主要保障**，插電時永不睡眠）
+2. `pmset -g sched` — 應有 `wakepoweron at 0:55AM every day`（後備）
+3. `/usr/libexec/PlistBuddy -c "Print :StartCalendarInterval" ~/Library/LaunchAgents/com.kenny.podfetch.plist` — 應為 `Hour = 1, Minute = 0`
+
+2026-08-03 那次的真相是機器睡眠（第 1、2 項），plist 本來就正確——**但那是一次性的查證結果，不是可以永久假設的前提**，排查時三項都要看。經過與教訓見 `MAINTENANCE.md` 第 7 節，環境設定全貌見第 9 節。
 
 漏跑一天不會造成缺口：podfetch 視窗以 `last_run_utc` 為起點（上限 72 小時），下次執行會自動補回。
 
@@ -176,8 +188,9 @@ podcast-knowledge-digest/
 │   ├── index.json            # 日期清單（manifest）
 │   └── YYYY-MM-DD.json       # 每天一個檔
 ├── robots.txt                # 全站 noindex，不進搜尋引擎
-├── AGENT_BRIEF.md
-├── MAINTENANCE.md
+├── README.md                 # GitHub 門面（Public，改動系統時記得同步）
+├── AGENT_BRIEF.md            # 本檔：規格
+├── MAINTENANCE.md            # 維護說明＋事故與決策檔案
 └── .github/workflows/deploy.yml
 ```
 
@@ -263,11 +276,20 @@ podcast-knowledge-digest/
 - **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT → `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
 - **背景推送腳本**：`~/.dashpush/auto-push.sh`，**多 repo 版**，依序處理 `advisory-knowledge-hub` 與 `podcast-knowledge-digest`，由 launchd `com.kenny.dashpush` 每 180 秒觸發。**這支腳本曾經靜默失效整整一天**（見 `MAINTENANCE.md` 第 7 節），所以第 5 節的驗證不能省。
 
-- **排定喚醒 `pmset`（整套系統的隱藏前提）**：01:00 的 podfetch 與 03:00 的日報**都不會把睡著的 Mac 叫醒**。已設定 `sudo pmset repeat wakeorpoweron MTWRFSU 00:55:00`，每天 00:55 自動喚醒。**驗證**：`pmset -g sched` 應印出 `wakepoweron at 0:55AM every day`。
+- **電源與睡眠設定（整套系統的隱藏前提，完整說明見 `MAINTENANCE.md` 第 9 節）**：01:00 的 podfetch 與 03:00 的日報**都不會把睡著的 Mac 叫醒**，而且需要的不是「時間到醒一下」，是**從 01:00 到中午的連續清醒**（03:00 日報、07:30 投顧那條線都在這個窗口內）。這台機器定位為常時開機的伺服器：放在家裡、全天開機、插著電、蓋子打開。
 
-  **兩個限制**：(1) 接電源時最可靠，只靠電池時 macOS 可能略過；(2) 從完全關機喚醒，筆電基本不會成功。因此「晚上關機」或「不插電」都會讓時序回到延後補跑的狀態。
+  ```bash
+  sudo pmset -c sleep 0      # 主要保障：插電時永不睡眠
+  sudo pmset -c disksleep 0
+  sudo pmset -c womp 1
+  sudo pmset repeat wakeorpoweron MTWRFSU 00:55:00   # 後備：萬一仍睡著
+  ```
 
-  **重灌系統或換機時 `pmset repeat` 不會跟著遷移**——這是唯一一個不存在於任何設定檔裡的依賴，要記得重設。
+  **`sleep 0` 是主要保障，`repeat wakeorpoweron` 是後備，兩者都要留。** 只有後備而沒有主要保障時，機器會在 00:55 醒來、閒置後又睡回去，03:00 就接不到——2026-08-03 那起延後補跑事故就是這個結構。
+
+  **驗證**：`pmset -g custom`（AC Power 段 `sleep` 應為 0）、`pmset -g sched`、`pmset -g ps`（應顯示 `AC Power`）。
+
+  **這一整組設定都不存在於任何設定檔裡，重灌或換機不會跟著遷移**，還包括幾個沒有指令可查的前提：蓋子要打開、Claude 桌面版要在登入項目、不要裝會讓 Mac 插電時改用電池的充電管理軟體（會使 `-c sleep 0` 整個失效，且失效方式是安靜的）。清單見 `MAINTENANCE.md` 第 9 節。
 
 - **podfetch 排程時刻**：必須在 01:00，比日報早兩小時。`~/.podfetch/fix-schedule.sh` 可把 plist 的 `StartCalendarInterval` 寫回 01:00 並重新 `launchctl load`，但這是**驗證／還原工具，不是例行修復**——時間戳不對時多半是喚醒問題而非設定問題。腳本刻意放在 repo 外部。
 - **逐字稿輸出刻意放在 repo 外部**：本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送帶上 GitHub 會是實質的著作權問題。**不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。**
