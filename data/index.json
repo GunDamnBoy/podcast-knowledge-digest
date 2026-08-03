@@ -1,7 +1,19 @@
 {
- "updated": "2026-08-03T00:55:00+08:00",
- "updatedLabel": "8/3 00:55",
+ "updated": "2026-08-04T03:20:00+08:00",
+ "updatedLabel": "8/4 03:20",
  "days": [
+  {
+   "date": "2026-08-04",
+   "label": "2026年8月4日（週二）",
+   "short": "8/4 週二",
+   "episodeCount": 6,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "20VC",
+    "Capital Allocators"
+   ]
+  },
   {
    "date": "2026-08-02",
    "label": "2026年8月2日（週日）",
