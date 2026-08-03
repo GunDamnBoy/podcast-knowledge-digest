@@ -129,6 +129,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口**——舊版在漏跑一天時會產生無法察覺的缺口。
 2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 130 字估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
 3. **模型池保留 Flash-Lite 名額。** 3 個 Flash（品質優先）＋ 3 個 Flash-Lite（溢流），撞到日額度自動換下一個。Lite 的日額度是一般 Flash 的 25 倍，拿掉等於自願放棄。
+4. **500／503 要換模型，不是死守重試。** 過載是「這個模型現在忙」，不是額度問題；同一模型重試兩次仍 503 就丟 `ModelOverloaded`，走與 404／日額度相同的輪換路徑。**重試同樣計入 RPD**，死守單一模型是雙重浪費——2026-08-04 就因此讓兩個 Flash 的 RPD 爆掉（21/20）而還有 491 次額度的 Lite 完全沒用到，三集白白失敗。經過見 `MAINTENANCE.md` 第 7 節。
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
 
@@ -362,6 +363,8 @@ podcast-knowledge-digest/
 - **`healthcheck.py` 兩處誤報，都是這次實跑才暴露的**：(1) 缺 CSS 原本判 FAIL，但 brief 明訂那只是視覺不一致、功能正常，改為 WARN；(2) showKey 命名檢查原本拿全部歷史資料比對 `shows.json`，於是移除節目後會產生**永久性假警報**（歷史檔案裡的 `capitalallocators` 永遠都在），改為只檢查最新一份，並把僅存在於歷史的鍵值單獨列為預期狀態。
 - **新增「待補全文」檢查**：列出最新一份裡 `⚠︎` 開頭的集數，提醒下次要重寫。
 - 補上 `oddlots` 與 `capitalallocators` 的 CSS（前者是現役節目卻一直沒定義，08-04 第一次出現；後者為了讓歷史資料正常顯示），`index.html` 現為 14 組。
+- **`podfetch.py` 新增 `ModelOverloaded`：500／503 重試兩次就換模型。** 從 AI Studio Console 的當日數據反推才看清根因——兩個 Flash 的 RPD 都爆到 21/20，而 Flash-Lite 只用了 9/500 與 1/500，503 才是主要錯誤（約 22 次）。**舊版只有 429 日額度會觸發輪換，503 則在同一模型上把 5 次重試燒完再判定整集失敗**；由於重試也計入 RPD，等於一邊燒掉 Flash 額度、一邊放著 491 次 Lite 額度不用。順帶確認 TPM 只用到 12–15%，brief 原本「瓶頸是 RPD 不是 TPM」的判斷成立。
+- 08-04 那兩集 Capital Allocators 佔位已從 `data/2026-08-04.json` 移除（空殼內容，且節目本次下架不會再補），該日 6 集改為 4 集，`index.json` 同步。
 
 ### 2026-08-03（第四次，節目異動）
 
