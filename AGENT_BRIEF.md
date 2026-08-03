@@ -113,11 +113,19 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 新版 Flash-Lite 的日額度是一般 Flash 的 **25 倍**，這是整個設計裡最重要的一個數字。模型池因此固定為「3 個 Flash（品質優先）＋ 3 個 Flash-Lite（溢流）」，合計逾 1,000 RPD，而一天只需約 15 個請求。**不要把 Lite 名額拿掉**，那等於自願放棄 25 倍額度。另註：`gemini-flash-latest` 目前對應 Gemini 3.6 Flash，屬 20 RPD 那一組；`gemini-2.5-flash` 已對新專案關閉（呼叫回 404），`gemini-2 flash`／`gemini-3.1 pro`／`gemini-2.5 pro` 在免費層是 0/0 不開放。
 
-**免費層真正的瓶頸是 RPD，不是 TPM（2026-08-02 從 Console 實測數據確認）。** 每個模型每天只有 **20 個請求**，而 TPM 上限 250K 實際只用到 12%（約 30K）。這徹底推翻了直覺——正確策略是「少而大」的請求，不是「多而小」。因此：每段拉長到 **30 分鐘**（425 分鐘的一天約 15 個請求）；30 分鐘的 MP3 約 20–30MB 超過 inline base64 的 20MB 上限，所以改走 **Files API**（上傳免費且不計入 RPD）；每個模型各有獨立的 20 RPD，因此組成 **4 個模型的輪替池**，撞到日額度就換下一個，可用量變 4 倍。處理順序改為**依日報優先序**（All-In 最前），額度不足時犧牲的是邊際節目而不是主秀。
+**免費層真正的瓶頸是 RPD，不是 TPM（2026-08-02 從 Console 實測數據確認）。** 一般 Flash 每個模型每天只有 **20 個請求**，而 TPM 上限 250K 實際只用到 12%（約 30K）。這推翻了直覺——正確策略是「少而大」的請求，不是「多而小」。因此：MP3 一律走 **Files API**（上傳免費且不計入 RPD，也繞開 inline base64 的 20MB 上限）；每個模型各有獨立的日額度，因此組成**多模型輪替池**，撞到日額度就換下一個。處理順序依 `show_priority`（All-In 最前），額度不足時犧牲的是邊際節目而不是主秀。
+
+**但切段長度最後不是由 RPD 決定，而是由「輸出上限」決定。** Lite 有 500 RPD 之後 RPD 就不再是瓶頸，真正會咬人的是 `maxOutputTokens`：30 分鐘音檔的逐字稿約 6,000 字≒8,000＋ token，很容易撞到輸出天花板。所以段長收斂到 **20 分鐘**（約 4,000 字），425 分鐘的一天約 22 個請求。
 
 **成本：目前跑在免費層，月費 0 元。** 2026-08-02 初次測試時撞到 rate limit，原因有二：(1) 自動挑到 `gemini-3-flash-preview`，**preview 模型的免費額度比穩定版嚴格得多**；(2) 三個請求並行，每段 25 分鐘約 4.8 萬 audio token，瞬間 14 萬 token 直接撞 TPM 上限。
 
-修正後的設定（`config.json`）：`avoid_preview_models: true` 強制走穩定版 `gemini-2.5-flash`（免費層 10 RPM／250 RPD／250K TPM）、`parallel: 1`、`min_request_interval_seconds: 7`、`segment_seconds: 900`（15 分鐘一段約 2.9 萬 token）。一天約 26 個請求，遠低於 250 RPD；代價是改為循序處理，六集約需 30–45 分鐘，07:00 起跑仍有兩小時餘裕。
+**`config.json` 現行實際值（2026-08-03 核對）**：`segment_seconds: 1200`（20 分鐘）、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。`model_preference` 依序為 `gemini-3-flash`／`gemini-flash-latest`／`gemini-3.5-flash`／`gemini-2.5-flash`／`gemini-3.5-flash-lite`／`gemini-3.1-flash-lite`／`flash-lite`／`flash`。循序處理，六集約需 30–45 分鐘，07:00 起跑仍有兩小時餘裕。
+
+> 上一版 brief 寫的 `gemini-2.5-flash`／`parallel: 1`／`min_request_interval_seconds: 7`／`segment_seconds: 900` 都已過期，勿再引用。
+
+**`max_output_tokens` 必須明確指定，這是最容易重蹈的坑。** 預設約 8,192，而 Gemini 3.x 的 thinking token 也算進輸出預算，2026-08-02 實測導致多段被腰斬（一致卡在 5,600–6,200 字，最慘一段只吐出 6 個字）。同時以 `thinkingConfig.thinkingBudget = 0` 關掉 thinking——逐字轉錄不需要推理。
+
+**模型池會在執行中「瘦身」，這是正常的。** `state.json` 的 `model_pool` 記的是當次跑完後仍可用的模型，不是設定值。2026-08-02 當天的實際軌跡是：`gemini-3-flash-preview`（自動挑到 preview，429）→ `gemini-2.5-flash`（回 404「no longer available to new users」）→ `gemini-2.5-flash-image`（額度滿）→ `gemini-flash-latest`（跑了一段後日額度用盡）→ 最後落到三個 Flash-Lite 完成全部六集。**看到 `model_pool` 只剩 Lite 不代表設定壞了**，代表當天 Flash 額度已耗盡而溢流機制正常運作。
 
 **額度用完時的行為**：429 會讀取 Google 回傳的 `retryDelay` 照建議等待；若判定為日額度耗盡則丟出 `QuotaExhausted`，停止本次執行，**已完成的段落留在 `~/.podfetch/cache/`，下次執行直接沿用不重跑**，且未完成的集數不寫進 `seen`、`last_run_utc` 也不推進，因此下次視窗仍涵蓋得到。若哪天真的要加量再考慮付費，換算約 US$0.12／小時音檔。
 
@@ -130,6 +138,14 @@ launchctl list | grep com.kenny.podfetch     # 確認排程存在
 ```
 
 `status` 的三種值：`OK` 正常；`DEGRADED` 完整度不足，摘譯照做但要在 `source` 註明；`FAILED` 沒有逐字稿，走退援。
+
+**「當天沒有目錄」≠「podfetch 掛了」（2026-08-03 教訓）。** 0 集時 podfetch 正常結束但不建立當天目錄，所以 `~/podcast-transcripts/<今天>/manifest.json` 讀不到有三種可能，判斷順序如下：
+
+1. **資料夾根本沒連線** → 先 `request_cowork_directory` 連上再重讀（見第 6 節）。
+2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。有 `[07:00:0x] 沒有新集數。` 就是真的 0 集，一切正常；日誌根本不存在或停在異常處，才是 podfetch 失效。也可比對 `~/.podfetch/state.json` 的 `last_run_utc` 是否已推進到今天。
+3. **確認 podfetch 失效** → 才走第 2 步的 iTunes 退援偵測，並在交付訊息中明講。
+
+漏跑一天不會造成缺口：podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時），下次執行會自動補回。
 
 **退援順序**：官方逐字稿（A 類節目，永遠優於機器轉錄）→ podfetch → FT 專用流程 → YouTube 字幕（已知不穩，最後手段）→ 節目說明＋WebSearch 寫 500 字精簡摘要並標 ⚠︎。
 
@@ -253,7 +269,15 @@ podcast-knowledge-digest/
    - **次選**：`mcp__remote-devices__device_commit_files`（`force: true`），僅在該工具確實存在時使用。
 3. 交付當日 Word 報告給使用者。**Word 檔不要放進 repo 目錄**——這個 repo 是 Public，放進去會被背景程式一起推上 GitHub。寫到暫存輸出資料夾再交付給使用者。
 4. 之後**不需手動 push**：Mac 上的 launchd 背景程式 `com.kenny.dashpush`（每 180 秒）會自動 `git add`＋`commit`＋`push`；GitHub Actions 再自動部署到 GitHub Pages。實測從寫檔到 Pages 生效約 2–4 分鐘。
-5. 驗證上線：抓 `https://gundamnboy.github.io/podcast-knowledge-digest/data/index.json`，確認 `days[0].date` 是當天。
+5. 驗證上線：抓 `https://gundamnboy.github.io/podcast-knowledge-digest/data/index.json`，確認 `days[0].date` 是當天、且 `updatedLabel` 是本次執行時間。
+
+   **一定要帶 cache-buster，否則會誤判成推送失效（2026-08-03 實測）。** 裸網址抓回來的是舊快取：當天實測拿到 7/30 的內容，而加上 `?cb=<時間戳>` 重抓立刻是正確的 8/3 版本。`raw.githubusercontent.com` 同樣有快取（當天回的是 7/29）。所以驗證一律用：
+
+   ```
+   https://gundamnboy.github.io/podcast-knowledge-digest/data/index.json?cb=<YYYYMMDDHHMMSS>
+   ```
+
+   若帶了 cache-buster 仍是舊內容，才是真的沒推上去。此時可用唯讀方式確認推送鏈：`cat .git/refs/heads/main` 與 `cat .git/refs/remotes/origin/main` 是否同一個雜湊、`tail .git/logs/refs/remotes/origin/main` 最後一筆 `update by push` 的時間戳是否為本次執行後。**這些都是 `cat`／`tail`，不是 git 指令，安全。**
 
 **重要操作禁忌**：不要跑任何 `git` 指令（含 `git status`），不論是透過 `device_bash` 或沙箱 bash。跑 git 可能留下 `.git/index.lock` 鎖檔擋住背景推送。只用 `cat`／`ls`／`grep` 等唯讀指令檢查狀態即可。
 
@@ -271,7 +295,13 @@ podcast-knowledge-digest/
   - 修復後的腳本改為多 repo 迴圈、以 `continue` 而非 `exit` 跳過個別 repo、無變更時也寫入 log，並在推送成功後記錄 HEAD 短雜湊。**「靜默」必須是可辨識的狀態，不能與正常運作無法區分。**
 - **背景推送腳本**：`~/.dashpush/auto-push.sh`，**多 repo 版**，會依序處理 `advisory-knowledge-hub` 與 `podcast-knowledge-digest`；由 launchd agent `com.kenny.dashpush` 每 180 秒觸發。
 - **模式限制備忘**：互動／排程階段能讀 Chrome，但雲端不能直接推 GitHub；因此一律由本機背景程式負責推送。
-- **連線資料夾（重要）**：不論用哪種寫入方式，都只能寫進「已連線的資料夾」。排程是無人值守執行，當下沒有人能按核准對話框，因此 `~/podcast-knowledge-digest` 必須事先在 Claude 桌面 App 以「Add folder」加為連線資料夾。若某次執行寫不進去，退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
+- **連線資料夾（重要，2026-08-03 更新）**：不論用哪種寫入方式，都只能讀寫「已連線的資料夾」。本系統需要三個：`~/podcast-knowledge-digest`（寫網站資料）、`~/podcast-transcripts`（讀逐字稿）、`~/.podfetch`（排錯時讀 log 與 state）。
+
+  **連線不保證跨工作階段留存，每次執行都要當作可能沒有。** 2026-08-02 的執行讀得到 `~/podcast-transcripts`，但 8/3 09:00 的排程起跑時工作階段裡只剩 `~/podcast-knowledge-digest`——連線沒有帶過來，而且失敗的樣子和「podfetch 沒跑」一模一樣（都是讀不到當天的 `manifest.json`），極容易誤判。
+
+  **正確作法：讀不到就先自己連，連不上才算失效。** 呼叫 `mcp__cowork__request_cowork_directory`（`path` 直接給 `~/podcast-transcripts`）。2026-08-03 實測，**在無人值守的排程執行中這個呼叫不會跳核准對話框，直接成功**，所以這是可靠的自我修復手段，不需要人在場。`~/.podfetch` 同理。
+
+  在桌面 App 以「Add folder」加進來仍然值得做（少一次往返），但**不要把它當成唯一保障**。若某次執行寫不進去，退援作法：照常交付 Word 報告，並把當日的 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，於結尾說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式自動完成。
 - **登入狀態（每次執行先確認）**：YouTube 必須是 Chrome 已登入狀態。Claude 不會、也不應代為輸入帳密——發現未登入就走退援並在交付時告知使用者。
 - **FT 存取現況（2026-08-02 實測，重要）**：這台機器的 Chrome **並未登入 FT 帳號**（首頁右上角仍是 Subscribe／Sign In），但擁有一張有效的 **syndication 授權 cookie**：FT 會自動在站內所有連結後面補上 `?syn-25a6b1a6=1`，premium 文章因此可完整讀取。已用一篇標示 PREMIUM CONTENT、未曾以 token 開啟過的文章驗證：輸入裸網址 → FT 自動改寫補參數 → 取得 7,799 字完整內文、無付費牆訊號。
 
