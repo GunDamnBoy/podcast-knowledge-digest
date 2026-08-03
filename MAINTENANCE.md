@@ -42,6 +42,8 @@
 ## 3. 已知的坑（踩過才寫進來的，不要再踩一次）
 
 - **「當天沒有目錄」≠「podfetch 掛了」。** 0 集時 podfetch 正常結束但不建立目錄。要照三段排查：資料夾連線 → 讀當天日誌看是否 `沒有新集數。` → 日誌異常才算真的失效。
+- **排查時要看日誌的時間戳，不是只看內容（2026-08-03）。** podfetch 必須早於日報：01:00 轉錄、03:00 日報。08-03 巡檢發現 launchd 實際設在 07:00，比日報晚四小時——日報會每天讀不到當天目錄與日誌，被三段排查的第 3 點誤判成「podfetch 失效」而掉進已死的 YouTube 退援。修法：`bash ~/.podfetch/fix-schedule.sh`。驗證：隔天日誌開頭應為 `[01:00:0x]`。
+- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。`index.html` 目前定義了 9 組（20 檔節目中的 9 個），其餘 11 個第一次出現時會走預設藍。
 - **驗證上線一定要帶 cache-buster。** 裸網址與 `raw.githubusercontent.com` 都會回舊快取（實測回到三天前），且要同時確認 `updatedLabel` 是本次執行時間，只看日期會被騙。
 - **iTunes lookup 的 US 商店快取嚴重過期**，尤其 All-In，而且 limit 越小快取越舊。交叉驗證改用 GB／AU 商店。
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
