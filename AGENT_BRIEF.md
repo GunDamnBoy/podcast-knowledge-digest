@@ -299,7 +299,7 @@ podcast-knowledge-digest/
 
   **這一整組設定都不存在於任何設定檔裡，重灌或換機不會跟著遷移**，還包括幾個沒有指令可查的前提：蓋子要打開、Claude 桌面版要在登入項目、不要裝會讓 Mac 插電時改用電池的充電管理軟體（會使 `-c sleep 0` 整個失效，且失效方式是安靜的）。清單見 `MAINTENANCE.md` 第 9 節。
 
-- **podfetch 排程時刻**：必須在 01:00，比日報早兩小時。`~/.podfetch/fix-schedule.sh` 可把 plist 的 `StartCalendarInterval` 寫回 01:00 並重新 `launchctl load`。**動它之前先照第 2 節的三項排查確認成因**——設定值錯與機器睡著會產生相同症狀，盲目套用這支腳本在後者情境下會造成「看起來修好了但問題沒動」的假性修復。腳本刻意放在 repo 外部。
+- **podfetch 排程時刻**：必須在 01:00，比日報早兩小時。`~/.podfetch/fix-schedule.sh` 可把 plist 的 `StartCalendarInterval` 寫回 01:00 並重新 `launchctl load`。**動它之前先照第 2 節「時刻漂移守衛」底下那三項（plist →`pmset -g custom` → `pmset -g sched`）確認成因**——設定值錯與機器睡著會產生相同症狀，盲目套用這支腳本在後者情境下會造成「看起來修好了但問題沒動」的假性修復。腳本刻意放在 repo 外部。
 - **逐字稿輸出刻意放在 repo 外部**：本 repo 是 Public，Bloomberg／FT 等付費來源的完整逐字稿一旦被背景推送帶上 GitHub 會是實質的著作權問題。**不要為了方便把輸出目錄改到 repo 裡面，就算加了 `.gitignore` 也不要。**
 
 - **連線資料夾**：本系統需要三個——`~/podcast-knowledge-digest`（寫網站資料）、`~/podcast-transcripts`（讀逐字稿）、`~/.podfetch`（排錯讀 log 與 state）。
