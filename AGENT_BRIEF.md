@@ -367,6 +367,8 @@ podcast-knowledge-digest/
 - **模型池順序反轉為 Lite 優先**（`config.json` 新增 `prefer_lite: true`，`podfetch.py` 的 `build_model_pool` 依此決定 `take()` 順序）。**注意：光改 `model_preference` 沒有用**——舊版一律先 `take(heavy)` 再 `take(lite)`，池子順序與偏好清單無關，必須改程式。08-05 實測預估 17 個請求實際打出 42 次（重試放大約 2.5 倍），Flash 兩個模型雙雙超限而 Lite 只用 8 次；Lite 完整度 1.14–1.16 與 Flash 無可辨識差距。
 - **補兩個會安靜失敗的官方稿陷阱**（第 1 節）：Substack `/api/v1/archive` 回過期快取（Dwarkesh、Latent Space 分別停在 6/08 與 7/08，要帶 cache-buster）；`web_fetch` 約 104,700 字元上限會截斷長逐字稿且不報錯（Latent Space 只取到 73%，末段以 podfetch 補齊）。**兩者失效的樣子都是「今天沒有官方稿」，於是安靜退回機器轉錄。**
 - 補 `dwarkesh`／`iltb`／`pivot` 三組 CSS，`index.html` 現為 17 組。
+- **還原被覆寫的排程 SKILL.md 四項改動**（08-03 第五次巡檢加的：iTunes 子代理的 US 商店快取規則、第 7 節合規入口、回報清單的「寫不進 repo」、三段排查第 3 格）。**08-04 我用 `update_scheduled_task` 送出完整 prompt 時把它們蓋掉了**——`prompt` 是整份取代不是局部編輯，而我以為自己就是上一個改它的人。經過與教訓見 `MAINTENANCE.md` 第 7 節，維護 skill 已加入對應的檢查步驟。
+- **修掉子代理比對抓到的其餘不一致**：`config.json` 的 `_comment_quota` 仍寫舊的 20 RPD（與同檔 `_comment_pool` 打架）；`MAINTENANCE.md` 第 7 節 08-02 那篇的額度表沒標明是當時值、讀起來像現行規格；MAINTENANCE 多處仍寫 20 檔／9 組 CSS；「三個不要改的設計」下面有四項、「三個已知陷阱」下面有五條；本節變更紀錄未由新到舊排序；Masters in Business 被誤接在 Compound 的說明結尾而不在 B 類清單裡。
 
 ### 2026-08-04（首次實跑後的修正）
 
