@@ -44,6 +44,11 @@
 | Unhedged (FT) | **直接讀 `https://www.ft.com/unhedged`**——逐日清單（日期＋標題＋作者＋PREMIUM 標記），比站內搜尋可靠得多。`find` 取得目標日期文章的 `href` → `navigate` → `get_page_text`。逐字稿版（標題「Transcript: ⋯」）優先，沒有就用當日 newsletter 正文 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
+**取官方逐字稿的兩個陷阱（2026-08-05 實測，都會安靜失敗）**
+
+- **Substack 的 `/api/v1/archive` 會回過期快取。** Dwarkesh 與 Latent Space 首次取回的最新一筆分別停在 6/08 與 7/08，**加了 cache-buster 參數才拿到當天集數**。失效的樣子是「這檔今天沒有新集數」，於是安靜退回機器轉錄，官方稿白白不用。**這兩檔的 archive API 一律要帶 `&cb=<時間戳>`。** 與 iTunes 的 US 商店快取是同一類問題。
+- **`web_fetch` 有約 104,700 字元的上限。** 長逐字稿會被截斷且不報錯——Latent Space 那集只取到 01:13:58／01:41:28（約 73%）。**取完要比對逐字稿末尾的時間戳與 `trackTimeMillis`**；不足就用 podfetch 的版本補齊末段，並在 `source` 據實標註兩個來源各涵蓋哪一段。
+
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
 All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle
@@ -128,7 +133,16 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口**——舊版在漏跑一天時會產生無法察覺的缺口。
 2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 130 字估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
-3. **模型池保留 Flash-Lite 名額。** 3 個 Flash（品質優先）＋ 3 個 Flash-Lite（溢流），撞到日額度自動換下一個。Lite 的日額度是一般 Flash 的 25 倍，拿掉等於自願放棄。
+3. **Lite 是主力，Flash 是備援（2026-08-05 反轉）。** 池子仍是 3 Lite ＋ 3 Flash，但**順序改成 Lite 在前**（`config.json` 的 `prefer_lite: true`）。
+
+   | 模型 | RPD |
+   |---|---|
+   | Flash 3.5／3.6 | **10**（08-05 從 20 砍半） |
+   | Flash 2.5 | 20 |
+   | Flash-Lite 2.5 | 20 |
+   | **Flash-Lite 3.1／3.5** | **500** |
+
+   新版 Flash 只剩 10 RPD，而重試會讓實際請求放大約 2.5 倍（08-05 實測：預估 17 個請求，實際打出 42 次，Flash 兩個模型雙雙超限而 Lite 只用 8 次）。**把最稀缺的資源排在最前面，等於每天開場就燒光它。** 實測 Lite 的完整度 1.14–1.16，與 Flash 沒有可辨識的品質差距。要改回品質優先就把 `prefer_lite` 設為 `false`。
 4. **500／503 要換模型，不是死守重試。** 過載是「這個模型現在忙」，不是額度問題；同一模型重試兩次仍 503 就丟 `ModelOverloaded`，走與 404／日額度相同的輪換路徑。**重試同樣計入 RPD**，死守單一模型是雙重浪費——2026-08-04 就因此讓兩個 Flash 的 RPD 爆掉（21/20）而還有 491 次額度的 Lite 完全沒用到，三集白白失敗。經過見 `MAINTENANCE.md` 第 7 節。
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
@@ -266,7 +280,7 @@ podcast-knowledge-digest/
 
 `allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
 
-**`index.html` 目前定義了 12 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`。其餘 10 個第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 17 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`，另含已下架的 `capitalallocators`（供歷史資料顯示）。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
 
 > `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 
@@ -355,6 +369,13 @@ podcast-knowledge-digest/
 - **釐清 `limit=8` 與「limit 越小快取越舊」的拉扯**：`limit=8` 是起手式，發現回傳過舊就換國別商店重查。
 - **SKILL.md 的主動回報清單由七項增為八項**，補上「寫不進 repo `data/`」——該情境的處置本來就寫在本檔第 5 節，但沒進封閉列舉的回報清單，等於會安靜地不被講出來。
 - **補上時刻漂移守衛的死角**：守衛原本掛在「今天的日誌」上，但若 podfetch 的時刻漂到 03:00 之後，日報執行當下今天的日誌必然不存在，會直接落進「podfetch 失效」分支，守衛永遠不會觸發。已在三段排查加入第 3 格：今天的日誌不存在時，**先讀 `logs/` 裡最新那一份的開頭時間戳**來區分「時刻漂移」與「真失效」，兩者的修法完全不同。
+
+### 2026-08-05
+
+- **Google 把新版 Flash 的免費層 RPD 從 20 砍到 10**（3.5／3.6；2.5 Flash 仍是 20，Flash-Lite 3.1／3.5 仍是 500）。第 2 節額度表已更新。
+- **模型池順序反轉為 Lite 優先**（`config.json` 新增 `prefer_lite: true`，`podfetch.py` 的 `build_model_pool` 依此決定 `take()` 順序）。**注意：光改 `model_preference` 沒有用**——舊版一律先 `take(heavy)` 再 `take(lite)`，池子順序與偏好清單無關，必須改程式。08-05 實測預估 17 個請求實際打出 42 次（重試放大約 2.5 倍），Flash 兩個模型雙雙超限而 Lite 只用 8 次；Lite 完整度 1.14–1.16 與 Flash 無可辨識差距。
+- **補兩個會安靜失敗的官方稿陷阱**（第 1 節）：Substack `/api/v1/archive` 回過期快取（Dwarkesh、Latent Space 分別停在 6/08 與 7/08，要帶 cache-buster）；`web_fetch` 約 104,700 字元上限會截斷長逐字稿且不報錯（Latent Space 只取到 73%，末段以 podfetch 補齊）。**兩者失效的樣子都是「今天沒有官方稿」，於是安靜退回機器轉錄。**
+- 補 `dwarkesh`／`iltb`／`pivot` 三組 CSS，`index.html` 現為 17 組。
 
 ### 2026-08-04（首次實跑後的修正）
 
