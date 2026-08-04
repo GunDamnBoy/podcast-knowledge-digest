@@ -13,7 +13,7 @@
 
 | # | 檔案／位置 | 角色 | 誰會讀它 |
 |---|---|---|---|
-| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：20 檔節目清單、全文來源、podfetch 管線、內容規格、資料格式、發布流程 | 每日排程在第 0 步完整讀過 |
+| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：22 檔節目清單、全文來源、podfetch 管線、內容規格、資料格式、發布流程 | 每日排程在第 0 步完整讀過 |
 | 2 | 排程任務 `podcast-digest-daily` 的 SKILL.md | **執行骨架**：流程順序與分支判斷。事實細節指向 brief 章節，不重抄 | 排程觸發時直接執行 |
 | 3 | `~/podcast-knowledge-digest/index.html` | 前端外殼：CSS、渲染邏輯、節目徽章 | 瀏覽器 |
 | 4 | `~/podcast-knowledge-digest/data/*.json` | 每日內容 | `index.html` |
@@ -70,7 +70,7 @@ python3 ~/.podfetch/healthcheck.py
 - **除錯時先問「這個值今天有沒有被人動過」。** 在正在被修改的系統上，讀到的現況不等於事發時的狀況——2026-08-03 就是這樣把修改後的 plist 當成修改前的證據，記錯了一次根因（見第 7 節）。
 - **`pmset` 電源設定不存在於任何設定檔裡。** 重灌或換機不會遷移，且在「只靠電池」與「完全關機」兩種情況下會失效。使用習慣一改（晚上關機、不插電），01:00→03:00 的時序保證就沒了。**它與 plist 是兩件獨立的事**：plist 決定幾點跑，`pmset` 決定那個時刻機器醒不醒著。
 - **驗證上線一定要帶 cache-buster。** 裸網址與 `raw.githubusercontent.com` 都會回舊快取（實測回到三天前），且要同時確認 `updatedLabel` 是本次執行時間，只看日期會被騙。
-- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。20 檔節目中目前只有 9 組定義了 CSS，其餘 11 個第一次出現時會走預設藍（功能正常，視覺不一致）。
+- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔節目目前有 16 檔定義了 CSS（`index.html` 共 17 組，另含已下架的 `capitalallocators` 供歷史資料顯示）。仍走預設藍的是 `bg2`／`hardfork`／`acquired`／`nopriors`／`lennys`／`gsx` 六檔——功能正常，只是視覺不一致。
 - **iTunes lookup 的 US 商店快取嚴重過期**，尤其 All-In，而且 limit 越小快取越舊。交叉驗證改用 GB／AU 商店。
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
 - **FT 存取失效時不會報錯**，只會安靜退回付費牆。每次都要檢查正文長度（Unhedged 通常 5,000 字元以上）。
@@ -100,7 +100,7 @@ python3 ~/.podfetch/healthcheck.py
 - **YouTube 字幕退援路徑實質上已死**，目前只剩 podfetch、官方逐字稿、FT 三條路。若 podfetch 出問題，退援能力比看起來薄。
 - **FT 的 syndication cookie 是脆弱依賴**，會過期且失效時安靜。長期解法是登入真正的 FT 帳號。
 - **資料夾連線不保證跨工作階段留存**，排程要能自我修復（已寫進 SKILL.md）。
-- **brief 的變更紀錄正在把重構的成效吃回去。** 08-03 重構把 brief 從 42 KB 壓到 32 KB，但兩天內光是新增第 8 節的變更紀錄就又漲回 45 KB——**比重構前還大**。規格本體確實變精簡了，膨脹的全是 CHANGELOG。它每天被排程完整讀一次，而執行者並不需要知道三天前改了什麼。下次維護時應該考慮：只在 brief 保留最近一兩次的變更紀錄，更早的整段移到本檔。**這正是重構時想解決的問題換了個位置重現。**
+- **brief 的變更紀錄正在把重構的成效吃回去。** 08-03 重構把 brief 從 42 KB 壓到 32 KB，但兩天內光是新增第 8 節的變更紀錄就又漲回 47 KB——**比重構前還大**。規格本體確實變精簡了，膨脹的全是 CHANGELOG。它每天被排程完整讀一次，而執行者並不需要知道三天前改了什麼。下次維護時應該考慮：只在 brief 保留最近一兩次的變更紀錄，更早的整段移到本檔。**這正是重構時想解決的問題換了個位置重現。**
 - **Gemini 免費層額度會被 Google 無預警調整，而我們沒有任何偵測機制。** 08-05 就發生了（Flash 3.5／3.6 的 RPD 從 20 砍到 10），是使用者主動截圖 Console 才發現。`healthcheck.py` 檢查不到——它只比對 brief 與 `config.json`，兩邊都是我們自己寫的。**建議每隔一兩週看一次 AI Studio Console 的 Rate limits 頁**，或想辦法讓 podfetch 把實際回傳的額度資訊記進日誌。
 - **重試放大率約 2.5 倍，值得盯著。** 08-05 預估 17 個請求實際打出 42 次。目前靠 Lite 的 500 RPD 吸收，但若哪天 Lite 也被砍，就得回頭檢視三種重試（503、字數不足、輸出截斷）的觸發條件。
 - **`healthcheck.py` 的 brief 一致性檢查只涵蓋數值**。敘述性的自相矛盾（例如退援順序寫兩套）目前只能靠子代理比對抓，值得再想有沒有機械化的辦法。
@@ -198,6 +198,8 @@ brief 裡看到「見 `MAINTENANCE.md` 第 7 節」時就是指這裡。寫這�
 **修法**：改用 podcast 原始 MP3 ＋ Gemini API 轉錄。iTunes Lookup 的每個 `podcastEpisode` 都帶 `episodeUrl`（直接 MP3 網址），20 檔全部確認可取得——**這套系統從一開始就不需要 YouTube**。副作用是拿到了 YouTube 自動字幕從來給不了的維度：`shows.json` 預先寫入主持人名單，轉錄 prompt 要求 Gemini 用真名，跨節目交叉觀察因此能具體到人。
 
 ### 2026-08-02　Gemini 免費層：瓶頸是 RPD 不是 TPM
+
+> **以下是 2026-08-02 當時的實測值，不是現行額度。** Google 已於 08-05 把 Flash 3.5／3.6 的 RPD 從 20 砍到 10（Lite 仍為 500，倍數因此從 25 倍變成 50 倍），模型池順序也已反轉為 Lite 優先。**現行數字見 `AGENT_BRIEF.md` 第 2 節與本節 08-05 那篇。** 保留這篇是因為「瓶頸是 RPD 不是 TPM」這個判斷本身仍然成立，而且它是後續所有設計的起點。
 
 從 AI Studio Console 實測（同一專案內）：
 

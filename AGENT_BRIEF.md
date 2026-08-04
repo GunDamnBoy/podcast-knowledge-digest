@@ -51,13 +51,13 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle
+All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**
 
 > **Business Breakdowns**（Colossus 出品，與 ILTB 同門）每集拆解一家公司的商業模式、單位經濟、護城河、估值框架與風險，來賓多是實際持有該檔股票的 buy-side。**Colossus 在 `joincolossus.com` 的集數頁有官方逐字稿**，若哪天要把它升到 A 類可從那裡取，目前先走 podfetch。
 >
 > **In Good Company** 是挪威主權基金 CEO Nicolai Tangen 訪談各大企業 CEO，約 25 分鐘，節奏比其他節目快很多。
 >
-> **The Compound and Friends** 是美股市場週評，與 Bloomberg／Market Huddle／Unhedged 題材有重疊，摘譯時注意不要在交叉觀察裡重複同一件事。／**Masters in Business（新集數）**
+> **The Compound and Friends** 是美股市場週評，與 Bloomberg／Market Huddle／Unhedged 題材有重疊，摘譯時注意不要在交叉觀察裡重複同一件事。
 
 > Masters in Business 兩邊都在：`ritholtz.com` 的官方逐字稿晚 1–2 週，所以**當天一定是走 B**，等官方稿補上是之後補跑才用得到的東西。日常執行把它當 B 類處理即可。
 
@@ -69,7 +69,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 用 `web_fetch` 取得。每集看 `releaseDate`（**UTC**）、`trackName`、`trackTimeMillis`（毫秒）、`description`、`trackViewUrl`、`episodeUrl`。Bloomberg Surveillance 一天發多集，該檔用 `limit=20`。
 
-**三個已知陷阱**：
+**五個已知陷阱**：
 
 - 回傳第一筆是節目本身（`"wrapperType":"track"`），其 `releaseDate` 是舊資料，**不要誤判為新集數**；真正的集數是 `"wrapperType":"podcastEpisode"`。
 - **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。上面的 `limit=8` 只是起手式；**只要某一檔回傳的最新集數看起來太舊（例如距今超過該節目正常更新間隔），就換 GB 或 AU 商店重查一次**——把網址的 `itunes.apple.com/lookup` 前面加上國別即可（`https://itunes.apple.com/gb/lookup?...`）。實測 GB／AU 是即時的。2026-08-03 實例：US 商店回報 All-In 最新只到 7/18，GB 商店拿到的是 7/31。**這一條若漏掉，退援路徑會安靜漏抓主秀。**
@@ -129,7 +129,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **講者姓名是這條管線最大的增值**。`shows.json` 預先寫入每檔節目的主持人名單，轉錄 prompt 要求 Gemini 用真名而非 `Speaker A`。跨節目交叉觀察因此能具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」）。
 
-### 三個不要改的設計
+### 四個不要改的設計
 
 1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口**——舊版在漏跑一天時會產生無法察覺的缺口。
 2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 130 字估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
@@ -146,6 +146,8 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 4. **500／503 要換模型，不是死守重試。** 過載是「這個模型現在忙」，不是額度問題；同一模型重試兩次仍 503 就丟 `ModelOverloaded`，走與 404／日額度相同的輪換路徑。**重試同樣計入 RPD**，死守單一模型是雙重浪費——2026-08-04 就因此讓兩個 Flash 的 RPD 爆掉（21/20）而還有 491 次額度的 Lite 完全沒用到，三集白白失敗。經過見 `MAINTENANCE.md` 第 7 節。
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
+
+另有 `prefer_lite: true`（模型池是否 Lite 優先，見上）。**這是布林值，`healthcheck.py` 的數值比對抓不到它**，改動時要自己確認 `config.json` 與本節一致。
 
 另有兩個**清單型**設定，內容不列在這裡（會過期），直接看檔案：
 
@@ -359,17 +361,6 @@ podcast-knowledge-digest/
 
 **維護規則**：本檔與排程任務 `podcast-digest-daily` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
 
-### 2026-08-03（第四次，同步巡檢）
-
-- **撤銷「podfetch 延後補跑」這個根因判定，`MAINTENANCE.md` 該篇事故紀錄已刪除。** 該篇宣稱 08-03 日誌是 `[07:00:01]` 的原因是機器睡眠、且「plist 一直都是 `Hour = 1`」。實情相反：**當天 plist 就是 `Hour = 7`**（那也是重整前本檔第 6 節記載的設計值），是當日稍晚才由使用者改成 1；調查者讀到的 `Hour = 1` 是修改後的狀態，卻被當成修改前的證據。`[07:00:01]` 這種「整點加一秒」正是 `StartCalendarInterval` 準時觸發的特徵，不是喚醒補跑。**`pmset` 那組電源設定獨立保留**——01:00 的工作在會睡眠的 Mac 上確實需要它，那部分的決策沒有問題（第 6 節、`MAINTENANCE.md` 第 9 節）。
-- **時間戳排查順序改為 plist 優先**（原為 `pmset -g custom` → `pmset -g sched` → plist）。plist 最便宜也最確定，且「整點加一秒」的特徵直接指向設定值。同時加上一條通則：**先查到的那一項若已經被人改過，很容易把「修改後的狀態」誤讀成「修改前的證據」**，所以三項都要看完。
-- **補上排程 SKILL.md 給 iTunes 子代理的指示裡缺的「US 商店快取」規則。** 子代理讀不到本檔，而該規則只寫在本檔第 1 節，實測會導致退援路徑漏抓 All-In（US 商店回報最新只到 7/18，GB 商店為 7/31）。同時把「怎麼換國別商店」寫成具體網址格式，不再只說「改用 GB／AU」。
-- **SKILL.md 補上指向第 7 節「合規與語氣」的入口**。第三次重整時漏了，導致來源標註、付費來源只做重點濃縮、非投資建議這些會影響交付內容的規則沒有任何入口。
-- **修掉四處內部矛盾**：窗口接縫敘述與 `last_run_utc` 自癒機制對撞（已釐清為「只有走 iTunes 退援路徑時 26 小時才是硬邊界」）、檔名慣例的舉例仍停留在 09:00 時代、Unhedged 同時被放在退援第 1 層與第 3 層（已說明 FT 流程就是它取得官方稿的方式）、Masters in Business 在 A 類表格說「新集數改走 B」但 B 類清單裡沒有它。
-- **釐清 `limit=8` 與「limit 越小快取越舊」的拉扯**：`limit=8` 是起手式，發現回傳過舊就換國別商店重查。
-- **SKILL.md 的主動回報清單由七項增為八項**，補上「寫不進 repo `data/`」——該情境的處置本來就寫在本檔第 5 節，但沒進封閉列舉的回報清單，等於會安靜地不被講出來。
-- **補上時刻漂移守衛的死角**：守衛原本掛在「今天的日誌」上，但若 podfetch 的時刻漂到 03:00 之後，日報執行當下今天的日誌必然不存在，會直接落進「podfetch 失效」分支，守衛永遠不會觸發。已在三段排查加入第 3 格：今天的日誌不存在時，**先讀 `logs/` 裡最新那一份的開頭時間戳**來區分「時刻漂移」與「真失效」，兩者的修法完全不同。
-
 ### 2026-08-05
 
 - **Google 把新版 Flash 的免費層 RPD 從 20 砍到 10**（3.5／3.6；2.5 Flash 仍是 20，Flash-Lite 3.1／3.5 仍是 500）。第 2 節額度表已更新。
@@ -386,6 +377,17 @@ podcast-knowledge-digest/
 - 補上 `oddlots` 與 `capitalallocators` 的 CSS（前者是現役節目卻一直沒定義，08-04 第一次出現；後者為了讓歷史資料正常顯示），`index.html` 現為 14 組。
 - **`podfetch.py` 新增 `ModelOverloaded`：500／503 重試兩次就換模型。** 從 AI Studio Console 的當日數據反推才看清根因——兩個 Flash 的 RPD 都爆到 21/20，而 Flash-Lite 只用了 9/500 與 1/500，503 才是主要錯誤（約 22 次）。**舊版只有 429 日額度會觸發輪換，503 則在同一模型上把 5 次重試燒完再判定整集失敗**；由於重試也計入 RPD，等於一邊燒掉 Flash 額度、一邊放著 491 次 Lite 額度不用。順帶確認 TPM 只用到 12–15%，brief 原本「瓶頸是 RPD 不是 TPM」的判斷成立。
 - 08-04 那兩集 Capital Allocators 佔位已從 `data/2026-08-04.json` 移除（空殼內容，且節目本次下架不會再補），該日 6 集改為 4 集，`index.json` 同步。
+
+### 2026-08-03（第五次，同步巡檢）
+
+- **撤銷「podfetch 延後補跑」這個根因判定，`MAINTENANCE.md` 該篇事故紀錄已刪除。** 該篇宣稱 08-03 日誌是 `[07:00:01]` 的原因是機器睡眠、且「plist 一直都是 `Hour = 1`」。實情相反：**當天 plist 就是 `Hour = 7`**（那也是重整前本檔第 6 節記載的設計值），是當日稍晚才由使用者改成 1；調查者讀到的 `Hour = 1` 是修改後的狀態，卻被當成修改前的證據。`[07:00:01]` 這種「整點加一秒」正是 `StartCalendarInterval` 準時觸發的特徵，不是喚醒補跑。**`pmset` 那組電源設定獨立保留**——01:00 的工作在會睡眠的 Mac 上確實需要它，那部分的決策沒有問題（第 6 節、`MAINTENANCE.md` 第 9 節）。
+- **時間戳排查順序改為 plist 優先**（原為 `pmset -g custom` → `pmset -g sched` → plist）。plist 最便宜也最確定，且「整點加一秒」的特徵直接指向設定值。同時加上一條通則：**先查到的那一項若已經被人改過，很容易把「修改後的狀態」誤讀成「修改前的證據」**，所以三項都要看完。
+- **補上排程 SKILL.md 給 iTunes 子代理的指示裡缺的「US 商店快取」規則。** 子代理讀不到本檔，而該規則只寫在本檔第 1 節，實測會導致退援路徑漏抓 All-In（US 商店回報最新只到 7/18，GB 商店為 7/31）。同時把「怎麼換國別商店」寫成具體網址格式，不再只說「改用 GB／AU」。
+- **SKILL.md 補上指向第 7 節「合規與語氣」的入口**。第三次重整時漏了，導致來源標註、付費來源只做重點濃縮、非投資建議這些會影響交付內容的規則沒有任何入口。
+- **修掉四處內部矛盾**：窗口接縫敘述與 `last_run_utc` 自癒機制對撞（已釐清為「只有走 iTunes 退援路徑時 26 小時才是硬邊界」）、檔名慣例的舉例仍停留在 09:00 時代、Unhedged 同時被放在退援第 1 層與第 3 層（已說明 FT 流程就是它取得官方稿的方式）、Masters in Business 在 A 類表格說「新集數改走 B」但 B 類清單裡沒有它。
+- **釐清 `limit=8` 與「limit 越小快取越舊」的拉扯**：`limit=8` 是起手式，發現回傳過舊就換國別商店重查。
+- **SKILL.md 的主動回報清單由七項增為八項**，補上「寫不進 repo `data/`」——該情境的處置本來就寫在本檔第 5 節，但沒進封閉列舉的回報清單，等於會安靜地不被講出來。
+- **補上時刻漂移守衛的死角**：守衛原本掛在「今天的日誌」上，但若 podfetch 的時刻漂到 03:00 之後，日報執行當下今天的日誌必然不存在，會直接落進「podfetch 失效」分支，守衛永遠不會觸發。已在三段排查加入第 3 格：今天的日誌不存在時，**先讀 `logs/` 裡最新那一份的開頭時間戳**來區分「時刻漂移」與「真失效」，兩者的修法完全不同。
 
 ### 2026-08-03（第四次，節目異動）
 
