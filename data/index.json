@@ -1,7 +1,19 @@
 {
-  "updated": "2026-08-05T03:20:00+08:00",
-  "updatedLabel": "8/5 03:20",
+  "updated": "2026-08-06T03:23:47+08:00",
+  "updatedLabel": "8/6 03:23",
   "days": [
+    {
+      "date": "2026-08-06",
+      "label": "2026年8月6日（週四）",
+      "short": "8/6 週四",
+      "episodeCount": 5,
+      "shows": [
+        "The Compound and Friends",
+        "Bloomberg Surveillance",
+        "Unhedged (FT)",
+        "In Good Company"
+      ]
+    },
     {
       "date": "2026-08-05",
       "label": "2026年8月5日（週三）",
