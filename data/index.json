@@ -1,7 +1,23 @@
 {
-  "updated": "2026-08-06T03:23:47+08:00",
-  "updatedLabel": "8/6 03:23",
+  "updated": "2026-08-07T04:05:48+08:00",
+  "updatedLabel": "8/7 04:05",
   "days": [
+    {
+      "date": "2026-08-07",
+      "label": "2026年8月7日（週五）",
+      "short": "8/7 週五",
+      "episodeCount": 9,
+      "shows": [
+        "All-In Podcast",
+        "MacroVoices",
+        "Odd Lots",
+        "Exchanges at Goldman Sachs",
+        "Bloomberg Surveillance",
+        "Masters in Business",
+        "20VC",
+        "No Priors"
+      ]
+    },
     {
       "date": "2026-08-06",
       "label": "2026年8月6日（週四）",
