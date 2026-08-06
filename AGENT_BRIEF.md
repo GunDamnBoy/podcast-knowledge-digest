@@ -39,8 +39,8 @@
 | Lex Fridman | 索引 `lexfridman.com/podcast/` → `lexfridman.com/<slug>-transcript` |
 | Dwarkesh Podcast | `https://www.dwarkesh.com/api/v1/archive?sort=new&limit=10` → `dwarkesh.com/p/<slug>` |
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
-| Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（每週更新，PDF 可直接 WebFetch） |
-| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<標題 kebab-case>`（逐字稿內嵌頁面） |
+| Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（PDF 可直接 WebFetch）。**官方稿通常落後一週以上**，當集多半還沒上架（08-07 實例：當天最新只到 MV543／7-30）。**這時退回 podfetch 是正常的，不是失效**，照常在 `source` 標明來源即可 |
+| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。從 GS 的 Exchanges 節目列表頁取實際連結，或用 WebSearch 找。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market` |
 | Unhedged (FT) | **直接讀 `https://www.ft.com/unhedged`**——逐日清單（日期＋標題＋作者＋PREMIUM 標記），比站內搜尋可靠得多。`find` 取得目標日期文章的 `href` → `navigate` → `get_page_text`。逐字稿版（標題「Transcript: ⋯」）優先，沒有就用當日 newsletter 正文 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
@@ -139,10 +139,12 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
    | 模型 | RPD |
    |---|---|
-   | Flash 3.5／3.6 | **10**（08-05 從 20 砍半） |
+   | Flash 3.5／3.6 | **10–20，會浮動** |
    | Flash 2.5 | 20 |
    | Flash-Lite 2.5 | 20 |
    | **Flash-Lite 3.1／3.5** | **500** |
+
+   > **Flash 的 RPD 上限不是常數**：08-05 從 20 掉到 10，08-07 又顯示回 20。**不要把它當固定值來做設計判斷**——Lite 優先的理由是「500 遠大於 10–20」這個量級差，不是某個特定數字。
 
    新版 Flash 只剩 10 RPD，而重試會讓實際請求放大約 2.5 倍（08-05 實測：預估 17 個請求，實際打出 42 次，Flash 兩個模型雙雙超限而 Lite 只用 8 次）。**把最稀缺的資源排在最前面，等於每天開場就燒光它。** 實測 Lite 的完整度 1.14–1.16，與 Flash 沒有可辨識的品質差距。要改回品質優先就把 `prefer_lite` 設為 `false`。
 4. **500／503 換模型，但只冷卻、不除名。** 過載是「這個模型現在忙」，不是額度問題。同一模型重試兩次仍 503 就丟 `ModelOverloaded`，該模型進 `OVERLOADED` 冷卻 `overload_cooldown_seconds` 秒（現為 300）後**自動回池**；`EXHAUSTED` 只放日額度用盡與 404 這類**永久性**失效。
@@ -230,6 +232,8 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
   （邊界一律「含下界、不含上界」，例如 30 分鐘整算在第三層。）
 
+  **官方逐字稿的資訊密度高於機器轉錄**（沒有廣告、沒有口頭贅語），同樣片長可能多出三到五成的實質內容。這種情況下超出所屬層級上限一成左右是合理的，在回報中說明即可——**不要為了壓進區間而砍掉整段論點**。
+
   **原本一律 2,000–3,000 是不切實際的**：57–65 分鐘、10 個以上獨立主題的節目（Compound、Unhedged、ILTB 這類）壓到 3,000 字必然砍掉整段內容，實務上執行者都會選擇保留完整性然後在回報裡說明超規格——**規格天天被違反就不是規格**。
 
   **上限仍然存在，`不要灌水` 的紀律不變。** 超出所屬層級上限時要在回報中說明理由；短節目硬拉長比長節目超規格更嚴重。
@@ -311,7 +315,7 @@ podcast-knowledge-digest/
 
 `allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
 
-**`index.html` 目前定義了 17 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`，另含已下架的 `capitalallocators`（供歷史資料顯示）。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 19 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`／`gsx`／`nopriors`，另含已下架的 `capitalallocators`（供歷史資料顯示）。**現役 22 檔中仍缺 `bg2`／`hardfork`／`acquired`／`lennys` 四組。** 其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
 
 > `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 
