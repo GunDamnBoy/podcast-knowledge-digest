@@ -57,6 +57,8 @@ python3 ~/.podfetch/healthcheck.py
 - podfetch 最新日誌的**開頭時間戳是否為 `01:`**、是 0 集還是異常收束、`state.json` 的 `last_run_utc` 新鮮度
 - 最新逐字稿目錄的 `OK`／`DEGRADED`／`FAILED` 統計
 - 推送鏈 local vs origin（唯讀 `cat`）
+- **最新一份資料檔裡的 `⚠︎` 佔位集數**（下次抓到全文要重寫，不可被去重擋掉）
+- **線上狀態**：帶 cache-buster 抓線上 `index.json` 比對 `updatedLabel` 與 `days[0].date`。**沙箱連不到 GitHub 會顯示 WARN 而非 PASS**，要在 Mac 上跑才驗得到這一項
 - **brief 引用的 `config.json` 數值是否與實際設定相符**——這一項專門抓 2026-08-03 那類「下文改了、上文漏改」的內部矛盾
 
 結束碼 0 = 通過或僅有 WARN，1 = 有 FAIL。
@@ -70,7 +72,7 @@ python3 ~/.podfetch/healthcheck.py
 - **除錯時先問「這個值今天有沒有被人動過」。** 在正在被修改的系統上，讀到的現況不等於事發時的狀況——2026-08-03 就是這樣把修改後的 plist 當成修改前的證據，記錯了一次根因（見第 7 節）。
 - **`pmset` 電源設定不存在於任何設定檔裡。** 重灌或換機不會遷移，且在「只靠電池」與「完全關機」兩種情況下會失效。使用習慣一改（晚上關機、不插電），01:00→03:00 的時序保證就沒了。**它與 plist 是兩件獨立的事**：plist 決定幾點跑，`pmset` 決定那個時刻機器醒不醒著。
 - **驗證上線一定要帶 cache-buster。** 裸網址與 `raw.githubusercontent.com` 都會回舊快取（實測回到三天前），且要同時確認 `updatedLabel` 是本次執行時間，只看日期會被騙。
-- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔節目目前有 16 檔定義了 CSS（`index.html` 共 17 組，另含已下架的 `capitalallocators` 供歷史資料顯示）。仍走預設藍的是 `bg2`／`hardfork`／`acquired`／`nopriors`／`lennys`／`gsx` 六檔——功能正常，只是視覺不一致。
+- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔節目目前有 18 檔定義了 CSS（`index.html` 共 19 組，另含已下架的 `capitalallocators` 供歷史資料顯示）。仍走預設藍的是 `bg2`／`hardfork`／`acquired`／`lennys` 四檔——功能正常，只是視覺不一致。
 - **iTunes lookup 的 US 商店快取嚴重過期**，尤其 All-In，而且 limit 越小快取越舊。交叉驗證改用 GB／AU 商店。
 - **Substack 的 `/api/v1/archive` 也會回過期快取（2026-08-05）。** Dwarkesh 與 Latent Space 首次取回的最新一筆分別停在 6/08 與 7/08，要帶 cache-buster 才拿到當天。**失效的樣子是「這檔今天沒有新集數」**，於是安靜退回機器轉錄。與 iTunes US 商店是同一類問題，凡是「清單型 API」都要先懷疑快取。
 - **`web_fetch` 約 104,700 字元上限，超過會截斷且不報錯（2026-08-05）。** Latent Space 那集官方稿只取到 73%。取長逐字稿後要比對末尾時間戳與 `trackTimeMillis`，不足就用 podfetch 補齊末段並在 `source` 標明兩個來源各涵蓋哪一段。

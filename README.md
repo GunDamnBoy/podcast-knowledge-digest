@@ -22,9 +22,9 @@
 
 ## 全文來源
 
-**優先使用官方逐字稿**（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）。
+**優先使用官方逐字稿**（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）。部分節目的官方稿會落後一到兩週，當集通常改用語音轉錄。
 
-其餘節目走**本機語音轉錄管線**：抓取節目原始音檔，經 Gemini API 轉為逐字稿。轉錄時會帶入各節目的主持人名單，因此逐字稿標的是真實姓名而非「講者 A」，跨節目比較才能具體到人。轉錄結果會做字數完整度檢查，不足門檻的集數會在該集標記出來。
+其餘節目走**本機語音轉錄管線**：抓取節目原始音檔，經 Gemini API 轉為逐字稿。轉錄時會帶入各節目的主持人名單作為參考，但**只有在音訊裡有明確依據時才標真名**（自我介紹、被直呼、主持人點名），否則一律標為「講者 1／2」——錯的名字會變成對真實人物的不實陳述，比沒有名字糟得多。轉錄結果會做字數完整度檢查與講者標記合理性檢查，異常的集數會在該集標記出來。
 
 機器轉錄存在語音辨識誤差（人名、專有名詞尤其明顯），摘譯時已依上下文校正，不確定處採保守表述。
 

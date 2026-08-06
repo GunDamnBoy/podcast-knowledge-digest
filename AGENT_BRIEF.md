@@ -125,7 +125,14 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **流程**：iTunes 偵測 → 下載 MP3 → 切成 20 分鐘段 → 每段經 Files API 上傳後送 Gemini `generateContent` → 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。循序處理，六集約 30–45 分鐘。
 
-**逐字稿格式**：YAML front matter（`show`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`words`／`expected_words`／`completeness`／`status`／`warnings`），正文為 `[MM:SS] 講者姓名：內容`。
+**逐字稿格式**：YAML front matter（`show`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`words`／`expected_words`／`completeness`／`status`／`warnings`／`speaker_notes`），正文為 `[MM:SS] 講者姓名：內容`（超過一小時的部分是 `[H:MM:SS]`）。
+
+> **`warnings` 與 `speaker_notes` 是兩個不同維度，不要混為一談。**
+>
+> - `warnings` 決定 `status`：完整度、語速異常這類「內容可能缺漏」的問題。
+> - **`speaker_notes` 不影響 `status`**：講者標記的可疑訊號。該集內容可能完全完整，只是發言歸屬不可靠。
+>
+> 摘譯時**兩個都要讀**。`speaker_notes` 有東西就代表那一集的金句歸屬與「誰主張什麼」需要靠上下文覆核。**兩者曾經共用同一個欄位，導致完整度正常的集數被誤標為 `DEGRADED`（2026-08-07），已拆開。**
 
 **講者姓名是這條管線最大的增值**。`shows.json` 預先寫入每檔節目的主持人名單，轉錄 prompt 要求 Gemini 用真名而非 `Speaker A`。跨節目交叉觀察因此能具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」）。
 
