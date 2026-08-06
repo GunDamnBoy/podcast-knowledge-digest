@@ -132,7 +132,9 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 ### 四個不要改的設計
 
 1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口**——舊版在漏跑一天時會產生無法察覺的缺口。
-2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 130 字估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
+2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 **165 字**（`podfetch.py` 的 `WORDS_PER_MIN`）估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
+
+> 這個常數在程式碼裡、不在 `config.json`，所以 `healthcheck.py` 的「brief vs config」檢查**涵蓋不到它**——改動時要自己回頭改本節。原本設 130 太低，會讓被截斷的逐字稿看起來「超標 150%」（實測基準：MiB 201、Market Huddle 168）。
 3. **Lite 是主力，Flash 是備援（2026-08-05 反轉）。** 池子仍是 3 Lite ＋ 3 Flash，但**順序改成 Lite 在前**（`config.json` 的 `prefer_lite: true`）。
 
    | 模型 | RPD |
@@ -147,7 +149,9 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
    **這兩件事必須用不同的資料結構，共用一個集合就等於把語意也合併了。** 2026-08-04 把 503 也丟進 `EXHAUSTED`，結果 08-06 一次過載尖峰在 77 秒內把三個 500 RPD 的 Lite 全部永久除名，剩 10 RPD 的 Flash 扛完整場、燒到 22/10。**暫時性錯誤不可以產生永久性後果。**
 
-   輪換次數有上限（`len(pool) * 3`）。撞到就讓該段失敗，而不是在池內無限輪轉——否則唯一的自然終點是把當天所有額度燒光。經過見 `MAINTENANCE.md` 第 7 節。
+   **輪換同時受次數與時間約束**：過載輪換上限 `max(4, len(pool) * 3)`，單集牆鐘上限 `episode_budget_seconds`（現為 1200 秒＝20 分鐘）。**光有次數上限不夠**——每次輪換都可能等一輪 300 秒冷卻，18 次就超過一小時，而 podfetch 01:00 到日報 03:00 只有兩小時窗口。
+
+   撞到任一上限就丟 `RuntimeError`，該例外會穿出分段迴圈，**使該集標為 `FAILED`**（不只是那一段）。這是可接受的：已完成的段落留在 `~/.podfetch/cache/`，該集不寫進 `seen`、`last_run_utc` 不推進，下次執行接續。日額度輪換不計入過載上限，兩者語意不同、用不同的計數器。經過見 `MAINTENANCE.md` 第 7 節。
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
 
