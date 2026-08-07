@@ -1,7 +1,23 @@
 {
-  "updated": "2026-08-07T04:08:00+08:00",
-  "updatedLabel": "8/7 04:08",
+  "updated": "2026-08-08T03:46:00+08:00",
+  "updatedLabel": "8/8 03:46",
   "days": [
+    {
+      "date": "2026-08-08",
+      "label": "2026年8月8日（週六）",
+      "short": "8/8 週六",
+      "episodeCount": 10,
+      "shows": [
+        "Bloomberg Surveillance",
+        "The Compound and Friends",
+        "Exchanges at Goldman Sachs",
+        "Unhedged (FT)",
+        "Hard Fork",
+        "Pivot",
+        "Odd Lots",
+        "In Good Company"
+      ]
+    },
     {
       "date": "2026-08-07",
       "label": "2026年8月7日（週五）",
