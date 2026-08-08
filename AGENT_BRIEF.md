@@ -120,7 +120,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 | 段落快取 | `~/.podfetch/cache/`——額度用完中斷時，**已完成的段落留在這裡，下次執行直接沿用不重跑**。未完成的集數不寫進 `seen`、`last_run_utc` 也不推進，所以下次視窗仍涵蓋得到 |
 | 紀錄 | `~/.podfetch/logs/YYYY-MM-DD.log` |
 | 逐字稿輸出 | `~/podcast-transcripts/YYYY-MM-DD/`（**repo 外部**，須另外加為 Cowork 連線資料夾） |
-| 健康檢查 | `~/.podfetch/healthcheck.py`（唯讀，見 `MAINTENANCE.md` 第 3 節） |
+| 健康檢查 | `~/.podfetch/healthcheck.py`（對受檢系統唯讀；唯一會寫的是自己的 `metrics.csv`。見 `MAINTENANCE.md` 第 3 節） |
 | 排程 | launchd `com.kenny.podfetch`，每天 **01:00** |
 
 **流程**：iTunes 偵測 → 下載 MP3 → 切成 20 分鐘段 → 每段經 Files API 上傳後送 Gemini `generateContent` → 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。循序處理，六集約 30–45 分鐘。
@@ -143,13 +143,15 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 > **語速基準是 per-show 的**（2026-08-09 校準）：全域預設 `WORDS_PER_MIN = 200`，個別節目可在 `shows.json` 用 `"wpm"` 覆寫（目前 7 檔有覆寫，如 In Good Company 160、ILTB 140、Odd Lots 185）。
 >
-> **原本全域 165 太低，後果是幾乎每一集的完整度都顯示 1.2–1.3**——「超標」變成常態，`DEGRADED` 因此失去訊號價值。08-09 有兩集標 DEGRADED，掃過完全沒有跳針，只是節目本來就講得快。**指標要讓「正常 ≈ 1.0」，偏離才有意義。** 校準後 15 檔節目全部落在 0.87–1.09。
+> **原本全域 165 太低，後果是幾乎每一集的完整度都顯示 1.2–1.3**——「超標」變成常態，這個數字因此不再有可讀性。**指標要讓「正常 ≈ 1.0」，偏離才有意義。** 校準後 15 檔節目全部落在 0.87–1.09。
+>
+> **但要分清楚它影響什麼（2026-08-09 訂正一個曾寫錯的因果）：** `wpm` 只決定 ① 完整度分母（使用者看到的那個倍數）、② 段級重試門檻（**上修 wpm 會讓門檻變嚴、更容易重試**）、③ `median_rate` 的後備值。**它不決定 `DEGRADED`。** status 只看 `warnings`，而 warnings 只有三個來源：字數低於 `MIN_RATIO`、段級語速偏離**本集中位數**（`REL_RATIO`／`HIGH_RATIO`，不看 wpm）、跳針剔除。**完整度 1.4 這種「超標」不會產生任何 warning。** 08-09 那兩集的 `DEGRADED` 來自段級相對檢查，與 wpm 無關。
 >
 > 新增節目時若語速明顯偏離 200，累積幾集後在 `shows.json` 補 `wpm`。
 
 > **計字前會先剔除跳針**（`collapse_loops()`：連續重複 20 次以上的同一 token 壓成一次），剔除量單獨記在 `warnings` 裡並標明集中在第幾段。**沒有這一步，完整度指標在「跳針」這個失效態下會完全反向**——2026-08-08 實例：一行 28,122 個重複的「I」讓完整度顯示成 3.36，實際只有 1.10。看到這則警告時，**跳針處的內容是缺的，不要當成有內容**。
 
-> 這個常數在程式碼裡、不在 `config.json`，所以 `healthcheck.py` 的「brief vs config」檢查**涵蓋不到它**——改動時要自己回頭改本節。原本設 130 太低，會讓被截斷的逐字稿看起來「超標 150%」（實測基準：MiB 201、Market Huddle 168）。
+> 這個常數在程式碼裡、不在 `config.json`，所以 `healthcheck.py` 的「brief vs config」檢查**涵蓋不到它**——改動時要自己回頭改本節。沿革：130（初版）→ 165（08-06）→ 200（08-09）。
 3. **Lite 是主力，Flash 是備援（2026-08-05 反轉）。** 池子仍是 3 Lite ＋ 3 Flash，但**順序改成 Lite 在前**（`config.json` 的 `prefer_lite: true`）。
 
    | 模型 | RPD |
@@ -172,7 +174,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **`config.json` 現行值**：`segment_seconds: 1200`、`max_chunk_mb: 48`、`min_request_interval_seconds: 10`、`avoid_preview_models: true`、`flash_slots: 3`／`lite_slots: 3`、`max_output_tokens: 32768`、`default_window_hours: 48`、`max_lookback_hours: 72`。
 
-另有 `overload_cooldown_seconds: 300`（500／503 的冷卻秒數，見上）與 `prefer_lite: true`（模型池是否 Lite 優先）。**後者是布林值，`healthcheck.py` 的數值比對抓不到它**，改動時要自己確認 `config.json` 與本節一致。
+另有 `overload_cooldown_seconds: 300`（500／503 的冷卻秒數，見上）、`episode_budget_seconds: 1200`（單集牆鐘上限，20 分鐘）與 `prefer_lite: true`（模型池是否 Lite 優先）。**後者是布林值，`healthcheck.py` 的數值比對抓不到它**，改動時要自己確認 `config.json` 與本節一致。
 
 另有兩個**清單型**設定，內容不列在這裡（會過期），直接看檔案：
 
@@ -374,7 +376,7 @@ podcast-knowledge-digest/
 
 ## 6. 基礎設施備忘（每日執行需要知道的部分）
 
-> 完整的基礎設施文件（GitHub 設定、PAT 換發、電源設定的完整指令與決策、launchd 排錯）在 `MAINTENANCE.md` 第 4、7、9 節。**本節只留每日執行會用到的。**
+> 完整的基礎設施文件（GitHub 設定、PAT 換發、電源設定的完整指令與決策、launchd 排錯）在 `MAINTENANCE.md` 第 4B、7、9 節。**本節只留每日執行會用到的。**
 
 - **背景推送**：launchd `com.kenny.dashpush` 每 180 秒自動 `add`＋`commit`＋`push`，Actions 再部署到 Pages。**它曾靜默失效整整一天**，所以第 5 節的上線驗證不能省。
 - **連線資料夾**：需要三個——`~/podcast-knowledge-digest`（寫網站資料）、`~/podcast-transcripts`（讀逐字稿）、`~/.podfetch`（排錯讀 log 與 state）。**連線不保證跨工作階段留存**，失敗的樣子和「podfetch 沒跑」一模一樣。**讀不到就先自己連**：`mcp__cowork__request_cowork_directory`（`path` 給 `~/podcast-transcripts` 這樣的路徑），無人值守下實測不會跳核准對話框。
@@ -400,7 +402,8 @@ podcast-knowledge-digest/
 
 - **子代理任務卡加上工具呼叫預算，這是目前最有效的成本控制點。** 08-09 首次實跑，五個子代理吃掉全程 84%，最貴一集 225 萬——**不是因為逐字稿大，是因為它跑了 70 次工具呼叫**。實測所有逐字稿最長 1,201 行，Read 上限 2,000 行，**每一份都在一次呼叫內讀得完**，所以那 70 次不是被迫分頁，是讀完之後又做了 68 件事（多半是為了核對金句而反覆 grep／重讀）。**逐字稿一進 context，之後每一次呼叫都把那 120 KB 再送一遍。** 任務卡現在明訂：Read 一次不帶 offset → Write 一次，**目標 2 次、上限 5 次**，並明講「全文已在你的 context 裡，核對不要再讀第二次」。摘要卡末行回報實際次數，回報清單第 13 項收集，超過 5 次要點名。
 - **`metrics.csv` 補上 `eff_tokens_k`／`subagents`／`agent_turns` 三欄。** 08-08 寫的「粗估降 60–75%」**是估算不是量測**，至今無法驗證，因為舊架構從未被量測過。`healthcheck.py` 現在會解析當日排程 session 的 transcript 算加權 token（重讀 0.1x、寫入 2x、產出 5x）。**選 session 時只認 02:30–06:00 之間結束的**——維護用的互動對話往往比排程執行大好幾倍，挑錯就等於量錯。沙箱讀不到實機路徑時留空、不報錯。
-- **語速基準改為 per-show 並上修全域值**（`WORDS_PER_MIN` 165 → 200，`shows.json` 可用 `"wpm"` 覆寫，已為 7 檔設定）。08-09 兩集標 `DEGRADED`，掃過**單 token 與片語級跳針都是 0**——不是跳針，只是 All-In 那類四人搶話的節目本來就講到 238 字/分。17 檔實測中位數約 200，**原本的 165 讓幾乎每集完整度都顯示 1.2–1.3，「超標」變成常態，`DEGRADED` 因此失去訊號價值**。校準後 15 檔全部落在 0.87–1.09。
+- **語速基準改為 per-show 並上修全域值**（`WORDS_PER_MIN` 165 → 200，`shows.json` 可用 `"wpm"` 覆寫，已為 7 檔設定）。08-09 兩集標 `DEGRADED`，掃過**單 token 與片語級跳針都是 0**——不是跳針，只是 All-In 那類四人搶話的節目本來就講到 238 字/分。17 檔實測中位數約 200，**原本的 165 讓幾乎每集完整度都顯示 1.2–1.3，「超標」變成常態，這個數字失去可讀性**。校準後 15 檔全部落在 0.87–1.09。
+- **訂正一個當天自己寫錯的因果：`wpm` 不決定 `DEGRADED`。** 初稿寫「基準過低導致 `DEGRADED` 失去訊號價值」，讀 `podfetch.py` 才發現 status 只看 `warnings`，而完整度「超標」在任何路徑都不會產生 warning——那兩集的降級來自段級相對檢查。**上修 wpm 反而讓段級重試門檻變嚴。** 教訓：**改指標前先確認它接到哪條分支**，文件與文件互相對讀查不出這種矛盾，只有讀程式才會發現。
 
 > **更早的變更紀錄（2026-08-02 至 08-08）已歸檔至 `MAINTENANCE.md` 第 11 節。**
 > 本節只保留**最近一次維護當天**的條目——完整讀本檔的是每日排程，它不需要歷史。
