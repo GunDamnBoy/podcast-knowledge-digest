@@ -32,7 +32,8 @@
 
 ## 2. 修改的標準流程
 
-1. **先跑 `python3 ~/.podfetch/healthcheck.py`**，把機械式檢查一次做完。
+0. **先存快照**：`bash ~/.podfetch/snapshot.sh "開工前"`。repo 外的檔案沒有 git，改壞或被覆寫只能靠它還原（見第 12 節）。收工前再存一份「收工後」。
+1. **跑 `python3 ~/.podfetch/healthcheck.py`**，把機械式檢查一次做完（它會順便把當日指標寫進 `metrics.csv`）。
 2. 讀 `AGENT_BRIEF.md`（全部）與排程 SKILL.md（`list_scheduled_tasks` 取得 `path` 後 Read）。
 3. **先比對兩者是否已經不同步**，有的話先修好再談新需求。
 4. 改 `AGENT_BRIEF.md`。
@@ -610,4 +611,55 @@ pmset -g ps         # 應顯示 "AC Power"
 
 - **改以本機 podfetch 管線為主要全文來源**（第 2 節）：01:00 抓音檔經 Gemini API 轉錄，產出帶講者姓名的逐字稿。跨節目交叉觀察因此可以具體到人。
 - **YouTube 字幕全面失效**，降為最後手段。
+
+---
+
+## 12. 版本登記簿（速查表）
+
+第 11 節是敘事體，回答「為什麼」；這一節是速查表，回答「**動了哪些檔案、能還原到哪裡、當時想解決什麼、後來成立嗎**」。找歷史先看這裡定位，再回第 11 節讀細節。
+
+### 回溯機制（2026-08-08 建立）
+
+**repo 內的 `AGENT_BRIEF.md`／`MAINTENANCE.md`／`README.md`／`index.html`／`data/` 有 git。** 但改動最頻繁的檔案全在 repo 外、**在 2026-08-08 之前完全沒有版本紀錄**——`podfetch.py` 這一週至少改了 8 次，排程 `SKILL.md` 至少 9 次而且**被整份覆寫過一次**（08-04），當時無法還原、只能靠子代理事後比對發現。
+
+```bash
+bash ~/.podfetch/snapshot.sh "開工前"      # 每次維護開工與收工各存一份
+bash ~/.podfetch/snapshot.sh --list        # 列出所有快照
+bash ~/.podfetch/snapshot.sh --diff A B    # 比對兩份
+cp ~/.podfetch/snapshots/<時間戳>/podfetch.py ~/.podfetch/   # 還原
+```
+
+存 `podfetch.py`／`healthcheck.py`／`json2docx.py`／`snapshot.sh`／`fix-schedule.sh`／`config.json`／`shows.json`／`SKILL.md`，附 `MANIFEST.txt` 記 SHA 與大小。**`gemini.key` 與 `state.json` 刻意排除**（金鑰不入快照；執行狀態不是設定，存它只是雜訊）。
+
+> **在 Cowork 沙箱裡跑這支腳本會缺 `SKILL.md`**（沙箱看不到 `~/Documents/`），要在 Mac 的終端機跑才完整。`snapshots/2026-08-08-1852/` 就是這樣產生的不完整快照，內附說明檔。
+
+### 指標基線（`~/.podfetch/metrics.csv`，每次跑 healthcheck 自動追加）
+
+**動機**：08-08 做了一次大幅 token 優化，卻只能「估算」降幅，因為從來沒量測過任何一天。**沒有基線，任何優化都只能自稱有效。** 同一天重跑會覆寫該日那列。
+
+欄位：`date`／`episodes`／`ok`／`degraded`／`failed`／`transcript_kb`／`output_json_kb`／`brief_kb`／`skill_kb`／`podfetch_requests`／`podfetch_minutes`／`speaker_flags`
+
+已回填 08-02 起的歷史。**08-08 是舊架構的最後一天，也是新架構的對照基準**：10 集、逐字稿 617 KB、產出 JSON 229 KB、brief 44 KB、podfetch 29 個請求、470 分鐘音檔、8 集有講者訊號。08-09 起是子代理架構的第一筆。
+
+### 逐場登記
+
+| 日期 | 主題 | 動到的檔案 | 想解決什麼 | 後來成立嗎 |
+|---|---|---|---|---|
+| 08-02 | 建 podfetch 管線 | `podfetch.py`（新）、`config.json`、`shows.json`、brief | YouTube 字幕全面失效，全文取得綁死在 Chrome＋登入＋沒改版三個條件上 | ✅ 沿用至今；副產品是講者姓名 |
+| 08-03 ①② | 改 03:00、三段排查、cache-buster | brief、SKILL.md | 起床就看得到；與投顧線拉開 token | ✅ 但代價是美東晚間集數順延一版 |
+| 08-03 ③ | **規格與事故史分家** | brief（42→32 KB）、`MAINTENANCE.md`、`healthcheck.py`（新） | brief 每天被完整讀一次，塞滿執行者用不到的歷史 | ⚠️ 方向對，但變更紀錄兩天內把成效吃回去，08-08 才用歸檔規則根治 |
+| 08-03 ④ | 節目異動 22 檔 | brief、`shows.json`、`config.json`、`index.html` | 移除 Capital Allocators，補個股基本面拆解的缺口 | ✅ |
+| 08-03 ⑤ | 同步巡檢 | brief、SKILL.md | **撤銷 08-03 的根因誤判**（plist 當時就是 `Hour = 7`） | ✅ 教訓：讀到的現況不等於事發時狀況 |
+| 08-04 | 503 換模型 | `podfetch.py` | 503 死守重試把 Flash 額度燒光，3 集全失敗 | ❌ **修法本身造成 08-06 事故**——503 併進 `EXHAUSTED` 讓 Lite 被永久除名 |
+| 08-05 | Lite 優先 | `podfetch.py`、`config.json`、brief | Flash RPD 被砍半，稀缺資源排最前面等於開場燒光 | ✅ 但當天被 08-04 的冷卻語意抵銷，08-06 才真正生效 |
+| 08-06 ① | **503 改冷卻不除名** | `podfetch.py`、`config.json` | 一次過載尖峰 77 秒內把三個 500 RPD 的 Lite 全部永久除名 | ✅ 08-07 實測 Lite 承擔 82% 請求 |
+| 08-06 ② | 回歸複驗 | `podfetch.py`、`healthcheck.py`、brief | 修法沒有輪換上限，最壞會把當天額度全燒光 | ✅ 加了次數＋時間雙上限 |
+| 08-07 | 講者保守標記＋線上檢查 | `podfetch.py`、`healthcheck.py`、brief、SKILL.md | 五檔節目講者誤植；推送鏈 PASS 但網站沒更新 | ✅ 08-08 抓到 Pivot 標籤對調（會把主持人的話掛到前國務卿頭上） |
+| 08-08 ① | 跳針與時間戳 | `podfetch.py`、brief | 完整度指標在跳針失效態下**反向**（3.36 實為 1.10） | ✅ 實測還原吻合人工評估 |
+| 08-08 ② | **token 優化** | SKILL.md（重寫）、`json2docx.py`（新）、brief（68.8→44 KB） | 逐字稿在主 context 被重複計費數十次；同一份內容 LLM 寫兩次 | ⏳ **08-09 首次實跑，未驗證** |
+| 08-08 ③ | 版本控制與基線 | `snapshot.sh`（新）、`healthcheck.py`、本節 | repo 外的檔案零版本紀錄；優化降幅只能估算 | ⏳ 待累積 |
+
+**讀這張表的方式**：「後來成立嗎」那一欄的 ❌ 與 ⚠️ 是最有價值的部分——它們標出**修法本身製造新問題**的案例，目前已連續發生三次（08-04→08-06、08-03→08-03⑤、08-06①→08-06②）。動任何防護機制前先看這一欄。
+
+---
 
