@@ -420,7 +420,8 @@ podcast-knowledge-digest/
   - **時間戳偵測的判定線太鬆**。原本用「離 off 比離 0 近」，判定線落在 `off/2`——第 2 段 `off=1200` 時門檻只有 **10:00**，只要段首有十分鐘廣告或音樂，整段就會被誤判成絕對時間而跳過位移，時間軸倒退 20 分鐘。改為要求**貼近** off（`ABS_TS_TOLERANCE = 180` 秒）。
   - **跳過位移的分支直接 `return text`，不再正規化格式**。模型若寫 `[105:30]` 這種三位數分鐘，下游 `SPEAKER_LINE` 匹配不到，會誤報成「裸時間戳」。改為把 offset 歸零後照樣走一次格式化。
   - **`collapse_loops()` 把跳針從段級語速也扣掉了，等於默默關掉 `HIGH_RATIO` 對單 token 跳針的偵測**。新增 `loop_segs` 記錄哪幾段跳針，並寫進警告文字——**位置資訊不能因為換了偵測方式就丟掉**。
-  - 順帶修掉：`transcribe_one()` 殘留未使用的 `start_s`／`end_s` 參數與死掉的 `hhmm()`；`episode_budget_seconds` 補進 `healthcheck.py` 的 `CONFIG_KEYS`。
+  - 順帶修掉：`transcribe_one()` 殘留未使用的 `start_s`／`end_s` 參數與死掉的 `hhmm()`；`episode_budget_seconds` 補進 `healthcheck.py` 的 `CONFIG_KEYS`（現檢查 10 個）。
+  - **`healthcheck.py` 的 `resolve()` 改為先找掛載點、再找家目錄。** 在沙箱裡把 `podfetch.py` 匯入測試時，它的 `log()` 會在沙箱家目錄建出一個空的 `~/.podfetch/logs/`，原本的順序會抓到那個假目錄，然後報出一整排假故障（讀不到 `shows.json`、執行時刻變成測試當下的時間）。**驗證工具本身被測試行為污染，這是最難察覺的一種假警報。**
   - 文件面：第 3 節仍寫「四種訊號寫進 `warnings`」（實際是五種、且 08-07 已拆到 `speaker_notes`）；跳針字數 28,127／9,527 應為 **28,122／9,521**（第 3 節自己要求「數字一律不四捨五入」）；「08-07 的 Speaker 7」應為 08-08；第 2 節的 front matter 欄位清單漏了 `showKey`／`segments`／`words_per_minute`；**跳針剔除只寫在變更紀錄、沒進第 2 節規格本體**（執行者照 SKILL.md 只會讀第 2 節）；`MAINTENANCE.md` 的 CSS 組數與健康檢查清單未跟上；**「FT 從未在無人值守實測過」這句過期敘述同時存在於四個地方**，今天才真正跑通。
 
 ### 2026-08-07
