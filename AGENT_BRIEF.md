@@ -125,7 +125,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **流程**：iTunes 偵測 → 下載 MP3 → 切成 20 分鐘段 → 每段經 Files API 上傳後送 Gemini `generateContent` → 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。循序處理，六集約 30–45 分鐘。
 
-**逐字稿格式**：YAML front matter（`show`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`words`／`expected_words`／`completeness`／`status`／`warnings`／`speaker_notes`），正文為 `[MM:SS] 講者姓名：內容`（超過一小時的部分是 `[H:MM:SS]`）。
+**逐字稿格式**：YAML front matter（`show`／`showKey`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`segments`／`words`／`expected_words`／`words_per_minute`／`completeness`／`status`／`warnings`／`speaker_notes`），正文為 `[MM:SS] 講者姓名：內容`（超過一小時的部分是 `[H:MM:SS]`）。
 
 > **`warnings` 與 `speaker_notes` 是兩個不同維度，不要混為一談。**
 >
@@ -140,6 +140,8 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 1. **視窗以 `last_run_utc` 為準，不是固定 26 小時。** 從上次成功執行時間往前推 30 分鐘重疊開始抓，上限 72 小時。**不要改回固定窗口**——舊版在漏跑一天時會產生無法察覺的缺口。
 2. **字數檢查是防「安靜失效」的唯一機制。** Gemini 是 LLM 不是機械式辨識器，長音檔上可能改寫、壓縮或跳過整段而不報錯。腳本以英語口說每分鐘 **165 字**（`podfetch.py` 的 `WORDS_PER_MIN`）估算期望值，低於 55% 就重試該段；仍不足則標 `DEGRADED` 並寫進 front matter 與 manifest。**不要拿掉。**
+
+> **計字前會先剔除跳針**（`collapse_loops()`：連續重複 20 次以上的同一 token 壓成一次），剔除量單獨記在 `warnings` 裡並標明集中在第幾段。**沒有這一步，完整度指標在「跳針」這個失效態下會完全反向**——2026-08-08 實例：一行 28,122 個重複的「I」讓完整度顯示成 3.36，實際只有 1.10。看到這則警告時，**跳針處的內容是缺的，不要當成有內容**。
 
 > 這個常數在程式碼裡、不在 `config.json`，所以 `healthcheck.py` 的「brief vs config」檢查**涵蓋不到它**——改動時要自己回頭改本節。原本設 130 太低，會讓被截斷的逐字稿看起來「超標 150%」（實測基準：MiB 201、Market Huddle 168）。
 3. **Lite 是主力，Flash 是備援（2026-08-05 反轉）。** 池子仍是 3 Lite ＋ 3 Flash，但**順序改成 Lite 在前**（`config.json` 的 `prefer_lite: true`）。
@@ -212,7 +214,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 2. **podfetch 逐字稿** — B 類節目的主要來源。
 3. **FT 專用流程**（Unhedged）— Unhedged 屬於第 1 節 A 類，**它的「官方逐字稿」就是走這條 FT 流程取得**，不是獨立於第 1 層之外的另一層；列在這裡只是因為它有專屬的失效檢查。
 
-   > **只能走 Chrome**（`find` → `navigate` → `get_page_text`）。**`ft.com` 已於 2026-08-06 進入本環境 `web_fetch` 的封鎖清單（回 HTTP 403 `URL is on blocklist`），那條路已死，不要再試。** 這一層目前掛在一個**沒被無人值守驗證過**的路徑上——Chrome 從未在排程執行中實際跑完 FT 流程（08-06 那集是休刊日轉播姊妹節目，本來就沒有官方稿）。下次真有 Unhedged 自製集數時是第一次實測，**若卡在工具權限就直接退回下一層並在回報中明講，不要空等**。
+   > **只能走 Chrome**（`find` → `navigate` → `get_page_text`）。**`ft.com` 已於 2026-08-06 進入本環境 `web_fetch` 的封鎖清單（回 HTTP 403 `URL is on blocklist`），那條路已死，不要再試。** **2026-08-08 這條 Chrome 路徑已在無人值守的排程中跑完並成功**（45,181 字元、無付費牆標記），不再是未驗證狀態。仍要注意底下的 syndication cookie 是會安靜過期的依賴（見第 6 節）；**若卡在工具權限就直接退回下一層並在回報中明講，不要空等**。
 
    **取到後必須檢查正文長度**，通常 5,000 字元以上；明顯偏短或出現 `Subscribe to unlock`／`Complete digital access` 即視為 FT 存取失效。**此時退回第 2 層（podfetch 逐字稿），不是跳到第 4 層**——Unhedged 是 B 類以外的節目但 podfetch 一樣有轉錄它。podfetch 也沒有才繼續往下，並明確告知使用者 FT 存取已失效。
 4. **YouTube 字幕** — 2026-08-02 起已知全面失效，只當最後手段，每集最多試 5 分鐘。須為 Chrome 已登入 YouTube 的狀態，未登入就直接走下一層並告知，不要嘗試代為登入。操作要領見 `MAINTENANCE.md` 第 8 節。
@@ -256,7 +258,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
 > **講者標記誤植是這套系統目前最主要的品質問題（2026-08-07：九集有五集需要人工校正）。**
 >
-> 轉錄 prompt 已改為保守標記——有明確依據（自我介紹、被直呼、主持人點名）才寫真名，否則一律 `Speaker N`，廣告與台呼標 `Announcer`。**因此看到 `Speaker N` 是誠實而非失敗**，不要硬去補人名。`podfetch.py` 的 `check_speaker_labels()` 會把四種可疑訊號寫進 manifest 的 `warnings`：標籤格式異常（把台詞當人名）、全集只有一個講者、泛稱佔比過高卻混著真名、單一講者連續獨佔 15 分鐘以上。
+> 轉錄 prompt 已改為保守標記——有明確依據（自我介紹、被直呼、主持人點名）才寫真名，否則一律 `Speaker N`，廣告與台呼標 `Announcer`。**因此看到 `Speaker N` 是誠實而非失敗**，不要硬去補人名。`podfetch.py` 的 `check_speaker_labels()` 會把**五種**可疑訊號寫進**獨立的 `speaker_notes`／`speakerNotes` 欄位（不是 `warnings`、不影響 `status`）**：裸時間戳（整行沒有講者標記）、標籤格式異常（把台詞或廣告當人名）、全集只有一個講者、泛稱佔比 ≥40% 卻混著真名、單一講者連續獨佔 15 分鐘以上。
 >
 > **但它抓不到「合理人名張冠李戴」**——08-07 的 All-In 把開頭 13 分鐘的 Jason Calacanis 整段標成 Chamath Palihapitiya，標籤本身完全合理，只是錯的。**這一類只能靠讀內容時的上下文校正**（誰被直呼名字、誰在問問題、開場說了誰不在）。
 >
@@ -409,11 +411,17 @@ podcast-knowledge-digest/
 
 ### 2026-08-08
 
-- **修掉一個讓完整度指標「反向」的缺陷。** Gemini 在長音檔上會整行跳針（08-08 實例：The Compound 一行 28,127 個重複的「I」、Hard Fork 9,527 個「let's」），而 `spoken_words()` 直接數 token，跳針全部計入——於是**內容嚴重缺漏的失效態顯示成「超標 336%」**。`completeness` 是日報用來判斷該集能不能信的依據，這個數字在最需要它的時候是錯的。新增 `collapse_loops()`：計字前把「連續重複 20 次以上的同一 token」壓成一次，並在 `warnings` 單獨記一筆剔除了多少字。**實測還原成 1.10 與 1.10，與人工評估吻合。**
-- **修掉時間戳的雙重偏移。** prompt 原本告訴 Gemini「本段涵蓋整集的 20:00–40:00」，它就照絕對時間輸出，而 `offset_timestamps()` 又加一次 → 第 2 段標成 40:00–59:52、實際是 20:00–39:52。**而且同一集裡時而遵守時而不遵守**（第 3 段是對的），所以合併後時間軸會往回跳。**光改 prompt 擋不住**，已加機械式偵測：看該段第一個時間戳離 0 近還是離 offset 近，取近的那個解釋；同時把 prompt 裡那句誘因拿掉、改為明確要求從 00:00 起算。08-07 的「`Speaker 7` 連續 20 分鐘」就是這個造成的假象。
+- **修掉一個讓完整度指標「反向」的缺陷。** Gemini 在長音檔上會整行跳針（08-08 實例：The Compound 一行 28,122 個重複的「I」、Hard Fork 9,521 個「let's」），而 `spoken_words()` 直接數 token，跳針全部計入——於是**內容嚴重缺漏的失效態顯示成「超標 336%」**。`completeness` 是日報用來判斷該集能不能信的依據，這個數字在最需要它的時候是錯的。新增 `collapse_loops()`：計字前把「連續重複 20 次以上的同一 token」壓成一次，並在 `warnings` 單獨記一筆剔除了多少字。**實測還原成 1.10 與 1.10，與人工評估吻合。**
+- **修掉時間戳的雙重偏移。** prompt 原本告訴 Gemini「本段涵蓋整集的 20:00–40:00」，它就照絕對時間輸出，而 `offset_timestamps()` 又加一次 → 第 2 段標成 40:00–59:52、實際是 20:00–39:52。**而且同一集裡時而遵守時而不遵守**（第 3 段是對的），所以合併後時間軸會往回跳。**光改 prompt 擋不住**，已加機械式偵測：看該段第一個時間戳離 0 近還是離 offset 近，取近的那個解釋；同時把 prompt 裡那句誘因拿掉、改為明確要求從 00:00 起算。08-08 的「`Speaker 7` 連續 20 分鐘」就是這個造成的假象——**一個 bug 會在別的檢查裡偽裝成另一種 bug**。
 - **修正 FT 的入口網址**（第 1 節）。`ft.com/unhedged` 是 Unhedged **電子報存檔、完全不含 podcast 集數**，過去一直寫錯；正確入口是 `ft.com/the-economics-show`。08-08 是 FT 路徑第一次在無人值守排程中跑完並成功（45,181 字元、無付費牆）。同時記下 **Unhedged 的 feed 會放姊妹節目的重播**，遇到要標明原始播出日。
 - 補 `hardfork` CSS，`index.html` 現為 20 組；**補色時要檢查撞色**——第一版讓它用到 `markethuddle` 的橘紅。現役 22 檔中仍缺 `bg2`／`acquired`／`lennys` 三組。
 - **`speakerNotes` 上線第一天就發揮作用**：10 集有 8 集報警，其中 Pivot 的標籤在中段廣告後整體對調，照標籤直接引用會把 Kara Swisher 的話掛到希拉蕊．柯林頓頭上。**這正是這個欄位存在的理由**，也再次確認機械檢查只能提示可疑、判斷仍要靠讀內容。
+- **回歸檢查抓到八處，含我這次改動製造的三個瑕疵**（子代理獨立比對）：
+  - **時間戳偵測的判定線太鬆**。原本用「離 off 比離 0 近」，判定線落在 `off/2`——第 2 段 `off=1200` 時門檻只有 **10:00**，只要段首有十分鐘廣告或音樂，整段就會被誤判成絕對時間而跳過位移，時間軸倒退 20 分鐘。改為要求**貼近** off（`ABS_TS_TOLERANCE = 180` 秒）。
+  - **跳過位移的分支直接 `return text`，不再正規化格式**。模型若寫 `[105:30]` 這種三位數分鐘，下游 `SPEAKER_LINE` 匹配不到，會誤報成「裸時間戳」。改為把 offset 歸零後照樣走一次格式化。
+  - **`collapse_loops()` 把跳針從段級語速也扣掉了，等於默默關掉 `HIGH_RATIO` 對單 token 跳針的偵測**。新增 `loop_segs` 記錄哪幾段跳針，並寫進警告文字——**位置資訊不能因為換了偵測方式就丟掉**。
+  - 順帶修掉：`transcribe_one()` 殘留未使用的 `start_s`／`end_s` 參數與死掉的 `hhmm()`；`episode_budget_seconds` 補進 `healthcheck.py` 的 `CONFIG_KEYS`。
+  - 文件面：第 3 節仍寫「四種訊號寫進 `warnings`」（實際是五種、且 08-07 已拆到 `speaker_notes`）；跳針字數 28,127／9,527 應為 **28,122／9,521**（第 3 節自己要求「數字一律不四捨五入」）；「08-07 的 Speaker 7」應為 08-08；第 2 節的 front matter 欄位清單漏了 `showKey`／`segments`／`words_per_minute`；**跳針剔除只寫在變更紀錄、沒進第 2 節規格本體**（執行者照 SKILL.md 只會讀第 2 節）；`MAINTENANCE.md` 的 CSS 組數與健康檢查清單未跟上；**「FT 從未在無人值守實測過」這句過期敘述同時存在於四個地方**，今天才真正跑通。
 
 ### 2026-08-07
 
