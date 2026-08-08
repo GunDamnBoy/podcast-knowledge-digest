@@ -41,7 +41,7 @@
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
 | Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（PDF 可直接 WebFetch）。**官方稿通常落後一週以上**，當集多半還沒上架（08-07 實例：當天最新只到 MV543／7-30）。**這時退回 podfetch 是正常的，不是失效**，照常在 `source` 標明來源即可 |
 | Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。從 GS 的 Exchanges 節目列表頁取實際連結，或用 WebSearch 找。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market` |
-| Unhedged (FT) | **直接讀 `https://www.ft.com/unhedged`**——逐日清單（日期＋標題＋作者＋PREMIUM 標記），比站內搜尋可靠得多。`find` 取得目標日期文章的 `href` → `navigate` → `get_page_text`。逐字稿版（標題「Transcript: ⋯」）優先，沒有就用當日 newsletter 正文 |
+| Unhedged (FT) | **入口是 `https://www.ft.com/the-economics-show`**（2026-08-08 更正）。**不要用 `ft.com/unhedged`**——那頁是 Unhedged 電子報存檔，**完全不含 podcast 集數**，過去寫錯了。只能走 Chrome：`find` 取得目標日期文章的 `href` → `navigate` → `get_page_text`。<br>**Unhedged 的 feed 會放姊妹節目 The Economics Show 的重播**（08-08 實例：8/6 的 feed 放的是原 6/19 那集）。遇到重播要在 `published` 與 `source` 標明原始播出日，不要當成新集數 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
 **取官方逐字稿的兩個陷阱（2026-08-05 實測，都會安靜失敗）**
@@ -328,7 +328,7 @@ podcast-knowledge-digest/
 
 `allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
 
-**`index.html` 目前定義了 19 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`／`gsx`／`nopriors`，另含已下架的 `capitalallocators`（供歷史資料顯示）。**現役 22 檔中仍缺 `bg2`／`hardfork`／`acquired`／`lennys` 四組。** 其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 20 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`／`gsx`／`nopriors`／`hardfork`，另含已下架的 `capitalallocators`（供歷史資料顯示）。**現役 22 檔中仍缺 `bg2`／`acquired`／`lennys` 三組。** 補新色時要確認**沒有跟既有的撞色**（08-08 就差點讓 `hardfork` 用到 `markethuddle` 的橘紅）。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
 
 > `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 
@@ -406,6 +406,14 @@ podcast-knowledge-digest/
 ## 8. 變更紀錄（CHANGELOG）
 
 **維護規則**：本檔與排程任務 `podcast-digest-daily` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
+
+### 2026-08-08
+
+- **修掉一個讓完整度指標「反向」的缺陷。** Gemini 在長音檔上會整行跳針（08-08 實例：The Compound 一行 28,127 個重複的「I」、Hard Fork 9,527 個「let's」），而 `spoken_words()` 直接數 token，跳針全部計入——於是**內容嚴重缺漏的失效態顯示成「超標 336%」**。`completeness` 是日報用來判斷該集能不能信的依據，這個數字在最需要它的時候是錯的。新增 `collapse_loops()`：計字前把「連續重複 20 次以上的同一 token」壓成一次，並在 `warnings` 單獨記一筆剔除了多少字。**實測還原成 1.10 與 1.10，與人工評估吻合。**
+- **修掉時間戳的雙重偏移。** prompt 原本告訴 Gemini「本段涵蓋整集的 20:00–40:00」，它就照絕對時間輸出，而 `offset_timestamps()` 又加一次 → 第 2 段標成 40:00–59:52、實際是 20:00–39:52。**而且同一集裡時而遵守時而不遵守**（第 3 段是對的），所以合併後時間軸會往回跳。**光改 prompt 擋不住**，已加機械式偵測：看該段第一個時間戳離 0 近還是離 offset 近，取近的那個解釋；同時把 prompt 裡那句誘因拿掉、改為明確要求從 00:00 起算。08-07 的「`Speaker 7` 連續 20 分鐘」就是這個造成的假象。
+- **修正 FT 的入口網址**（第 1 節）。`ft.com/unhedged` 是 Unhedged **電子報存檔、完全不含 podcast 集數**，過去一直寫錯；正確入口是 `ft.com/the-economics-show`。08-08 是 FT 路徑第一次在無人值守排程中跑完並成功（45,181 字元、無付費牆）。同時記下 **Unhedged 的 feed 會放姊妹節目的重播**，遇到要標明原始播出日。
+- 補 `hardfork` CSS，`index.html` 現為 20 組；**補色時要檢查撞色**——第一版讓它用到 `markethuddle` 的橘紅。現役 22 檔中仍缺 `bg2`／`acquired`／`lennys` 三組。
+- **`speakerNotes` 上線第一天就發揮作用**：10 集有 8 集報警，其中 Pivot 的標籤在中段廣告後整體對調，照標籤直接引用會把 Kara Swisher 的話掛到希拉蕊．柯林頓頭上。**這正是這個欄位存在的理由**，也再次確認機械檢查只能提示可疑、判斷仍要靠讀內容。
 
 ### 2026-08-07
 
