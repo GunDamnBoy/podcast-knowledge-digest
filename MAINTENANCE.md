@@ -111,10 +111,11 @@ brief 第 6 節只留每日執行需要的，完整版在這裡：
 1. `AGENT_BRIEF.md` 第 1 節：加進節目清單，含 AppleID、官方逐字稿來源（若有）、排序位置。
 2. `~/.podfetch/shows.json`：加上 `appleId`／`name`／`hosts`（主持人名單會餵給轉錄 prompt，讓 Gemini 寫真名而不是 `Speaker A`）。
 3. `~/.podfetch/config.json` 的 `show_priority`：插到適當位置（額度不足時先犧牲排在後面的）。
-4. `index.html`：補 `.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>` 三處。
-5. 排程 SKILL.md 同步（若影響步驟或排序規則）。
-6. brief 第 8 節加變更紀錄。
-7. 跑 `healthcheck.py` 確認 showKey 三項檢查都 PASS。
+4. `index.html`：補 `.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>` 三處。**撞色要三處分別檢查**——08-10 只查了色條就宣稱查過，結果徽章文字色與現役的 `unhedged` 只差 12（RGB 距離），等於同一個顏色。實務門檻：**與最近鄰的 RGB 距離至少 25，低於 20 一定要換。**
+5. **`README.md` 兩處**：開頭的「偵測 N 檔節目」與「追蹤的節目」清單。**這一步 08-10 漏了**——數字改了、清單沒補，而 `healthcheck.py` 只比對 brief 與 `shows.json`，**看不到 README**。它是 Public repo 唯一會被外部讀者看到的檔案。
+6. 排程 SKILL.md：節目數變動一定會動到 `description`（「N 檔財經 Podcast」）；流程或排序規則有變才動 prompt 本體。
+7. brief 第 8 節加變更紀錄，`MAINTENANCE.md` 第 12 節登記簿補一列。
+8. 跑 `healthcheck.py` 確認 showKey 三項檢查都 PASS。**注意它涵蓋不到 README 與撞色**，那兩項只能靠這張清單。
 
 ---
 
@@ -755,7 +756,6 @@ cp ~/.podfetch/snapshots/<時間戳>/podfetch.py ~/.podfetch/   # 還原
 | 08-08 ③ | 版本控制與基線 | `snapshot.sh`（新）、`healthcheck.py`、本節 | repo 外的檔案零版本紀錄；優化降幅只能估算 | ⏳ 待累積 |
 | 08-09 ① | 呼叫預算、token 量測、語速校準 | SKILL.md（任務卡）、`healthcheck.py`、`podfetch.py`、`shows.json`、brief、本檔 | 子代理回合數失控（單集 70 次呼叫）；降幅無法量測；完整度基準過低使 1.2–1.3 變常態 | ⚠️ **呼叫預算未受測**（08-10 沒派子代理）；**token 量測根本沒生效**，路徑寫成 CLI 的 `~/.claude/projects`，連兩天空值，08-10 才修 |
 | 08-09 ② | 回歸複驗 | brief、`podfetch.py`、`healthcheck.py`、本檔 | 上一輪自己寫錯的因果與三處歸檔／擴欄後遺症 | ⚠️ **又是修法本身留下問題**：把 wpm 校準說成「修好 DEGRADED」（程式上不成立）、擴欄後歷史列錯位、歸檔時把「兩份一組要同步」這條規則一起搬走 |
-| 08-10 ② | **新增 TIP（22→23 檔）** | brief、`shows.json`、`config.json`、`index.html`、`README.md`、本檔 | 週一那一版涵蓋美東週末，現有節目在該窗口幾乎零供給 | ⏳ 08-11 起看它是否真的落進窗口；語速未校準 |
 | 08-10 ① | 同源去重、下界例外、子代理門檻、退援層號、26 小時統一、token 量測出聲 | brief、SKILL.md、`healthcheck.py`、本檔 | 同一支音檔被兩個 feed 推送而佔滿當日；規格缺「低於下界」與「低量日」條款；FT 被誤列成獨立的退援層；26 小時與 `last_run_utc` 字面互斥；token 量測讀錯路徑 | ⏳ 08-11 起驗證。**前三個缺口共同形態是「主代理靠自覺補上規格的缺口」**，見第 7 節 |
 
 **讀這張表的方式**：「後來成立嗎」那一欄的 ❌ 與 ⚠️ 是最有價值的部分，但**兩種標記代表兩件不同的事，不要混為一談**：

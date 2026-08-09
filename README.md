@@ -14,7 +14,7 @@
 
 **總經／市場**：Odd Lots、Macro Voices、The Market Huddle、Unhedged (FT)、Bloomberg Surveillance、The Compound and Friends、Exchanges at Goldman Sachs
 
-**投資與公司基本面**：Invest Like the Best、Business Breakdowns、In Good Company、Masters in Business
+**投資與公司基本面**：Invest Like the Best、Business Breakdowns、In Good Company、Masters in Business、We Study Billionaires (TIP)
 
 ## 內容結構
 
