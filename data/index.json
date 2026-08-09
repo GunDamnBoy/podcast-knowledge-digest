@@ -1,136 +1,146 @@
 {
- "updated": "2026-08-09T03:41:55+08:00",
- "updatedLabel": "8/9 03:41",
- "days": [
-  {
-   "date": "2026-08-09",
-   "label": "2026年8月9日（週日）",
-   "short": "8/9 週日",
-   "episodeCount": 5,
-   "shows": [
-    "All-In Podcast",
-    "Bloomberg Surveillance",
-    "20VC",
-    "Dwarkesh Podcast",
-    "Masters in Business"
-   ]
-  },
-  {
-   "date": "2026-08-08",
-   "label": "2026年8月8日（週六）",
-   "short": "8/8 週六",
-   "episodeCount": 10,
-   "shows": [
-    "Bloomberg Surveillance",
-    "The Compound and Friends",
-    "Exchanges at Goldman Sachs",
-    "Unhedged (FT)",
-    "Hard Fork",
-    "Pivot",
-    "Odd Lots",
-    "In Good Company"
-   ]
-  },
-  {
-   "date": "2026-08-07",
-   "label": "2026年8月7日（週五）",
-   "short": "8/7 週五",
-   "episodeCount": 9,
-   "shows": [
-    "All-In Podcast",
-    "MacroVoices",
-    "Odd Lots",
-    "Exchanges at Goldman Sachs",
-    "Bloomberg Surveillance",
-    "Masters in Business",
-    "20VC",
-    "No Priors"
-   ]
-  },
-  {
-   "date": "2026-08-06",
-   "label": "2026年8月6日（週四）",
-   "short": "8/6 週四",
-   "episodeCount": 5,
-   "shows": [
-    "The Compound and Friends",
-    "Bloomberg Surveillance",
-    "Unhedged (FT)",
-    "In Good Company"
-   ]
-  },
-  {
-   "date": "2026-08-05",
-   "label": "2026年8月5日（週三）",
-   "short": "8/5 週三",
-   "episodeCount": 7,
-   "shows": [
-    "Invest Like the Best",
-    "Bloomberg Surveillance",
-    "Dwarkesh Podcast",
-    "Latent Space",
-    "Pivot"
-   ]
-  },
-  {
-   "date": "2026-08-04",
-   "label": "2026年8月4日（週二）",
-   "short": "8/4 週二",
-   "episodeCount": 3,
-   "shows": [
-    "Bloomberg Surveillance",
-    "Odd Lots",
-    "20VC"
-   ]
-  },
-  {
-   "date": "2026-08-02",
-   "label": "2026年8月2日（週日）",
-   "short": "8/2 週日",
-   "episodeCount": 6,
-   "shows": [
-    "All-In Podcast",
-    "The Market Huddle",
-    "Bloomberg Surveillance",
-    "20VC",
-    "Masters in Business"
-   ]
-  },
-  {
-   "date": "2026-07-31",
-   "label": "2026年7月31日（週五）",
-   "short": "7/31 週五",
-   "episodeCount": 4,
-   "shows": [
-    "MacroVoices",
-    "Unhedged (FT)",
-    "Bloomberg Surveillance"
-   ]
-  },
-  {
-   "date": "2026-07-30",
-   "label": "2026年7月30日（週四）",
-   "short": "7/30 週四",
-   "episodeCount": 6,
-   "shows": [
-    "Bloomberg Surveillance",
-    "Masters in Business"
-   ]
-  },
-  {
-   "date": "2026-07-29",
-   "label": "2026年7月29日（週三）",
-   "short": "7/29 週三",
-   "episodeCount": 7,
-   "shows": [
-    "All-In Podcast",
-    "MacroVoices",
-    "The Market Huddle",
-    "Unhedged (FT)",
-    "Bloomberg Surveillance",
-    "Latent Space",
-    "Lex Fridman Podcast"
-   ]
-  }
- ]
+  "updated": "2026-08-10T03:05:51+08:00",
+  "updatedLabel": "8/10 03:05",
+  "days": [
+    {
+      "date": "2026-08-10",
+      "label": "2026年8月10日（週一）",
+      "short": "8/10 週一",
+      "episodeCount": 2,
+      "shows": [
+        "Bloomberg Surveillance",
+        "Odd Lots"
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "label": "2026年8月9日（週日）",
+      "short": "8/9 週日",
+      "episodeCount": 5,
+      "shows": [
+        "All-In Podcast",
+        "Bloomberg Surveillance",
+        "20VC",
+        "Dwarkesh Podcast",
+        "Masters in Business"
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "label": "2026年8月8日（週六）",
+      "short": "8/8 週六",
+      "episodeCount": 10,
+      "shows": [
+        "Bloomberg Surveillance",
+        "The Compound and Friends",
+        "Exchanges at Goldman Sachs",
+        "Unhedged (FT)",
+        "Hard Fork",
+        "Pivot",
+        "Odd Lots",
+        "In Good Company"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "label": "2026年8月7日（週五）",
+      "short": "8/7 週五",
+      "episodeCount": 9,
+      "shows": [
+        "All-In Podcast",
+        "MacroVoices",
+        "Odd Lots",
+        "Exchanges at Goldman Sachs",
+        "Bloomberg Surveillance",
+        "Masters in Business",
+        "20VC",
+        "No Priors"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "label": "2026年8月6日（週四）",
+      "short": "8/6 週四",
+      "episodeCount": 5,
+      "shows": [
+        "The Compound and Friends",
+        "Bloomberg Surveillance",
+        "Unhedged (FT)",
+        "In Good Company"
+      ]
+    },
+    {
+      "date": "2026-08-05",
+      "label": "2026年8月5日（週三）",
+      "short": "8/5 週三",
+      "episodeCount": 7,
+      "shows": [
+        "Invest Like the Best",
+        "Bloomberg Surveillance",
+        "Dwarkesh Podcast",
+        "Latent Space",
+        "Pivot"
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "label": "2026年8月4日（週二）",
+      "short": "8/4 週二",
+      "episodeCount": 3,
+      "shows": [
+        "Bloomberg Surveillance",
+        "Odd Lots",
+        "20VC"
+      ]
+    },
+    {
+      "date": "2026-08-02",
+      "label": "2026年8月2日（週日）",
+      "short": "8/2 週日",
+      "episodeCount": 6,
+      "shows": [
+        "All-In Podcast",
+        "The Market Huddle",
+        "Bloomberg Surveillance",
+        "20VC",
+        "Masters in Business"
+      ]
+    },
+    {
+      "date": "2026-07-31",
+      "label": "2026年7月31日（週五）",
+      "short": "7/31 週五",
+      "episodeCount": 4,
+      "shows": [
+        "MacroVoices",
+        "Unhedged (FT)",
+        "Bloomberg Surveillance"
+      ]
+    },
+    {
+      "date": "2026-07-30",
+      "label": "2026年7月30日（週四）",
+      "short": "7/30 週四",
+      "episodeCount": 6,
+      "shows": [
+        "Bloomberg Surveillance",
+        "Masters in Business"
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "label": "2026年7月29日（週三）",
+      "short": "7/29 週三",
+      "episodeCount": 7,
+      "shows": [
+        "All-In Podcast",
+        "MacroVoices",
+        "The Market Huddle",
+        "Unhedged (FT)",
+        "Bloomberg Surveillance",
+        "Latent Space",
+        "Lex Fridman Podcast"
+      ]
+    }
+  ]
 }
