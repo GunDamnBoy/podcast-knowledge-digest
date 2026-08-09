@@ -10,7 +10,7 @@
 
 ## 0. 這個系統在做什麼
 
-每天早上（含週末）自動偵測 22 檔 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
+每天早上（含週末）自動偵測 23 檔 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
 
 1. **Word 報告**（.docx）— **由 `~/.podfetch/json2docx.py` 從當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍），交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供隨時閱讀與全文搜尋。
@@ -29,7 +29,7 @@
 
 ---
 
-## 1. 節目清單與全文來源（22 檔）
+## 1. 節目清單與全文來源（23 檔）
 
 **A. 官方逐字稿——永遠優於機器轉錄，這類節目每天都要去抓**
 
@@ -51,7 +51,7 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**
+All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**／**We Study Billionaires（TIP）**
 
 > **Business Breakdowns**（Colossus 出品，與 ILTB 同門）每集拆解一家公司的商業模式、單位經濟、護城河、估值框架與風險，來賓多是實際持有該檔股票的 buy-side。**Colossus 在 `joincolossus.com` 的集數頁有官方逐字稿**，若哪天要把它升到 A 類可從那裡取，目前先走 podfetch。
 >
@@ -79,7 +79,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 各節目 AppleID：
 
-All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Business Breakdowns 1559120677**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991
+All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Business Breakdowns 1559120677**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991｜**We Study Billionaires（TIP）928933489**
 
 **權威來源是 `~/.podfetch/shows.json`**（含 AppleID、節目名、主持人名單，Bloomberg 的 `limit: 20` 也在那裡）。上面這份清單是給人看的，兩邊不一致時以 `shows.json` 為準。
 
@@ -354,11 +354,11 @@ podcast-knowledge-digest/
 
 ### showKey
 
-`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔完整鍵值：
+`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。23 檔完整鍵值：
 
-`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`
+`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`／`tip`
 
-**`index.html` 目前定義了 20 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`／`gsx`／`nopriors`／`hardfork`，另含已下架的 `capitalallocators`（供歷史資料顯示）。**現役 22 檔中仍缺 `bg2`／`acquired`／`lennys` 三組。** 補新色時要確認**沒有跟既有的撞色**（08-08 就差點讓 `hardfork` 用到 `markethuddle` 的橘紅）。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 21 組**：`allin`／`macrovoices`／`markethuddle`／`unhedged`／`bloomberg`／`latentspace`／`lex`／`mib`／`twentyvc`／`breakdowns`／`ingoodcompany`／`compound`／`oddlots`／`dwarkesh`／`iltb`／`pivot`／`gsx`／`nopriors`／`hardfork`／`tip`，另含已下架的 `capitalallocators`（供歷史資料顯示）。**現役 23 檔中仍缺 `bg2`／`acquired`／`lennys` 三組。** 補新色時要確認**沒有跟既有的撞色**（08-08 就差點讓 `hardfork` 用到 `markethuddle` 的橘紅）。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
 
 > `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 

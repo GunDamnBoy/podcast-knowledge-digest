@@ -13,7 +13,7 @@
 
 | # | 檔案／位置 | 角色 | 誰會讀它 |
 |---|---|---|---|
-| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：22 檔節目清單、全文來源、podfetch 管線、內容規格、資料格式、發布流程 | 每日排程在第 0 步完整讀過 |
+| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：23 檔節目清單、全文來源、podfetch 管線、內容規格、資料格式、發布流程 | 每日排程在第 0 步完整讀過 |
 | 2 | 排程任務 `podcast-digest-daily` 的 SKILL.md | **執行骨架**：流程順序與分支判斷。事實細節指向 brief 章節，不重抄——**唯一例外是第 3 步的子代理任務卡**（子代理讀不到 brief，卡上抄了第 3／4 節的必要規格，**改內容規格時兩邊都要改**，healthcheck 檢查不到這種同步） | 排程觸發時直接執行 |
 | 3 | `~/podcast-knowledge-digest/index.html` | 前端外殼：CSS、渲染邏輯、節目徽章 | 瀏覽器 |
 | 4 | `~/podcast-knowledge-digest/data/*.json` | 每日內容 | `index.html` |
@@ -74,7 +74,7 @@ python3 ~/.podfetch/healthcheck.py
 - **除錯時先問「這個值今天有沒有被人動過」。** 在正在被修改的系統上，讀到的現況不等於事發時的狀況——2026-08-03 就是這樣把修改後的 plist 當成修改前的證據，記錯了一次根因（見第 7 節）。
 - **`pmset` 電源設定不存在於任何設定檔裡。** 重灌或換機不會遷移，且在「只靠電池」與「完全關機」兩種情況下會失效。使用習慣一改（晚上關機、不插電），01:00→03:00 的時序保證就沒了。**它與 plist 是兩件獨立的事**：plist 決定幾點跑，`pmset` 決定那個時刻機器醒不醒著。
 - **驗證上線一定要帶 cache-buster。** 裸網址與 `raw.githubusercontent.com` 都會回舊快取（實測回到三天前），且要同時確認 `updatedLabel` 是本次執行時間，只看日期會被騙。
-- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。22 檔節目目前有 19 檔定義了 CSS（`index.html` 共 20 組，另含已下架的 `capitalallocators` 供歷史資料顯示）。仍走預設藍的是 `bg2`／`acquired`／`lennys` 三檔——功能正常，只是視覺不一致。
+- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。23 檔節目目前有 20 檔定義了 CSS（`index.html` 共 21 組，另含已下架的 `capitalallocators` 供歷史資料顯示）。仍走預設藍的是 `bg2`／`acquired`／`lennys` 三檔——功能正常，只是視覺不一致。
 - **iTunes lookup 的 US 商店快取嚴重過期**，尤其 All-In，而且 limit 越小快取越舊。交叉驗證改用 GB／AU 商店。
 - **Substack 的 `/api/v1/archive` 也會回過期快取（2026-08-05）。** Dwarkesh 與 Latent Space 首次取回的最新一筆分別停在 6/08 與 7/08，要帶 cache-buster 才拿到當天。**失效的樣子是「這檔今天沒有新集數」**，於是安靜退回機器轉錄。與 iTunes US 商店是同一類問題，凡是「清單型 API」都要先懷疑快取。
 - **`web_fetch` 約 104,700 字元上限，超過會截斷且不報錯（2026-08-05）。** Latent Space 那集官方稿只取到 73%。取長逐字稿後要比對末尾時間戳與 `trackTimeMillis`，不足就用 podfetch 補齊末段並在 `source` 標明兩個來源各涵蓋哪一段。
