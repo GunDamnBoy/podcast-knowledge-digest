@@ -731,7 +731,7 @@ cp ~/.podfetch/snapshots/<時間戳>/podfetch.py ~/.podfetch/   # 還原
 
 **動機**：08-08 做了一次大幅 token 優化，卻只能「估算」降幅，因為從來沒量測過任何一天。**沒有基線，任何優化都只能自稱有效。** 同一天重跑會覆寫該日那列。
 
-欄位（15 欄，2026-08-09 由 12 擴為 15）：`date`／`episodes`／`ok`／`degraded`／`failed`／`transcript_kb`／`output_json_kb`／`brief_kb`／`skill_kb`／`podfetch_requests`／`podfetch_minutes`／`speaker_flags`／**`eff_tokens_k`／`subagents`／`agent_turns`**
+欄位（15 欄，2026-08-09 由 12 擴為 15）：`date`／`episodes`／`ok`／`degraded`／`failed`／`transcript_kb`／`output_json_kb`／`brief_kb`／`skill_kb`／`segments_done`（08-10 前叫 `podfetch_requests`，但它數的是完成段數不是 API 請求數——實測請求是段數的 2.5 倍，舊名會讓人拿它估 RPD 而低估）／`podfetch_minutes`／`speaker_flags`／**`eff_tokens_k`／`subagents`／`agent_turns`**
 
 **擴欄時舊列會少欄。** 表頭改成 15 欄而歷史列還是 12 欄，整份檔案就無法按欄名解析——而這份檔案存在的唯一目的就是當可解析的基線。`healthcheck.py` 現在每次重寫時會把短列補空欄到與表頭等長（2026-08-09 由子代理抓到）。
 
@@ -757,6 +757,7 @@ cp ~/.podfetch/snapshots/<時間戳>/podfetch.py ~/.podfetch/   # 還原
 | 08-09 ① | 呼叫預算、token 量測、語速校準 | SKILL.md（任務卡）、`healthcheck.py`、`podfetch.py`、`shows.json`、brief、本檔 | 子代理回合數失控（單集 70 次呼叫）；降幅無法量測；完整度基準過低使 1.2–1.3 變常態 | ⚠️ **呼叫預算未受測**（08-10 沒派子代理）；**token 量測根本沒生效**，路徑寫成 CLI 的 `~/.claude/projects`，連兩天空值，08-10 才修 |
 | 08-09 ② | 回歸複驗 | brief、`podfetch.py`、`healthcheck.py`、本檔 | 上一輪自己寫錯的因果與三處歸檔／擴欄後遺症 | ⚠️ **又是修法本身留下問題**：把 wpm 校準說成「修好 DEGRADED」（程式上不成立）、擴欄後歷史列錯位、歸檔時把「兩份一組要同步」這條規則一起搬走 |
 | 08-10 ① | 同源去重、下界例外、子代理門檻、退援層號、26 小時統一、token 量測出聲 | brief、SKILL.md、`healthcheck.py`、本檔 | 同一支音檔被兩個 feed 推送而佔滿當日；規格缺「低於下界」與「低量日」條款；FT 被誤列成獨立的退援層；26 小時與 `last_run_utc` 字面互斥；token 量測讀錯路徑 | ⏳ 08-11 起驗證。**前三個缺口共同形態是「主代理靠自覺補上規格的缺口」**，見第 7 節 |
+| 08-10 ③ | **程式碼審查＋知識庫新功能** | `podfetch.py`、`config.json`、`healthcheck.py`、`snapshot.sh`、`index.html`、`data/observations.json`（新）、brief、SKILL.md、本檔 | 單集時限實為無上界（2 小時集最壞 4 小時）；壞快取永久固化；探測每天燒 Flash 池 30%；config 壞損靜默用錯參數；知識庫沒有記憶（觀察點寫完就丟、來賓查不到、品質看不到） | ⏳ 08-11 起驗證。**時限語意與快取門檻都是防護機制**，改前已按第 12 節慣例逐項寫下最壞情況 |
 | 08-10 ② | **新增 TIP（22→23 檔）** | brief、`shows.json`、`config.json`、`index.html`、`README.md`、SKILL.md（description）、本檔 | 週一那一版涵蓋美東週末，現有節目在該窗口幾乎零供給 | ⚠️ 節目本身待驗（08-11 起看它是否真的落進窗口、語速未校準）；**流程面已知失誤兩處**：README 節目清單漏補、撞色只查了三處中的一處，兩者都不在 `healthcheck.py` 涵蓋範圍，已補進第 5 節步驟表 |
 
 **讀這張表的方式**：「後來成立嗎」那一欄的 ❌ 與 ⚠️ 是最有價值的部分，但**兩種標記代表兩件不同的事，不要混為一談**：
