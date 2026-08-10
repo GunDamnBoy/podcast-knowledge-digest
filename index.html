@@ -436,23 +436,104 @@
     });
   }
 
+  /* ---------- guests index ---------- */
+  function guestList(e){
+    // 新 schema 有結構化 guests:[{name,org}]；舊集數退回解析自由文字的 guest 欄位
+    if(e.guests && e.guests.length){
+      return e.guests.map(function(g){ return {name:(g.name||'').trim(), org:(g.org||'').trim()}; });
+    }
+    if(!e.guest) return [];
+    return String(e.guest).split('、').map(function(s){
+      s = s.trim(); if(!s) return null;
+      var m = s.match(/^([^（(]+)[（(]([^）)]*)[）)]?\s*$/);
+      return m ? {name:m[1].trim(), org:m[2].trim()} : {name:s, org:''};
+    }).filter(Boolean);
+  }
+  function renderGuests(){
+    $('readview').innerHTML = '<div class="empty">彙整來賓資料中…</div>';
+    allDays().then(function(days){
+      var map = {}, order = [];
+      days.forEach(function(d){ d.episodes.forEach(function(e){
+        guestList(e).forEach(function(g){
+          if(!g.name || g.name.length>25) return;
+          if(!map[g.name]){ map[g.name] = {org:g.org, eps:[]}; order.push(g.name); }
+          if(g.org && !map[g.name].org) map[g.name].org = g.org;
+          map[g.name].eps.push({date:d.date, id:e.id, show:e.show, showKey:e.showKey, title:e.title});
+        });
+      });});
+      order.sort(function(a,b){ return map[b].eps.length - map[a].eps.length || a.localeCompare(b); });
+      var h = '<div class="rd"><h2 class="rt">來賓索引</h2>'+
+        '<div class="hint">'+order.length+' 位來賓 · 涵蓋 '+days.length+' 天。姓名以節目標示為準，同名異寫會分列。</div>';
+      order.forEach(function(nm){
+        var g = map[nm];
+        h += '<div class="tk"><div class="th">'+esc(nm)+
+             (g.org? ' <span style="font-weight:400;color:var(--txt3);font-size:12.5px">'+esc(g.org)+'</span>':'')+
+             (g.eps.length>1? ' <span style="color:var(--txt3);font-size:12px">× '+g.eps.length+'</span>':'')+'</div>'+
+             g.eps.map(function(x){
+               return '<p style="cursor:pointer" data-go="#/'+x.date+'/'+esc(x.id)+'">'+esc(x.date.slice(5))+
+                 '｜<span class="badge b-'+esc(x.showKey)+'">'+esc(x.show)+'</span>　'+esc(x.title.replace(/^[^｜]*｜/,''))+'</p>';
+             }).join('')+'</div>';
+      });
+      h += '</div>';
+      $('readview').innerHTML = h; bindCards($('readview')); window.scrollTo(0,0);
+    });
+  }
+
+  /* ---------- observations scoreboard ---------- */
+  function renderObs(){
+    $('readview').innerHTML = '<div class="empty">載入記分板…</div>';
+    fetch('data/observations.json', {cache:'no-cache'}).then(function(r){
+      if(!r.ok) throw new Error('觀察點資料尚未建立');
+      return r.json();
+    }).then(function(o){
+      var items = o.items||[], stat = {};
+      items.forEach(function(it){ stat[it.status] = (stat[it.status]||0)+1; });
+      var ord = {'應驗':0,'部分應驗':1,'落空':2,'觀察中':3,'無法驗證':4};
+      var col = {'應驗':'var(--teal)','部分應驗':'var(--teal)','落空':'var(--red)',
+                 '觀察中':'var(--txt3)','無法驗證':'var(--txt3)'};
+      items = items.slice().sort(function(a,b){
+        var x = (ord[a.status]!==undefined?ord[a.status]:9) - (ord[b.status]!==undefined?ord[b.status]:9);
+        return x || String(b.date).localeCompare(String(a.date));
+      });
+      var h = '<div class="rd"><h2 class="rt">觀察點記分板</h2>'+
+        '<div class="hint">每天「觀察後記」提出的可驗證觀察點，後續由日報回訪並判定。'+
+        ['應驗','部分應驗','落空','觀察中','無法驗證'].filter(function(s){ return stat[s]; })
+          .map(function(s){ return s+' '+stat[s]; }).join('｜')+'</div>';
+      items.forEach(function(it){
+        h += '<div class="tk"><div class="th"><span class="lab" style="color:'+(col[it.status]||'var(--txt3)')+'">'+
+             esc(it.status)+'</span>｜'+esc(it.text)+'</div>'+
+             '<p>'+esc(it.date)+' 提出'+
+             (it.verdict? '；'+(it.verdictDate? esc(it.verdictDate)+' ':'')+'判定——'+esc(it.verdict) : '')+'</p></div>';
+      });
+      h += '</div>';
+      $('readview').innerHTML = h; window.scrollTo(0,0);
+    }).catch(function(err){
+      $('readview').innerHTML = '<div class="empty">'+esc(err.message)+'</div>';
+    });
+  }
+
   /* ---------- routing ---------- */
   function route(){
     var p = (location.hash||'').replace(/^#\/?/,'').split('/').filter(Boolean);
-    var isRead = p.length>=2;
+    var special = p.length===1 && (p[0]==='guests' || p[0]==='obs');
+    var isRead = p.length>=2 || special;
     $('listview').style.display = isRead?'none':'block';
     $('readview').style.display = isRead?'block':'none';
     $('back').style.display = isRead?'flex':'none';
     $('brand').style.display = isRead?'none':'flex';
     $('prog').style.width = '0';
-    if(isRead){ renderReader(p[0], p[1]); }
+    if(special){ if(p[0]==='guests'){ renderGuests(); } else { renderObs(); } }
+    else if(isRead){ renderReader(p[0], p[1]); }
     else {
       S.day = p[0] || (S.manifest.days[0] && S.manifest.days[0].date);
       renderList();
       window.scrollTo(0,0);
     }
   }
-  $('back').onclick = function(){ if(history.length>1) history.back(); else location.hash = '#/'+S.day; };
+  $('back').onclick = function(){
+    if(history.length>1){ history.back(); }
+    else { location.hash = '#/'+(S.day || (S.manifest && S.manifest.days[0] ? S.manifest.days[0].date : '')); }
+  };
   window.addEventListener('hashchange', route);
 
   var qt;
@@ -474,6 +555,7 @@
   ).then(function(j){
     S.manifest = j;
     $('stamp').textContent = (j.days.length) + ' 天 · 更新 ' + (j.updatedLabel || j.updated || '');
+    bindCards($('nav'));
     route();
   }).catch(function(){
     $('list').innerHTML = '<div class="empty">資料載入失敗，請稍後重新整理。</div>';
