@@ -215,6 +215,10 @@
       <div class="search"><span class="ic">🔍</span>
         <input id="q" type="search" placeholder="搜尋節目、來賓、關鍵字…" autocomplete="off"></div>
     </div>
+    <div class="filters" id="nav" style="margin-bottom:2px">
+      <button class="fchip" data-go="#/obs">◎ 觀察點記分板</button>
+      <button class="fchip" data-go="#/guests">◉ 來賓索引</button>
+    </div>
     <div class="days" id="days"></div>
     <div class="filters" id="filters"></div>
     <main id="list"></main>
@@ -258,11 +262,13 @@
     return out;
   }
   function epText(e){
+    if(e.__txt) return e.__txt;   // 每次按鍵都重建大字串會在長歷史下掉幀，做過就留著
     var t = [e.title, e.show, e.summary, e.hosts||'', e.guest||''];
+    (e.topics||[]).forEach(function(x){ t.push(x); });
     (e.takeaways||[]).forEach(function(k){ t.push(k.title); t.push(k.body); });
     (e.sections||[]).forEach(function(s){ t.push(s.heading); (s.paragraphs||[]).forEach(function(p){ t.push(p); }); });
     (e.quotes||[]).forEach(function(q){ t.push(q.text); });
-    return t.join('\n');
+    return (e.__txt = t.join('\n'));
   }
   function snippet(text, q){
     var i = text.toLowerCase().indexOf(q.toLowerCase());
@@ -276,7 +282,10 @@
   function getDay(date){
     if(S.cache[date]) return Promise.resolve(S.cache[date]);
     if(EMB && EMB.days && EMB.days[date]){ S.cache[date]=EMB.days[date]; return Promise.resolve(EMB.days[date]); }
-    return fetch('data/'+date+'.json', {cache:'no-cache'}).then(function(r){
+    // 只有「今天」那份要 no-cache（當天會被覆寫）；歷史日檔不可變，強制
+    // revalidate 只是浪費 round trip——搜尋要一次抓全部天，天數多了差距很大。
+    var isToday = S.manifest && S.manifest.days[0] && S.manifest.days[0].date === date;
+    return fetch('data/'+date+'.json', isToday ? {cache:'no-cache'} : undefined).then(function(r){
       if(!r.ok) throw new Error('讀取失敗 '+date);
       return r.json();
     }).then(function(j){ S.cache[date]=j; return j; });
@@ -384,12 +393,24 @@
       var h = '<div class="rd">';
       h += '<div class="rtop"><span class="badge b-'+esc(e.showKey)+'">'+esc(e.show)+'</span>'+
            '<h2 class="rt">'+esc(e.title)+'</h2></div>';
-      if(e.meta && e.meta.length){
-        h += '<div class="meta">'+e.meta.map(function(m){
-          var v = esc(m.v).replace(/(https?:\/\/[^\s]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
-          return '<div class="r"><div class="k">'+esc(m.k)+'</div><div class="v">'+v+'</div></div>';
-        }).join('')+'</div>';
+      if((e.topics||[]).length){
+        h += '<div class="filters" style="margin:0 0 12px">'+e.topics.map(function(t){
+          return '<span class="fchip" style="cursor:default">'+esc(t)+'</span>'; }).join('')+'</div>';
       }
+      var mrows = (e.meta||[]).map(function(m){
+        var v = esc(m.v).replace(/(https?:\/\/[^\s]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+        return '<div class="r"><div class="k">'+esc(m.k)+'</div><div class="v">'+v+'</div></div>';
+      }).join('');
+      // schema 有 hosts 卻從沒顯示過（2026-08-10 補）；quality 是同日新增的結構化欄位
+      if(e.hosts){ mrows += '<div class="r"><div class="k">主持人</div><div class="v">'+esc(e.hosts)+'</div></div>'; }
+      if(e.guest){ mrows += '<div class="r"><div class="k">來賓</div><div class="v">'+esc(e.guest)+'</div></div>'; }
+      if(e.quality){
+        var ql = (e.quality.completeness!=null ? '完整度 '+esc(e.quality.completeness) : '');
+        if(e.quality.status && e.quality.status!=='OK') ql += '（'+esc(e.quality.status)+'）';
+        if(e.quality.speakerNote) ql += (ql?'　':'')+'⚠ '+esc(e.quality.speakerNote);
+        if(ql) mrows += '<div class="r"><div class="k">轉錄品質</div><div class="v">'+ql+'</div></div>';
+      }
+      if(mrows){ h += '<div class="meta">'+mrows+'</div>'; }
       if(e.summary){ h += '<h3 class="sh">一句話總結</h3><div class="sumbox">'+esc(e.summary)+'</div>'; }
       if((e.takeaways||[]).length){
         h += '<h3 class="sh">核心重點</h3>' + e.takeaways.map(function(k){
