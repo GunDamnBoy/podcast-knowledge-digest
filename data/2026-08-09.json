@@ -61,7 +61,7 @@
    "guest": "Brad Gerstner（Altimeter Capital）",
    "source": "podfetch 逐字稿（Gemini API 轉錄，4 段、完整度 1.44、狀態 DEGRADED）。第 3 段（40:00–60:00）末端出現嚴重重複跳針：約 56 至 60 分鐘的 Airtable／SaaS 對話被整段重覆輸出四次，時間戳一度倒退回 42:28，字數因此膨脹到期望值的 1.44 倍。扣除重複後首輪內容仍連貫、四個主題皆有覆蓋，但該時段可能有零星論點遺漏，本摘譯僅採用未重複的首輪內容，並於對應章節說明。講者標籤（Speaker 1 至 17）整段錯置且中途對調，本文依內文互相稱呼、被點名提問與自述經歷（Sonoma 農場、IPO 當天上 CNBC、Altimeter 過往投資紀錄）交叉驗證後重新歸屬；少數無法確定歸屬者以中性表述處理。",
    "url": "https://podcasts.apple.com/us/podcast/id1502871393?i=1000780992629",
-   "chars": 6500,
+   "chars": 4597,
    "summary": "本集的張力在於資本正從「造模型」轉向「造算力與實體基礎設施」，而與談者對終局並無共識：Google 因把 2,000 億美元資本支出押在資料中心而流失 Jeff Dean；SpaceX 用火箭工程能力把資料中心變成單季 26 億美元的算力租金生意；Airtable 以峰值一成賣身，示範上一輪 SaaS 估值如何清算收場。核心分歧是：前沿智慧究竟是可持續收取溢價的雙寡頭定價權（Sacks、Gerstner），還是正被開源侵蝕的暫時領先（Calacanis）——這正是當前 AI 資本支出敘事最脆弱的接縫。",
    "takeaways": [
     {
@@ -191,7 +191,7 @@
    "guest": "Meredith Whitney（Meredith Whitney Advisory Group 執行長）、Brian Rolapp（PGA Tour 新任執行長）、Randall Williams（Bloomberg 資深運動商業記者）；另有 Bloomberg 同事 Mike McKee、一位名為 David 的記者（轉錄作「David Girls」，推測為 David Gura，未能確認）、一位被稱為「Suja」的記者（全名無法確認）",
    "source": "podfetch 逐字稿（Gemini API 語音轉錄，狀態 DEGRADED、完整度 1.53；第 2／3 段語速 329 字／分，Meredith Whitney 專訪整段被近乎逐字重複輸出一次、PGA Tour 執行長段落連續迴圈約四次。重複區段覆蓋的實際音檔內容並未被轉出，因此約 20 至 30 分鐘與 39 至 40 分鐘兩個時窗的真實內容有缺；節目三度預告的 David Kelly 專訪在逐字稿中完全沒有出現，可判定為缺漏段落。講者標籤大量錯置，人物歸屬與專有名詞已依上下文校正）",
    "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000780942340",
-   "chars": 3985,
+   "chars": 3887,
    "summary": "這集 Bloomberg Money 把一組互相拉扯的訊號並排放在一起：總體端，失業率之所以還守在 4.1%，靠的是勞動力人口連續第二個月縮小，而 Meredith Whitney 以週頻的信用卡餘額與消費資料主張「通膨已經在後視鏡裡」；家計端，卻是三分之二的在職者靠一個發薪日撐到下一個發薪日，被迫用年化超過 160% 的成本預支自己的工資。同一組數據可以讀成 Fed 該放心的理由，也可以讀成消費動能正被高價與信用可得性雙重擠壓的證據。節目後半把鏡頭轉到高爾夫，PGA Tour 在 LIV 衝擊後以 30 億美元外部資本與球員持股把自己重組成商業實體，構成「運動即資產類別」這條資金去化故事的另一面。",
    "takeaways": [
     {
@@ -326,7 +326,7 @@
    "guest": "David Frankel（Founder Collective 共同創辦人）",
    "source": "podfetch 逐字稿（Gemini 轉錄，完整度 1.15；講者標記多處錯置與中途對調，發言歸屬已依內容線索逐段校正）",
    "url": "https://podcasts.apple.com/us/podcast/id958230465?i=1000781078343",
-   "chars": 6705,
+   "chars": 4716,
    "summary": "這集是價值派與動能派的正面對撞。主持人 Harry Stebbings 主張在 AI 週期裡「價格從來沒有這麼不重要過」，十億美元估值已是新的 A 輪，基金規模與部署速度才是勝負關鍵；來賓、Founder Collective 共同創辦人 David Frankel 則以近十八年的種子投資經驗回擊：創投的分銷通路正向金字塔頂端收窄，但過去二十五年誕生的前五百大公司市值中位數只有 26 億美元，種子基金真正該解的不是命中最大贏家，而是進場價與持股比例。兩人在超級平台的種子資金究竟是資源還是買權、pro rata 是不是對創辦人的原罪、擴大基金規模會不會侵蝕 DPI 等議題上分歧鮮明。共識則有三點：這是他們職涯中最大的一道浪，但九成五的公司不會留下；次級市場流動性是他們見過最高的，DPI 首次成為可主動管理的變數；而 OpenAI 與 Anthropic 這批新霸主自身也一定會被顛覆，最有機會的來源是中國。",
    "takeaways": [
     {

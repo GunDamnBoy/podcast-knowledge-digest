@@ -66,7 +66,7 @@
    "guest": "無來賓",
    "source": "Gemini API 語音轉錄全文（20,283 字，完整度 127%）。第二段之後部分講者標籤退化為 Speaker 1／2，本篇歸屬係依語意、指名稱呼與公司歸屬交叉比對後判定",
    "url": "https://podcasts.apple.com/us/podcast/id1502871393?i=1000779342609",
-   "chars": 5728,
+   "chars": 3705,
    "summary": "費城半導體指數單月跌逾 20%、南韓 Kospi 四十天崩逾 40%、25 歲對沖基金經理 Leopold Aschenbrenner 遭追繳保證金並被 Citadel 整本接手，構成本集主軸：Sacks 與 Chamath 認定這是動能交易加三點五倍槓桿的清算、而非 AI 基本面破裂；Friedberg 則反擊，30 年期美債殖利率首度破 5.2%、2 兆美元赤字與中國開源模型三面夾擊，正在同時改寫 AI 長線敘事的折現率與價值歸屬。",
    "takeaways": [
     {
@@ -183,7 +183,7 @@
    "guest": "無來賓",
    "source": "Gemini API 語音轉錄全文（17,515 字，完整度 106%）",
    "url": "https://podcasts.apple.com/us/podcast/id1444520320?i=1000779411429",
-   "chars": 5116,
+   "chars": 3510,
    "summary": "7 月 FOMC 維持利率不變，市場事後讀成鷹派按兵不動，但 Kevin Muir 與 Patrick Ceresna 認為那是幻覺：Warsh 再次強調要把通膨壓回 2%，行動上卻什麼都沒做，結果失去債市信任，30 年殖利率在記者會期間跳升並突破 5 月與 2023 年 10 月高點——不緊縮反而推升利率；兩人並延伸討論九月恐慌式升息的風險、AI 動能崩盤，以及日圓與原油的極端部位。",
    "takeaways": [
     {
@@ -296,7 +296,7 @@
    "guest": "Richard Clarida（PIMCO 全球經濟顧問、前聯準會副主席）、Lori Calvasina（RBC Capital Markets 美股策略主管）、Allison Schrager（彭博意見專欄作家）、David Gura、Suzanne Woolley、Elena Popina、Hannah Elliott",
    "source": "Gemini API 語音轉錄全文（10,725 字，完整度 147%）。逐字稿講者標籤在圓桌段落大範圍失準，本篇歸屬係依稱謂與語意交叉比對後判定",
    "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000779327643",
-   "chars": 4520,
+   "chars": 2751,
    "summary": "本集主軸是前聯準會副主席 Richard Clarida 對 Warsh 週三記者會的評估：通膨目標制央行必須把「究竟在盯哪個指標」講清楚，而 30 年期公債殖利率本週一度觸及 5.26% 的 19 年新高；RBC 美股策略主管 Lori Calvasina 則以「恐懼分層」框架主張，情緒模型指向未來 12 個月上漲 10.8%，但投資人必須先預期至少一次 5 至 10% 的回檔。",
    "takeaways": [
     {
@@ -401,7 +401,7 @@
    "guest": "Mike Arougheti（Ares Management 共同創辦人暨執行長）、Bill Dudley（Bloomberg Opinion 專欄作家、前紐約聯準銀行總裁）、Robert Walsh 中將（Academy Securities）",
    "source": "Gemini API 語音轉錄全文（5,284 字，完整度 126%）。逐字稿講者標籤在問答間跳動，本篇歸屬係依提問語境判定",
    "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000779325220",
-   "chars": 2973,
+   "chars": 1639,
    "summary": "本集三段訪談分別觸及私募信貸、聯準會公信力與中東戰局：Ares 執行長 Mike Arougheti 以單季 360 億美元募資與同額部署說明企業與不動產基本面仍穩、但現金流成長溫和放緩；前紐約聯準銀行總裁 Bill Dudley 撰文批評 Warsh 首場記者會等於把貨幣政策外包給金融市場、傷及聯準會公信力，並認為九月的升息壓力因此升高；Academy Securities 的 Robert Walsh 中將則指出伊朗正以不對稱手段擴大戰場。",
    "takeaways": [
     {
@@ -481,7 +481,7 @@
    "guest": "Joon Sung Park（Simile 創辦人暨執行長，Stanford Smallville 生成式代理人論文主導者）",
    "source": "Gemini API 語音轉錄全文（14,740 字，完整度 140%）",
    "url": "https://podcasts.apple.com/us/podcast/id958230465?i=1000779385575",
-   "chars": 4825,
+   "chars": 3107,
    "summary": "Simile 創辦人暨執行長 Joon Sung Park 說明，公司要打造的是「人類行為的基礎模型」：不追求超理性智慧，而是要讓模型犯下和人一樣的錯、帶著和人一樣的偏誤。他主張觀察型資料只能做相關與預測，真正值錢的是能算反事實的因果機制，因此自行大量執行隨機對照試驗與 A/B 測試。他透露模型預測人類行為與態度的準確度可達「人類自己複測自己」的 85%，並預言二至三年內會出現單次要價 1 億美元的模擬。",
    "takeaways": [
     {
@@ -590,7 +590,7 @@
    "guest": "Som Seif（Purpose Unlimited 創辦人暨執行長）",
    "source": "Gemini API 語音轉錄全文（18,404 字，完整度 155%）。本集逐字稿未產生講者標籤，發言歸屬係依提問與回答結構判定",
    "url": "https://ritholtz.com/2026/08/mib-som-seif/",
-   "chars": 5377,
+   "chars": 3535,
    "summary": "Purpose Unlimited 創辦人暨執行長 Som Seif 回顧從 RBC 投行、2005 年創辦 Claymore、2008 年逆勢正淨流入、2012 年賣給 BlackRock，到重起爐灶打造 Purpose 與 Wealthsimple 的歷程；他主張資產管理業真正的工作不是打敗指數，而是回答客戶「我會不會沒事」，並以行為科學、成果導向產品、與監管機關共同推進創新為核心，同時視 AI 為整個組織的重新平台化，而非功能加值。",
    "takeaways": [
     {
