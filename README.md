@@ -24,7 +24,7 @@
 
 ## 全文來源
 
-**優先使用官方逐字稿**（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）。部分節目的官方稿會落後一到兩週，當集通常改用語音轉錄。
+**優先使用官方逐字稿**（Acquired、Lex Fridman、Dwarkesh、Latent Space、Macro Voices、Goldman Sachs Exchanges、FT Unhedged、Masters in Business）。兩種情況會改用語音轉錄：部分節目的官方稿會落後一到兩週；**片長超過兩小時的集數也一律走語音轉錄**——取稿工具有單次長度上限，超長稿會被靜默截斷，拼接反而不可靠。Acquired 的深度特輯經常四個半小時，實務上多半屬於後者。
 
 其餘節目走**本機語音轉錄管線**：抓取節目原始音檔，經 Gemini API 轉為逐字稿。轉錄時會帶入各節目的主持人名單作為參考，但**只有在音訊裡有明確依據時才標真名**（自我介紹、被直呼、主持人點名），否則一律標為「講者 1／2」——錯的名字會變成對真實人物的不實陳述，比沒有名字糟得多。轉錄結果會做字數完整度檢查與講者標記合理性檢查，異常的集數會在該集標記出來。
 
