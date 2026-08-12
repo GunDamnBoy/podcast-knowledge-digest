@@ -1,7 +1,18 @@
 {
- "updated": "2026-08-12T03:49:22+08:00",
- "updatedLabel": "8/12 03:49",
+ "updated": "2026-08-13T03:20:00+08:00",
+ "updatedLabel": "8/13 03:20",
  "days": [
+  {
+   "date": "2026-08-13",
+   "label": "2026年8月13日（週四）",
+   "short": "8/13 週四",
+   "episodeCount": 3,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends"
+   ]
+  },
   {
    "date": "2026-08-12",
    "label": "2026年8月12日（週三）",
