@@ -1,7 +1,24 @@
 {
- "updated": "2026-08-13T03:20:00+08:00",
- "updatedLabel": "8/13 03:20",
+ "updated": "2026-08-14T03:19:57+08:00",
+ "updatedLabel": "8/14 03:19",
  "days": [
+  {
+   "date": "2026-08-14",
+   "label": "2026年8月14日（週五）",
+   "short": "8/14 週五",
+   "episodeCount": 12,
+   "shows": [
+    "All-In Podcast",
+    "MacroVoices",
+    "Exchanges at Goldman Sachs",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "20VC",
+    "No Priors",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ]
+  },
   {
    "date": "2026-08-13",
    "label": "2026年8月13日（週四）",
