@@ -142,14 +142,17 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **流程**：iTunes 偵測 → 下載 MP3 → 切成 20 分鐘段 → 每段經 Files API 上傳後送 Gemini `generateContent` → 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。循序處理，六集約 30–45 分鐘。
 
-**逐字稿格式**：YAML front matter（`show`／`showKey`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`segments`／`words`／`expected_words`／`words_per_minute`／`completeness`／`status`／`warnings`／`speaker_notes`），正文為 `[MM:SS] 講者姓名：內容`（超過一小時的部分是 `[H:MM:SS]`）。
+**逐字稿格式**：YAML front matter（`show`／`showKey`／`title`／`released_utc`／`duration_ms`／`apple_url`／`source`／`segments`／`words`／`expected_words`／`words_per_minute`／`completeness`／`status`／`warnings`／`speaker_notes`／`timestamp_notes`），正文為 `[MM:SS] 講者姓名：內容`（超過一小時的部分是 `[H:MM:SS]`）。
 
-> **`warnings` 與 `speaker_notes` 是兩個不同維度，不要混為一談。**
+> **`warnings`、`speaker_notes`、`timestamp_notes` 是三個不同維度，不要混為一談。**
 >
 > - `warnings` 決定 `status`：完整度、語速異常這類「內容可能缺漏」的問題。
 > - **`speaker_notes` 不影響 `status`**：講者標記的可疑訊號。該集內容可能完全完整，只是發言歸屬不可靠。
+> - **`timestamp_notes` 也不影響 `status`（2026-08-14 新增）**：時間軸的可疑訊號。內容可能完整、講者也對，只是**時間戳不可信**。
 >
-> 摘譯時**兩個都要讀**。`speaker_notes` 有東西就代表那一集的金句歸屬與「誰主張什麼」需要靠上下文覆核。**兩者曾經共用同一個欄位，導致完整度正常的集數被誤標為 `DEGRADED`（2026-08-07），已拆開。**
+> 摘譯時**三個都要讀**。`speaker_notes` 有東西＝金句歸屬與「誰主張什麼」要靠上下文覆核；**`timestamp_notes` 有東西＝不要依時間戳切章節，改用主題轉換判定**。
+>
+> **前兩者曾經共用同一個欄位，導致完整度正常的集數被誤標為 `DEGRADED`（2026-08-07），已拆開；`timestamp_notes` 從一開始就獨立，理由相同。**
 
 **講者姓名是這條管線最大的增值**。`shows.json` 預先寫入每檔節目的主持人名單，轉錄 prompt 要求 Gemini 用真名而非 `Speaker A`。跨節目交叉觀察因此能具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」）。
 
@@ -306,6 +309,15 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 > 轉錄 prompt 已改為保守標記——有明確依據（自我介紹、被直呼、主持人點名）才寫真名，否則一律 `Speaker N`，廣告與台呼標 `Announcer`。**因此看到 `Speaker N` 是誠實而非失敗**，不要硬去補人名。`podfetch.py` 的 `check_speaker_labels()` 會把**五種**可疑訊號寫進**獨立的 `speaker_notes`／`speakerNotes` 欄位（不是 `warnings`、不影響 `status`）**：裸時間戳（整行沒有講者標記）、標籤格式異常（把台詞或廣告當人名）、全集只有一個講者、泛稱佔比 ≥40% 卻混著真名、單一講者連續獨佔 15 分鐘以上。
 >
 > **但它抓不到「合理人名張冠李戴」**——08-07 的 All-In 把開頭 13 分鐘的 Jason Calacanis 整段標成 Chamath Palihapitiya，標籤本身完全合理，只是錯的。**這一類只能靠讀內容時的上下文校正**（誰被直呼名字、誰在問問題、開場說了誰不在）。
+
+> **時間軸也會壞，而且壞得比講者更安靜（2026-08-14 新增 `check_timestamps()`）。** 兩種訊號寫進獨立的 `timestamp_notes`／`timestampNotes`：
+>
+> 1. **時間戳溢出**——最大時間戳超過片長 25% 以上。08-11 的 20VC 最大值跑到 1,192 分鐘（片長 59 分，溢出 1888%）、08-14 的 TIP837 跑到 253 分（片長 78 分，溢出 224%）。**兩集的完整度分別是 0.91 與 0.98、status 都是 OK，三天來沒有任何機制看見它**——講者檢查只抓到副作用（「整段錯置」），時間軸崩壞本身隱形。
+> 2. **大間隙＋完整度雙重成立**——無時間戳的時間佔片長 30% 以上**且**完整度低於 0.85。08-14 的 MIB 就是這樣被抓到的（22 分鐘無戳、完整度 0.73，子代理獨立確認確有兩處跳段）。
+>
+> **第 2 條刻意設成「兩個訊號同時成立」**：長篇獨白（時間戳只在換人時出現）與真的跳段長得一模一樣，只看間隙會對 72 集報 15 集，那就是講者檢查初版「九集報八集」的同一種失敗。收緊後全庫 72 集只報 7 集。
+>
+> **看到 `timestamp_notes` 就不要依時間戳切章節，改用主題轉換判定。** 08-14 的 TIP837 是子代理自己發現異常才改的——那是規格缺條款，不是它機靈。
 >
 > 以下是 2026-08-06／07 實際出現過的失敗型態，看到就要提高警覺： 該集完整度 1.01、狀態 OK，但 Gemini 從中段起把主持人標成片頭廣告旁白者的名字。**`shows.json` 的主持人名單只是提示，不保證正確歸屬。**
 >
@@ -364,7 +376,7 @@ podcast-knowledge-digest/
       "summary": "一句話總結…",
       "guests": [{ "name": "Lacy Hunt", "org": "Hoisington" }],
       "topics": ["聯準會與利率", "通膨"],
-      "quality": { "completeness": 1.02, "status": "OK", "speakerNote": "" },
+      "quality": { "completeness": 1.02, "status": "OK", "speakerNote": "", "timestampNote": "" },
       "takeaways": [{ "label": "重點一", "title": "…", "body": "…" }],
       "sections": [{ "heading": "一、…", "paragraphs": ["…", "…"] }],
       "quotes": [{ "text": "…", "by": "David Sacks" }]
@@ -377,7 +389,7 @@ podcast-knowledge-digest/
 
 - **`guests`**：結構化來賓清單，取代自由文字 `guest` 欄位的解析（`guest` 仍保留給人讀）。**姓名照節目說法、不要自己正規化**；判斷不了單位就留空字串。這是網站「來賓索引」頁的資料來源——自由文字時代前端用「頓號切、括號切」硬拆，同名異寫會讓索引分裂。
 - **`topics`**：主題標籤，**只能從下面的受控詞表選，1–3 個**——自由發揮的標籤跨日對不上，等於沒有標籤。詞表（15 個）：`總經與利率`／`聯準會與利率`／`通膨`／`美股大盤`／`信用與債市`／`AI資本支出`／`AI技術與應用`／`半導體`／`個股拆解`／`科技產業`／`創投與私募`／`加密資產`／`地緣政治`／`能源與大宗商品`／`投資哲學`。詞表要擴充時改這裡並同步任務卡。
-- **`quality`**：轉錄品質的結構化欄位，從 manifest 直接抄（`completeness`／`status`；`speakerNote` 填 speakerNotes 的一句話總結，無警示留空字串）。過去這些資訊只以散文埋在 `source` 字串裡，前端無法顯示品質提示。
+- **`quality`**：轉錄品質的結構化欄位，從 manifest 直接抄（`completeness`／`status`；`speakerNote` 填 speakerNotes 的一句話總結，`timestampNote` 填 timestampNotes 的一句話總結，無警示一律留空字串）。過去這些資訊只以散文埋在 `source` 字串裡，前端無法顯示品質提示。
 
 **`chars` 由組檔時機械計算（2026-08-12 改）**：第 4 步組檔的 python 一律用
 
