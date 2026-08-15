@@ -1,6 +1,8 @@
 # AGENT BRIEF — 節目知識庫・每日發布標準說明
 
-這份文件是「節目知識庫（Podcast Knowledge Digest）」的完整規格。任何一個新的 Cowork 對話讀了這份，就能完整重現整套系統。全程使用繁體中文（台灣用語），讀者為專業財經工作者。
+這份文件是「節目知識庫（Podcast Knowledge Digest）」的完整規格。任何一個新的 Cowork 對話讀了這份，就能完整重現整套系統的**規格面**。全程使用繁體中文（台灣用語），讀者為專業財經工作者。
+
+> **有三條規則刻意不在本檔**：子代理門檻（<10 KB 主代理直接做）、工具呼叫預算（目標 2 次／上限 5 次）、中斷重派的 50% 成本門檻。它們是**執行流程**而非內容規格，只寫在排程 `SKILL.md` 第 3 步——查這三條要去那裡，不要以為本檔漏了。
 
 網站：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
@@ -41,7 +43,7 @@
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
 | Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（PDF 可直接 WebFetch）。**官方稿通常落後一週以上**，當集多半還沒上架（08-07 實例：當天最新只到 MV543／7-30）。**這時退回 podfetch 是正常的，不是失效**，照常在 `source` 標明來源即可 |
 | Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。從 GS 的 Exchanges 節目列表頁取實際連結，或用 WebSearch 找。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market` |
-| Unhedged (FT) | **入口是 `https://www.ft.com/the-economics-show`**（2026-08-08 更正）。**不要用 `ft.com/unhedged`**——那頁是 Unhedged 電子報存檔，**完全不含 podcast 集數**，過去寫錯了。只能走 Chrome：`find` 取得目標日期文章的 `href` → `navigate` → `get_page_text`。<br>**Unhedged 的 feed 會放姊妹節目 The Economics Show 的重播**（08-08 實例：8/6 的 feed 放的是原 6/19 那集）。遇到重播要在 `published` 與 `source` 標明原始播出日，不要當成新集數 |
+| Unhedged (FT) | **入口是 FT 站內搜尋：`https://www.ft.com/search?q="<該集原文標題>"`**（2026-08-15 更正）。**兩個舊入口都不對**——`ft.com/unhedged` 是電子報存檔、不含 podcast；`ft.com/the-economics-show` 只列 The Economics Show 自己的集數，**同樣不含 Unhedged**（08-15 實測，該頁找不到當集）。只能走 Chrome：`navigate` 搜尋頁 → 取候選連結 `href` → **選標題帶 `Transcript:` 前綴的那一個**（每集有兩個頁面，另一個是只有播放器與簡介的集數頁，正文僅約 2,700 字元，很容易誤判成「付費牆擋住」）→ `navigate` → `get_page_text`。<br>**Unhedged 的 feed 會放姊妹節目 The Economics Show 的重播**（08-08 實例：8/6 的 feed 放的是原 6/19 那集）。遇到重播要在 `published` 與 `source` 標明原始播出日，不要當成新集數 |
 | Masters in Business | `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`（晚 1–2 週；新集數改走 B） |
 
 **取官方逐字稿的兩個陷阱（2026-08-05 實測，都會安靜失敗）**
@@ -61,22 +63,24 @@ All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the 
 
 > **We Study Billionaires（TIP，2026-08-10 加入）** 是 The Investor's Podcast Network 的旗艦，**一週兩檔、其中一檔固定在週日**，這正是加它的原因——週一那一版涵蓋美東週六中午到週日中午，現有節目在這個窗口幾乎沒有供給（08-10 只有 2 集，而且是同一支預告）。
 > **兩檔的性質不同**：週日是 William Green 的 **RWH（Richer, Wiser, Happier）**系列，訪談知名投資人與經理人，約 2 小時，偏投資哲學與決策品質；週四是 TIP 本編的個股內在價值拆解（Exor、Intuit、DLocal 這類），約 80 分鐘，與 Business Breakdowns 題材接近，**交叉觀察時注意不要重複同一件事**。
-> **語速尚未校準**：新加入時沿用全域 200 字/分，累積幾集後量測實際語速再決定要不要在 `shows.json` 補 `wpm`（同類的 ILTB 實測是 122，所以完整度一開始可能偏低，那是基準問題不是缺字）。
+> **語速尚未校準**：新加入時沿用全域 200 字/分，累積幾集後量測實際語速再決定要不要在 `shows.json` 補 `wpm`（同類的 ILTB 目前 `shows.json` 設定為 140，所以完整度一開始可能偏低，那是基準問題不是缺字）。
 >
 > Masters in Business 兩邊都在：`ritholtz.com` 的官方逐字稿晚 1–2 週，所以**當天一定是走 B**，等官方稿補上是之後補跑才用得到的東西。日常執行把它當 B 類處理即可。
 
 **偵測新集數**用 iTunes Lookup API（不需 Chrome，回傳結構化 JSON）：
 
 ```
-https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode&limit=8
+https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode&limit=8&cb=<時間戳>
 ```
 
 用 `web_fetch` 取得。每集看 `releaseDate`（**UTC**）、`trackName`、`trackTimeMillis`（毫秒）、`description`、`trackViewUrl`、`episodeUrl`。Bloomberg Surveillance 一天發多集，該檔用 `limit=20`。
 
+> **`&cb=<時間戳>` 不是保險，是必要的（2026-08-15）。** iTunes 把回應綁在**確切的查詢字串**上快取，過期時同一個網址可以連續數天回同一份舊資料。這與 Substack `/api/v1/archive` 是同一類問題，處理方式也相同。`podfetch.py` 的 `itunes_lookup()` 已內建，走退援路徑手動查詢時要自己加。
+
 **五個已知陷阱**：
 
 - 回傳第一筆是節目本身（`"wrapperType":"track"`），其 `releaseDate` 是舊資料，**不要誤判為新集數**；真正的集數是 `"wrapperType":"podcastEpisode"`。
-- **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。上面的 `limit=8` 只是起手式；**只要某一檔回傳的最新集數看起來太舊（例如距今超過該節目正常更新間隔），就換 GB 或 AU 商店重查一次**——把網址的 `itunes.apple.com/lookup` 前面加上國別即可（`https://itunes.apple.com/gb/lookup?...`）。實測 GB／AU 是即時的。2026-08-03 實例：US 商店回報 All-In 最新只到 7/18，GB 商店拿到的是 7/31。**這一條若漏掉，退援路徑會安靜漏抓主秀。**
+- **US 商店快取嚴重過期**（尤其 All-In），且 **limit 越小快取越舊**。**第一線解法是上面的 `&cb=<時間戳>`**——過期是綁在查詢字串上的，換任何一個變動參數就繞開。2026-08-15 實測：不帶 `cb` 時 All-In 與 Bloomberg 都停在 07-31（落後 15 天），帶了 `cb` 立刻拿到 08-13／08-14。**若加了 `cb` 仍然可疑，才換商店，而且要用查詢參數形式 `&country=GB`——路徑前綴形式（`itunes.apple.com/gb/lookup`）在本環境回空白內容，已不可用**（2026-08-15 實測，brief 舊版寫的 `/gb/`／`/au/` 是錯的）。**這一條若漏掉，主路徑與退援路徑都會安靜漏抓主秀**——08-15 就這樣整整一天回報「沒有新集數」，實際有 10 集。
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
 - **`lookup` 端點正常，但 `search` 端點透過 `web_fetch` 回空字串**（沙箱 bash 也連不到 iTunes）。要找新節目的 AppleID 時不能靠 `search`，改用 WebSearch，或直接從 Apple Podcasts 網址的 `id<數字>` 取。
 - **節目層那筆的 `releaseDate` 可能落後好幾個月**，用它判斷節目是否停更會出錯。**一律看 `entity=podcastEpisode` 回傳的集數層日期。**
@@ -116,7 +120,7 @@ All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜U
 
 **時區換算**：台北 ＝ UTC+8，「台北 7/31 全天」＝ `releaseDate` 落在 `2026-07-30T16:00:00Z` 至 `2026-07-31T15:59:59Z`。務必先換算再篩選，美東晚間發布的集數在台北會落到隔天，很容易算錯一天。
 
-**檔名慣例**：`data/YYYY-MM-DD.json` 的日期是**執行當天**（台北），內容是該時點往前、`last_run_utc` 之後發布的集數（正常約 26 小時，實際值看 manifest 的 `windowStartUtc`／`windowEndUtc`）。以 03:00 執行為例，`2026-08-04.json` 涵蓋的是**台北 8/3 01:00 至 8/4 03:00** 發布的集數——注意它**不含** 8/4 凌晨 03:00 之後的內容（那批是隔天那一版的）。補跑歷史某天時沿用同一慣例。
+**檔名慣例**：`data/YYYY-MM-DD.json` 的日期是**執行當天**（台北），內容是該時點往前、`last_run_utc` 之後發布的集數（正常約 26 小時，實際值看 manifest 的 `windowStartUtc`／`windowEndUtc`）。**窗口的兩端都由 podfetch（01:00）決定，不是日報（03:00）**：起點是上次 `last_run_utc` 往前 30 分鐘、終點是 podfetch 本次的執行時刻。所以 `2026-08-14.json` 實際涵蓋的是 `2026-08-12T16:30Z → 2026-08-13T17:00Z`，換算台北是 **8/13 00:30 至 8/14 01:00、24.5 小時**——不是「8/13 01:00 至 8/14 03:00」。實際值一律看 manifest 的 `windowStartUtc`／`windowEndUtc`，補跑歷史某天時沿用同一慣例。
 
 **注意窗口接縫**：**iTunes 退援路徑**的 26 小時窗口以每天固定同一時刻執行為前提，某天沒跑或延後跑就會在兩次窗口之間留下空隙（主路徑沒有這個問題，它以 `last_run_utc` 為準）。**但這個空隙通常不會真的掉集數**，因為真正決定「有哪幾集」的是 podfetch，而 podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時）、下次執行會自動往回補（見第 2 節）。
 
@@ -246,7 +250,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
    > **第 1 層的特例：FT 專用流程（Unhedged）。** 它不是另一層，只是取得方式特殊、且有專屬的失效檢查。
    >
-   > **只能走 Chrome**（`find` → `navigate` → `get_page_text`）。**`ft.com` 已於 2026-08-06 進入本環境 `web_fetch` 的封鎖清單（回 HTTP 403 `URL is on blocklist`），那條路已死，不要再試。** **2026-08-08 這條 Chrome 路徑已在無人值守的排程中跑完並成功**（45,181 字元、無付費牆標記），不再是未驗證狀態。仍要注意底下的 syndication cookie 是會安靜過期的依賴（見第 6 節）；**若卡在工具權限就直接退回下一層並在回報中明講，不要空等**。
+   > **只能走 Chrome**（入口與選頁規則見第 1 節 A 類表格的 Unhedged 那一列）。**`ft.com` 已於 2026-08-06 進入本環境 `web_fetch` 的封鎖清單（回 HTTP 403 `URL is on blocklist`），那條路已死，不要再試。** 這條 Chrome 路徑已在無人值守的排程中跑完並成功兩次（08-08 為 45,181 字元、08-15 為 23,924 字元，均無付費牆標記），不再是未驗證狀態。**字元數逐集差異很大，不要拿某一次的值當門檻**——判準是下一段的 5,000 字元下限與付費牆字串。仍要注意底下的 syndication cookie 是會安靜過期的依賴（見第 6 節）；**若卡在工具權限就直接退回下一層並在回報中明講，不要空等**。
 
    > **取到後必須檢查正文長度**，通常 5,000 字元以上；明顯偏短或出現 `Subscribe to unlock`／`Complete digital access` 即視為 FT 存取失效。**此時退回第 2 層（podfetch 逐字稿），不是跳到 YouTube**——Unhedged 是 B 類以外的節目但 podfetch 一樣有轉錄它。podfetch 也沒有才繼續往下，並明確告知使用者 FT 存取已失效。
 
