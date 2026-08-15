@@ -1,7 +1,23 @@
 {
- "updated": "2026-08-14T03:19:57+08:00",
- "updatedLabel": "8/14 03:19",
+ "updated": "2026-08-15T08:59:26+08:00",
+ "updatedLabel": "8/15 08:59",
  "days": [
+  {
+   "date": "2026-08-15",
+   "label": "2026年8月15日（週六）",
+   "short": "8/15 週六",
+   "episodeCount": 10,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Masters in Business",
+    "Hard Fork",
+    "Pivot"
+   ]
+  },
   {
    "date": "2026-08-14",
    "label": "2026年8月14日（週五）",
