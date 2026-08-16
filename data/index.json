@@ -1,7 +1,18 @@
 {
- "updated": "2026-08-16T03:20:00+08:00",
- "updatedLabel": "8/16 03:20",
+ "updated": "2026-08-17T03:12:12+08:00",
+ "updatedLabel": "8/17 03:12",
  "days": [
+  {
+   "date": "2026-08-17",
+   "label": "2026年8月17日（週一）",
+   "short": "8/17 週一",
+   "episodeCount": 3,
+   "shows": [
+    "The Market Huddle",
+    "We Study Billionaires (TIP)",
+    "Lenny's Podcast"
+   ]
+  },
   {
    "date": "2026-08-16",
    "label": "2026年8月16日（週日）",
