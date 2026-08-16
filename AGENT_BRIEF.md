@@ -53,16 +53,23 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／BG2／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Business Breakdowns**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**／**We Study Billionaires（TIP）**
+All-In／**Prof G Markets**／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Money Stuff**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**／**We Study Billionaires（TIP）**
 
-> **Business Breakdowns**（Colossus 出品，與 ILTB 同門）每集拆解一家公司的商業模式、單位經濟、護城河、估值框架與風險，來賓多是實際持有該檔股票的 buy-side。**Colossus 在 `joincolossus.com` 的集數頁有官方逐字稿**，若哪天要把它升到 A 類可從那裡取，目前先走 podfetch。
+> **Prof G Markets（2026-08-16 加入，取代 BG2）** 是 Vox Media 出品、Scott Galloway 與 Ed Elson 的市場節目，**週一至週五每日一集**（UTC 08:15 發布 ≒ 台北 16:15），平日約 30–35 分鐘由 Ed Elson 帶來賓拆解當日題材，**週一與部分專訪約 65–70 分鐘**由 Scott 加入。加它的理由是更新頻率與討論度——BG2 已掉到約每季一集。
+> **與 Pivot 有主持人重疊（都有 Scott Galloway），與 Bloomberg／Compound／Unhedged 有題材重疊**，交叉觀察時注意不要在同一天重複同一件事。
+> **語速尚未校準**：沿用全域 200 字/分，累積幾集後再決定要不要在 `shows.json` 補 `wpm`。
+>
+> **Money Stuff: The Podcast（2026-08-16 加入，取代 Business Breakdowns）** 是 Bloomberg Opinion 的 Matt Levine 與 Katie Greifeld，**每週五一集**、約 30 分鐘，談市場結構、證券法、ETF 與金融怪事，是同題材裡影響力最高的來源之一。**偶爾會發 `Re-Run:` 開頭的重播**（08-14 那集是 3 月訪談 Boaz Weinstein 的重播），遇到要在 `published` 與 `source` 標明原始播出日，處理方式同 Unhedged 的重播規則。
+> **與 Odd Lots 同屬 Bloomberg**，題材偶有交集，交叉觀察比照 Compound 的處理。
+>
+> **BG2（1727278168）與 Business Breakdowns（1559120677）已於 2026-08-16 移出現役清單**——BG2 實際節奏約每季一集（最新 06-11，往前 03-15、2025-12-23），Business Breakdowns 約每兩個月一集（最新 07-27，前一集 05-29），兩者都已用帶 cache-buster 的查詢覆核過是節目自身節奏、不是管線問題。**歷史集數仍在站上，`index.html` 的 `s-bg2`／`b-breakdowns` 等六組 CSS 一律保留不刪**，否則舊日檔會掉色。若哪天恢復高頻更新，照 `MAINTENANCE.md` 第 5 節步驟表加回。
 >
 > **In Good Company** 是挪威主權基金 CEO Nicolai Tangen 訪談各大企業 CEO，約 25 分鐘，節奏比其他節目快很多。
 >
 > **The Compound and Friends** 是美股市場週評，與 Bloomberg／Market Huddle／Unhedged 題材有重疊，摘譯時注意不要在交叉觀察裡重複同一件事。
 
 > **We Study Billionaires（TIP，2026-08-10 加入）** 是 The Investor's Podcast Network 的旗艦，**一週兩檔、其中一檔固定在週日**，這正是加它的原因——週一那一版涵蓋美東週六中午到週日中午，現有節目在這個窗口幾乎沒有供給（08-10 只有 2 集，而且是同一支預告）。
-> **兩檔的性質不同**：週日是 William Green 的 **RWH（Richer, Wiser, Happier）**系列，訪談知名投資人與經理人，約 2 小時，偏投資哲學與決策品質；週四是 TIP 本編的個股內在價值拆解（Exor、Intuit、DLocal 這類），約 80 分鐘，與 Business Breakdowns 題材接近，**交叉觀察時注意不要重複同一件事**。
+> **兩檔的性質不同**：週日是 William Green 的 **RWH（Richer, Wiser, Happier）**系列，訪談知名投資人與經理人，約 2 小時，偏投資哲學與決策品質；週四是 TIP 本編的個股內在價值拆解（Exor、Intuit、DLocal 這類），約 80 分鐘，個股拆解題材與 ILTB／Money Stuff 偶有交集，**交叉觀察時注意不要重複同一件事**。
 > **語速尚未校準**：新加入時沿用全域 200 字/分，累積幾集後量測實際語速再決定要不要在 `shows.json` 補 `wpm`（同類的 ILTB 目前 `shows.json` 設定為 140，所以完整度一開始可能偏低，那是基準問題不是缺字）。
 >
 > Masters in Business 兩邊都在：`ritholtz.com` 的官方逐字稿晚 1–2 週，所以**當天一定是走 B**，等官方稿補上是之後補跑才用得到的東西。日常執行把它當 B 類處理即可。
@@ -87,7 +94,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 各節目 AppleID：
 
-All-In 1502871393｜BG2 1727278168｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Business Breakdowns 1559120677**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991｜**We Study Billionaires（TIP）928933489**
+All-In 1502871393｜**Prof G Markets 1744631325**｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Money Stuff 1739582836**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991｜**We Study Billionaires（TIP）928933489**
 
 **權威來源是 `~/.podfetch/shows.json`**（含 AppleID、節目名、主持人名單，Bloomberg 的 `limit: 20` 也在那裡）。上面這份清單是給人看的，兩邊不一致時以 `shows.json` 為準。
 
@@ -431,9 +438,9 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 `showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。23 檔完整鍵值：
 
-`allin`／`bg2`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`breakdowns`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`／`tip`
+`allin`／`profg`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`moneystuff`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`／`tip`
 
-**`index.html` 目前定義了 24 組——現役 23 檔全部齊備**（2026-08-11 補完 `acquired`／`bg2`／`lennys`），另含已下架的 `capitalallocators`（供歷史資料顯示）。補新色時要確認**沒有跟既有的撞色**（08-08 就差點讓 `hardfork` 用到 `markethuddle` 的橘紅）；**三處要分別檢查**，08-10 只查了色條就宣稱查過，徽章文字色與現役節目只差 12。門檻：與最近鄰的 RGB 距離至少 25，低於 20 一定要換。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
+**`index.html` 目前定義了 26 組——現役 23 檔全部齊備**（2026-08-16 補 `profg`／`moneystuff`），另含三組已移出現役但歷史資料仍在站上的 `capitalallocators`／`bg2`／`breakdowns`。**移出節目時只從 `shows.json`、`show_priority` 與本節清單刪，`index.html` 的 CSS 一律保留**——刪了舊日檔就掉色。補新色時要確認**沒有跟既有的撞色**（08-08 就差點讓 `hardfork` 用到 `markethuddle` 的橘紅）；**三處要分別檢查**，08-10 只查了色條就宣稱查過，徽章文字色與現役節目只差 12。門檻：與最近鄰的 RGB 距離至少 25，低於 20 一定要換。其餘鍵值第一次出現在資料裡時，該集會走預設藍——功能正常但視覺不一致，此時在回報中提一句即可。補的時候三處都要補：`.ep.s-<key>::before`、`.b-<key>`、`html[data-theme="dark"] .b-<key>`。
 
 > `capitalallocators` 於 2026-08-03 移除。舊資料檔裡若還有這個鍵值，該集會走預設藍——**不要為此回頭改歷史檔案**，歷史資料保持原樣。
 

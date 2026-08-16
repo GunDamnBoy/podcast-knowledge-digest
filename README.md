@@ -10,11 +10,11 @@
 
 ## 追蹤的節目
 
-**科技／創投／AI**：All-In、Acquired、20VC、Pivot、No Priors、Lenny's Podcast、Lex Fridman、BG2 Pod、Hard Fork、Dwarkesh Podcast、Latent Space
+**科技／創投／AI**：All-In、Acquired、20VC、Pivot、No Priors、Lenny's Podcast、Lex Fridman、Hard Fork、Dwarkesh Podcast、Latent Space
 
-**總經／市場**：Odd Lots、Macro Voices、The Market Huddle、Unhedged (FT)、Bloomberg Surveillance、The Compound and Friends、Exchanges at Goldman Sachs
+**總經／市場**：Odd Lots、Macro Voices、The Market Huddle、Unhedged (FT)、Bloomberg Surveillance、The Compound and Friends、Exchanges at Goldman Sachs、Prof G Markets、Money Stuff
 
-**投資與公司基本面**：Invest Like the Best、Business Breakdowns、In Good Company、Masters in Business、We Study Billionaires (TIP)
+**投資與公司基本面**：Invest Like the Best、In Good Company、Masters in Business、We Study Billionaires (TIP)
 
 ## 內容結構
 
