@@ -162,7 +162,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 >
 > **前兩者曾經共用同一個欄位，導致完整度正常的集數被誤標為 `DEGRADED`（2026-08-07），已拆開；`timestamp_notes` 從一開始就獨立，理由相同。**
 
-**講者姓名是這條管線最大的增值**。`shows.json` 預先寫入每檔節目的主持人名單，轉錄 prompt 要求 Gemini 用真名而非 `Speaker A`。跨節目交叉觀察因此能具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」）。
+**講者姓名是這條管線最大的增值**。`shows.json` 預先寫入每檔節目的主持人名單，轉錄 prompt 要求 Gemini 用真名而非 `Speaker 1`／`Speaker 2`。跨節目交叉觀察因此能具體到人（「Chamath 主張 X，而 Kevin Muir 在同一議題上主張 Y」）。
 
 ### 品質指標怎麼讀
 
@@ -481,7 +481,7 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ### 2026-08-17
 
-- **以 `writing-for-agents` 六槓桿稽核本檔與排程 `SKILL.md`，依稽核結果分四批改（本檔 34,381 → 30,755 字元）。** ①**刪五處會過期的抄本**：本檔第 5 行的舊工具呼叫預算數值（**數值以 `SKILL.md` 為唯一來源**）、三處「為了宣告舊規則作廢而把它完整寫進 context」的句子、第 1 節 23 組 AppleID 抄本（**改指向 `~/.podfetch/shows.json`**）、第 3 行的純敘述開場白。②**修 `snapshot.sh` 在 Mac 上的解析錯誤**（`${DEST}` 加大括號；bash 3.2 會把緊接的全形括號吃進變數名）。③**本節歸檔**——見下方歸檔規則的單位訂正。④**第 2 節「四個不要改的設計」下推到 `MAINTENANCE.md` 第 4C 節**，本節改留「品質指標怎麼讀」三條；**`config.json` 現行值刻意留著**——它是 `healthcheck.py`「brief vs config」那道檢查唯一的比對對象，移走等於廢掉檢查。
+- **以 `writing-for-agents` 六槓桿稽核本檔與排程 `SKILL.md`，依稽核結果分四批改（本檔 34,381 → 30,941 字元）。** ①**刪五處會過期的抄本**：本檔第 5 行的舊工具呼叫預算數值（**數值以 `SKILL.md` 為唯一來源**）、三處「為了宣告舊規則作廢而把它完整寫進 context」的句子、第 1 節 23 組 AppleID 抄本（**改指向 `~/.podfetch/shows.json`**）、第 3 行的純敘述開場白。②**修 `snapshot.sh` 在 Mac 上的解析錯誤**（`${DEST}` 加大括號；bash 3.2 會把緊接的全形括號吃進變數名）。③**本節歸檔**——見下方歸檔規則的單位訂正。④**第 2 節「四個不要改的設計」下推到 `MAINTENANCE.md` 第 4C 節**，本節改留「品質指標怎麼讀」三條；**`config.json` 現行值刻意留著**——它是 `healthcheck.py`「brief vs config」那道檢查唯一的比對對象，移走等於廢掉檢查。
   **`SKILL.md` 同步四項**：第 0／1／2 步各補一條可驗證的完成條件；第 6 步的「簡短講」與其後十六項互相打架，已改寫並新增第 17 項（回報 brief 讀了幾次）；引進「**進場**」一詞統一原本反覆展開的成本說明；本檔第 3 節同步引進「**雙訊號**」。
   **尚未解決**：**本檔一次 `Read` 仍讀不完**（改前 29,112 token／到第 386 行；改後 25,912 token／到第 405 行，上限 25,000）。排程第 0 步已就地寫明「看到截斷提示就接著讀完」，但根因要再瘦約 1,100 字元，候選見 `MAINTENANCE.md` 第 6 節。
 
