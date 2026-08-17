@@ -1,7 +1,19 @@
 {
- "updated": "2026-08-17T03:12:12+08:00",
- "updatedLabel": "8/17 03:12",
+ "updated": "2026-08-18T03:20:00+08:00",
+ "updatedLabel": "8/18 03:20",
  "days": [
+  {
+   "date": "2026-08-18",
+   "label": "2026年8月18日（週二）",
+   "short": "8/18 週二",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "20VC",
+    "Prof G Markets"
+   ]
+  },
   {
    "date": "2026-08-17",
    "label": "2026年8月17日（週一）",
