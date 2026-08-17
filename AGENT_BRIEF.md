@@ -1,8 +1,8 @@
 # AGENT BRIEF — 節目知識庫・每日發布標準說明
 
-這份文件是「節目知識庫（Podcast Knowledge Digest）」的完整規格。任何一個新的 Cowork 對話讀了這份，就能完整重現整套系統的**規格面**。全程使用繁體中文（台灣用語），讀者為專業財經工作者。
+全程使用繁體中文（台灣用語），讀者為專業財經工作者。
 
-> **有三條規則刻意不在本檔**：子代理門檻（<10 KB 主代理直接做）、工具呼叫預算（目標 2 次／上限 5 次）、中斷重派的 50% 成本門檻。它們是**執行流程**而非內容規格，只寫在排程 `SKILL.md` 第 3 步——查這三條要去那裡，不要以為本檔漏了。
+> **有三條規則刻意不在本檔**：子代理門檻（<10 KB 主代理直接做）、工具呼叫預算、中斷重派的 50% 成本門檻。它們是**執行流程**而非內容規格，只寫在排程 `SKILL.md` 第 3 步——查這三條要去那裡，不要以為本檔漏了。
 
 網站：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
@@ -92,11 +92,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 - **`lookup` 端點正常，但 `search` 端點透過 `web_fetch` 回空字串**（沙箱 bash 也連不到 iTunes）。要找新節目的 AppleID 時不能靠 `search`，改用 WebSearch，或直接從 Apple Podcasts 網址的 `id<數字>` 取。
 - **節目層那筆的 `releaseDate` 可能落後好幾個月**，用它判斷節目是否停更會出錯。**一律看 `entity=podcastEpisode` 回傳的集數層日期。**
 
-各節目 AppleID：
-
-All-In 1502871393｜**Prof G Markets 1744631325**｜Pivot 1073226719｜Hard Fork 1528594034｜Unhedged 1691284824｜Acquired 1050462261｜20VC 958230465｜Invest Like the Best 1154105909｜**Money Stuff 1739582836**｜**In Good Company 1614211565**｜**The Compound and Friends 1456467014**｜Masters in Business 730188152｜No Priors 1668002688｜Lenny's 1627920305｜Lex Fridman 1434243584｜Dwarkesh 1516093381｜Latent Space 1674008350｜Odd Lots 1056200096｜Macro Voices 1079172742｜Market Huddle 1444520320｜Bloomberg Surveillance 296237493｜GS Exchanges 948913991｜**We Study Billionaires（TIP）928933489**
-
-**權威來源是 `~/.podfetch/shows.json`**（含 AppleID、節目名、主持人名單，Bloomberg 的 `limit: 20` 也在那裡）。上面這份清單是給人看的，兩邊不一致時以 `shows.json` 為準。
+**各節目 AppleID 的唯一來源是 `~/.podfetch/shows.json`**（含 AppleID、節目名、主持人名單，Bloomberg 的 `limit: 20` 也在那裡）。走 iTunes 退援路徑需要 AppleID 時直接讀它——本檔不另抄一份，抄本會過期。
 
 ### 時間窗口與去重
 
@@ -264,7 +260,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
 
 ### 退援順序
 
-**只有四層。**（2026-08-10 訂正：FT 曾被列成獨立的第 3 層，但那與同一段的說明自相矛盾，也與排程 SKILL.md 的層號對不上——**FT 流程取得的就是 Unhedged 的官方逐字稿，屬第 1 層**。）
+**只有四層。**
 
 1. **官方逐字稿**（第 1 節 A 類）— 永遠優先。**manifest 決定「有哪幾集」，不決定「用哪份全文」**：A 類節目即使 podfetch 已轉錄，仍要去抓官方稿，抓不到才退回 podfetch 版本，並據實填 `source`。
 
