@@ -1,7 +1,23 @@
 {
- "updated": "2026-08-18T03:20:00+08:00",
+ "updated": "2026-08-20T07:23:29+00:00",
  "updatedLabel": "8/18 03:20",
  "days": [
+  {
+   "date": "2026-08-20",
+   "label": "2026年8月20日（週四）",
+   "short": "8/20 週四",
+   "episodeCount": 10,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Invest Like the Best",
+    "In Good Company",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-08-20.json"
+  },
   {
    "date": "2026-08-18",
    "label": "2026年8月18日（週二）",
@@ -243,5 +259,6 @@
     "Lex Fridman Podcast"
    ]
   }
- ]
+ ],
+ "count": 20
 }
