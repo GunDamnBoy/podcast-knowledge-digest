@@ -12,7 +12,7 @@
 
 ## 0. 這個系統在做什麼
 
-每天早上（含週末）自動偵測 23 檔 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
+每天早上（含週末）自動偵測 `shows.json` 裡全部現役 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
 
 1. **Word 報告**（.docx）— **由 `~/.podfetch/json2docx.py` 從當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍），交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供隨時閱讀與全文搜尋。
@@ -31,14 +31,13 @@
 
 ---
 
-## 1. 節目清單與全文來源（23 檔）
+## 1. 節目清單與全文來源
 
 **A. 官方逐字稿——永遠優於機器轉錄，這類節目每天都要去抓**（**唯一例外：片長超過 120 分鐘的集數直接用 podfetch 稿，見第 2 節退援順序第 1 層**）
 
 | 節目 | 取得方式 |
 |---|---|
 | Acquired | RSS `https://feeds.transistor.fm/acquired` 內 `<podcast:transcript>` → `share.transistor.fm/s/<id>/transcript.txt` |
-| Lex Fridman | 索引 `lexfridman.com/podcast/` → `lexfridman.com/<slug>-transcript` |
 | Dwarkesh Podcast | `https://www.dwarkesh.com/api/v1/archive?sort=new&limit=10` → `dwarkesh.com/p/<slug>` |
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
 | Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（PDF 可直接 WebFetch）。**官方稿通常落後一週以上**，當集多半還沒上架（08-07 實例：當天最新只到 MV543／7-30）。**這時退回 podfetch 是正常的，不是失效**，照常在 `source` 標明來源即可 |
@@ -53,13 +52,18 @@
 
 **B. 音檔轉錄（podfetch ＋ Gemini API，見第 2 節）** — 沒有官方逐字稿的節目一律走這條。iTunes Lookup 回傳的 `episodeUrl` 就是直接的 MP3 網址，**不需要 YouTube**。
 
-All-In／**Prof G Markets**／Pivot／Hard Fork／20VC／No Priors／Lenny's／Invest Like the Best／**Money Stuff**／**In Good Company**／**The Compound and Friends**／Odd Lots／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**／**We Study Billionaires（TIP）**
+All-In／**Prof G Markets**／Hard Fork／20VC／No Priors／Invest Like the Best／**Money Stuff**／**In Good Company**／**The Compound and Friends**／Odd Lots／**Forward Guidance**／Bloomberg Surveillance／The Market Huddle／**Masters in Business（新集數）**／**We Study Billionaires（TIP）**
 
 > **Prof G Markets（2026-08-16 加入，取代 BG2）** 是 Vox Media 出品、Scott Galloway 與 Ed Elson 的市場節目，**週一至週五每日一集**（UTC 08:15 發布 ≒ 台北 16:15），平日約 30–35 分鐘由 Ed Elson 帶來賓拆解當日題材，**週一與部分專訪約 65–70 分鐘**由 Scott 加入。加它的理由是更新頻率與討論度——BG2 已掉到約每季一集。
 > **與 Pivot 有主持人重疊（都有 Scott Galloway），與 Bloomberg／Compound／Unhedged 有題材重疊**，交叉觀察時注意不要在同一天重複同一件事。
 > **語速尚未校準**：沿用全域 200 字/分，累積幾集後再決定要不要在 `shows.json` 補 `wpm`。
 >
 > **Money Stuff: The Podcast（2026-08-16 加入，取代 Business Breakdowns）** 是 Bloomberg Opinion 的 Matt Levine 與 Katie Greifeld，**每週五一集**、約 30 分鐘，談市場結構、證券法、ETF 與金融怪事，是同題材裡影響力最高的來源之一。**偶爾會發 `Re-Run:` 開頭的重播**（08-14 那集是 3 月訪談 Boaz Weinstein 的重播），遇到要在 `published` 與 `source` 標明原始播出日，處理方式同 Unhedged 的重播規則。
+>
+> **Forward Guidance（2026-08-20 加入，取代 Sharp Tech）** 是 Blockworks 的總經節目，主持人 **Felix Jauvin**。**走 B 類**：集數頁（`blockworks.com/podcast/forwardguidance/<id>`）只有摘要與時間戳，**沒有逐字稿**，2026-08-20 實地確認過，不要浪費一次抓取去試。
+> **主持人換過人**，舊集數與網路上的資料可能仍寫前任；`shows.json` 的 `hosts` 以節目頁的 Behind the Brand 欄位為準。
+> **語速尚未校準**：沿用全域 200 字/分，累積幾集後再決定要不要在 `shows.json` 補 `wpm`。
+> **與 Macro Voices／Bloomberg／Unhedged 題材重疊**（利率、聯準會、債市），交叉觀察時注意不要在同一天重複同一件事。
 > **與 Odd Lots 同屬 Bloomberg**，題材偶有交集，交叉觀察比照 Compound 的處理。
 >
 > **In Good Company** 是挪威主權基金 CEO Nicolai Tangen 訪談各大企業 CEO，約 25 分鐘，節奏比其他節目快很多。
@@ -208,7 +212,7 @@ python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
    > 這個對照只花一次 `web_fetch`，而它防的是「整天集數無聲消失且無任何紀錄」。**週末與長假的真 0 集會通過這個對照，不會誤報。**
    >
    > **podfetch 自 2026-08-16 起也有兩道自己的防線，但它們不取代上面的外部對照。**
-   > - **0 集健全性對照（零額外請求）**：`discover()` 除了視窗內的集數，另外回傳「全部 23 檔所有集數裡最新的一筆時間」——用的是已經抓回來的資料，不發新請求。0 集那天若這個時間距今超過 `stale_feed_hours`（現為 72 小時），日誌會印三行 `!!` 開頭的警告。門檻取 72 小時的理由是清單裡有每個交易日都發的 Bloomberg，**「所有節目同時安靜三天以上」在現實中不會發生**；事故當天這個數字是 15 天，真 0 集日實測 0.6 天、長週末 1.9 天，都會通過。
+   > - **0 集健全性對照（零額外請求）**：`discover()` 除了視窗內的集數，另外回傳「全部現役節目所有集數裡最新的一筆時間」——用的是已經抓回來的資料，不發新請求。0 集那天若這個時間距今超過 `stale_feed_hours`（現為 72 小時），日誌會印三行 `!!` 開頭的警告。門檻取 72 小時的理由是清單裡有每個交易日都發的 Bloomberg，**「所有節目同時安靜三天以上」在現實中不會發生**；事故當天這個數字是 15 天，真 0 集日實測 0.6 天、長週末 1.9 天，都會通過。
    > - **0 集一律不推進 `last_run_utc`**：下次執行的視窗仍從同一個起點算，暫時性失效因此不會變成永久缺口。代價是真 0 集日會重複查詢一次，成本可忽略。
    >
    > **看到 `!!` 就直接當假零集處理；看不到 `!!` 也還是要做外部對照**——這道檢查只認得「所有節目同時安靜」這一種形態，換成單一節目的 AppleID 失效它就看不見了。
@@ -408,13 +412,15 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ### showKey
 
-`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。23 檔完整鍵值：
+`showKey` 決定卡片色條與徽章顏色，**一律採用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。
 
-`allin`／`profg`／`pivot`／`hardfork`／`unhedged`／`acquired`／`twentyvc`／`iltb`／`moneystuff`／`ingoodcompany`／`compound`／`mib`／`nopriors`／`lennys`／`lex`／`dwarkesh`／`latentspace`／`oddlots`／`macrovoices`／`markethuddle`／`bloomberg`／`gsx`／`tip`
+**現役鍵值不抄在這裡。** 唯一的家是 `~/.podfetch/shows.json`，要看就 `python3 -c "import json;print(sorted(json.load(open('$HOME/.podfetch/shows.json'))))"`。這一段先前抄了一份 23 個鍵的清單，等到實際少了兩檔時，**清單、`index.html` 與 shows.json 三邊各說各話，而三邊都不會報錯**（2026-08-20 對帳才發現）。一個檔案、一行指令的東西不值得抄第二份。
 
-**`index.html` 目前定義了 26 組——現役 23 檔全部齊備**（2026-08-16 補 `profg`／`moneystuff`），另含三組已移出現役但歷史資料仍在站上的 `capitalallocators`／`bg2`／`breakdowns`。**移出節目時只從 `shows.json`、`show_priority` 與本節清單刪，`index.html` 的 CSS 一律保留**——刪了舊日檔就掉色。**新增節目要補三處 CSS 並檢查撞色，步驟與門檻見 `MAINTENANCE.md` 第 5 節第 4 步。** 未定義的 `showKey` 第一次出現時該集會走預設藍——功能正常但視覺不一致，在回報第 11 項提一句即可。
+**移出節目時只從 `shows.json`、`show_priority` 刪，`index.html` 的 CSS 一律保留**——刪了舊日檔就掉色。**新增節目要補三處 CSS**（`.ep.s-<key>`、`.b-<key>`、深色覆寫）**並檢查撞色**，步驟與門檻見 `MAINTENANCE.md` 第 5 節第 4 步。未定義的 `showKey` 第一次出現時該集會走預設藍——功能正常但視覺不一致，在回報第 11 項提一句即可。
 
-> `capitalallocators` 於 2026-08-03 移除、`bg2` 與 `breakdowns` 於 2026-08-16 移除。**三者的 CSS 都留著，舊資料檔顯示正常，不會走預設藍**。**歷史檔案一律保持原樣，不要回頭改。**
+> **新增那一邊沒有人在看。** 移出是有人盯著的動作，新增卻感覺像「加一行 JSON 就好了」——2026-08-20 加 `fwdguidance` 時，CSS 三條、本文件的節目清單、`shows.json` 的 `hosts` **三處全漏**，而三處都不會報錯：徽章只是沒有顏色、日報代理只是沒有路由、逐字稿只是整集都是 `Speaker 1`。現在 `healthcheck.py` 有一條 `現役節目沒有色條` 在守 CSS 那一處，另外兩處仍然只能靠這一段。
+
+> 已移出現役、CSS 仍保留的：`capitalallocators`（08-03）、`bg2` 與 `breakdowns`（08-16）、`lennys`／`lex`／`pivot`（08-20）。**舊資料檔顯示正常，不會走預設藍**。**歷史檔案一律保持原樣，不要回頭改。**這份名單本身也是抄本，會過期——權威判準是 `healthcheck.py` 的 `已移除節目` 那一條，它拿 `index.html` 的色碼跟 `shows.json` 現算。
 
 `index.html` 的交叉觀察展開按鈕標籤依 `crossCut.points` 實際條數產生（`cnZh` 函式），不寫死條數。
 
