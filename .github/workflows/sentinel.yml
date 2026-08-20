@@ -1,0 +1,25 @@
+# 哨兵 —— 判斷邏輯在 kb-core 的 reusable workflow 裡，這裡只宣告「我是誰、何時跑」。
+#
+# 2026-08-20 由整份 YAML 收成 caller。原本每個資料 repo 各有一份九十行的複本，
+# 那在只有一個 repo 時是對的（不為尚未存在的第二份先引入機制），
+# 第二份出現時就不對了 —— **複本的成本要到第二個使用者才付得出來。**
+#
+# **排程 03:30 UTC（台北 11:30）。** GitHub 的排程會漂移、會漏跑，
+# 而且 repo 連續 60 天沒有活動就會自動停用排程 —— 那正是 Mac 那一側
+# `watch.sentinel_alive` 存在的理由：**這一支沒辦法自己證明自己活著。**
+
+name: sentinel
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  sentinel:
+    uses: GunDamnBoy/kb-core/.github/workflows/sentinel-reusable.yml@main
+    with:
+      system_id: podcast-knowledge-digest
+    permissions:
+      contents: write
+      issues: write
