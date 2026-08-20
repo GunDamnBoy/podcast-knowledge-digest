@@ -13,7 +13,7 @@
 
 | # | 檔案／位置 | 角色 | 誰會讀它 |
 |---|---|---|---|
-| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：23 檔節目清單、全文來源、podfetch 管線、內容規格、資料格式、發布流程 | 每日排程在第 0 步完整讀過 |
+| 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：各節目的全文來源與取得方式、podfetch 管線、內容規格、資料格式、發布流程。**現役節目名單本身不在裡面**——唯一的家是 `~/.podfetch/shows.json` | 每日排程在第 0 步完整讀過 |
 | 2 | 排程任務 `podcast-digest-daily` 的 SKILL.md | **執行骨架**：流程順序與分支判斷。事實細節指向 brief 章節，不重抄——**唯一例外是第 3 步的子代理任務卡**（子代理讀不到 brief，卡上抄了第 3／4 節的必要規格，**改內容規格時兩邊都要改**，healthcheck 檢查不到這種同步） | 排程觸發時直接執行 |
 | 3 | `~/podcast-knowledge-digest/index.html` | 前端外殼：CSS、渲染邏輯、節目徽章 | 瀏覽器 |
 | 4 | `~/podcast-knowledge-digest/data/*.json` | 每日內容 | `index.html` |
@@ -75,7 +75,9 @@ python3 ~/.podfetch/healthcheck.py
 - **除錯時先問「這個值今天有沒有被人動過」。** 在正在被修改的系統上，讀到的現況不等於事發時的狀況——2026-08-03 就是這樣把修改後的 plist 當成修改前的證據，記錯了一次根因（見第 7 節）。
 - **`pmset` 電源設定不存在於任何設定檔裡。** 重灌或換機不會遷移，且在「只靠電池」與「完全關機」兩種情況下會失效。使用習慣一改（晚上關機、不插電），01:00→03:00 的時序保證就沒了。**它與 plist 是兩件獨立的事**：plist 決定幾點跑，`pmset` 決定那個時刻機器醒不醒著。
 - **驗證上線一定要帶 cache-buster。** 裸網址與 `raw.githubusercontent.com` 都會回舊快取（實測回到三天前），且要同時確認 `updatedLabel` 是本次執行時間，只看日期會被騙。
-- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。23 檔節目**全部**定義了 CSS（`index.html` 共 **26 組**，另含三組已移出現役但歷史資料仍在站上的 `capitalallocators`／`bg2`／`breakdowns`）。08-11 起沒有節目走預設藍；新增節目時若忘了補 CSS，`healthcheck.py` 的「showKey CSS」會 WARN。**移出節目時 CSS 不刪**，見第 5 節開頭。
+- **`showKey` 一律沿用 `~/.podfetch/shows.json` 的鍵值**，不要在網站端另取名字，否則徽章永遠對不上。現役節目與 `index.html` 色碼的差集由 `healthcheck.py` 的「showKey CSS」現算，**不要在這裡抄一份數字**。**移出節目時 CSS 不刪**，見第 5 節開頭。
+  > **2026-08-20 訂正**：這一段原本寫「新增節目時若忘了補 CSS，`healthcheck.py` 的『showKey CSS』會 WARN」——**那句是錯的，而且錯了很久**。那條檢查比的是「資料**用到**的 showKey」，新節目還沒出過集數時它不在裡面，所以檢查對「加了節目卻忘了加色」**唯一會發生的那段期間**是瞎的。08-20 加 `fwdguidance` 時 CSS 三條全漏，這支腳本當天跑過、判 PASS。已補上反方向（`shows.json` 現役 − `index.html` 色條），現在那句才成立。
+  > **一句「有東西在守」的話寫錯，比沒寫更糟——它會讓人不再去看。**
 - **iTunes lookup 的 US 商店快取嚴重過期**，尤其 All-In，而且 limit 越小快取越舊。**第一線解法是一律帶 `&cb=<時間戳>`**（`podfetch.py` 的 `itunes_lookup()` 已內建，手動查詢要自己加）——快取綁在確切的查詢字串上，換任何變動參數就繞開。**要換商店只能用查詢參數 `&country=GB`；路徑前綴 `itunes.apple.com/gb/lookup`／`/au/` 在本環境回空白內容，本檔與 brief 過去寫的那條退路實際上不存在**（2026-08-15 實測）。2026-08-15 因為缺 `cb` 而整天回報「沒有新集數」，實際有 10 集，見第 7 節。
 - **Substack 的 `/api/v1/archive` 也會回過期快取（2026-08-05）。** Dwarkesh 與 Latent Space 首次取回的最新一筆分別停在 6/08 與 7/08，要帶 cache-buster 才拿到當天。**失效的樣子是「這檔今天沒有新集數」**，於是安靜退回機器轉錄。與 iTunes US 商店是同一類問題，凡是「清單型 API」都要先懷疑快取。
 - **`web_fetch` 約 104,700 字元上限，超過會截斷且不報錯（2026-08-05）。** Latent Space 那集官方稿只取到 73%。取長逐字稿後要比對末尾時間戳與 `trackTimeMillis`，不足就用 podfetch 補齊末段並在 `source` 標明兩個來源各涵蓋哪一段。
@@ -164,7 +166,8 @@ brief 第 6 節只留每日執行需要的，完整版在這裡：
 5. **`README.md` 兩處**：開頭的「偵測 N 檔節目」與「追蹤的節目」清單。**這一步 08-10 漏了**——數字改了、清單沒補，而 `healthcheck.py` 只比對 brief 與 `shows.json`，**看不到 README**。它是 Public repo 唯一會被外部讀者看到的檔案。
 6. 排程 SKILL.md：節目數變動一定會動到 `description`（「N 檔財經 Podcast」）；流程或排序規則有變才動 prompt 本體。
 7. brief 第 8 節加變更紀錄，`MAINTENANCE.md` 第 12 節登記簿補一列。
-8. 跑 `healthcheck.py` 確認 showKey 三項檢查都 PASS。**注意它涵蓋不到 README 與撞色**，那兩項只能靠這張清單。
+8. 跑 `healthcheck.py` 確認相關檢查都 PASS。**2026-08-20 起，第 1、2、4、5 步有機械把關**：`節目在文件裡`（第 1、5 步：現役節目的名稱在 brief 與 README 都要找得到）、`showKey CSS` 的「現役節目沒有色條」（第 4 步）、`shows.json 兩份`（`~/.podfetch` 與版控那份的對帳）。**仍然涵蓋不到的只剩撞色（第 4 步的第二半）與第 3、6、7 步。**
+  > 這四項會補上，是因為這張清單**失敗過兩次而且是同一種**：08-10 加 TIP 漏了 README（第 12 節登記簿有紀錄），08-20 加 fwdguidance 漏了 brief 與 CSS。**清單沒有錯，錯的是「靠人記得走完清單」這件事本身。**
 
 ---
 
