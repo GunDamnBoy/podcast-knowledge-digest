@@ -110,7 +110,12 @@
   .ep.s-acquired::before{background:#450a0a} .ep.s-bg2::before{background:#4c1d95}
   .ep.s-lennys::before{background:#365314}
   .ep.s-profg::before{background:#991b1b} .ep.s-moneystuff::before{background:#312e81}
-  /* bg2／breakdowns 於 2026-08-16 移出現役清單，但歷史集數仍在站上，色碼保留不刪 */
+  .ep.s-fwdguidance::before{background:#7a3760}
+  /* 節目移出現役時只動 shows.json／show_priority／清單，**這裡的色碼一律保留**——
+     刪了舊日檔就掉色。目前保留的除役色：capitalallocators、bg2、breakdowns、
+     lennys、lex、pivot。
+     反過來那一邊沒有人在看：**新增節目時這裡要一起加三條**（s-／b-／深色覆寫）。
+     2026-08-20 加 fwdguidance 時就漏了，是對帳才發現的——徽章不會報錯，只會沒有顏色。 */
   .eptop{display:flex;align-items:center;gap:7px;margin-bottom:8px;flex-wrap:wrap}
   .badge{font-size:10.5px;font-weight:800;padding:2.5px 8px;border-radius:5px;border:1px solid;letter-spacing:.2px}
   .b-allin{background:#fff9e6;color:#8a6d00;border-color:#f0dc9a}
@@ -139,6 +144,7 @@
   .b-lennys{background:#f7fee7;color:#365314;border-color:#d9f99d}
   .b-profg{background:#fef2f2;color:#991b1b;border-color:#fecaca}
   .b-moneystuff{background:#eef2ff;color:#312e81;border-color:#c7d2fe}
+  .b-fwdguidance{background:#fbf4f8;color:#7a3760;border-color:#ecd0e0}
   html[data-theme="dark"] .badge{background:var(--card2)!important;border-color:var(--line2)!important}
   html[data-theme="dark"] .b-allin{color:#e8c860!important} html[data-theme="dark"] .b-macrovoices{color:#5eb5ab!important}
   html[data-theme="dark"] .b-markethuddle{color:#ff9d6b!important} html[data-theme="dark"] .b-unhedged{color:#e0a578!important}
@@ -153,6 +159,7 @@
   html[data-theme="dark"] .b-tip{color:#f0abfc!important}
   html[data-theme="dark"] .b-acquired{color:#fbbf24!important} html[data-theme="dark"] .b-bg2{color:#2dd4bf!important}
   html[data-theme="dark"] .b-lennys{color:#d9f99d!important}
+  html[data-theme="dark"] .b-fwdguidance{color:#e3a8c8!important}
   html[data-theme="dark"] .b-profg{color:#fb7185!important} html[data-theme="dark"] .b-moneystuff{color:#818cf8!important}
   .ep .n{margin-left:auto;font-size:11px;color:var(--txt3);white-space:nowrap}
   .ep h3{font-size:15.5px;font-weight:750;line-height:1.55;margin-bottom:7px}
