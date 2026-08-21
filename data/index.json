@@ -1,7 +1,23 @@
 {
- "updated": "2026-08-20T19:37:23+00:00",
- "updatedLabel": "8/21 03:37",
+ "updated": "2026-08-21T19:32:00+00:00",
+ "updatedLabel": "8/22 03:32",
  "days": [
+  {
+   "date": "2026-08-22",
+   "label": "2026年8月22日（週六）",
+   "short": "8/22 週六",
+   "episodeCount": 8,
+   "shows": [
+    "All-In Podcast",
+    "MacroVoices",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Hard Fork"
+   ],
+   "file": "data/2026-08-22.json"
+  },
   {
    "date": "2026-08-21",
    "label": "2026年8月21日（週五）",
@@ -276,5 +292,5 @@
    ]
   }
  ],
- "count": 21
+ "count": 22
 }
