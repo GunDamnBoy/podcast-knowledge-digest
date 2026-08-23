@@ -25,6 +25,34 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      # **這裡的順序是被 `path: '.'` 逼出來的。**
+      # 這個 workflow 上傳整個 repo（四套裡唯一沒有 `_site` 白名單的），
+      # 所以在上傳之前 checkout 進來的任何東西都會跟著發到公開站上。
+      # 而下面那道守衛必須在上傳之前跑 —— 上傳之後才發現內容錯了，
+      # 錯的那份已經在讀者眼前了。
+      #
+      # 解法是**用完就刪**：取程式 → 驗 → 刪掉 → 才上傳。
+      # 這比改成白名單小，但也**只是權宜** ——
+      # 真正該做的是跟另外三套一樣挑檔案上傳（`README.md`、`AGENT_BRIEF.md`、
+      # `MAINTENANCE.md`、`measure-ts-monotonic.py` 目前都在公開站上）。
+      - name: 取驗證程式
+        uses: actions/checkout@v5
+        with:
+          repository: GunDamnBoy/kb-core
+          path: kb-core
+
+      # **索引與日檔說的是不是同一件事。**
+      # 清單頁讀 `data/index.json` 的複本、單篇頁讀 `data/<日期>.json`，
+      # 兩邊漂開時**兩頁各自都正常、但說的不是同一件事**，沒有人會發現。
+      # 2026-08-23 外資報告週摘就是這樣：首頁一整面舊標題、單篇頁全對，
+      # 而 verify_live 是綠的而且它是對的（線上就是剛上傳的那份）。
+      - name: 驗證索引與日檔一致
+        run: python3 kb-core/tools/verify_site_index.py .
+
+      # **刪掉再上傳。** 漏掉這一步，驗證程式自己會被發布到公開站上。
+      - name: 移除驗證程式，不要發布它
+        run: rm -rf kb-core
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -33,10 +61,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # **kb-core 的 checkout 一定要排在 upload-pages-artifact 之後。**
-      # 這個 workflow 上傳的是 `path: '.'`（整個 repo），
-      # 在上傳之前 checkout 進來的任何東西都會跟著被發到站上。
-      - name: 取驗證程式
+      # verify_live 要用 kb-core，而上一步把它刪了 —— 再取一次。
+      - name: 取驗證程式（部署後）
         uses: actions/checkout@v5
         with:
           repository: GunDamnBoy/kb-core
