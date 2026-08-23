@@ -25,7 +25,9 @@
 
 全程使用繁體中文（台灣用語），讀者為專業財經工作者。
 
-> **本檔寫「什麼是對的產出」，排程 `SKILL.md` 寫「今天怎麼做出來」。執行流程一律去 `SKILL.md` 找。** 例如子代理門檻（<10 KB 主代理直接做）、工具呼叫預算、中斷重派的成本門檻都在它的第 3 步，token 自我量測在第 5.5 步，回報清單在第 6 步。**在本檔找不到某條執行流程，就是它按分工放在那邊了。**
+> **本檔寫「什麼是對的產出」，排程 `SKILL.md` 寫「今天怎麼做出來」。執行流程一律去正本 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 找**（排程那份是它的副本）。**在本檔找不到某條執行流程，就是它按分工放在那邊了。**
+>
+> **2026-08-23 訂正：這裡原本逐一指了三個章節號，而三個指到的東西現在都不存在。** 原文寫「子代理門檻（<10 KB 主代理直接做）、工具呼叫預算、中斷重派的成本門檻都在它的第 3 步，token 自我量測在第 5.5 步，回報清單在第 6 步」—— 實查：第 3 步是「分派撰寫」，那三個門檻**一個都不在**；**沒有第 5.5 步**；第 6 步是「交草稿」不是回報清單。`anchors.fetch_limits.subagent_threshold_kb`（10）**全庫零讀者**。**章節號、內容、讀者三個都斷了**，所以改成只指檔案不指章節 —— 章節號會漂，檔名不會。
 
 網站：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
@@ -37,7 +39,7 @@
 
 每天早上（含週末）自動偵測 `shows.json` 裡全部現役 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
 
-1. **Word 報告**（.docx）— **由 `~/.podfetch/json2docx.py` 從當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍），交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
+1. **Word 報告**（.docx）— **由 `~/kb-core/tools/podcast_docx.py` 從當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍），交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供隨時閱讀與全文搜尋。
 
 **時序（兩者都不會喚醒睡著的 Mac；電源設定見 `MAINTENANCE.md` 第 9 節）**：
@@ -46,7 +48,7 @@
 |---|---|---|
 | 00:55 | `pmset repeat` 排定喚醒 | 把機器叫醒，讓底下兩個排程跑得到 |
 | 01:00 | launchd `com.kenny.podfetch` | 抓音檔、Gemini 轉錄、寫出逐字稿 |
-| 03:00 | Cowork 排程 `podcast-digest-daily`（cron `0 3 * * *`） | 讀逐字稿、寫摘譯、發布 |
+| 03:00 | Cowork 排程 **`podcast-daily-300`**（cron `0 3 * * *`） | 讀逐字稿、寫摘譯、發布 |
 
 **03:00 這個時段有一個必須知道的結構性取捨**：台北 03:00 ＝ 美東前一天 15:00，而主要節目集中在台北 04:00–06:30 落地（All-In 約 06:23）。所以**前一晚的美東晚間集數在今天這一版必定收不到，會出現在明天凌晨那一版**——All-In 約在發布後 21 小時進日報。**這是設計，不是故障，不要去追，也不必每天在回報中解釋。** 沒有任何集數會遺失：podfetch 視窗以 `last_run_utc` 為起點、日報又會去重，順延的集數下一版必定收得到。動機與完整代價見 `MAINTENANCE.md` 第 7 節。
 
@@ -163,14 +165,14 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 | 項目 | 位置 |
 |---|---|
-| 主程式 | `~/.podfetch/podfetch.py`（**零外部相依**，只用 Python 標準函式庫） |
-| 設定 | `~/.podfetch/config.json`、`~/.podfetch/shows.json` |
+| 主程式 | `~/kb-core/scripts/podcast/podfetch.py`（**零外部相依**，只用 Python 標準函式庫）<br>**2026-08-23 訂正**：本節四處寫的 `~/.podfetch/<某支程式>` 全部過期——程式 08-20 就搬進 kb-core 了，`~/.podfetch/` 現在只剩執行期狀態（key／state／log／cache）與兩個指回 kb-core 的 symlink。launchd 跑的也是 kb-core 那份。**08-22 的登記簿寫「當天全部改掉了」，而這一節沒有被改到。** |
+| 設定 | `~/kb-core/scripts/podcast/config.json`、`~/kb-core/scripts/podcast/shows.json`（`~/.podfetch/` 底下同名的兩個是指過去的 symlink） |
 | API key | `~/.podfetch/gemini.key`（權限 600，**絕不進 repo**） |
 | 執行狀態 | `~/.podfetch/state.json`（`last_run_utc` ＋ 30 天內已處理的 trackId） |
 | 段落快取 | `~/.podfetch/cache/`——額度用完中斷時，**已完成的段落留在這裡，下次執行直接沿用不重跑**。未完成的集數不寫進 `seen`、`last_run_utc` 也不推進，所以下次視窗仍涵蓋得到 |
 | 紀錄 | `~/.podfetch/logs/YYYY-MM-DD.log` |
 | 逐字稿輸出 | `~/podcast-transcripts/YYYY-MM-DD/`（**repo 外部**，須另外加為 Cowork 連線資料夾） |
-| 健康檢查 | `~/.podfetch/healthcheck.py`（對受檢系統唯讀；唯一會寫的是自己的 `metrics.csv`。見 `MAINTENANCE.md` 第 3 節） |
+| 健康檢查 | `~/kb-core/scripts/podcast/healthcheck.py`（對受檢系統唯讀；唯一會寫的是 `metrics.csv`，**那份 08-22 起只有一個實體檔、住在 kb-core**。見 `MAINTENANCE.md` 第 3 節） |
 | 排程 | launchd `com.kenny.podfetch`，每天 **01:00** |
 
 **流程**：iTunes 偵測 → 下載 MP3 → 切成 20 分鐘段 → 每段經 Files API 上傳後送 Gemini `generateContent` → 合併 → 字數檢查 → 寫出 `.md` 與 `manifest.json`。循序處理，六集約 30–45 分鐘。
@@ -211,10 +213,10 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 **手動執行與排錯**
 
 ```
-python3 ~/.podfetch/podfetch.py              # 立即跑一次
+python3 ~/kb-core/scripts/podcast/podfetch.py   # 立即跑一次
 tail -f ~/.podfetch/logs/$(date +%F).log     # 看進度
 launchctl list | grep com.kenny.podfetch     # 確認排程存在
-python3 ~/.podfetch/healthcheck.py           # 一次跑完所有機械式檢查
+python3 ~/kb-core/scripts/podcast/healthcheck.py  # 一次跑完所有機械式檢查
 ```
 
 `status` 三種值：`OK` 正常；`DEGRADED` 完整度不足，摘譯照做但要在 `source` 註明；`FAILED` 沒有逐字稿，走退援。
@@ -456,11 +458,11 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 3. **Word 報告用腳本轉出，不由 LLM 重寫**（2026-08-08 起）：
 
    ```
-   python3 ~/.podfetch/json2docx.py data/YYYY-MM-DD.json <暫存輸出資料夾>/節目知識庫-YYYY-MM-DD.docx
+   python3 ~/kb-core/tools/podcast_docx.py data/YYYY-MM-DD.json <暫存輸出資料夾>/節目知識庫-YYYY-MM-DD.docx
    ```
 
    相依 python-docx（沙箱：`pip install python-docx --break-system-packages`）。腳本會印出集數，要等於當日實際集數。**Word 檔不要放進 repo 目錄**——這個 repo 是 Public，放進去會被背景程式推上 GitHub。寫到暫存輸出資料夾再用 `present_files` 交付。
-4. **不需手動 push**：launchd `com.kenny.dashpush`（每 180 秒）自動 `git add`＋`commit`＋`push`，GitHub Actions 再部署到 Pages。從寫檔到生效約 2–4 分鐘。
+4. **不需手動 push**：launchd `com.kenny.kbpublish.podcast`（每 **60** 秒）掃 `~/outbox/podcast/`，驗過草稿之後自動 `git add`＋`commit`＋`push`，GitHub Actions 再部署到 Pages。從寫檔到生效約 2–4 分鐘。（**2026-08-23 訂正**：舊值 `com.kenny.dashpush` 每 180 秒，那支 08-20 已退場，見第 6 節。）
 5. **驗證上線，一定要帶 cache-buster**：
 
    ```
@@ -481,8 +483,22 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 > 完整的基礎設施文件（GitHub 設定、PAT 換發、電源設定的完整指令與決策、launchd 排錯）在 `MAINTENANCE.md` 第 4B、7、9 節。**本節只留每日執行會用到的。**
 
-- **背景推送**：launchd `com.kenny.dashpush` 每 180 秒自動 `add`＋`commit`＋`push`，Actions 再部署到 Pages。**它曾靜默失效整整一天**，所以第 5 節的上線驗證不能省。
-- **連線資料夾**：需要三個——`~/podcast-knowledge-digest`（寫網站資料）、`~/podcast-transcripts`（讀逐字稿）、`~/.podfetch`（排錯讀 log 與 state）。**連線不保證跨工作階段留存**，失敗的樣子和「podfetch 沒跑」一模一樣。**讀不到就先自己連**：`mcp__cowork__request_cowork_directory`（`path` 給 `~/podcast-transcripts` 這樣的路徑），無人值守下實測不會跳核准對話框。
+- **背景推送**：launchd **`com.kenny.kbpublish.podcast`** 每 **60** 秒掃 `~/outbox/podcast/`，
+  把草稿驗過之後 `add`＋`commit`＋`push` 到 `~/podcast-knowledge-digest`，Actions 再部署到 Pages。
+  **它曾靜默失效整整一天**，所以第 5 節的上線驗證不能省。
+  > **2026-08-23 訂正：這裡原本寫的是 `com.kenny.dashpush` 每 180 秒。**
+  > 那支在 2026-08-20 重建時就退場了（殘骸在 `chart-of-the-day/tools/_to_delete/`），
+  > 九支 launchd 工作裡沒有它。**本節是失效橫幅明文保留的四塊權威之一，
+  > 而它留著一支已退場的推送者留了三天** —— `MAIN.md` 的硬規矩在 08-21 就訂正過，
+  > 沒有人回頭改這裡。**兩份規則同時存在時，改到沒在跑的那一份不會有任何徵兆。**
+- **連線資料夾**：需要**四個**——`podcast-transcripts`（讀逐字稿）、`kb-core`（讀規格與程式）、
+  `outbox`（寫草稿到 `outbox/podcast/`）、`podcast-knowledge-digest`（寫帳本與網站資料）。
+  **連線不保證跨工作階段留存**，失敗的樣子和「podfetch 沒跑」一模一樣。**讀不到就先自己連**：
+  `mcp__cowork__request_cowork_directory`，無人值守下實測不會跳核准對話框。
+  > **2026-08-23 訂正：這裡原本寫「三個」而且清單是錯的** —— 少了 `kb-core` 與 `outbox`
+  > （每天真正要用的兩個），多了 `~/.podfetch`（現在只剩執行期狀態，日常執行用不到，
+  > 而且**它在沙箱裡本來就掛不上**）。照舊版連，會少連兩個關鍵資料夾。
+  > 權威在 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 0 步。
 - **逐字稿輸出（`~/podcast-transcripts/`）刻意放在 repo 外部**：Public repo ＋ 付費來源全文 ＝ 著作權問題。**不要移進 repo，加 `.gitignore` 也不行。**
 - **FT 存取靠一張會安靜過期的 syndication cookie**（Chrome 未登入 FT）。每次處理 FT 內容都要驗證正文長度（見第 2 節退援第 1 層底下的 FT 特例）；失效就退回第 2 層 podfetch 並在回報中明講。
 - **YouTube 退援層需要 Chrome 已登入**。發現未登入就走下一層並告知，不要代為輸入帳密。
@@ -501,13 +517,17 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ## 8. 變更紀錄（CHANGELOG）
 
-### 2026-08-18
+### 2026-08-23
 
-- **第 3 節補上 `check_timestamps()` 的邊界聲明。** 該檢查只認得「時間戳溢出」與「大間隙＋低完整度」兩種形態；**時間戳回跳、內容重複、相異時間戳少於 5 個的集數都在涵蓋範圍外**，而 08-18 的 20VC 正好踩在前兩種上（子代理自行發現兩處跳躍與一段重複，`timestampNote` 卻是空的）。**原本的寫法讓「空值」讀起來像「檢查過沒問題」**，現已寫明空值只代表那兩種沒觸發。同節的講者與時間軸兩段一併壓縮，把實例數字移進 `MAINTENANCE.md`——**加這段邊界聲明當下把本檔推回 25,000 token 上限之上（實測 25,120、截斷於第 417 行），壓縮是同一批的必要配套**。
-  **這是「餘裕不到 1%」這條警告立下的隔天就被自己違反**：加字前沒有先量。往本檔加字一律先問「加完還讀得完嗎」，見 `MAINTENANCE.md` 第 6 節。
-- **原本要補的「時間戳單調性檢查」，實測後決定不加。** 全庫 91 集有 32% 出現回跳，遠超過雜訊門檻——**初判「單調遞增在正確合併的逐字稿裡恆真」被量測推翻**。規格面因此維持現狀：`timestampNote` 為空**不代表時間軸沒問題**，讀到倒退或重複照樣改用主題轉換切章節。詳見 `MAINTENANCE.md` 第 6 節。
+- **第 6 節（權威區）兩處硬錯訂正。** 背景推送寫的是 `com.kenny.dashpush` 每 180 秒 —— **那支 08-20 重建時就退場了**，實際是 `com.kenny.kbpublish.podcast` 每 60 秒掃 `~/outbox/podcast/`；連線資料夾寫「三個」且含 `~/.podfetch`，**實際要四個**（`podcast-transcripts`／`kb-core`／`outbox`／`podcast-knowledge-digest`），照舊版連會少連兩個每天都要用的。`MAIN.md` 在 08-21 就訂正過推送者，本檔沒跟著改，**留了三天**。
+- **第 0 節排程 taskId 由 `podcast-digest-daily` 改為 `podcast-daily-300`**（實查 `list_scheduled_tasks`），Word 轉出的路徑由 `~/.podfetch/json2docx.py` 改為**實際在跑的** `~/kb-core/tools/podcast_docx.py`（依 `launchd/kbdocx-podcast.sh` 確認；`scripts/podcast/json2docx.py` 是 08-08 的舊腳本，沒有在跑）。
+- **開頭那段「執行流程去 SKILL.md 第 3／5.5／6 步找」整段改寫成只指檔案、不指章節號。** 實查：第 3 步沒有那三個門檻、**沒有第 5.5 步**、第 6 步是交草稿不是回報清單，`anchors.fetch_limits.subagent_threshold_kb` 全庫零讀者 —— **章節號、內容、讀者三個都斷了**。章節號會漂，檔名不會。
+- **第 2 節四處程式路徑改到 kb-core**（`podfetch.py`／`healthcheck.py`／兩行指令）。08-22 的登記簿寫「`~/.podfetch/<某支程式>` 當天全部改掉了」，**而第 2 節是漏網的四處**——它是失效橫幅明文保留的權威區，過期在這裡的代價比在別處高。設定那一列同時註明 `~/.podfetch/` 底下的 `config.json`／`shows.json` 是指回 kb-core 的 symlink。
+- **第 5 節的 Word 轉檔路徑改成 `~/kb-core/tools/podcast_docx.py`**——依 `launchd/kbdocx-podcast.sh` 確認那才是實際在跑的；`scripts/podcast/json2docx.py` 是 08-08 的舊腳本。**08-23 稍早只把目錄從 `~/.podfetch/` 改掉、沒查哪一支真的在跑**，等於修對了一半。
 
-> **維護規則（不要刪這段）**：本檔與排程任務 `podcast-digest-daily` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
+- **本節連續三場（08-21／08-22／08-23）沒有被加條目，也沒有歸檔。** 08-23 補上並把 08-18 的條目歸檔到 `MAINTENANCE.md` 第 11 節。**「不要刪這段」的維護規則寫在本節末尾，而它被漏掉的方式正是沒有人讀到那裡。**
+
+> **維護規則（不要刪這段）**：本檔與排程任務 `podcast-daily-300` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
 > 2026-08-09 發現這條規則在 08-08 隨紀錄被搬進 MAINTENANCE 第 7 節後，**brief 本體整整一天沒有任何一句要求雙邊同步**——而 08-04 的 SKILL.md 整份覆寫事故正是這類漏抄造成的。**歸檔時要分辨哪些是紀錄、哪些是規則；規則不跟著走。**
 >
 > **更早的變更紀錄已歸檔至 `MAINTENANCE.md` 第 11 節。**
