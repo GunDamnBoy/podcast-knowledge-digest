@@ -517,6 +517,13 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ## 8. 變更紀錄（CHANGELOG）
 
+### 2026-08-24
+
+- **`publish.py` 在 rebase 之前加了工作區檢查（4a），回 `15 @ worktree-dirty`。** 原本 `git add` 只涵蓋各系統的 `staged_paths`（podcast 是 `data`），**repo 根目錄那些已追蹤、被改過、沒被提交的檔案 publish 永遠 stage 不到也 commit 不掉**，於是 rebase 每輪倒在同一處。檢查刻意放在 `add`／`commit` **之前**——放之後照樣每輪長一筆垃圾 commit，換了退出碼而堆積沒停。用 `CONFLICT(15)` 不用 `ENVIRONMENT(14)`：`result.py` 區分兩者的軸線是「重跑會不會好」，而這一種永遠不會好。解析部分抽成純函式 `dirty_outside()` 才驗得動，`/tmp` 另建 bare origin ＋ 工作 repo 實測十個邊界（改名、含空白路徑、多路徑系統）全通過。
+- **`kbdocx.podcast` 由只釘 04:00 改為 04／07／10／13 四個時刻。** 它讀的回執是「那一刻」的狀態、不是那一天的結局——回執每輪被覆寫，發布晚成功時會從非 0 翻成 0，而一天只跑一次就永遠看不到翻過去的那一刻。**「一天只跑一次」被當成了「一天只問一次」，那是兩件事。** 腳本的冪等守衛（日檔沒比 Word 新就跳過）讓多問幾次幾乎免費。**plist 是版控副本，改完要在 Mac 上 `cp` 到 `~/Library/LaunchAgents/` 再 bootout／bootstrap 才生效**；`publish.py` 則是直接從 `~/kb-core/` 執行，改完即時生效——**同一場裡兩種生效方式，不要混為一談。**
+- **`shows.json` 的 `unhedged` 補進 Katie Martin**（08-22 就具名回報過、有 02:03 稿內自我介紹當證據，屬於**該加而未加**，隔了兩天）。依 anchors 的「證據不足時寧可加不要減」，未動其餘兩位。08-24 的 tip 不符（名單五人、實際只有 Stig Brodersen）**不改名單**——實際主持人本來就在名單內，一天的觀察不足以砍掉四個名字。
+- **流程正本補上「`14` 連續三輪同一個 `stage` 就當 15 處理」。** 原文只寫「會自己重試」，而 `14` 的語意是「重跑**可能**會好」——**分不出來的時候，重試與卡死長得一模一樣**，那天 188 輪沒有人有理由介入。
+
 ### 2026-08-23
 
 - **第 6 節（權威區）兩處硬錯訂正。** 背景推送寫的是 `com.kenny.dashpush` 每 180 秒 —— **那支 08-20 重建時就退場了**，實際是 `com.kenny.kbpublish.podcast` 每 60 秒掃 `~/outbox/podcast/`；連線資料夾寫「三個」且含 `~/.podfetch`，**實際要四個**（`podcast-transcripts`／`kb-core`／`outbox`／`podcast-knowledge-digest`），照舊版連會少連兩個每天都要用的。`MAIN.md` 在 08-21 就訂正過推送者，本檔沒跟著改，**留了三天**。
