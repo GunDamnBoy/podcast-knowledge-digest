@@ -1,7 +1,20 @@
 {
- "updated": "2026-08-24T19:42:08+00:00",
- "updatedLabel": "8/25 03:42",
+ "updated": "2026-08-25T19:28:17+00:00",
+ "updatedLabel": "8/26 03:28",
  "days": [
+  {
+   "date": "2026-08-26",
+   "label": "2026年8月26日（週三）",
+   "short": "8/26 週三",
+   "episodeCount": 4,
+   "shows": [
+    "Dwarkesh Podcast",
+    "Invest Like the Best",
+    "The Compound and Friends",
+    "Bloomberg Surveillance"
+   ],
+   "file": "data/2026-08-26.json"
+  },
   {
    "date": "2026-08-25",
    "label": "2026年8月25日（週二）",
@@ -328,5 +341,5 @@
    ]
   }
  ],
- "count": 25
+ "count": 26
 }
