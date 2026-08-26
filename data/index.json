@@ -1,7 +1,22 @@
 {
- "updated": "2026-08-25T19:28:17+00:00",
- "updatedLabel": "8/26 03:28",
+ "updated": "2026-08-26T19:31:43+00:00",
+ "updatedLabel": "8/27 03:31",
  "days": [
+  {
+   "date": "2026-08-27",
+   "label": "2026年8月27日（週四）",
+   "short": "8/27 週四",
+   "episodeCount": 8,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Latent Space",
+    "In Good Company"
+   ],
+   "file": "data/2026-08-27.json"
+  },
   {
    "date": "2026-08-26",
    "label": "2026年8月26日（週三）",
@@ -341,5 +356,5 @@
    ]
   }
  ],
- "count": 26
+ "count": 27
 }
