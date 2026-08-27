@@ -1,7 +1,24 @@
 {
- "updated": "2026-08-26T19:31:43+00:00",
- "updatedLabel": "8/27 03:31",
+ "updated": "2026-08-27T19:56:44+00:00",
+ "updatedLabel": "8/28 03:56",
  "days": [
+  {
+   "date": "2026-08-28",
+   "label": "2026年8月28日（週五）",
+   "short": "8/28 週五",
+   "episodeCount": 9,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Forward Guidance",
+    "20VC",
+    "No Priors",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ],
+   "file": "data/2026-08-28.json"
+  },
   {
    "date": "2026-08-27",
    "label": "2026年8月27日（週四）",
@@ -356,5 +373,5 @@
    ]
   }
  ],
- "count": 27
+ "count": 28
 }
