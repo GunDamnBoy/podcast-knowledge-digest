@@ -1,7 +1,22 @@
 {
- "updated": "2026-08-27T19:56:44+00:00",
- "updatedLabel": "8/28 03:56",
+ "updated": "2026-08-28T20:02:20+00:00",
+ "updatedLabel": "8/29 04:02",
  "days": [
+  {
+   "date": "2026-08-29",
+   "label": "2026年8月29日（週六）",
+   "short": "8/29 週六",
+   "episodeCount": 7,
+   "shows": [
+    "MacroVoices",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "In Good Company",
+    "Hard Fork"
+   ],
+   "file": "data/2026-08-29.json"
+  },
   {
    "date": "2026-08-28",
    "label": "2026年8月28日（週五）",
@@ -373,5 +388,5 @@
    ]
   }
  ],
- "count": 28
+ "count": 29
 }
