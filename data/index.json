@@ -1,7 +1,18 @@
 {
- "updated": "2026-08-29T19:42:08+00:00",
- "updatedLabel": "8/30 03:42",
+ "updated": "2026-08-30T22:13:53+00:00",
+ "updatedLabel": "8/31 06:13",
  "days": [
+  {
+   "date": "2026-08-31",
+   "label": "2026年8月31日（週一）",
+   "short": "8/31 週一",
+   "episodeCount": 2,
+   "shows": [
+    "Bloomberg Surveillance",
+    "We Study Billionaires (TIP)"
+   ],
+   "file": "data/2026-08-31.json"
+  },
   {
    "date": "2026-08-30",
    "label": "2026年8月30日（週日）",
@@ -402,5 +413,5 @@
    ]
   }
  ],
- "count": 30
+ "count": 31
 }
