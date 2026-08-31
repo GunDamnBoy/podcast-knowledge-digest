@@ -1,7 +1,21 @@
 {
- "updated": "2026-08-30T22:13:53+00:00",
- "updatedLabel": "8/31 06:13",
+ "updated": "2026-08-31T19:37:00+00:00",
+ "updatedLabel": "9/1 03:37",
  "days": [
+  {
+   "date": "2026-09-01",
+   "label": "2026年9月1日（週二）",
+   "short": "9/1 週二",
+   "episodeCount": 6,
+   "shows": [
+    "The Market Huddle",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC"
+   ],
+   "file": "data/2026-09-01.json"
+  },
   {
    "date": "2026-08-31",
    "label": "2026年8月31日（週一）",
@@ -413,5 +427,5 @@
    ]
   }
  ],
- "count": 31
+ "count": 32
 }
