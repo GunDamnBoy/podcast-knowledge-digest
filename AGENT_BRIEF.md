@@ -367,7 +367,9 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ## 6. 基礎設施備忘（每日執行需要知道的部分）
 
-> 完整的基礎設施文件（GitHub 設定、PAT 換發、電源設定的完整指令與決策、launchd 排錯）在 `MAINTENANCE.md` 第 4B、7、9 節。**本節只留每日執行會用到的。**
+> 完整的基礎設施文件（GitHub 設定、推送認證、電源設定的完整指令與決策、launchd 排錯）在 `MAINTENANCE.md` 第 4B、7、9 節。**本節只留每日執行會用到的。**
+>
+> （**2026-08-31 訂正**：本行原本寫「PAT 換發」。**這個 repo 沒有 PAT**——本機推送走 SSH，Pages 部署走 Actions 內建權限，兩條路徑都沒有需要輪替的 token，詳見 `MAINTENANCE.md` 第 4B 節「推送認證」。）
 
 - **背景推送**：launchd **`com.kenny.kbpublish.podcast`** 每 **60** 秒掃 `~/outbox/podcast/`，
   把草稿驗過之後 `add`＋`commit`＋`push` 到 `~/podcast-knowledge-digest`，Actions 再部署到 Pages。

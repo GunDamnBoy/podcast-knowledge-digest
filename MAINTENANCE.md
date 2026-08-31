@@ -106,7 +106,12 @@ brief 第 6 節只留每日執行需要的，完整版在這裡：
 
 - **Repo（本機）**：`~/podcast-knowledge-digest`（家目錄下，不要放 `~/Documents`，macOS TCC 會擋背景程式）。
 - **GitHub**：`GunDamnBoy/podcast-knowledge-digest`，Public，Pages（Source ＝ GitHub Actions）。
-- **推送認證**：remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫），存於本機 `.git/config`。換 token：產新 PAT → `git -C ~/podcast-knowledge-digest remote set-url origin https://<新PAT>@github.com/GunDamnBoy/podcast-knowledge-digest.git` → 撤舊。
+- **推送認證**：**本機推送走 SSH**——`.git/config` 的 `url = git@github.com:GunDamnBoy/podcast-knowledge-digest.git`（2026-08-31 實測；`~/kb-core` 同樣是 SSH）。**Pages 部署不經過它**：`.github/workflows/deploy.yml` 用 Actions 內建權限（`permissions:` ＋ `id-token: write` ＋ `actions/deploy-pages@v4`），**全檔沒有任何 `secrets.` 引用**，所以那一側也沒有需要輪替的 token。
+  > **2026-08-31 訂正**：本行原本寫「remote URL 內嵌 fine-grained PAT（只授權此 repo、Contents 讀寫）」並附一條換 token 指令 `remote set-url origin https://<新PAT>@github.com/...`。**那條指令現在是有害的**——照著跑會把一個能用的 SSH remote 換成 HTTPS，然後要人去找一把這條路徑上根本沒在用的 PAT。
+  > **`kb-core/README.md` 一直都是對的**：它開頭就寫著「零 PAT 架構」「推送用 SSH key」。所以這不是兩份文件各對一半，是**本檔單獨落後**——而落後的那一份正好是維護者查基礎設施時會來看的那一份。
+  > **兩件事沒有查證，不要在這裡假裝知道**：（一）SSH 金鑰是哪一把、放在哪；（二）這個 remote 是什麼時候從 HTTPS＋PAT 換成 SSH 的，以及那把舊 PAT 有沒有被撤銷（**若還沒撤，那是一把沒人在用卻仍有寫入權的憑證**，值得去 GitHub 設定看一眼）。
+  > **同一輪已 grep 全庫**：另一處 `AGENT_BRIEF.md` 第 6 節的指路寫「PAT 換發」，同日一併訂正；其餘命中全是 `PATH` 變數，非本主題。
+  > **這一條是怎麼被發現的，比內容本身值得記**：同一場維護已經修了它正下方的「背景推送」那一行，**而且在訂正註記裡親手寫下「每次都只修被指出來的那一處」**——然後照樣沒有看它上面一行。是使用者貼回 `git push` 的輸出、`To github.com:...` 那個 `host:path` 形式（SSH 語法，HTTPS 會印完整網址）才露出來的。**第四處修完，第五處就在隔壁。**
 - **背景推送**：launchd `com.kenny.kbpublish.podcast`（`StartInterval` 60）跑 `~/kb-core/tools/publish.py`，掃 `~/outbox/podcast/*.draft.json` → 寫進 repo 的 `data/` → commit → rebase → push，並把結果寫成 `~/outbox/podcast/<日期>.receipt.json`（歷史在同目錄的 `publish.log`，回執每輪會被覆寫）。**兩個邊界要記住，因為它們都製造過事故**：（一）**outbox 沒有草稿時是空輪次，整輪完全不碰 git**；（二）`systems/podcast.py` 的 `staged_paths` 只有 `["data"]`，**非 `data/` 的變更它不 stage、不 commit，而且會擋下整輪**（`exit 15 @ worktree-dirty`）。所以 repo 根目錄的檔案（本檔、`AGENT_BRIEF.md`、`index.html`）改完**一定要自己提交**，否則擋住的是隔天早上的日報。
   > **2026-08-31 訂正**：本行原本寫「`~/.dashpush/auto-push.sh`……launchd `com.kenny.dashpush` 每 180 秒觸發」。dashpush 在 2026-08-20 重建時就退場了（殘骸在 `chart-of-the-day/tools/_to_delete/dashpush-auto-push.sh`）。
   > **第 2 節第 9 條（不要跑 git 指令）在 08-30 就訂正過同一個錯，而且當場把散佈情況數了一遍**：`MAIN.md` 08-21 改、`AGENT_BRIEF` 第 6 節 08-23 改、維護流程那一份留到 08-30，結論是「同一個錯誤在三份文件裡各活了不同長度，**因為每次都只修被指出來的那一處**」。
