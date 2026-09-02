@@ -1,7 +1,20 @@
 {
- "updated": "2026-09-01T19:54:40+00:00",
- "updatedLabel": "9/2 03:54",
+ "updated": "2026-09-02T22:16:44+00:00",
+ "updatedLabel": "9/3 06:16",
  "days": [
+  {
+   "date": "2026-09-03",
+   "label": "2026年9月3日（週四）",
+   "short": "9/3 週四",
+   "episodeCount": 4,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "Forward Guidance",
+    "In Good Company"
+   ],
+   "file": "data/2026-09-03.json"
+  },
   {
    "date": "2026-09-02",
    "label": "2026年9月2日（週三）",
@@ -442,5 +455,5 @@
    ]
   }
  ],
- "count": 33
+ "count": 34
 }
