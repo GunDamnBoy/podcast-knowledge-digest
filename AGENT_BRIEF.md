@@ -27,7 +27,7 @@
 
 > **本檔寫「什麼是對的產出」，排程 `SKILL.md` 寫「今天怎麼做出來」。執行流程一律去正本 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 找**（排程那份是它的副本）。**在本檔找不到某條執行流程，就是它按分工放在那邊了。**
 >
-> **2026-08-23 訂正：這裡原本逐一指了三個章節號，而三個指到的東西現在都不存在。** 原文寫「子代理門檻（<10 KB 主代理直接做）、工具呼叫預算、中斷重派的成本門檻都在它的第 3 步，token 自我量測在第 5.5 步，回報清單在第 6 步」—— 實查：第 3 步是「分派撰寫」，那三個門檻**一個都不在**；**沒有第 5.5 步**；第 6 步是「交草稿」不是回報清單。`anchors.fetch_limits.subagent_threshold_kb`（10）**全庫零讀者**。**章節號、內容、讀者三個都斷了**，所以改成只指檔案不指章節 —— 章節號會漂，檔名不會。
+> **2026-08-23 訂正：這裡原本逐一指了三個章節號，而三個指到的東西現在都不存在。** 原文寫「子代理門檻（<10 KB 主代理直接做）、工具呼叫預算、中斷重派的成本門檻都在它的第 3 步，token 自我量測在第 5.5 步，回報清單在第 6 步」—— 實查：第 3 步是「分派撰寫」，那三個門檻**一個都不在**；**沒有第 5.5 步**；第 6 步是「交草稿」不是回報清單。`anchors.fetch_limits.subagent_threshold_kb`（10）**全庫零讀者**（**2026-09-02 已除役**，鍵改名為 `_removed_subagent_threshold_kb` 並留下說明）。**章節號、內容、讀者三個都斷了**，所以改成只指檔案不指章節 —— 章節號會漂，檔名不會。
 
 網站：<https://gundamnboy.github.io/podcast-knowledge-digest/>
 
@@ -66,7 +66,7 @@
 | Dwarkesh Podcast | `https://www.dwarkesh.com/api/v1/archive?sort=new&limit=10` → `dwarkesh.com/p/<slug>` |
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>` |
 | Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（PDF 可直接 WebFetch）。**官方稿通常落後一週以上**，當集多半還沒上架（08-07 實例：當天最新只到 MV543／7-30）。**這時退回 podfetch 是正常的，不是失效**，照常在 `source` 標明來源即可 |
-| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。從 GS 的 Exchanges 節目列表頁取實際連結，或用 WebSearch 找。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market` |
+| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market`。<br>**⚠️ 2026-09-02 實測：本列原本開的兩條取 slug 的路今天都不通。**（一）**節目列表頁是前端渲染**，`web_fetch` 只取得到頁框與導覽、**沒有任何集數連結**；（二）**WebSearch 找不到當集**（查得到同主題的舊集與 Research 文章，查不到 09-01 那一集）；（三）內建瀏覽器**對 `goldmansachs.com` 的存取被拒**，所以「用瀏覽器渲染列表頁」這條也走不了。當天退第二層。**這三條下次要照順序再試一次**（尤其是瀏覽器那條，被拒可能是當次的核准狀態而不是永久的）。**取不到就退第二層並在 `source` 分辨「尚未上架」與「入口失效」——09-02 的形態偏向後者**，因為同名節目的舊集數頁仍然存在。<br>**紀律（比照 FT）：gsx 每次有新集數時，走通與否都要在回報中寫一句。** 沒有這一句，它的失效不會累積成證據，只會每天重撞一次——FT 那一列 08-15 換入口，就是靠這種累積才知道舊入口壞了。 |
 | Unhedged (FT) | **入口是 FT 站內搜尋：`https://www.ft.com/search?q="<該集原文標題>"`**（2026-08-15 更正）。**兩個舊入口都不對**——`ft.com/unhedged` 是電子報存檔、不含 podcast；`ft.com/the-economics-show` 只列 The Economics Show 自己的集數，**同樣不含 Unhedged**（08-15 實測，該頁找不到當集）。只能走 Chrome：`navigate` 搜尋頁 → 取候選連結 `href` → **選標題帶 `Transcript:` 前綴的那一個**（每集有兩個頁面，另一個是只有播放器與簡介的集數頁，正文僅約 2,700 字元，很容易誤判成「付費牆擋住」）→ `navigate` → `get_page_text`。<br>**Unhedged 的 feed 會放姊妹節目 The Economics Show 的重播**（08-08 實例：8/6 的 feed 放的是原 6/19 那集）。遇到重播要在 `published` 與 `source` 標明原始播出日，不要當成新集數 |
 | ~~Masters in Business~~ | **當日執行一律當 B 類，不要去抓**：官方稿在 `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`，但**固定晚 1–2 週**，當集必定還沒上架。留在本表只是備查，補跑舊集數時才用得到。（**2026-08-30 訂正**：本表表頭寫「這類節目每天都要去抓」，而這一列的括號寫「新集數改走 B」，**兩句直接相反**；照表頭的字面做就會每天浪費一次抓取。） |
 
