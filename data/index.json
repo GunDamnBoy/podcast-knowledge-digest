@@ -1,7 +1,25 @@
 {
- "updated": "2026-09-03T19:42:13+00:00",
- "updatedLabel": "9/4 03:42",
+ "updated": "2026-09-04T19:49:52+00:00",
+ "updatedLabel": "9/5 03:49",
  "days": [
+  {
+   "date": "2026-09-05",
+   "label": "2026年9月5日（週六）",
+   "short": "9/5 週六",
+   "episodeCount": 10,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Money Stuff: The Podcast",
+    "Prof G Markets",
+    "In Good Company",
+    "Exchanges at Goldman Sachs",
+    "Hard Fork"
+   ],
+   "file": "data/2026-09-05.json"
+  },
   {
    "date": "2026-09-04",
    "label": "2026年9月4日（週五）",
@@ -473,5 +491,5 @@
    ]
   }
  ],
- "count": 35
+ "count": 36
 }
