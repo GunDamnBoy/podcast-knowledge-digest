@@ -1,7 +1,20 @@
 {
- "updated": "2026-09-04T19:49:52+00:00",
- "updatedLabel": "9/5 03:49",
+ "updated": "2026-09-05T19:42:47+00:00",
+ "updatedLabel": "9/6 03:42",
  "days": [
+  {
+   "date": "2026-09-06",
+   "label": "2026年9月6日（週日）",
+   "short": "9/6 週日",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "All-In Podcast",
+    "20VC",
+    "Masters in Business"
+   ],
+   "file": "data/2026-09-06.json"
+  },
   {
    "date": "2026-09-05",
    "label": "2026年9月5日（週六）",
@@ -491,5 +504,5 @@
    ]
   }
  ],
- "count": 36
+ "count": 37
 }
