@@ -1,7 +1,18 @@
 {
- "updated": "2026-09-05T19:42:47+00:00",
- "updatedLabel": "9/6 03:42",
+ "updated": "2026-09-06T19:30:30+00:00",
+ "updatedLabel": "9/7 03:30",
  "days": [
+  {
+   "date": "2026-09-07",
+   "label": "2026年9月7日（週一）",
+   "short": "9/7 週一",
+   "episodeCount": 2,
+   "shows": [
+    "Prof G Markets",
+    "We Study Billionaires (TIP)"
+   ],
+   "file": "data/2026-09-07.json"
+  },
   {
    "date": "2026-09-06",
    "label": "2026年9月6日（週日）",
@@ -504,5 +515,5 @@
    ]
   }
  ],
- "count": 37
+ "count": 38
 }
