@@ -1,7 +1,19 @@
 {
- "updated": "2026-09-07T19:31:07+00:00",
- "updatedLabel": "9/8 03:31",
+ "updated": "2026-09-08T21:51:18+00:00",
+ "updatedLabel": "9/9 05:51",
  "days": [
+  {
+   "date": "2026-09-09",
+   "label": "2026年9月9日（週三）",
+   "short": "9/9 週三",
+   "episodeCount": 4,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "Invest Like the Best"
+   ],
+   "file": "data/2026-09-09.json"
+  },
   {
    "date": "2026-09-08",
    "label": "2026年9月8日（週二）",
@@ -526,5 +538,5 @@
    ]
   }
  ],
- "count": 39
+ "count": 40
 }
