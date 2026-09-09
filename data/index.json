@@ -1,7 +1,21 @@
 {
- "updated": "2026-09-08T21:51:18+00:00",
- "updatedLabel": "9/9 05:51",
+ "updated": "2026-09-09T19:36:27+00:00",
+ "updatedLabel": "9/10 03:36",
  "days": [
+  {
+   "date": "2026-09-10",
+   "label": "2026年9月10日（週四）",
+   "short": "9/10 週四",
+   "episodeCount": 6,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Prof G Markets",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-09-10.json"
+  },
   {
    "date": "2026-09-09",
    "label": "2026年9月9日（週三）",
@@ -538,5 +552,5 @@
    ]
   }
  ],
- "count": 40
+ "count": 41
 }
