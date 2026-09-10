@@ -1,7 +1,24 @@
 {
- "updated": "2026-09-09T19:36:27+00:00",
- "updatedLabel": "9/10 03:36",
+ "updated": "2026-09-10T19:45:33+00:00",
+ "updatedLabel": "9/11 03:45",
  "days": [
+  {
+   "date": "2026-09-11",
+   "label": "2026年9月11日（週五）",
+   "short": "9/11 週五",
+   "episodeCount": 9,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "No Priors",
+    "We Study Billionaires (TIP)",
+    "In Good Company",
+    "Masters in Business"
+   ],
+   "file": "data/2026-09-11.json"
+  },
   {
    "date": "2026-09-10",
    "label": "2026年9月10日（週四）",
@@ -552,5 +569,5 @@
    ]
   }
  ],
- "count": 41
+ "count": 42
 }
