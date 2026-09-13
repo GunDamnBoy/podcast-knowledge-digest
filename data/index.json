@@ -1,7 +1,22 @@
 {
- "updated": "2026-09-12T00:48:27+00:00",
- "updatedLabel": "9/12 08:48",
+ "updated": "2026-09-13T05:56:50+00:00",
+ "updatedLabel": "9/13 13:56",
  "days": [
+  {
+   "date": "2026-09-13",
+   "label": "2026年9月13日（週日）",
+   "short": "9/13 週日",
+   "episodeCount": 6,
+   "shows": [
+    "All-In Podcast",
+    "The Market Huddle",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "20VC",
+    "Masters in Business"
+   ],
+   "file": "data/2026-09-13.json"
+  },
   {
    "date": "2026-09-12",
    "label": "2026年9月12日（週六）",
@@ -589,5 +604,5 @@
    ]
   }
  ],
- "count": 43
+ "count": 44
 }
