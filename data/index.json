@@ -1,7 +1,22 @@
 {
- "updated": "2026-09-13T19:26:43+00:00",
- "updatedLabel": "9/14 03:26",
+ "updated": "2026-09-14T19:37:35+00:00",
+ "updatedLabel": "9/15 03:37",
  "days": [
+  {
+   "date": "2026-09-15",
+   "label": "2026年9月15日（週二）",
+   "short": "9/15 週二",
+   "episodeCount": 7,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "Latent Space",
+    "Acquired"
+   ],
+   "file": "data/2026-09-15.json"
+  },
   {
    "date": "2026-09-14",
    "label": "2026年9月14日（週一）",
@@ -614,5 +629,5 @@
    ]
   }
  ],
- "count": 45
+ "count": 46
 }
