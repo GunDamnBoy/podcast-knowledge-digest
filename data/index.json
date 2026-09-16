@@ -1,7 +1,20 @@
 {
- "updated": "2026-09-14T19:37:35+00:00",
- "updatedLabel": "9/15 03:37",
+ "updated": "2026-09-16T10:37:50+00:00",
+ "updatedLabel": "9/16 18:37",
  "days": [
+  {
+   "date": "2026-09-16",
+   "label": "2026年9月16日（週三）",
+   "short": "9/16 週三",
+   "episodeCount": 6,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-09-16.json"
+  },
   {
    "date": "2026-09-15",
    "label": "2026年9月15日（週二）",
@@ -629,5 +642,5 @@
    ]
   }
  ],
- "count": 46
+ "count": 47
 }
