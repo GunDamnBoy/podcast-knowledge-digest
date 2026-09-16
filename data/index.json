@@ -1,7 +1,23 @@
 {
- "updated": "2026-09-16T10:37:50+00:00",
- "updatedLabel": "9/16 18:37",
+ "updated": "2026-09-16T19:48:53+00:00",
+ "updatedLabel": "9/17 03:48",
  "days": [
+  {
+   "date": "2026-09-17",
+   "label": "2026年9月17日（週四）",
+   "short": "9/17 週四",
+   "episodeCount": 8,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "Forward Guidance",
+    "Prof G Markets",
+    "Invest Like the Best",
+    "In Good Company"
+   ],
+   "file": "data/2026-09-17.json"
+  },
   {
    "date": "2026-09-16",
    "label": "2026年9月16日（週三）",
@@ -642,5 +658,5 @@
    ]
   }
  ],
- "count": 47
+ "count": 48
 }
