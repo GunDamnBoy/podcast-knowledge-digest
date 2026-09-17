@@ -339,8 +339,32 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ## 5. 發布流程
 
-1. 產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`。
-2. **寫入 `~/podcast-knowledge-digest/data/`**：連線資料夾用一般檔案工具（Write／Edit）即可。若本次工作階段剛好掛載了 `mcp__remote-devices__device_commit_files`（`force: true`）也可以，但**不要假設它存在**。
+> **本節已降級（2026-09-17 補上失效橫幅）。每天怎麼跑一律以
+> `kb-core/scripts/podcast/DIGEST-PROMPT.md` 為準。**
+>
+> **這道橫幅遲到了，而遲到的代價是真的**：頂端那張表從 2026-08-21 起就寫著
+> 「仍然權威的只有第 1／2／6／8 節」，**而第 3、4 節各自掛了橫幅、第 5 節一個字都沒有**。
+> 於是從第 5 節開始讀的執行者看到的是一份**自洽的**發布流程，
+> 而下面原本的第 1–2 點明文叫他「產生當日 `data/YYYY-MM-DD.json` 與更新後的
+> `data/index.json`」「**寫入 `~/podcast-knowledge-digest/data/`**」——
+> **那兩句現在是錯的**：日檔與索引是 `tools/publish.py` 從草稿寫的，
+> 這一輪的產出只有 `~/outbox/podcast/<日期>.draft.json` 與 `data/observations.json`。
+> **2026-09-17 那一輪就是照這兩句做的**，結果撞上 publish 的不可改寫守衛、
+> 走了 `already-published` 那條路（回執仍 `exit 0`、commit 也對，
+> **所以它在輸出上完全看不出來**）。
+>
+> **本節內部原本就自己打架**：第 4 點說 publish 掃的是 `~/outbox/podcast/`，
+> 與第 1–2 點互斥。**而第 4 點是對的那一個。**
+>
+> 仍然有用的是第 3 點（Word 報告的腳本與參數）與第 5 點（上線驗證要帶 cache-buster），
+> 那兩點沒有第二個家，所以留著。
+
+1. ~~產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`。~~
+   **（2026-09-17 作廢，見上方橫幅。）** 這一輪只交草稿到 `~/outbox/podcast/<日期>.draft.json`；
+   日檔與 `index.json` 由 `tools/publish.py` 從草稿寫，**不要自己寫**。
+2. ~~**寫入 `~/podcast-knowledge-digest/data/`**：連線資料夾用一般檔案工具（Write／Edit）即可。~~
+   **（2026-09-17 作廢。）** 這一輪唯一該用 Write 動到 `data/` 的是帳本
+   `data/observations.json`（回訪與新增觀察點）。
 3. **Word 報告用腳本轉出，不由 LLM 重寫**（2026-08-08 起）：
 
    ```
@@ -359,7 +383,16 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
    若帶了 cache-buster 仍是舊內容，才是真的沒推上去。此時用唯讀方式確認推送鏈：`cat .git/refs/heads/main` 與 `cat .git/refs/remotes/origin/main` 是否同一雜湊、`tail .git/logs/refs/remotes/origin/main` 最後一筆 `update by push` 的時間戳。**這些是 `cat`／`tail`，不是 git 指令，安全。**
 
-**寫不進 repo 時的退援（不要因此放棄當天產出）**：照常交付 Word 報告，並把 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式完成。
+~~**寫不進 repo 時的退援（不要因此放棄當天產出）**：照常交付 Word 報告，並把 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json` 一併交付，說明需要手動放進 repo 的 `data/` 目錄，其餘由背景程式完成。~~
+
+> **（2026-09-17 作廢，與第 1–2 點同因。）** 上面這段**沒有編號**，所以本節橫幅初版列舉
+> 「第 1–2 點作廢、第 3 與第 5 點仍有效」時把它整段漏掉了 —— **而它是同一條肇事指示**：
+> 它同樣叫執行者產出 `data/YYYY-MM-DD.json` 與 `data/index.json`。
+> **這是本節橫幅掛上去之後、由複驗子代理在同一天抓到的**：
+> 橫幅擋住了有編號的那兩點，沒擋住它下面 30 行這段沒有編號的。
+> **現在的做法**：寫不進 repo 不需要任何退援 —— 這一輪本來就只交草稿到
+> `~/outbox/podcast/<日期>.draft.json`，日檔與索引由 `tools/publish.py` 寫。
+> 草稿交不出去才是真的卡住，那時照 `DIGEST-PROMPT.md` 第 7 步的 `exit` 處置回報。
 
 **重要操作禁忌**：不要跑任何 `git` 指令（含 `git status`），不論透過何種方式。跑 git 可能留下 `.git/index.lock` 擋住背景推送。只用 `cat`／`ls`／`grep` 等唯讀指令。
 

@@ -1291,6 +1291,51 @@ pmset -g ps         # 應顯示 "AC Power"
 
 第 11 節是敘事體，回答「為什麼」；這一節是速查表，回答「**動了哪些檔案、能還原到哪裡、當時想解決什麼、後來成立嗎**」。找歷史先看這裡定位，再回第 11 節讀細節。
 
+### 2026-09-17（六批：交件載體／日檔寫入者／回執可分辨／循環重複偵測／帳本欄位／`shows.json` 訂正）
+
+**起因是當天的日報那一輪自己踩了三個洞**，而三個都是規格沒寫、不是執行者失職。
+
+| 動的檔案 | 想解決什麼 | 後來成立嗎 |
+|---|---|---|
+| `kb-core/scripts/podcast/preamble.md`（新增第十節「交件」、第十節原內容改為第十之二；開頭補一句指路）＋`DIGEST-PROMPT.md` 第 3 步（派工單要給交件檔案路徑） | **`preamble` 從頭到尾沒有規定 JSON 交件的載體**，而全檔唯一跟檔案有關的祈使句是「骨架**不要**寫成檔案」，方向相反。09-17 八個撰寫 subagent **有三個**只把 JSON 寫在回覆正文，組檔者一份都拿不到、只能整批重派，多花約 27 萬 token。**那三個都沒有違規** | **規則已寫，效果要下一輪才看得到。驗收條件：下一次多集輪次，八份片段是否全部以檔案形式落地、回報是否逐份寫出檔案大小** |
+| `podcast-knowledge-digest/AGENT_BRIEF.md` 第 5 節（補降級橫幅、第 1–2 點劃掉並標作廢）＋`DIGEST-PROMPT.md`「這一輪不做的事」新增一條 | **第 5 節明文叫執行者自己寫 `data/<date>.json` 與 `index.json`**，而頂端橫幅從 08-21 起就說權威只剩第 1／2／6／8 節 —— **第 3、4 節各自掛了橫幅，第 5 節一個字都沒有**，於是從第 5 節讀起的人看到的是一份自洽的發布流程。09-17 那一輪照做，撞上不可改寫守衛、走了 `already-published`（**內容剛好逐位元相同才沒撞 `exit 11`**） | **成立**。橫幅已掛、兩點已標作廢、流程正本也擋住了。**驗收條件：下一輪回執的 `stage` 是 `pushed` 而不是 `already-published*`** |
+| `kb-core/tools/publish.py`（`already` 分支新增唯讀的 `prewritten` 判定，新增 stage `already-published-prewritten`）＋`DIGEST-PROMPT.md` 第 7 步 | `already-published` **對兩種成因不可分辨**：publish 上一輪卡在 push 的自癒重試、與產生端先寫好日檔。三個欄位沒有一個分得出來，09-17 那次 `exit 0`、commit 正確、index 也更新，**在輸出上完全看不出來**。判別法是唯讀的：publish 每輪都會把當日寫進 index，所以自癒那一種 index 一定已經有、先寫那一種一定沒有 | **語法與 import 已驗，真實觸發要等下次。⚠ `publish.py` 被五支 `kbpublish` 共用**，本次改動只加唯讀判斷與訊息、不改任何行為分支，`staged_paths` 六套三種形狀都不受影響 |
+| `kb-core/kbcore/transcript.py`（新增 `cycle_repeats()`）＋`anchors.quality.cycle_min_*` 四個鍵＋`tools/podcast_dupmap.py`（新增 `◆ 循環重複` 區塊） | **`block_repeat_blind_to_stutter` 記了三次（08-23／08-30／09-02）、從 08-22 拖到今天沒實作的那個修法**，做法正是那條指名的「按 `first` 聚合」。09-17 當天 iltb 與 profg 又各中一次，兩支工具都判「乾淨」 | **成立，全庫 181 份實測**。`copies>=3` 且（覆蓋 `>=3%` **或** 絕對 `>=250` token）報 35 份（19.3%），文件曾具名記過的案例全部命中。**抽驗其餘全是真的重複、零誤報 —— 所以 19.3% 是全庫真實汙染率，不是誤報率**。刻意**不接發布閘門**（會天天擋），只接報告工具 |
+| `anchors.observations._fields`（新增）＋`_review_min_note`（補不可重算警告）＋`DIGEST-PROMPT.md` 第 5 步 | 帳本實檔有 `reviewNote`、`source` 兩個欄位而**全庫零文件**（BRIEF／anchors／DIGEST-PROMPT 四邊全漏，與 `lastReviewed` 09-02 那次「四邊漏三邊」同形）；且 `lastReviewed` 是單值、回訪會覆寫，**09-13 訂門檻的那組 12 天分佈已經復現不出來** | **成立**。欄位已入規格，09-13 那組分佈已標「量測於當日、此後不可重算」 |
+| `anchors._not_here`（`shows.json` 份數說法訂正）＋`DIGEST-PROMPT.md`「不做的事」該條理由改寫 | `anchors` **第 3 行與 `shows_lifecycle` 對同一件事給出互斥答案**，兩行都是 08-22 寫的。證據偏 symlink（`MAINTENANCE` 兩處實跑 `ls -la`、`AGENT_BRIEF` 第 2 節），**那次 `ls` 跑在第 3 行那段文字寫下之後而沒有人回頭改** | **⚠ 未在沙箱機械證實**（`~/.podfetch` 沒掛進沙箱）。已標明待在 Mac 上跑 `ls -l ~/.podfetch/shows.json` 定案 |
+
+> **本場自己犯了兩個錯，兩個都是本庫已經記過的同型錯誤再犯一次：**
+>
+> 1. **`reviewNote` 用 `=` 覆寫，把四條 09-16 的回訪紀錄蓋掉** —— 而我當下正在寫的那句話
+>    就是「它是 `lastReviewed` 被覆寫之後唯一留得住的痕跡」。再從 git object store
+>    解出 commit `397d487` 的 blob 救回來。規則因此從「填」改成「**追加**」。
+>    **訊號的單位要標**（同日複驗訂正）：偵測到它的不是「帶 `reviewNote` 的項目數」
+>    ——那個在正確追加與錯誤覆寫之下**都是 7**，是不變量；對不上的是**回訪行數**
+>    （5 舊 ＋ 6 新應為 11 行，實際 7 行）。而「條」在本庫預設指帳本項目數。
+>    **我在寫「數字要標定義」那條規則的同一段裡，自己寫了一個沒標單位的數字。**
+>    **⏳ 那句話在 `DIGEST-PROMPT.md` 第 5 步裡仍寫著「條數」，本場刻意沒改。**
+>    理由是排程副本必須與正本逐字相同，而改它就要重貼 520 行密集中文 ——
+>    **手抄 520 行引入新錯誤的風險，高於那個括號的不精確**，而 `MODIFY.md`
+>    那條「整份覆寫」規則本身就是為了覆寫事故而存在。**下一場改 `DIGEST-PROMPT`
+>    要重貼副本時，順手把那兩個字改成「行數」。**
+> 2. **貼排程副本時順手多寫了一段正本沒有的內容**（09-17 那筆主持人不符紀錄）——
+>    **`MODIFY.md` 那條規則的舉例就是 09-02 同一件事，連內容類型都一樣是主持人不符。**
+>    當場補進正本讓兩邊一致。**「先改正本、再原封不動貼」這條，讀過還是會犯**，
+>    因為違反它的動作感覺起來像「順手把事情做完」。
+>
+> **另外兩件本場查到、但沒有動的：**
+>
+> - **拆 bloomberg 成兩個條目做不到**（使用者本場指定要做）。`podfetch.py:414-415` 是
+>   `"showKey": key, "show": s["name"]` —— **一個 appleId 對一個 key 對一個名字**，
+>   而 Bloomberg Money／Surveillance／Surveillance TV 全部來自同一個 appleId `296237493`。
+>   兩個條目會讓同一個 feed 被查兩次、每集被收兩次。**資料也證實**：九月 26 集 bloomberg 的
+>   `show` 全部是「Bloomberg Surveillance」，變化的只是日報寫進 `title` 的前綴。
+>   要真的拆，得先做 title 路由，那是獨立一場的工作。
+> - **第 12 節自己漏登記**：09-13 那一場、以及 09-14–09-16 有人動了
+>   `kbcore/repo.py`／`tools/publish.py`／`tools/push_kbcore.py`（新增 `git_failure_detail()`），
+>   **本節都沒有列**。現有三個自更新觸發條件（`healthcheck.main()`／`checks/podcast.py`／
+>   `systems/*.py`）**一個都涵蓋不到 `kbcore/*.py` 與 `tools/publish.py`** —— 第五次同型。
+
 ### 2026-09-03（一批：把「維護場留髒檔」的發現時點從隔天凌晨拉到當場）
 
 **起因是當天的日報被擋**：publish 回執 `exit 15 @ worktree-dirty`，03:31 起每 60 秒一次，
@@ -1299,7 +1344,7 @@ pmset -g ps         # 應顯示 "AC Power"
 
 | 動的檔案 | 想解決什麼 | 後來成立嗎 |
 |---|---|---|
-| `kb-core/scripts/podcast/healthcheck.py`（新增 `check_worktree()`＋`_read_repo()`，註冊進 `main()`） | **同型事故第三次**（08-24 的 191 輪 `exit 14`、08-31 的兩個半小時、09-03 的同兩個檔）。08-24 那道護欄把「191 輪無聲重試」換成「一次具名的停止」——**那一半做對了，但它只在 03:00 那一輪才叫，而錯誤是在維護場當下犯的**。護欄縮短了損失，沒有縮短「犯錯到發現」的距離 | **當場成立，五個情境全驗**（`/tmp` 複本，沒碰真 repo）：原封複製→PASS／**只動 mtime 內容不變→PASS**（證明訊號①單獨不誤報）／真的改內容→WARN 具名／追蹤檔被刪→WARN 另立一類／`data/` 底下改動→不計入。**驗收條件：下一次維護場留下髒檔時，是在那一場的 healthcheck 就看到，而不是隔天 03:00 被 publish 擋** |
+| `kb-core/scripts/podcast/healthcheck.py`（新增 `check_worktree()`＋`_read_repo()`，註冊進 `main()`） | **同型事故第三次**（08-24 的 191 輪 `exit 14`、08-31 的兩個半小時、09-03 的同兩個檔）。08-24 那道護欄把「191 輪無聲重試」換成「一次具名的停止」——**那一半做對了，但它只在 03:00 那一輪才叫，而錯誤是在維護場當下犯的**。護欄縮短了損失，沒有縮短「犯錯到發現」的距離 | **當場成立，五個情境全驗**（`/tmp` 複本，沒碰真 repo）：原封複製→PASS／**只動 mtime 內容不變→PASS**（證明訊號①單獨不誤報）／真的改內容→WARN 具名／追蹤檔被刪→WARN 另立一類／`data/` 底下改動→不計入。**驗收條件：下一次維護場留下髒檔時，是在那一場的 healthcheck 就看到，而不是隔天 03:00 被 publish 擋**。**✅ 2026-09-17 結案：條件兌現。** 那一場改了 `AGENT_BRIEF.md` 與 `MAINTENANCE.md`，收工前重跑 healthcheck，`工作區` 當場 WARN 並**逐檔具名**、還預告了「下一輪 03:00 會回 `exit 15 @ worktree-dirty`」。**發現時點確實從隔天凌晨移到了當場**，這一列做到了它承諾的事 |
 | 同上（`check_push()` 的 `base` 改呼叫新的 `describe_divergence()`） | 那一行把方向**寫死**成「local 領先 origin」、從不問祖先關係。09-03 實際是反的：`.git/logs/refs/remotes/origin/main` 在 06:00 那一刻的最後一列是 `67c289b → ffdf18f  fetch: fast-forward`，**origin 走在前面**（多出來那顆是 Pages 部署）。**訊息可信、內容是假的**——與 `publish.py` 註解裡記的 `rstrip` 那次（把 `data/index.json` 切成 `ata/index.json` 再理直氣壯說它不在 paths 底下）是同一個形狀 | **成立，三支用真實雜湊各驗一次**：重現 09-03 早上那組→正確說出 origin 走在前面；重現「commit 完還沒推」那組→正確說 local 走在前面；兩邊都不在 reflog→**說判不出來，不硬選一邊** |
 | `skills/maintain/podcast/MODIFY.md`（驗證新增第 6 項）、`SYNC-CHECKLIST.md`（新增 `staged_paths` 三邊、新增一個不依賴登記簿的自更新條件）、本檔第 3 節（檢查清單補三條） | 檢查只在有人跑 healthcheck 時有效，而改動常發生在第 1 項跑完之後——所以要有一條把它綁到收工前 | **文字改動，當場可驗。但初版自己出了兩個錯，都由複驗抓到**（見下） |
 
