@@ -1,7 +1,25 @@
 {
- "updated": "2026-09-16T19:48:53+00:00",
- "updatedLabel": "9/17 03:48",
+ "updated": "2026-09-17T19:49:11+00:00",
+ "updatedLabel": "9/18 03:49",
  "days": [
+  {
+   "date": "2026-09-18",
+   "label": "2026年9月18日（週五）",
+   "short": "9/18 週五",
+   "episodeCount": 12,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "Latent Space",
+    "Dwarkesh Podcast",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ],
+   "file": "data/2026-09-18.json"
+  },
   {
    "date": "2026-09-17",
    "label": "2026年9月17日（週四）",
@@ -658,5 +676,5 @@
    ]
   }
  ],
- "count": 48
+ "count": 49
 }
