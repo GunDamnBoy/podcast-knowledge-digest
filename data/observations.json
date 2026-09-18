@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-18T03:00:00+08:00",
+ "updated": "2026-09-19",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -111,10 +111,11 @@
    "id": "obs-20260802-1",
    "date": "2026-08-02",
    "text": "第一，九月 FOMC 是最乾淨的驗證點，而且三個節目都押了具體數字。Patrick Ceresna 給的定價是九月升息機率 67%、十月再升第二次約 20%、十二月一次 40% 對兩次約 37%；Kevin Muir 明說短端已接近利率循環頂部、具不對稱性，並揭露自己持有十二月 SOFR 賣權的一比二部位——買一口、賣兩口價外，賭升息但不賭連續升息循環。Bill Dudley 的判斷是過去七十二小時的市場走勢反而加大了九月行動的壓力，「若九月本來是五五波，幾乎就非得升息」，但他不認為需要震撼療法，因為 50 個基點會像絕望的訊號、且與七月按兵不動形成矛盾敘事。三者都可在九月被直接驗證或證偽。",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": "",
-   "lastReviewed": "2026-09-12"
+   "status": "部分應驗",
+   "verdict": "升息成立：Patrick Ceresna 的九月 67% 定價方向正確；Bill Dudley 的兩項判斷全中——九月壓力加大而幾乎非升不可，且不需震撼療法（實際為一碼而非 50 個基點）。Kevin Muir 的「賭升息但不賭連續升息循環」那一比二 SOFR 賣權部位要看十二月是否續升，尚未結算，故記部分應驗。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。升息成立：Patrick Ceresna 的九月 67% 定價方向正確；Bill Dudley 的兩項判斷全中——九月壓力加大而幾乎非升不可，且不需震撼療法（實際為一碼而非 50 個基點）。Kevin Muir 的「賭升息但不賭連續升息循環」那一比二 SOFR 賣權部位要看十二月是否續升，尚未結算，故記部分應驗。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260802-2",
@@ -408,9 +409,11 @@
    "id": "obs-20260814-1",
    "date": "2026-08-14",
    "text": "九月 FOMC 之前是一場門檻賽跑，而今天的受訪者難得都把門檻講明了。Eric Winograd 的門檻是核心 CPI 月增 0.3%（七月實際 0.215%）；Patrick Harker 的門檻是核心明顯高於 2%；Robert Kaplan 的上限是政策利率再 50 至 75 個基點，且他明說七月不會升、去年十二月那次降息也不會做；Michael Howell 則是「百分之百升息、至少還有六個月強化緊縮」。會議前還有一份 CPI、一份非農與 Jackson Hole，可逐一對帳誰的門檻先被觸發。最極端的兩個表述是 Howell 的「百分之百」與 Kaplan 的「若無伊朗戰事與油價跳升，市場今天可能根本不會討論升息」，其中一個會在九月被明確證偽。",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": ""
+   "status": "部分應驗",
+   "verdict": "本條自陳「最極端的兩個表述其中一個會在九月被明確證偽」。九月升息一碼成立：Michael Howell 的「百分之百升息」方向應驗；Robert Kaplan 的「若無伊朗戰事與油價跳升，市場今天可能根本不會討論升息」被證偽，其 50 至 75 個基點上限尚未觸及。Winograd 與 Harker 的門檻無公開對照值，不納入判定。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。本條自陳「最極端的兩個表述其中一個會在九月被明確證偽」。九月升息一碼成立：Michael Howell 的「百分之百升息」方向應驗；Robert Kaplan 的「若無伊朗戰事與油價跳升，市場今天可能根本不會討論升息」被證偽，其 50 至 75 個基點上限尚未觸及。Winograd 與 Harker 的門檻無公開對照值，不納入判定。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260814-2",
@@ -448,9 +451,11 @@
    "id": "obs-20260815-3",
    "date": "2026-08-15",
    "text": "Julian Emanuel 給了本期週期最短、門檻最明確的一條：警戒線是十年期公債殖利率從 4.75% 逼近 5%，三十年期已創循環新高；九月基準情境為按兵不動，但約 30% 的升息機率恐往上挪，而 Beth Hammack 主張現在就該行動。數週內即有答案，與 08-14 的「九月 FOMC 門檻賽跑」直接接軌。附帶一個可證偽的型態判斷：他主張結構性科技多頭末段的全面齊漲尚未出現，負 beta 個股逾 100 檔為 2001 年以來最高——若接下來數週齊漲出現而負 beta 檔數快速收斂，其「買保險而非減碼」的處方就該改寫。",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": ""
+   "status": "部分應驗",
+   "verdict": "Julian Emanuel 的警戒線（十年期殖利率從 4.75% 逼近 5%）已觸發——本輪 Unhedged 官方稿載明決議前十年期在 5% 上方、會後回落至 4.949%；但他的「九月基準情境為按兵不動」落空，實際為升息一碼。型態判斷（負 beta 檔數是否收斂）無公開對照值，未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。Julian Emanuel 的警戒線（十年期殖利率從 4.75% 逼近 5%）已觸發——本輪 Unhedged 官方稿載明決議前十年期在 5% 上方、會後回落至 4.949%；但他的「九月基準情境為按兵不動」落空，實際為升息一碼。型態判斷（負 beta 檔數是否收斂）無公開對照值，未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260816-1",
@@ -505,9 +510,11 @@
    "id": "obs-20260818-1",
    "date": "2026-08-18",
    "text": "九月 FOMC 之前的門檻賽跑今天多了兩個明確表態。Neil Dutta 說九月三分之一的升息機率太低、通膨終點更接近 3% 而非 2%；Dana Peterson 說 Jackson Hole 不會給方向，重點是職權、資產負債表與 SEP 存廢的體制檢討；Lori Calvasina 的 8150 滾動目標已內含「數次升息與 4.75% 十年期殖利率」的假設，並因此把年底同業均值壓到約 7850。可逐一對帳：若九月定價升破三分之一、而 Jackson Hole 只談體制不談方向，Dutta 與 Peterson 同時成立；若定價不動而 Warsh 給了方向，兩人同時受挫。與 obs-20260814-1、obs-20260815-3 為同一事件、不同判準。",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": ""
+   "status": "部分應驗",
+   "verdict": "本條的判定式是「若九月定價升破三分之一、而 Jackson Hole 只談體制不談方向，Dutta 與 Peterson 同時成立」。定價確實遠升破三分之一（本輪 profg 記 Kalshi 88%／CME 95%），Neil Dutta 的「三分之一太低」應驗；但 Jackson Hole 並非只談體制——FT 官方稿載明 Warsh 在 Jackson Hole「laid the turf」、明說通膨是問題而處理通膨的方式就是利率，故 Dana Peterson 那一半落空。Calvasina 的 8150 滾動目標另見 obs-20260915-3。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。本條的判定式是「若九月定價升破三分之一、而 Jackson Hole 只談體制不談方向，Dutta 與 Peterson 同時成立」。定價確實遠升破三分之一（本輪 profg 記 Kalshi 88%／CME 95%），Neil Dutta 的「三分之一太低」應驗；但 Jackson Hole 並非只談體制——FT 官方稿載明 Warsh 在 Jackson Hole「laid the turf」、明說通膨是問題而處理通膨的方式就是利率，故 Dana Peterson 那一半落空。Calvasina 的 8150 滾動目標另見 obs-20260915-3。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260818-2",
@@ -778,10 +785,12 @@
    "id": "obs-2026-08-29-1",
    "date": "2026-08-29",
    "due": "2026-11-29",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": "",
-   "text": "聯準會在 2026 年 11 月 29 日之前的下一次利率決議不會是降息。今天有兩位受訪者在同一天各自主張下一步應該是升息：New Century Advisors 的 Claudia Sahm 自陳「直到這一週都還在按兵不動陣營」，改變立場的理由不是通膨數據本身（她說數據還算溫和令人鼓舞），而是加拿大貿易戰、中東停滯與 AI 建置推升晶片價格這些前瞻性頭條，並指出現在離 PCE 通膨 4% 比離 2% 更近；前費城聯準銀行總裁 Patrick Harker 說行動就是調升聯邦資金利率，短端升 25 到 50 個基點雖碰不到長端，但那是在示範對通膨強硬的意思，並點名一向中間派的波士頓聯準銀行總裁 Susan Collins 已表態政策大概不夠緊縮。同一天 Bloomberg 另一集的前 Fed 副主席 Richard Clarida 立場明顯較保守，只要求主席交代把通膨拉回 2% 的框架。檢驗方式：於 2026-11-29 取 FOMC 在本觀察開帳後所做的每一次利率決議，若期間內出現任何一次降息記落空；若出現升息記應驗；若全部維持不變記部分應驗；若期間內沒有任何一次會議記無法驗證。（到期 2026-11-29）"
+   "status": "應驗",
+   "verdict": "檢驗方式寫的是「若出現升息記應驗」。開帳後第一次利率決議即為 09-17 升息一碼，Claudia Sahm 與 Patrick Harker 的方向應驗，Richard Clarida 的保守立場未被採納。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "text": "聯準會在 2026 年 11 月 29 日之前的下一次利率決議不會是降息。今天有兩位受訪者在同一天各自主張下一步應該是升息：New Century Advisors 的 Claudia Sahm 自陳「直到這一週都還在按兵不動陣營」，改變立場的理由不是通膨數據本身（她說數據還算溫和令人鼓舞），而是加拿大貿易戰、中東停滯與 AI 建置推升晶片價格這些前瞻性頭條，並指出現在離 PCE 通膨 4% 比離 2% 更近；前費城聯準銀行總裁 Patrick Harker 說行動就是調升聯邦資金利率，短端升 25 到 50 個基點雖碰不到長端，但那是在示範對通膨強硬的意思，並點名一向中間派的波士頓聯準銀行總裁 Susan Collins 已表態政策大概不夠緊縮。同一天 Bloomberg 另一集的前 Fed 副主席 Richard Clarida 立場明顯較保守，只要求主席交代把通膨拉回 2% 的框架。檢驗方式：於 2026-11-29 取 FOMC 在本觀察開帳後所做的每一次利率決議，若期間內出現任何一次降息記落空；若出現升息記應驗；若全部維持不變記部分應驗；若期間內沒有任何一次會議記無法驗證。（到期 2026-11-29）",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「應驗」。檢驗方式寫的是「若出現升息記應驗」。開帳後第一次利率決議即為 09-17 升息一碼，Claudia Sahm 與 Patrick Harker 的方向應驗，Richard Clarida 的保守立場未被採納。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-2026-08-29-2",
@@ -870,9 +879,11 @@
    "date": "2026-09-01",
    "due": "2026-12-01",
    "text": "聯準會在 2026 年底前至少還會升息一次。今天四集對 Warsh 的傑克森霍爾談話給出兩組互斥的推論：Man Group 的 Christina Hooper 認為 FOMC 的偏向已經是升息、今年可能一到兩次；Alpine Saxon Woods 的 Sarah Hunt 認為通膨來自油價、戰爭、天候與肥料的供給面，升息處理不了，九月未必動作；Unlimited Funds 的 Bob Elliot 則說泰勒法則指向的缺口是 100 到 200 個基點，而市場只在爭論九月是四六還是六四。三種說法對「該升多少」差距達一個數量級，但對「會不會升」的分歧只有一次會議的寬度。檢驗方式：於 2026-12-01 查核 FOMC 自 2026-09-01 起是否至少調升聯邦基金目標區間一次；有則 Hooper 與 Elliot 方向取得證據，無則 Hunt 的供給面論取得證據。（到期 2026-12-01）",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": ""
+   "status": "應驗",
+   "verdict": "檢驗方式寫的是「查核 FOMC 自 2026-09-01 起是否至少調升聯邦基金目標區間一次」。09-17 升息一碼，Hooper 與 Elliot 的方向取得證據，Sarah Hunt 的「供給面通膨升息處理不了、九月未必動作」落空。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：九月 FOMC 已結算，改判為「應驗」。檢驗方式寫的是「查核 FOMC 自 2026-09-01 起是否至少調升聯邦基金目標區間一次」。09-17 升息一碼，Hooper 與 Elliot 的方向取得證據，Sarah Hunt 的「供給面通膨升息處理不了、九月未必動作」落空。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-2026-09-01-3",
@@ -957,11 +968,11 @@
    "date": "2026-09-05",
    "text": "第一，今天三位彼此獨立的來賓在同一個方向上押了同一注：九月 FOMC 升息，而這是今天唯一一個三週內就會結算、不需要任何解釋空間的判斷。Claudia Sahm 說這份八月非農報告站在主張該開始升息的那一派這邊，因為勞動市場夠穩固，「因為升息而砍掉本來不必砍的工作」這個顧慮已經變弱；Christina Campmany 把它反過來講，說如果最後沒有兌現升息，長端公債市場會有真正的麻煩；Amy Wu Silverman 則從定價端指出選擇權市場把這份報告當成「無事發生」在定價。三人都同意決定權在下週 CPI 而不是就業，Sahm 並把九月定調為「銅板兩面」。檢驗方式：查九月 FOMC 決議，升息記應驗，維持不動記落空，若會議延期或出現非常規處置記無法驗證（到期 2026-09-30）。",
    "due": "2026-09-30",
-   "status": "觀察中",
-   "verdict": "",
-   "verdictDate": "",
-   "lastReviewed": "2026-09-17",
-   "reviewNote": "2026-09-16 回訪：查今日六集對九月 FOMC 的定價。Constant（Mizuho）稱市場給不升息的機率低於一成、並預期 Warsh 會端出無異議的一致立場；Dhingra（BNP Paribas）稱升息是阻止長端續漲的必要但不充分條件。三位獨立來賓押的「九月升息」方向在會前定價上仍成立，但決議未出、due 2026-09-30 未到，不做改判。維持觀察中。\n2026-09-17 回訪：今日 bloomberg 錄於九月 FOMC 決議當天、等 Warsh 記者會，profg 給 Kalshi 88%／CME 期貨 95%，但兩份逐字稿都未載決議結果。保守維持觀察中，結算日 09-30。"
+   "status": "應驗",
+   "verdict": "九月 FOMC 升息一碼成立，檢驗方式寫的是「升息記應驗」。Sahm、Campmany、Silverman 三人押的同一注方向正確。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-16 回訪：查今日六集對九月 FOMC 的定價。Constant（Mizuho）稱市場給不升息的機率低於一成、並預期 Warsh 會端出無異議的一致立場；Dhingra（BNP Paribas）稱升息是阻止長端續漲的必要但不充分條件。三位獨立來賓押的「九月升息」方向在會前定價上仍成立，但決議未出、due 2026-09-30 未到，不做改判。維持觀察中。\n2026-09-17 回訪：今日 bloomberg 錄於九月 FOMC 決議當天、等 Warsh 記者會，profg 給 Kalshi 88%／CME 期貨 95%，但兩份逐字稿都未載決議結果。保守維持觀察中，結算日 09-30。\n2026-09-19 回訪：九月 FOMC 已結算，改判為「應驗」。九月 FOMC 升息一碼成立，檢驗方式寫的是「升息記應驗」。Sahm、Campmany、Silverman 三人押的同一注方向正確。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260905-2",
@@ -1058,10 +1069,12 @@
    "id": "obs-20260909-1",
    "date": "2026-09-09",
    "text": "第一，下週的 FOMC 是今天四集裡唯一一個短期就能對答案的分歧點，而且三位受訪者押了不同邊。Jim Caron（Morgan Stanley IM）說市場定價約六成升息機率但他判斷不升；Peter Cheer（Academy Securities）說升息「徒勞」、應該按兵不動；Stephen Stanley（Santander）說成長有韌性、通膨明顯高於目標，傑克森洞之後舉證責任已經反過來，因此偏向升息。Prof G Markets 給的市場定價是 52%。這三個人不是在講程度差異，是在講方向。檢驗方式：查 9 月 FOMC 的決議與票型——升息記 Stanley 應驗、Caron 與 Cheer 落空；維持不變記 Caron 與 Cheer 應驗、Stanley 落空；若升息且同時出現鴿派與鷹派反對票，另記 Stanley 對票型的預測應驗（到期 2026-09-30）。",
-   "status": "觀察中",
+   "status": "部分應驗",
    "due": "2026-09-30",
-   "lastReviewed": "2026-09-17",
-   "reviewNote": "2026-09-16 回訪：本條記錄的分歧是 Jim Caron 判不升、另兩位判升。今日 Bloomberg Surveillance 上 Constant 明確給出「市場給不升息的機率低於一成」，方向上不利於 Caron 那一邊；但這是市場定價不是結果，決議尚未發生。維持觀察中，due 2026-09-30。\n2026-09-17 回訪：今日素材只到「市場定價 88–95%」，三位受訪者押的方向仍未結算。維持觀察中。"
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-16 回訪：本條記錄的分歧是 Jim Caron 判不升、另兩位判升。今日 Bloomberg Surveillance 上 Constant 明確給出「市場給不升息的機率低於一成」，方向上不利於 Caron 那一邊；但這是市場定價不是結果，決議尚未發生。維持觀察中，due 2026-09-30。\n2026-09-17 回訪：今日素材只到「市場定價 88–95%」，三位受訪者押的方向仍未結算。維持觀察中。\n2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。升息成立：Stephen Stanley（Santander）的偏向升息應驗，Jim Caron（判不升）與 Peter Cheer（主張按兵不動）落空。本條記錄的是三人方向互斥，故整條記部分應驗。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdict": "升息成立：Stephen Stanley（Santander）的偏向升息應驗，Jim Caron（判不升）與 Peter Cheer（主張按兵不動）落空。本條記錄的是三人方向互斥，故整條記部分應驗。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19"
   },
   {
    "id": "obs-20260909-2",
@@ -1081,10 +1094,12 @@
    "id": "obs-20260910-1",
    "date": "2026-09-10",
    "due": "2026-09-30",
-   "status": "觀察中",
+   "status": "部分應驗",
    "text": "第一，九月 FOMC 是今天六集裡最快能對答案的分歧點，而且有人給了可機械判定的門檻。摩根大通 Mike Feroli 說核心 CPI 月增 0.21 就按兵不動、0.29 他就改喊升息；Citizens Financial 執行長 Bruce Van Saun 說不會升也不重要；Infrastructure Capital 的 Jay Hatfield 說升息「蠢得離譜」、今年他唯一想像得到的動作是降息；而 Unhedged 的 Robert Armstrong 與 Katie Martin 現場打賭，兩人都押升息一碼、賭不起來。檢驗方式：查 2026 年九月 FOMC 的決議與票型——升息記 Armstrong 與 Martin 應驗、Van Saun 與 Hatfield 落空；維持不變記 Van Saun 與 Hatfield 應驗、Armstrong 與 Martin 落空；降息記 Hatfield 完全應驗（到期 2026-09-30）。",
-   "lastReviewed": "2026-09-17",
-   "reviewNote": "2026-09-17 回訪：今日 unhedged 正是 Armstrong 與 Martin 兩人主持，但整集未回頭結算他們 09-10 那個對賭。維持觀察中。"
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-17 回訪：今日 unhedged 正是 Armstrong 與 Martin 兩人主持，但整集未回頭結算他們 09-10 那個對賭。維持觀察中。\n2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。升息一碼成立：Robert Armstrong 與 Katie Martin 押的一碼應驗，Bruce Van Saun（不會升）與 Jay Hatfield（升息蠢得離譜、只想像得到降息）落空。Feroli 的核心 CPI 門檻本身未取得公開對照值，不納入判定。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdict": "升息一碼成立：Robert Armstrong 與 Katie Martin 押的一碼應驗，Bruce Van Saun（不會升）與 Jay Hatfield（升息蠢得離譜、只想像得到降息）落空。Feroli 的核心 CPI 門檻本身未取得公開對照值，不納入判定。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19"
   },
   {
    "id": "obs-20260910-2",
@@ -1104,12 +1119,12 @@
    "id": "obs-20260911-1",
    "date": "2026-09-11",
    "due": "2026-09-30",
-   "status": "觀察中",
-   "verdict": "（尚未改判，2026-09-15 回訪）本條到期日 2026-09-30，九月 FOMC 尚未召開，結構上還不能判。今日新增兩筆定價證據並記錄於此供到期時對照：Prof G Markets 引 Kalshi 九月升息機率 **65%**（該集主軸即為「The Rate Hikes Are Coming」）；Bloomberg Surveillance 的 Lori Calvasina 說市場目前定價**約三碼**升息。兩者與本條開帳時記錄的「約六成機率」方向一致、幅度略升。維持觀察中，到期日不變。",
-   "verdictDate": null,
+   "status": "部分應驗",
+   "verdict": "升息一碼成立，檢驗方式寫的是「升息一碼記兩人各半」：Greg Peters 的方向判斷成立，RBC 的「基準情境仍是按兵不動」落空、但其「若要壓需求端 25 個基點做不到」的幅度判斷尚未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19",
    "text": "第一，九月 FOMC 是今天九集裡最快能對答案的分歧點，而且有人給了可機械判定的門檻。PGIM Credit 的 Greg Peters（Bloomberg Surveillance）說市場給升息約六成機率，而他的門檻是隔日核心 CPI 若接近 0.3 就是聯準會會動的訊號；RBC 的分析師（Bloomberg Surveillance TV）說基準情境仍是按兵不動，但若真要壓需求端，25 個基點做不到、至少該把三碼收回去。兩人同一天、同一檔節目的兩集，方向一致而幅度判斷相反。檢驗方式：2026-09-30 當日查九月 FOMC 決議與票型——維持不變記 RBC 應驗；升息一碼記兩人各半；升息三碼記 RBC 的幅度判斷應驗。（到期 2026-09-30）",
-   "lastReviewed": "2026-09-17",
-   "reviewNote": "2026-09-16 回訪：查今日是否出現可對照 Greg Peters 門檻的新資料。十年期殖利率今日觸及 5%（2007 年以來最高），而股市當日僅小跌（標普 −3 點、道瓊 −0.2%），與門檻設定的方向一致但尚未觸及任何判定線。FOMC 未開，due 2026-09-30 未到。維持觀察中。\n2026-09-17 回訪：幅度判斷（一碼 vs 三碼）今日無新證據。維持觀察中。"
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-16 回訪：查今日是否出現可對照 Greg Peters 門檻的新資料。十年期殖利率今日觸及 5%（2007 年以來最高），而股市當日僅小跌（標普 −3 點、道瓊 −0.2%），與門檻設定的方向一致但尚未觸及任何判定線。FOMC 未開，due 2026-09-30 未到。維持觀察中。\n2026-09-17 回訪：幅度判斷（一碼 vs 三碼）今日無新證據。維持觀察中。\n2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。升息一碼成立，檢驗方式寫的是「升息一碼記兩人各半」：Greg Peters 的方向判斷成立，RBC 的「基準情境仍是按兵不動」落空、但其「若要壓需求端 25 個基點做不到」的幅度判斷尚未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。"
   },
   {
    "id": "obs-20260911-2",
@@ -1161,9 +1176,11 @@
    "date": "2026-09-13",
    "due": "2026-09-30",
    "text": "第一，下週 FOMC 是今天六集裡最快能對答案的分歧點，而雙方的分歧不在通膨資料上、在政策反應函數上。Market Huddle 那邊 SOFR 期貨定價下週升息機率 88% 到 89%、曲線合計定價 3.6 次，而 Chase Taylor 正是因為 3.6 次已在價格裡才做多兩年期（他押次數少於市場預期，不是不升）；Bloomberg Money 的 Eric Balchunas 押零次甚至一次降息，理由是股市已經是美國的退休制度、升息會透過折現率打掉全民退休財富，因此升息本身有天花板。檢驗方式：查九月 FOMC 的決議結果與點陣圖——若升息一次以上，Balchunas 的「政策底會壓住升息」落空；若按兵不動或降息，曲線的 3.6 次定價與 Chase 的通膨診斷同時被打折。（到期 2026-09-30）",
-   "status": "觀察中",
-   "lastReviewed": "2026-09-17",
-   "reviewNote": "2026-09-16 回訪：今日六集提供大量會前證據但無法結案——Mizuho 的 Dominic Constant 按字面理解 Jackson Hole 訊號、判定是三到四次的緊縮循環而非保險性升息；BNP Paribas 的 Guneet Dhingra 給的區間是低端三次、高端六次；Beach Point 的 Sinjin Bowen 說「所有訊號都指向會升」；Constant 另稱市場給「不升息」的機率低於一成。這些全部支持本條所說的「分歧不在通膨資料而在政策反應函數」，但 FOMC 決議本身尚未結算，due 2026-09-30 未到。維持觀察中。\n2026-09-17 回訪：Balchunas 押零次一事今日無新證據；profg 的 Zandi 反而說「我會主張按兵不動，但他們就是會升息」。維持觀察中。"
+   "status": "部分應驗",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-16 回訪：今日六集提供大量會前證據但無法結案——Mizuho 的 Dominic Constant 按字面理解 Jackson Hole 訊號、判定是三到四次的緊縮循環而非保險性升息；BNP Paribas 的 Guneet Dhingra 給的區間是低端三次、高端六次；Beach Point 的 Sinjin Bowen 說「所有訊號都指向會升」；Constant 另稱市場給「不升息」的機率低於一成。這些全部支持本條所說的「分歧不在通膨資料而在政策反應函數」，但 FOMC 決議本身尚未結算，due 2026-09-30 未到。維持觀察中。\n2026-09-17 回訪：Balchunas 押零次一事今日無新證據；profg 的 Zandi 反而說「我會主張按兵不動，但他們就是會升息」。維持觀察中。\n2026-09-19 回訪：九月 FOMC 已結算，改判為「部分應驗」。升息一碼成立，檢驗方式寫的是「若升息一次以上，Balchunas 的『政策底會壓住升息』落空」——Balchunas 押零次甚至一次降息，落空。Chase Taylor 押「次數少於市場定價的 3.6 次」那一半要看後續會議，尚未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdict": "升息一碼成立，檢驗方式寫的是「若升息一次以上，Balchunas 的『政策底會壓住升息』落空」——Balchunas 押零次甚至一次降息，落空。Chase Taylor 押「次數少於市場定價的 3.6 次」那一半要看後續會議，尚未結算。2026 年 9 月 FOMC 已於 09-17 決議升息一碼且全票通過，本輪日報有五份彼此獨立的當日逐字稿一致載明（FT 官方稿 Unhedged「raise interest rates by a quarter of a percentage point」「voted unanimously」、MacroVoices 官方稿載明錄音就在鷹派升息後數小時、Forward Guidance、Bloomberg Surveillance TV、The Compound）。",
+   "verdictDate": "2026-09-19"
   },
   {
    "id": "obs-20260913-2",
@@ -1254,7 +1271,9 @@
    "due": "2026-10-15",
    "status": "觀察中",
    "source": "Bloomberg Surveillance｜The Fed, Rate Hikes, and AI（David Rosenberg）",
-   "text": "第一，David Rosenberg 指出的 9 月 30 日是今天最乾淨、最快能對答案的檢驗點：BEA 屆時會對 PCE 平減指數做一次全面的重新檢視、重設與修訂，而他真正想問的是趨勢會被下修多少。他同時舉出 Warsh 自己長年偏好的達拉斯聯準會截尾均值通膨目前年增 2.3%、低於去年同期的 2.7%，並比核心 PCE 平減指數低了整整一個百分點，而這兩者歷史上通常貼著走。檢驗方式：2026-10-15 當日查 BEA 於 9 月 30 日發布的 PCE 綜合修訂——核心 PCE 的近一年趨勢年增率被下修記應驗；修訂幅度在 ±0.1 個百分點內記部分應驗；被上修記落空；若該次修訂延期或未涵蓋 PCE 平減指數記無法驗證。（到期 2026-10-15）"
+   "text": "第一，David Rosenberg 指出的 9 月 30 日是今天最乾淨、最快能對答案的檢驗點：BEA 屆時會對 PCE 平減指數做一次全面的重新檢視、重設與修訂，而他真正想問的是趨勢會被下修多少。他同時舉出 Warsh 自己長年偏好的達拉斯聯準會截尾均值通膨目前年增 2.3%、低於去年同期的 2.7%，並比核心 PCE 平減指數低了整整一個百分點，而這兩者歷史上通常貼著走。檢驗方式：2026-10-15 當日查 BEA 於 9 月 30 日發布的 PCE 綜合修訂——核心 PCE 的近一年趨勢年增率被下修記應驗；修訂幅度在 ±0.1 個百分點內記部分應驗；被上修記落空；若該次修訂延期或未涵蓋 PCE 平減指數記無法驗證。（到期 2026-10-15）",
+   "lastReviewed": "2026-09-19",
+   "reviewNote": "2026-09-19 回訪：查本條指向的 BEA 9/30 PCE 綜合修訂是否已發生——尚未發生（今日為 09-19），任何查詢都取不到結算資料。本條與 obs-2026-08-27-3 指向同一個 9/30 事件，到期時應一併判。維持觀察中（due 2026-10-15）。"
   },
   {
    "id": "obs-20260917-2",
@@ -1295,6 +1314,30 @@
    "status": "觀察中",
    "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: September 17th, 2026（Bill Dudley）",
    "text": "前紐約聯準銀行總裁 Bill Dudley 說升息一碼根本不夠，並指期貨已定價未來六到九個月還有三到四次升息，同時直指聯準會自己那份「成長不減速、失業不上升、通膨卻自動回到 2%」的預測站不住腳；而同一次會議的點陣圖只指向年內再一次。兩個數字差距很大，且三個月內就會分出勝負。檢驗方式：2026-12-31 當日查聯邦資金利率目標區間上緣，達 4.25% 以上（即 9 月之後再升兩碼或以上）記應驗；為 4.00%（再升一碼）記部分應驗；仍為 3.75%–4% 或更低記落空；若聯準會於期間內改變政策工具或目標區間定義致無法對照，記無法驗證。（到期 2026-12-31）"
+  },
+  {
+   "id": "obs-20260919-1",
+   "date": "2026-09-19",
+   "due": "2026-12-19",
+   "status": "觀察中",
+   "source": "MacroVoices｜MacroVoices #550 Harley Bassman: In FED We Trust（Harley Bassman）",
+   "text": "長端美債殖利率上行反映的是財政公信力而非通膨預期。Harley Bassman 指出十年期 TIPS 與名目公債的損益兩平停在 2.34、與過去四年 2.35 的均值幾乎一樣，而同期名目利率已上行約一百五十個基點——市場若在定價物價，這個價差早該張開。他因此主張定價的是持有美元的代價，而非通膨。檢驗方式：以 2026-09-18 收盤為基準，2026-12-19 當日同時取 FRED 的 DGS10（十年期名目殖利率）與 T10YIE（十年期損益兩平通膨率）。若名目殖利率較基準日上行 25 個基點以上、而損益兩平的變動幅度在正負 15 個基點以內，記應驗；若名目上行 25 個基點以上且損益兩平同向擴大超過 25 個基點，記落空；名目殖利率變動不足 25 個基點（無論方向）記無法驗證；其餘情形記部分應驗。（到期 2026-12-19）"
+  },
+  {
+   "id": "obs-20260919-2",
+   "date": "2026-09-19",
+   "due": "2026-12-31",
+   "status": "觀察中",
+   "source": "All-In Podcast｜Jared Isaacman: A New Era for NASA and American Space Exploration（Jared Isaacman）",
+   "text": "NASA 署長 Jared Isaacman 端出的重排時程，第一個節點在今年底：於 39B 發射台完成加注測試，其後接 2027 年夏 Artemis 3、2028 年 Artemis 4 登陸與 SR1 Freedom 反應爐發射。他的整套論證是 NASA 沒有預算總量問題只有資本配置問題，而重排的成敗只能用滑不滑期來評分。檢驗方式：2026-12-31 當日查 NASA 官方發布（nasa.gov 新聞稿或 Artemis 部落格）與主要航太媒體具名報導，確認 2026-12-31 之前是否已在 LC-39B 完成該次加注／濕式彩排測試。已完成記應驗；已執行但中止或未達測試目標記部分應驗；未執行且官方已公告延至 2027 年記落空；若 NASA 取消或以其他測試取代該項目致無從對照，記無法驗證。（到期 2026-12-31）"
+  },
+  {
+   "id": "obs-20260919-3",
+   "date": "2026-09-19",
+   "due": "2026-12-31",
+   "status": "觀察中",
+   "source": "All-In Podcast｜Meta's Dina Powell McCormick: The Case for Data Centers, Backlash, AI Job Boom & Meta's Future（Dina Powell McCormick）",
+   "text": "Meta 把自己的兒少合規成本轉成對手的合規成本這一步會被第三方跟進。Dina Powell McCormick 說明 Meta 與 52 位兩黨州檢察長的協議已把未滿 18 歲每日兩小時、夜間關閉、上學時段零通知寫進產品預設值，並公開開價再加 50 億美元、願意把上限降到一小時，條件是把 YouTube、TikTok 與 Snap 一起拉進來。若成立，未成年使用時數下修對社群與短影音平台就是結構性而非一次性事件。檢驗方式：2026-12-31 當日查 YouTube（Alphabet）、TikTok、Snap 三家的官方公告與主要財經媒體具名報導。三家中有兩家以上公開承諾加入跨平台未成年使用時數上限機制（或簽署同一份州檢察長協議）記應驗；僅一家記部分應驗；零家記落空；若該協議於期間內被法院撤銷或 Meta 公開撤回該提案致無從對照，記無法驗證。（到期 2026-12-31）"
   }
  ]
 }
