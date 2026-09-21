@@ -1,7 +1,21 @@
 {
- "updated": "2026-09-20T19:22:31+00:00",
- "updatedLabel": "9/21 03:22",
+ "updated": "2026-09-21T19:27:43+00:00",
+ "updatedLabel": "9/22 03:27",
  "days": [
+  {
+   "date": "2026-09-22",
+   "label": "2026年9月22日（週二）",
+   "short": "9/22 週二",
+   "episodeCount": 7,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC"
+   ],
+   "file": "data/2026-09-22.json"
+  },
   {
    "date": "2026-09-21",
    "label": "2026年9月21日（週一）",
@@ -722,5 +736,5 @@
    ]
   }
  ],
- "count": 52
+ "count": 53
 }
