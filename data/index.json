@@ -1,7 +1,20 @@
 {
- "updated": "2026-09-21T19:27:43+00:00",
- "updatedLabel": "9/22 03:27",
+ "updated": "2026-09-22T19:26:52+00:00",
+ "updatedLabel": "9/23 03:26",
  "days": [
+  {
+   "date": "2026-09-23",
+   "label": "2026年9月23日（週三）",
+   "short": "9/23 週三",
+   "episodeCount": 6,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Invest Like the Best",
+    "Prof G Markets"
+   ],
+   "file": "data/2026-09-23.json"
+  },
   {
    "date": "2026-09-22",
    "label": "2026年9月22日（週二）",
@@ -736,5 +749,5 @@
    ]
   }
  ],
- "count": 53
+ "count": 54
 }
