@@ -1,7 +1,25 @@
 {
- "updated": "2026-09-23T19:28:46+00:00",
- "updatedLabel": "9/24 03:28",
+ "updated": "2026-09-24T19:23:58+00:00",
+ "updatedLabel": "9/25 03:23",
  "days": [
+  {
+   "date": "2026-09-25",
+   "label": "2026年9月25日（週五）",
+   "short": "9/25 週五",
+   "episodeCount": 9,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "No Priors",
+    "We Study Billionaires (TIP)",
+    "Masters in Business",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-09-25.json"
+  },
   {
    "date": "2026-09-24",
    "label": "2026年9月24日（週四）",
@@ -765,5 +783,5 @@
    ]
   }
  ],
- "count": 55
+ "count": 56
 }
