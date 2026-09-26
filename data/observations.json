@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T19:24:24Z",
+ "updated": "2026-09-26T19:21:15Z",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -287,7 +287,9 @@
    "text": "第一，盯 SpaceX 那 3,000 億美元的融資揭露。All-In 上被點名的三個結構——Nvidia 背書、SPV、Gurley 所稱的「循環營收」——若接下來幾週出現更完整的條款揭露，就能檢驗這究竟是產業級的資本形成還是相互擔保。同時看 Starlink 能否守住單季 43 億美元營收與 26 億美元調整後 EBIT 的量級，那是「18 個月到兩年內 1 兆美元市值」這個說法唯一的實證錨點。",
    "status": "觀察中",
    "verdict": "",
-   "verdictDate": ""
+   "verdictDate": "",
+   "reviewNote": "2026-09-27 回訪：查 HL 2026-06-05 整理的 SpaceX S-1——Connectivity（Starlink）2025 年營收約 114 億美元、營業利益 44 億美元，2026Q1 公司總營收 47 億美元；該整理未提及 3,000 億美元融資、Nvidia 背書、SPV 或循環營收，Q2 財報原文（CNBC）本輪取回 403。條款揭露與「單季 43 億／26 億」兩項都無法用現有資料對上，維持觀察中。",
+   "lastReviewed": "2026-09-27"
   },
   {
    "id": "obs-20260809-2",
@@ -345,7 +347,9 @@
    "text": "追紐約時報的授權談判與訴訟進度。Levien 已完成與 Amazon 的授權，同時對 OpenAI 與微軟（近三年）及 Perplexity（去年 12 月）提告，並喊出「數百億甚至上千億美元的投入就該為資料付出對等代價」的定價錨。可驗證：是否再出現第二、第三筆授權簽約，以及任一訴訟是否出現實質裁定。",
    "status": "觀察中",
    "verdict": "",
-   "verdictDate": ""
+   "verdictDate": "",
+   "reviewNote": "2026-09-27 回訪：查 Axios 2026-09-08 報導——NYT 訴 OpenAI／微軟案各方已於 09-05 就簡易判決動議言詞辯論，Stein 法官尚未裁定、未排定審期；檢索未見 NYT 在 Amazon 之後的第二筆 AI 授權、Perplexity 案無實質裁定。兩個檢驗條件都尚未發生，維持觀察中。",
+   "lastReviewed": "2026-09-27"
   },
   {
    "id": "obs-20260811-3",
@@ -1534,6 +1538,22 @@
    "due": "2026-12-26",
    "status": "觀察中",
    "source": "MacroVoices｜MacroVoices #551 Michael Every: Decoding The Global Geopolitical Puzzle；Unhedged (FT)｜Bond bombshell"
+  },
+  {
+   "id": "obs-20260927-1",
+   "date": "2026-09-27",
+   "text": "All-In 的 Chamath Palihapitiya 說 Anthropic 的 IPO 最後成交價格很可能遠低於預期，粗估乾淨情境下 2 兆美元的市值可能只剩 1 兆或更少（節目同時引述 Polymarket 今年上市機率從 96% 降到 76%）。檢驗方式：2026-12-27 當日，查 Anthropic 是否已完成 IPO 定價；已定價且以發行價計算的完全稀釋市值不高於 1 兆美元記應驗，介於 1 兆與 1.5 兆美元記部分應驗，高於 1.5 兆美元記落空，截至該日尚未定價記無法驗證。（到期 2026-12-27）",
+   "due": "2026-12-27",
+   "status": "觀察中",
+   "source": "All-In Podcast｜Anthropic IPO at Risk, Meta's Muse Pop, Token Prices Fall, Open Source Gains Share, Alignment Fails"
+  },
+  {
+   "id": "obs-20260927-2",
+   "date": "2026-09-27",
+   "text": "Bloomberg Surveillance TV 的來賓 Pete 主張本土化使通膨難以低於 2.5%，據此看多能源與基礎建設、看空債券；同日 Bloomberg Money 的 Jeffrey Rosenberg 與 Barry Ritholtz 則把現行殖利率當成收益機會。本條以 Pete 的配置為 claim。檢驗方式：2026-12-27 當日，比較 XLE 與 TLT 自 2026-09-25 收盤至 2026-12-24 收盤的含息總報酬；XLE 領先 TLT 5 個百分點以上記應驗，領先 0 至 5 個百分點記部分應驗，落後記落空。（到期 2026-12-27）",
+   "due": "2026-12-27",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: September 25th, 2026；Bloomberg Surveillance｜What The Bond Selloff Means For Your Wallet & Simplifying Finance For Your Family"
   }
  ]
 }
