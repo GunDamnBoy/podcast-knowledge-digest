@@ -1,7 +1,23 @@
 {
- "updated": "2026-09-27T19:19:17+00:00",
- "updatedLabel": "9/28 03:19",
+ "updated": "2026-09-28T23:26:07+00:00",
+ "updatedLabel": "9/29 07:26",
  "days": [
+  {
+   "date": "2026-09-29",
+   "label": "2026年9月29日（週二）",
+   "short": "9/29 週二",
+   "episodeCount": 8,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "Invest Like the Best"
+   ],
+   "file": "data/2026-09-29.json"
+  },
   {
    "date": "2026-09-28",
    "label": "2026年9月28日（週一）",
@@ -827,5 +843,5 @@
    ]
   }
  ],
- "count": 59
+ "count": 60
 }

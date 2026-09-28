@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T19:17:42Z",
+  "updated": "2026-09-28T23:24:55Z",
   "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
   "items": [
     {
@@ -230,7 +230,9 @@
       "text": "Alicia Levine 的 18 到 24 個月現金流轉正模型給了一個明確的驗證窗口，而她也主動提供了自己的證偽條件——她說銀行是前瞻領先指標，銀行表現好就不會進入衰退。若銀行類股的相對表現轉弱，按她自己的框架就該調整；這比籠統的多空表態更值得追蹤。",
       "status": "觀察中",
       "verdict": "",
-      "verdictDate": ""
+      "verdictDate": "",
+      "reviewNote": "2026-09-29 回訪：查 KBW 銀行指數 8/6 以來相對 S&P 500 的表現，網路搜尋未取得可用的區間數據；同日 Bloomberg Surveillance 主集稿內指出 8/11 以來金融類股明顯下跌、等權重指數跌約 3.5–4% 而市值加權指數被科技撐住，屬 Levine 框架下「銀行相對轉弱」的線索，但本條無到期日也無量化門檻，維持觀察中。",
+      "lastReviewed": "2026-09-29"
     },
     {
       "id": "obs-20260807-1",
@@ -385,7 +387,9 @@
       "text": "IMAX 的抽成率論點是本日週期最短、最容易證偽的一條。Rich Gelfond 主張市場折價的不是需求而是分潤結構——票價由 AMC 決定（他舉週三 14 美元為例），而拉斯維加斯一家獨立業者以 50 美元售罄。可對照事件有二：IMAX 是否在接下來幾季財報或法說會揭露分潤條款重談、或推出自營與直營定價試點；以及今年 14 億美元票房指引是否達標（去年 12 億美元指引、實際約 13 億美元）。若票房達標而每股獲利未同步改善，抽成率診斷取得證據；若票房本身未達標，則需求端疑慮才是對的。",
       "status": "觀察中",
       "verdict": "",
-      "verdictDate": ""
+      "verdictDate": "",
+      "reviewNote": "2026-09-29 回訪：查 IMAX 2026 年 Q2 財報（7/23 發布，早於本條開帳日）維持全年 14 億美元票房指引，未見分潤條款重談或自營定價試點的公告；全年票房是否達標要等 Q3 財報（約 10 月下旬）與年底，維持觀察中。",
+      "lastReviewed": "2026-09-29"
     },
     {
       "id": "obs-20260813-1",
@@ -1572,6 +1576,30 @@
       "due": "2026-12-31",
       "status": "觀察中",
       "source": "We Study Billionaires (TIP)｜TIP849: Average Returns Can Still Make You Wealthy w/ David Fagan"
+    },
+    {
+      "id": "obs-20260929-1",
+      "date": "2026-09-29",
+      "text": "Bloomberg Surveillance TV 的 Bob Michele（摩根資產管理）說 5% 以上的 10 年期美債殖利率「幾乎是送你的禮物」，並在 5.23% 加碼；同日主集的 Nimrit Kang 則說 5% 以上可能是新常態。本條以 Michele 的判斷為 claim。檢驗方式：2026-12-28 當日，查 10 年期美債殖利率收盤值。低於 4.90% 記應驗；介於 4.90% 與 5.22% 之間記部分應驗；高於 5.22% 記落空。（到期 2026-12-28）",
+      "due": "2026-12-28",
+      "status": "觀察中",
+      "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: September 28th, 2026；Bloomberg Surveillance｜US Stocks and Treasuries Fall as Oil Pushes Higher; Iran Refuses to Soften Demands"
+    },
+    {
+      "id": "obs-20260929-2",
+      "date": "2026-09-29",
+      "text": "Bloomberg Surveillance 主集 RBC 的 Lori Cavacina（稿作此拼法）依歷來升息起點的回檔中位數，認為年底前 5–10% 回檔的風險已升高。檢驗方式：2026-12-31 當日，計算 S&P 500 自 2026-09-28 收盤起至 2026-12-31 任一交易日收盤的最大回落幅度（以期間內前高計）。達 5% 以上記應驗；3% 至 5% 記部分應驗；未達 3% 記落空。（到期 2026-12-31）",
+      "due": "2026-12-31",
+      "status": "觀察中",
+      "source": "Bloomberg Surveillance｜US Stocks and Treasuries Fall as Oil Pushes Higher; Iran Refuses to Soften Demands"
+    },
+    {
+      "id": "obs-20260929-3",
+      "date": "2026-09-29",
+      "text": "Prof G Markets 的 Scott Galloway 預測 Oura 上市首日漲幅逾 30%。檢驗方式：2026-12-29 當日，查 Oura 是否已掛牌。已掛牌且首日收盤價高於發行價 30% 以上記應驗；高於發行價但未達 30% 記部分應驗；首日收盤低於或等於發行價記落空；截至該日尚未掛牌記無法驗證。（到期 2026-12-29）",
+      "due": "2026-12-29",
+      "status": "觀察中",
+      "source": "Prof G Markets｜Investors Are Turning Against Data Centers (Here's Why)"
     }
   ]
 }
