@@ -12,7 +12,7 @@
 > | 什麼算對的產出、當期失敗判準 | `kb-core/podcast/BRIEF.md` |
 > | 每天怎麼跑 | `kb-core/scripts/podcast/DIGEST-PROMPT.md` |
 > | 撰寫 subagent 的規則 | `kb-core/scripts/podcast/preamble.md` |
-> | 發布前檢查 | `kb-core/checks/podcast.py`＋`tools/podcast_verify.py` |
+> | 發布前檢查 | `kb-core/checks/podcast.py`＋`systems/podcast.py`＋`tools/podcast_verify.py` |
 >
 > **本文仍然是這幾件事的唯一的家，不要搬走也不要當它過期：**
 > 第 1 節節目清單與來源（`healthcheck.py` 的「節目在文件裡」那條**實際在讀本文**）、
@@ -39,7 +39,7 @@
 
 每天早上（含週末）自動偵測 `shows.json` 裡全部現役 Podcast 的新集數，取得**全文**，為每一集撰寫繁體中文完整摘譯（**字數依節目長度分層，見第 3 節**）＋3–5 個核心重點，同時交付兩種形式：
 
-1. **Word 報告**（.docx）— **由 `~/kb-core/tools/podcast_docx.py` 從當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍），交付到對話中供轉發與引用（Cowork 用 `present_files`）。**不要存進 repo 目錄**，該 repo 是 Public。
+1. **Word 報告**（.docx）— **由 `~/kb-core/tools/podcast_docx.py` 從已發布的當日 JSON 機械轉出**（內容以 JSON 為唯一來源，不由 LLM 重寫一遍）。**執行者是 launchd `com.kenny.kbdocx.podcast`（04:00／07:00／10:00／13:00），不是日報那一輪**——日報這一輪不做 Word（權威在 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 8 步；2026-09-28 訂正，原寫「交付到對話中」）。**不要存進 repo 目錄**，該 repo 是 Public。
 2. **網站**（本 repo）— 每天新增一個 `data/YYYY-MM-DD.json`，供隨時閱讀與全文搜尋。
 
 **時序（兩者都不會喚醒睡著的 Mac；電源設定見 `MAINTENANCE.md` 第 9 節）**：
@@ -127,7 +127,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 **所以產檔前必須去重，而且是兩種去重：**
 
-**① 跨日去重**：讀 `data/` 裡**日期最大的那一份** `YYYY-MM-DD.json`（注意不一定是昨天——0 集日不產檔），比對 `url` 與 `title`，已收錄過的一律略過。**podfetch 主路徑與 iTunes 退援路徑都要做這件事。**
+**① 跨日去重**：讀 `data/` 裡**最近幾份**日檔（視窗上限 72 小時，所以至少往回看三天；0 集日不產檔，不一定是昨天），比對 **`url`（含 `?i=<trackId>`）**，已收錄過的一律略過。**不要比日檔的 `title`**——那是子代理擬的中譯，同一集兩天會生出兩個標題。（2026-09-28 訂正：原寫「日期最大的那一份、比對 `url` 與 `title`」，與 `DIGEST-PROMPT.md` 第 2 步不一致。）**podfetch 主路徑與 iTunes 退援路徑都要做這件事。**
 
 **② 同日同源去重（2026-08-10 新增）**：同一支音檔會被**同一天內的不同節目**推送。比對**當天 manifest 的原文 `title` 與 `durationMs`**——兩者都相同就是同一支，**只留一集**：
 
@@ -145,7 +145,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 >
 > 這個情境一定會發生，因為它是設計的一部分：podfetch 某集失敗時不會推進 `last_run_utc`，下次執行必定重抓同一集。若去重時一視同仁，補回來的完整逐字稿會被自己的去重規則擋掉，那集就永遠停在佔位狀態——**而且完全沒有徵兆**。
 >
-> 重寫時把該集**從舊檔移除、寫進今天的檔案**（連同 `episodeCount` 與 `shows` 一併更新），並在回報中說明「某集補上了前一版缺的全文」。
+> 重寫時**只把完整摘譯寫進今天的草稿**，該集 `source` 註明「補 YYYY-MM-DD 那一版的 ⚠︎ 佔位」，並在回報中說明。**不要動舊日檔**——已發布的日檔受 publish 的不可改寫守衛保護（內容不同就 `exit 11`），舊檔那個佔位要處理就走 errata，不在日報這一輪做。`index.json` 的 `episodeCount`／`shows` 由 publish 從草稿算，也不必自己改。（2026-09-28 訂正：原寫「從舊檔移除、寫進今天的檔案（連同 `episodeCount` 與 `shows` 一併更新）」，照做必撞 `exit 11`。）
 
 **允許「當日 0 集」**（週末常見）。此時**不要產生空檔案、不要動 `index.json`、不要產 Word 報告**，直接回報後結束。
 
@@ -225,7 +225,7 @@ python3 ~/kb-core/scripts/podcast/healthcheck.py  # 一次跑完所有機械式�
 
 **「當天沒有目錄」≠「podfetch 掛了」。** 0 集時 podfetch 正常結束但不建立當天目錄。依序排查，不要跳步：
 
-1. **資料夾根本沒連線** → 先 `request_cowork_directory` 連上再重讀（見第 6 節）。
+1. **資料夾根本沒連線** → 先 `request_cowork_directory` 連上再重讀（見第 6 節；雲端工作階段見 `DIGEST-PROMPT.md` 第 0 步）。
 2. **連上了但沒有今天的目錄** → 讀 `~/.podfetch/logs/<今天>.log`。停在異常處就是 podfetch 失效。
    > **不要再用 `state.json` 的 `last_run_utc` 判斷「podfetch 今天有沒有跑」（2026-08-16 起這個判準失效）。** 0 集那天 podfetch 正常執行但**刻意不推進**它，所以一個真 0 集的週末之後，那個值本來就會停在兩三天前。它現在的語意只有一個：**下次視窗的起點**。「今天有沒有跑」一律看日誌。
 
@@ -357,7 +357,8 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 > 與第 1–2 點互斥。**而第 4 點是對的那一個。**
 >
 > 仍然有用的是第 3 點（Word 報告的腳本與參數）與第 5 點（上線驗證要帶 cache-buster），
-> 那兩點沒有第二個家，所以留著。
+> 那兩點沒有第二個家，所以留著。**但第 3 點是給「人工補轉 Word」用的參考，不是日報這一輪的步驟**——
+> 日報不做 Word，平常由 launchd `com.kenny.kbdocx.podcast` 自動轉（2026-09-28 補註）。
 
 1. ~~產生當日 `data/YYYY-MM-DD.json` 與更新後的 `data/index.json`。~~
    **（2026-09-17 作廢，見上方橫幅。）** 這一輪只交草稿到 `~/outbox/podcast/<日期>.draft.json`；
@@ -416,6 +417,8 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
   `outbox`（寫草稿到 `outbox/podcast/`）、`podcast-knowledge-digest`（寫帳本與網站資料）。
   **連線不保證跨工作階段留存**，失敗的樣子和「podfetch 沒跑」一模一樣。**讀不到就先自己連**：
   `mcp__cowork__request_cowork_directory`，無人值守下實測不會跳核准對話框。
+  **這只適用於本機 Cowork**；雲端工作階段連到 Mac 時資料夾走 `mcp__remote-devices__device_*`，
+  兩種環境怎麼認、各用什麼，權威在 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 0 步的表（2026-09-28 補註）。
   > **2026-08-23 訂正：這裡原本寫「三個」而且清單是錯的** —— 少了 `kb-core` 與 `outbox`
   > （每天真正要用的兩個），多了 `~/.podfetch`（現在只剩執行期狀態，日常執行用不到，
   > 而且**它在沙箱裡本來就掛不上**）。照舊版連，會少連兩個關鍵資料夾。
