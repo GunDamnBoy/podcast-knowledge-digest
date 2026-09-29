@@ -1,7 +1,20 @@
 {
- "updated": "2026-09-28T23:26:07+00:00",
- "updatedLabel": "9/29 07:26",
+ "updated": "2026-09-29T19:23:33+00:00",
+ "updatedLabel": "9/30 03:23",
  "days": [
+  {
+   "date": "2026-09-30",
+   "label": "2026年9月30日（週三）",
+   "short": "9/30 週三",
+   "episodeCount": 4,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "Latent Space",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-09-30.json"
+  },
   {
    "date": "2026-09-29",
    "label": "2026年9月29日（週二）",
@@ -843,5 +856,5 @@
    ]
   }
  ],
- "count": 60
+ "count": 61
 }
