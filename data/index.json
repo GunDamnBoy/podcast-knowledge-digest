@@ -1,7 +1,22 @@
 {
- "updated": "2026-10-02T19:25:41+00:00",
- "updatedLabel": "10/3 03:25",
+ "updated": "2026-10-03T19:21:27+00:00",
+ "updatedLabel": "10/4 03:21",
  "days": [
+  {
+   "date": "2026-10-04",
+   "label": "2026年10月4日（週日）",
+   "short": "10/4 週日",
+   "episodeCount": 6,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Money Stuff: The Podcast",
+    "Prof G Markets",
+    "20VC",
+    "Masters in Business"
+   ],
+   "file": "data/2026-10-04.json"
+  },
   {
    "date": "2026-10-03",
    "label": "2026年10月3日（週六）",
@@ -907,5 +922,5 @@
    ]
   }
  ],
- "count": 64
+ "count": 65
 }
