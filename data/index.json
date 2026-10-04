@@ -1,7 +1,19 @@
 {
- "updated": "2026-10-03T19:21:27+00:00",
- "updatedLabel": "10/4 03:21",
+ "updated": "2026-10-04T19:21:33+00:00",
+ "updatedLabel": "10/5 03:21",
  "days": [
+  {
+   "date": "2026-10-05",
+   "label": "2026年10月5日（週一）",
+   "short": "10/5 週一",
+   "episodeCount": 3,
+   "shows": [
+    "Forward Guidance",
+    "We Study Billionaires (TIP)",
+    "Prof G Markets"
+   ],
+   "file": "data/2026-10-05.json"
+  },
   {
    "date": "2026-10-04",
    "label": "2026年10月4日（週日）",
@@ -922,5 +934,5 @@
    ]
   }
  ],
- "count": 65
+ "count": 66
 }
