@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-04T19:20:20.993383+00:00",
+ "updated": "2026-10-05T19:20:49.115153+00:00",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -505,7 +505,9 @@
    "text": "Harry Stebbings 揭露自家基金已把每週投資委員會的案源排序完全交給 AI 評分器，過去 12 週處理逾千家公司。可驗證：未來數季是否公開揭露命中率，或其他創投機構跟進並公布類似流程。若一年內無人跟進、也無成效揭露，較可能只是案源初篩的效率工具，而非投資決策品質的改變。",
    "status": "觀察中",
    "verdict": "",
-   "verdictDate": ""
+   "verdictDate": "",
+   "reviewNote": "2026-10-06 回訪：WebSearch「Harry Stebbings 20VC AI investment committee scoring」未見 20VC 揭露 AI 評分器命中率，也未見其他創投公開跟進類似流程的報導；10-05 的 20VC 集數（Venky Ganesan）未提及此事。維持觀察中。",
+   "lastReviewed": "2026-10-06"
   },
   {
    "id": "obs-20260817-1",
@@ -522,7 +524,9 @@
    "text": "Anthropic 佔 Alphabet 雲端在手訂單（5,000 億美元、年增 375%）約 40%，是成長論述的單點風險。可觀察三件事：下一季揭露是否主動降低集中度、Anthropic 若於十月掛牌其算力採購承諾條款是否公開、Amazon 帳上 170 億美元 Anthropic 評價利益下一次重評的方向。集中度未降而 Anthropic 融資條件轉緊，則在手訂單的折現品質須重估。",
    "status": "觀察中",
    "verdict": "",
-   "verdictDate": ""
+   "verdictDate": "",
+   "reviewNote": "2026-10-06 回訪：WebSearch 確認 Anthropic 已公開遞交 IPO 申請（The Star 10-01〈Anthropic IPO filing highlights Big Tech reliance〉、InvestmentNews 稱 S-1 揭露營收 12 倍、算力帳單 5,180 億美元），10-05 的 Prof G Markets 亦逐項討論該 S-1。算力採購承諾已部分公開，但本條另兩項（Alphabet 下一季在手訂單集中度、Amazon 對 Anthropic 評價利益重評方向）要等 Q3 財報。維持觀察中。",
+   "lastReviewed": "2026-10-06"
   },
   {
    "id": "obs-20260817-3",
@@ -723,8 +727,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "9 月投資等級債毛供給落在 1,750 億至 2,500 億美元，而需求端同步創紀錄。JP Morgan 固定收益執行董事 Kelsey Berro 主張市場只看了供給那一半，今年以來流入高評級債券基金的資金是回溯至 2010 年的所有年度累計金額中最大的一年。檢驗方式：以 2026 年 9 月美國投資等級債實際發行量對照該區間，落在區間內記應驗、顯著超出或低於記落空；同時查該月高評級債券基金淨流入是否仍為正（到期 2026-10-15）。",
-   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。",
-   "lastReviewed": "2026-10-04"
+   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。",
+   "lastReviewed": "2026-10-06"
   },
   {
    "id": "obs-2026-08-25-3",
@@ -1764,6 +1768,30 @@
    "due": "2027-01-05",
    "status": "觀察中",
    "source": "Forward Guidance｜America’s AI Boom Is Squeezing Main Street | Weekly Roundup"
+  },
+  {
+   "id": "obs-20261006-1",
+   "date": "2026-10-06",
+   "text": "Prof G Markets 的 Ed Elson 預測公債賣壓幾週內見頂；節目中引用的 10 年期殖利率為 5.3%（2002 年以來最高）。本條以「三個月後美國 10 年期公債殖利率低於 5.00%」為 claim。檢驗方式：查 FRED DGS10 在 2027-01-06 或其前最近一個交易日的值；低於 5.00% 記應驗，5.00% 至 5.30% 記部分應驗，高於 5.30% 記落空。（到期 2027-01-06）",
+   "due": "2027-01-06",
+   "status": "觀察中",
+   "source": "Prof G Markets｜5 Stocks Are Carrying The Market — Here's How To Protect Yourself"
+  },
+  {
+   "id": "obs-20261006-2",
+   "date": "2026-10-06",
+   "text": "Morgan Stanley 的 Martin Rats 認為油市瓶頸已轉到柴油與煉油，煉廠延後的歲修要到明年上半年才集中回補，高柴油價格至少再撐幾季。本條以「三個月後美國柴油零售均價不低於 2026-10-05 當週」為 claim。檢驗方式：查 EIA 每週美國 On-Highway Diesel 零售均價，比較 2027-01-04 當週（或最近一期）與 2026-10-05 當週；不低於記應驗，低 10% 以內記部分應驗，低超過 10% 記落空。（到期 2027-01-06）",
+   "due": "2027-01-06",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Euro and Oil Contagion Risks"
+  },
+  {
+   "id": "obs-20261006-3",
+   "date": "2026-10-06",
+   "text": "JP Morgan 資產管理的 Jack Manley 認為緩慢、預告式的升息改變不了領漲格局：大型股續強、小型股續弱。本條以「2026-10-05 收盤至 2027-01-05 收盤，Russell 2000 落後 S&P 500」為 claim。檢驗方式：比較兩指數該區間價格報酬（可用 IWM 與 SPY 調整後收盤價代替）；落後 3 個百分點以上記應驗，落後 0 至 3 個百分點記部分應驗，領先記落空。（到期 2027-01-06）",
+   "due": "2027-01-06",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: October 5th, 2026"
   }
  ]
 }
