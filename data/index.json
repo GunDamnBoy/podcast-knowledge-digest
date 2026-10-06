@@ -1,7 +1,20 @@
 {
- "updated": "2026-10-05T19:21:55+00:00",
- "updatedLabel": "10/6 03:21",
+ "updated": "2026-10-06T19:26:54+00:00",
+ "updatedLabel": "10/7 03:26",
  "days": [
+  {
+   "date": "2026-10-07",
+   "label": "2026年10月7日（週三）",
+   "short": "10/7 週三",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "Invest Like the Best",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-10-07.json"
+  },
   {
    "date": "2026-10-06",
    "label": "2026年10月6日（週二）",
@@ -947,5 +960,5 @@
    ]
   }
  ],
- "count": 67
+ "count": 68
 }
