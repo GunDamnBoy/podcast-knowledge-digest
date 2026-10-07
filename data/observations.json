@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06T19:25:50.713669+00:00",
+ "updated": "2026-10-08T03:55:00+08:00",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -666,8 +666,8 @@
    "verdict": "",
    "verdictDate": "",
    "due": "2026-11-23",
-   "reviewNote": "2026-09-18 回訪：未做外部指數查證（本條的結算方式寫明是在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。**但今日六集提供了大量方向一致的間接證據**：聯準會 9/16 升息一碼至 3.75–4%，10 年期站上 5%（2007 年以來首見），Bloomberg 電視版指 30 年期實質殖利率創新高、曲線轉平而非轉陡、銀行股重挫、美元跳動 2.8 個標準差。**但同一天出現了反向的專業意見**，這是不能略過的一點：Evercore 的 Julian Emanuel 認為這兩天把固定收益的左右尾部情境一起清掉、長端反而出現價值，並公開建議把配置再平衡回債券；Ed Yardeni 則說等日銀、利差交易解除還沒結束。也就是說「久期收到七年以下」在 8/21 至今大致是對的，但賣方對後續三個月的方向已經分裂。維持觀察中（due 2026-11-23）。\n2026-09-20 回訪：仍未做外部指數查證（結算方式寫明在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。今日 Bloomberg（實為 Bloomberg Money）提供一筆獨立且方向一致的專業意見：BNY Wealth 投資長 Alicia Levine 把可執行部位明確定在「曲線腹部、五到十年」，並說再長的存續期有風險——**與 Patterson 的「七年以下」落在同一區間**。更值得記的是她給的理由是結構性而非循環性的：回流、友岸外包、把藥品與晶片產能搬回本國本質上就是通膨性的，而且沒有央行會升息升到把它擠回 2%。這補上了 09-18 那筆缺的一塊——當時記到賣方對後續三個月方向已分裂（Emanuel 與 Yardeni 看多長端），今天多了一位配置端的結構性反對票。同集 KKR 的 Henry McVey 則從另一側支持同一個前提：通膨的「靜息心率」永久變高、股債已正相關。**仍維持觀察中**：方向證據持續累積，但裁判是 11-23 那個指數數字，今天沒有動它。\n2026-09-24 回訪：仍未到結算日（結算方式寫明在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。今日有三個方向一致的間接證據，且**三者的理由互不相同、這點本身值得記**：德銀 Matt Luzzetti 從名目 GDP 年增 6.5%、實質消費支出年化 4% 推出聯準會必須緊縮，並主張 2010 年代零利率才是異常、折現率長期假設要往上調；Unhedged 的 Robert Armstrong 在 Long/Short 直接做空十年期，預期六個月後在 5% 或以上；The Compound and Friends 也認為 5% 是回到常態。**但 Compound 同時給出一個會削弱本條前提的數字**：10 年期與原油的三個月相關係數已升到 65%，也就是長端殖利率的驅動力正從聯準會移向中東供給——若如此，Patterson 那套「票息蓋不過價格損失」的推論在方向上仍成立，但波動來源換了人，收久期這個處方的有效性不變、時點卻更難掌握。維持觀察中，到期 2026-11-23 不變。",
-   "lastReviewed": "2026-09-24"
+   "reviewNote": "2026-09-18 回訪：未做外部指數查證（本條的結算方式寫明是在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。**但今日六集提供了大量方向一致的間接證據**：聯準會 9/16 升息一碼至 3.75–4%，10 年期站上 5%（2007 年以來首見），Bloomberg 電視版指 30 年期實質殖利率創新高、曲線轉平而非轉陡、銀行股重挫、美元跳動 2.8 個標準差。**但同一天出現了反向的專業意見**，這是不能略過的一點：Evercore 的 Julian Emanuel 認為這兩天把固定收益的左右尾部情境一起清掉、長端反而出現價值，並公開建議把配置再平衡回債券；Ed Yardeni 則說等日銀、利差交易解除還沒結束。也就是說「久期收到七年以下」在 8/21 至今大致是對的，但賣方對後續三個月的方向已經分裂。維持觀察中（due 2026-11-23）。\n2026-09-20 回訪：仍未做外部指數查證（結算方式寫明在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。今日 Bloomberg（實為 Bloomberg Money）提供一筆獨立且方向一致的專業意見：BNY Wealth 投資長 Alicia Levine 把可執行部位明確定在「曲線腹部、五到十年」，並說再長的存續期有風險——**與 Patterson 的「七年以下」落在同一區間**。更值得記的是她給的理由是結構性而非循環性的：回流、友岸外包、把藥品與晶片產能搬回本國本質上就是通膨性的，而且沒有央行會升息升到把它擠回 2%。這補上了 09-18 那筆缺的一塊——當時記到賣方對後續三個月方向已分裂（Emanuel 與 Yardeni 看多長端），今天多了一位配置端的結構性反對票。同集 KKR 的 Henry McVey 則從另一側支持同一個前提：通膨的「靜息心率」永久變高、股債已正相關。**仍維持觀察中**：方向證據持續累積，但裁判是 11-23 那個指數數字，今天沒有動它。\n2026-09-24 回訪：仍未到結算日（結算方式寫明在 2026-11-23 當日比對 ICE BofA 20+ 年期公債指數自 2026-08-21 起的總報酬，提前算不構成結算）。今日有三個方向一致的間接證據，且**三者的理由互不相同、這點本身值得記**：德銀 Matt Luzzetti 從名目 GDP 年增 6.5%、實質消費支出年化 4% 推出聯準會必須緊縮，並主張 2010 年代零利率才是異常、折現率長期假設要往上調；Unhedged 的 Robert Armstrong 在 Long/Short 直接做空十年期，預期六個月後在 5% 或以上；The Compound and Friends 也認為 5% 是回到常態。**但 Compound 同時給出一個會削弱本條前提的數字**：10 年期與原油的三個月相關係數已升到 65%，也就是長端殖利率的驅動力正從聯準會移向中東供給——若如此，Patterson 那套「票息蓋不過價格損失」的推論在方向上仍成立，但波動來源換了人，收久期這個處方的有效性不變、時點卻更難掌握。維持觀察中，到期 2026-11-23 不變。\n2026-10-08 回訪：今日 FT 搜尋頁標題「30 年期美債殖利率創 2002 年以來新高」、Prof G 與 Compound 都稱 10 年期約 5.3%，而開帳時 30 年期為 5.24%，長債自 08-21 以來總報酬目前大概率為負、方向有利本條；但未取得 ICE BofA 20+ 指數數值，且到期日未到。維持觀察中（due 2026-11-23）。",
+   "lastReviewed": "2026-10-08"
   },
   {
    "id": "obs-2026-08-23-3",
@@ -730,8 +730,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "9 月投資等級債毛供給落在 1,750 億至 2,500 億美元，而需求端同步創紀錄。JP Morgan 固定收益執行董事 Kelsey Berro 主張市場只看了供給那一半，今年以來流入高評級債券基金的資金是回溯至 2010 年的所有年度累計金額中最大的一年。檢驗方式：以 2026 年 9 月美國投資等級債實際發行量對照該區間，落在區間內記應驗、顯著超出或低於記落空；同時查該月高評級債券基金淨流入是否仍為正（到期 2026-10-15）。",
-   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。",
-   "lastReviewed": "2026-10-07"
+   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。\n2026-10-08 回訪：WebSearch「September 2026 investment-grade bond issuance」只取得零碎訊號——一則「勞動節後投資等級債發行創六年新低」（cryptobriefing，年份未核實）與高收益債 9 月 385 億美元創年內新高（BigGo），仍無 2026 年 9 月投資等級債全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15）。",
+   "lastReviewed": "2026-10-08"
   },
   {
    "id": "obs-2026-08-25-3",
@@ -1650,7 +1650,9 @@
    "text": "Prof G Markets 引述預測市場（Kalshi）給聯準會 10 月升息約七成機率。本條以「10 月會升息」為 claim。檢驗方式：2026-11-06 當日，查 2026 年 10 月 FOMC 會議的利率決議。升息記應驗；維持不變或降息記落空；若會議延期或當日尚未召開記無法驗證。（到期 2026-11-06）",
    "due": "2026-11-06",
    "status": "觀察中",
-   "source": "Prof G Markets｜Wall Street Veteran: The Bond Sell-Off Is A Buying Opportunity"
+   "source": "Prof G Markets｜Wall Street Veteran: The Bond Sell-Off Is A Buying Opportunity",
+   "reviewNote": "2026-10-08 回訪：今日 Prof G Markets（Why The S&P Just Hit A Record High）稱交易者押注年底前升息的機率逾七成，方向與開帳時一致；10 月 FOMC 尚未召開，結構上不可驗。維持觀察中（due 2026-11-06）。",
+   "lastReviewed": "2026-10-08"
   },
   {
    "id": "obs-20261001-1",
@@ -1819,6 +1821,30 @@
    "due": "2027-01-07",
    "status": "觀察中",
    "source": "Bloomberg Surveillance｜Risk Cycles Across Equities, Bonds, and Currencies"
+  },
+  {
+   "id": "obs-20261008-1",
+   "date": "2026-10-08",
+   "text": "The Compound and Friends 的 Josh Brown 預測近期會出現 VIX 急升（節目中先說十月、收尾改押感恩節前），當時 VIX 約 16。本條以「2026-11-25 前 VIX 至少一天收盤 ≥ 25」為 claim。檢驗方式：查 FRED VIXCLS 在 2026-10-07 至 2026-11-25 之間的最高收盤值；≥ 25 記應驗，20 至 25 之間記部分應驗，始終低於 20 記落空。（到期 2026-11-30）",
+   "due": "2026-11-30",
+   "status": "觀察中",
+   "source": "The Compound and Friends｜Sell-side Indicator (BofA) is almost on Sell, Vix is still asleep, the Bear Case revisited, FICO massacred | WAYT?"
+  },
+  {
+   "id": "obs-20261008-2",
+   "date": "2026-10-08",
+   "text": "BNY Wealth 的 Alicia Levine 認為在名目成長 6% 以上的環境下，10 年期美債殖利率上看 5.5% 是合理且與股市續漲相容的；同集 Chuck Clough 則認為短率長期可能掉到 1–2%。本條以「三個月內 10 年期美債殖利率收盤觸及 5.5%」為 claim。檢驗方式：查 FRED DGS10 在 2026-10-08 至 2027-01-08 之間的最高值；≥ 5.50% 記應驗，5.40% 至 5.50% 記部分應驗，始終低於 5.40% 記落空。（到期 2027-01-08）",
+   "due": "2027-01-08",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Equities, Bonds, and AI"
+  },
+  {
+   "id": "obs-20261008-3",
+   "date": "2026-10-08",
+   "text": "Unhedged 的 Robert Armstrong 認為非 AI 股的下跌是對新利率環境的一次性重新定價，利率趨穩後就會止跌；The Compound and Friends 引用 Duality Research 指出多頭中的廣度背離通常以落後股追上收場。本條以「三個月後等權 S&P 500 相對市值加權 S&P 500 回升」為 claim。檢驗方式：比較 RSP／SPY 收盤價比值在 2027-01-07（或其前最近一個交易日）與 2026-10-07 的值；高 2% 以上記應驗，高 0 至 2% 記部分應驗，持平或更低記落空。（到期 2027-01-08）",
+   "due": "2027-01-08",
+   "status": "觀察中",
+   "source": "Unhedged (FT)｜There is only one trade；The Compound and Friends｜Sell-side Indicator (BofA) is almost on Sell, Vix is still asleep, the Bear Case revisited, FICO massacred | WAYT?"
   }
  ]
 }
