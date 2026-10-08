@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T03:55:00+08:00",
+ "updated": "2026-10-09T03:23:10+08:00",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -708,8 +708,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "CATL 港股（3750.HK）對深圳 A 股（300750.SZ）30–35% 的溢價會朝 10–20% 收斂。Manish Karira 以台積電 ADR 對台股長期約 15% 的溢價作參照，認為現行價差偏高，但承認何時收斂說不準。檢驗方式：以匯率調整後的兩地收盤價計算溢價，若降到 25% 以下記應驗，維持 30% 以上或擴大記落空（到期 2026-11-24）。",
-   "reviewNote": "2026-09-22 回訪：查 CATL 兩地價差，僅取得 A 股 2026-09-16 前後約 304.22 元人民幣，以及一則 CLSA 研究指 H-A 溢價創掛牌以來新高並預期持續；未取得可據以計算的同日兩地收盤價，方向亦與「溢價收斂」相反但證據不足。維持觀察中，到期 2026-11-24。",
-   "lastReviewed": "2026-09-22"
+   "reviewNote": "2026-09-22 回訪：查 CATL 兩地價差，僅取得 A 股 2026-09-16 前後約 304.22 元人民幣，以及一則 CLSA 研究指 H-A 溢價創掛牌以來新高並預期持續；未取得可據以計算的同日兩地收盤價，方向亦與「溢價收斂」相反但證據不足。維持觀察中，到期 2026-11-24。\n2026-10-09 回訪：WebSearch「CATL Hong Kong shares premium over A-shares October 2026」只取得舊訊號——2026-03 港股溢價創 48% 紀錄（Bloomberg、GuruFocus）、2026-04 寧德港股配售約 50 億美元後溢價受壓（Bloomberg），查無 2026 年 10 月的兩地價差數字。無法判定，維持觀察中（due 2026-11-24）。",
+   "lastReviewed": "2026-10-09"
   },
   {
    "id": "obs-2026-08-25-1",
@@ -730,8 +730,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "9 月投資等級債毛供給落在 1,750 億至 2,500 億美元，而需求端同步創紀錄。JP Morgan 固定收益執行董事 Kelsey Berro 主張市場只看了供給那一半，今年以來流入高評級債券基金的資金是回溯至 2010 年的所有年度累計金額中最大的一年。檢驗方式：以 2026 年 9 月美國投資等級債實際發行量對照該區間，落在區間內記應驗、顯著超出或低於記落空；同時查該月高評級債券基金淨流入是否仍為正（到期 2026-10-15）。",
-   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。\n2026-10-08 回訪：WebSearch「September 2026 investment-grade bond issuance」只取得零碎訊號——一則「勞動節後投資等級債發行創六年新低」（cryptobriefing，年份未核實）與高收益債 9 月 385 億美元創年內新高（BigGo），仍無 2026 年 9 月投資等級債全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15）。",
-   "lastReviewed": "2026-10-08"
+   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。\n2026-10-08 回訪：WebSearch「September 2026 investment-grade bond issuance」只取得零碎訊號——一則「勞動節後投資等級債發行創六年新低」（cryptobriefing，年份未核實）與高收益債 9 月 385 億美元創年內新高（BigGo），仍無 2026 年 9 月投資等級債全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15）。\n2026-10-09 回訪：WebSearch 與 WebFetch 9fin「US IG Monthly — September」（2026-10-05 發布）：該文稱 9 月原本預期再創紀錄、實際發行量低於預測（預測約 2,150 億美元，見 Kobeissi Letter 轉述），但頁面未給全月總額，也無高評級基金淨流入數字；futunn 一篇「9 月創紀錄後回落」需 JavaScript 無法讀取。仍無可判定的結算數字，維持觀察中（due 2026-10-15）。",
+   "lastReviewed": "2026-10-09"
   },
   {
    "id": "obs-2026-08-25-3",
@@ -1724,7 +1724,9 @@
    "text": "MacroVoices 的 David Rosenberg 把 11 月 4 日的財政部季度再融資公告視為被低估的轉折點，可能重演 2023 年縮減長債發行的劇本。本條以「財政部在 2026 年 11 月再融資公告中縮減或明確壓低 10 年與 30 年期標售規模」為 claim。檢驗方式：2026-11-06 當日，比較 2026 年 11 月與 8 月再融資公告的 10 年期與 30 年期新發標售規模及前瞻指引；任一規模下調記應驗，規模不變但指引轉向偏短天期記部分應驗，規模與指引皆不變或上調記落空。（到期 2026-11-06）",
    "due": "2026-11-06",
    "status": "觀察中",
-   "source": "MacroVoices｜MacroVoices #552 David Rosenberg: Navigating The Noise"
+   "source": "MacroVoices｜MacroVoices #552 David Rosenberg: Navigating The Noise",
+   "reviewNote": "2026-10-09 回訪：claim 所指的財政部 11 月季度再融資公告（11 月 4 日）尚未發生，今天無結果可查；確認到期日 2026-11-06 落在公告之後、檢驗方式可執行。維持觀察中（due 2026-11-06）。",
+   "lastReviewed": "2026-10-09"
   },
   {
    "id": "obs-20261004-1",
@@ -1845,6 +1847,30 @@
    "due": "2027-01-08",
    "status": "觀察中",
    "source": "Unhedged (FT)｜There is only one trade；The Compound and Friends｜Sell-side Indicator (BofA) is almost on Sell, Vix is still asleep, the Bear Case revisited, FICO massacred | WAYT?"
+  },
+  {
+   "id": "obs-20261009-1",
+   "date": "2026-10-09",
+   "text": "Columbia Threadneedle 的 Ed Al-Hussainy 在 Bloomberg Surveillance 認為聯準會在 9 月升息一碼之後至少還要再升三到四次，而市場預期 10 月會跳過。本條以「2026 年 10 月與 12 月兩次 FOMC 合計再升息至少 50 個基點」為 claim。檢驗方式：查 2026 年 10 月與 12 月 FOMC 的利率決議，與 2026-10-09 的聯邦基金利率目標區間上限相比；累計上調 ≥ 50 個基點記應驗，25 個基點記部分應驗，未上調或下調記落空。（到期 2027-01-09）",
+   "due": "2027-01-09",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: October 8th, 2026"
+  },
+  {
+   "id": "obs-20261009-2",
+   "date": "2026-10-09",
+   "text": "Wolf Research 的 Tobin Marcus 在 Bloomberg Surveillance 認為期中選舉接近擲銅板、略偏共和黨，市場押注民主黨橫掃國會的共識被高估。本條以「民主黨未能同時拿下眾議院與參議院多數」為 claim。檢驗方式：2026-12-15 當日查 2026 年 11 月期中選舉結果；共和黨至少保住一院多數記應驗，民主黨同時拿下兩院多數記落空，若仍有決定兩院歸屬的席次未定記無法驗證。（到期 2026-12-15）",
+   "due": "2026-12-15",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Bond Volatility and Energy Flows"
+  },
+  {
+   "id": "obs-20261009-3",
+   "date": "2026-10-09",
+   "text": "20VC 的 Rory O'Driscoll 指出 Anthropic 將在 11 月中上市、上市前會揭露 Q3 數字。本條以「Anthropic 股票在 2026-11-30 前於公開市場掛牌交易」為 claim。檢驗方式：查 Anthropic 是否在 2026-11-30（含）前完成 IPO 並開始交易；已掛牌交易記應驗，已公開遞交上市申請文件但尚未交易記部分應驗，兩者皆無記落空。（到期 2026-12-01）",
+   "due": "2026-12-01",
+   "status": "觀察中",
+   "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B"
   }
  ]
 }
