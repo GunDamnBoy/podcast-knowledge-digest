@@ -1,7 +1,23 @@
 {
- "updated": "2026-10-09T19:31:29+00:00",
- "updatedLabel": "10/10 03:31",
+ "updated": "2026-10-10T19:21:11+00:00",
+ "updatedLabel": "10/11 03:21",
  "days": [
+  {
+   "date": "2026-10-11",
+   "label": "2026年10月11日（週日）",
+   "short": "10/11 週日",
+   "episodeCount": 7,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "20VC",
+    "No Priors",
+    "Latent Space",
+    "Masters in Business"
+   ],
+   "file": "data/2026-10-11.json"
+  },
   {
    "date": "2026-10-10",
    "label": "2026年10月10日（週六）",
@@ -1008,5 +1024,5 @@
    ]
   }
  ],
- "count": 71
+ "count": 72
 }
