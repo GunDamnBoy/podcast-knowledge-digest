@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-10T19:21:11+00:00",
- "updatedLabel": "10/11 03:21",
+ "updated": "2026-10-11T19:19:23+00:00",
+ "updatedLabel": "10/12 03:19",
  "days": [
+  {
+   "date": "2026-10-12",
+   "label": "2026年10月12日（週一）",
+   "short": "10/12 週一",
+   "episodeCount": 1,
+   "shows": [
+    "We Study Billionaires (TIP)"
+   ],
+   "file": "data/2026-10-12.json"
+  },
   {
    "date": "2026-10-11",
    "label": "2026年10月11日（週日）",
@@ -1024,5 +1034,5 @@
    ]
   }
  ],
- "count": 72
+ "count": 73
 }
