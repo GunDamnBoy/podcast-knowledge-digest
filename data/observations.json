@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13",
+ "updated": "2026-10-14",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -742,8 +742,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "9 月投資等級債毛供給落在 1,750 億至 2,500 億美元，而需求端同步創紀錄。JP Morgan 固定收益執行董事 Kelsey Berro 主張市場只看了供給那一半，今年以來流入高評級債券基金的資金是回溯至 2010 年的所有年度累計金額中最大的一年。檢驗方式：以 2026 年 9 月美國投資等級債實際發行量對照該區間，落在區間內記應驗、顯著超出或低於記落空；同時查該月高評級債券基金淨流入是否仍為正（到期 2026-10-15）。",
-   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。\n2026-10-08 回訪：WebSearch「September 2026 investment-grade bond issuance」只取得零碎訊號——一則「勞動節後投資等級債發行創六年新低」（cryptobriefing，年份未核實）與高收益債 9 月 385 億美元創年內新高（BigGo），仍無 2026 年 9 月投資等級債全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15）。\n2026-10-09 回訪：WebSearch 與 WebFetch 9fin「US IG Monthly — September」（2026-10-05 發布）：該文稱 9 月原本預期再創紀錄、實際發行量低於預測（預測約 2,150 億美元，見 Kobeissi Letter 轉述），但頁面未給全月總額，也無高評級基金淨流入數字；futunn 一篇「9 月創紀錄後回落」需 JavaScript 無法讀取。仍無可判定的結算數字，維持觀察中（due 2026-10-15）。\n2026-10-10 回訪：WebSearch 與 WebFetch 查 cryptobriefing（08-17、09-08）、briefs.co（08-24）、9fin「US IG wrap September volume」：前三篇只有 8 月數字與 Berro 的 1,750–2,500 億預測，09-08 一篇稱勞動節後發行為 2020 年來最弱；9fin 那頁實為 2025 年舊文。仍查無 2026 年 9 月全月結算發行量與高評級基金淨流入，維持觀察中（due 2026-10-15）。\n2026-10-12 回訪：WebSearch 查 2026 年 9 月美國投資等級債發行量。Futu 標題稱「9 月創紀錄後發行回落」、Bloomberg 09-30 報 Paramount 300 億美元高評級債，但頁面需 JavaScript、globalcapital 被 robots 擋，仍查無 9 月全月結算金額；Kobeissi 那則「預估約 2,150 億、9 月新高」年份無法確認；高評級基金淨流入亦無數字。維持觀察中（due 2026-10-15）。\n2026-10-13 回訪：WebSearch（extended）「investment-grade bond issuance September 2026 total monthly SIFMA」只回 SIFMA 統計頁目錄與 fi-desk 一篇泛論，沒有 2026 年 9 月全月結算發行量，也沒有高評級基金淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15，兩天後到期；到期仍無數字依規則改判無法驗證）。",
-   "lastReviewed": "2026-10-13"
+   "reviewNote": "2026-09-18 回訪：做了外部查證（web 檢索 2026 年 9 月投資等級債發行量）。取得的是方向性而非結算性的訊息——多筆報導指出 9 月預估區間確實是 1,750 億至 2,500 億美元且被視為市場可承受，但勞動節後的實際發行量創六年來同期新低，成因是公債殖利率波動把發行人擋在場外；年初至 8 月累計已逾 1.68 兆美元、年增約 27%。**沒有查到 9 月全月的實際發行量與該月高評級基金淨流入**，而 9 月尚未結束、本條檢驗本來就要等月結，無法定案。目前訊號偏向「低於區間下緣」，但那是推測不是結算。維持觀察中（due 2026-10-15）。\n2026-09-23 回訪：同一位講者（Kelsey Berro，JP Morgan 資產管理）在今日 Bloomberg Surveillance 再度出現，需求側那一半得到直接補強——她說 5–7% 的全殖利率把買盤帶回市場、利差窄本身沒有嚇退人，並提出可檢驗的反證：把超大規模業者從投資級指數剔除後多數情況利差反而在收斂，另指出五年來第一次十一個投資級類股同時正獲利成長。但本條要判的是 9 月實際發行量是否落在 1,750–2,500 億美元區間，月底尚未結束、SIFMA／彭博月度統計未出，無法判定。維持觀察中。\n2026-09-24 回訪：今日 Bloomberg Surveillance 的 Gargi Chaudhuri（BlackRock）點名投資等級債的發行量，作為「AI 曝險已滲入固定收益端」的論據，但**沒有給出 9 月的月度發行數字，也沒有提到高評級基金淨流入**，因此對本條的兩項檢驗量都沒有增量資訊。9 月尚未結束（今日 09-24），月結資料結構上仍取不到。維持觀察中，到期 2026-10-15 不變。\n2026-10-01 回訪：9 月已結束，嘗試外部查證 9 月美國投資等級債實際發行總額：WebSearch 只找到 GlobalCapital 標題「September supply splurge slows short of record attempt」（方向：9 月供給量大、但未創紀錄），全文 robots 禁止抓取；9fin 月度總結需 cookie 同意、未開。仍未取得月度確切數字與高評級基金淨流入，無法對照 1,750–2,500 億美元區間。維持觀察中（due 2026-10-15），下次回訪優先查 SIFMA／彭博月度統計。\n2026-10-02 回訪：再查 9 月美國投資等級債全月發行量。WebSearch 找到的 GlobalCapital〈September supply splurge slows short of record attempt〉被 robots 擋住無法讀取；cryptobriefing 8-17 一文只到 7 月（年初至 7 月 1.681 兆美元、年增 26.9%），沒有 9 月全月數字，也沒有高評級基金 9 月淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15）。\n2026-10-04 回訪：再查 9 月美國投資等級債全月發行量與高評級基金淨流入。WebSearch 仍只找到 GlobalCapital〈September supply splurge slows short of record attempt〉（方向：9 月量大但未破紀錄）、9fin〈US IG wrap: September volume〉（cookie 牆未開）；cryptobriefing 8-17 一文只到 7 月。兩項檢驗量仍無結算數字。維持觀察中（due 2026-10-15），到期前若仍取不到月度統計，依規則考慮改判無法驗證。\n2026-10-06 回訪：WebSearch「September 2026 investment grade bond issuance total」仍只得 GlobalCapital〈September supply splurge slows short of record attempt〉（9 月量大但未破紀錄）與 9fin 9 月總結（cookie 牆未開），查無 9 月全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15），到期仍無數字則依規則改判無法驗證。\n2026-10-07 回訪：WebSearch「US investment grade bond issuance September 2026 total」：fi-desk〈September takes the biscuit in new issues〉經 WebFetch 確認是 2025 年 10 月的文章（2025 年 9 月 IG 2,270 億美元），不是本條要的 2026 年；9fin 9 月總結仍是 cookie 牆、SIFMA 統計頁未取。2026 年 9 月全月發行量與高評級基金淨流入仍無結算數字，維持觀察中（due 2026-10-15）。\n2026-10-08 回訪：WebSearch「September 2026 investment-grade bond issuance」只取得零碎訊號——一則「勞動節後投資等級債發行創六年新低」（cryptobriefing，年份未核實）與高收益債 9 月 385 億美元創年內新高（BigGo），仍無 2026 年 9 月投資等級債全月發行量與高評級基金淨流入的結算數字。維持觀察中（due 2026-10-15）。\n2026-10-09 回訪：WebSearch 與 WebFetch 9fin「US IG Monthly — September」（2026-10-05 發布）：該文稱 9 月原本預期再創紀錄、實際發行量低於預測（預測約 2,150 億美元，見 Kobeissi Letter 轉述），但頁面未給全月總額，也無高評級基金淨流入數字；futunn 一篇「9 月創紀錄後回落」需 JavaScript 無法讀取。仍無可判定的結算數字，維持觀察中（due 2026-10-15）。\n2026-10-10 回訪：WebSearch 與 WebFetch 查 cryptobriefing（08-17、09-08）、briefs.co（08-24）、9fin「US IG wrap September volume」：前三篇只有 8 月數字與 Berro 的 1,750–2,500 億預測，09-08 一篇稱勞動節後發行為 2020 年來最弱；9fin 那頁實為 2025 年舊文。仍查無 2026 年 9 月全月結算發行量與高評級基金淨流入，維持觀察中（due 2026-10-15）。\n2026-10-12 回訪：WebSearch 查 2026 年 9 月美國投資等級債發行量。Futu 標題稱「9 月創紀錄後發行回落」、Bloomberg 09-30 報 Paramount 300 億美元高評級債，但頁面需 JavaScript、globalcapital 被 robots 擋，仍查無 9 月全月結算金額；Kobeissi 那則「預估約 2,150 億、9 月新高」年份無法確認；高評級基金淨流入亦無數字。維持觀察中（due 2026-10-15）。\n2026-10-13 回訪：WebSearch（extended）「investment-grade bond issuance September 2026 total monthly SIFMA」只回 SIFMA 統計頁目錄與 fi-desk 一篇泛論，沒有 2026 年 9 月全月結算發行量，也沒有高評級基金淨流入。兩項檢驗量仍取不到。維持觀察中（due 2026-10-15，兩天後到期；到期仍無數字依規則改判無法驗證）。\n2026-10-14 回訪：WebSearch（extended）「September 2026 investment-grade bond issuance total」：新出現 Futu 一篇標題〈Review of U.S. High-Grade Corporate Bond Issuance: Issuance retreated after hitting a record in September〉（方向：9 月創紀錄），但 WebFetch 只回「請啟用 JavaScript」、讀不到全月金額；同批結果的 Bond Buyer 550 億是市政債、不適用。9 月全月投資等級債結算發行量與高評級基金淨流入仍取不到；「創紀錄」若屬實則可能高於 2,500 億上緣，但未核實。維持觀察中（due 2026-10-15，明天到期；到期仍無數字依規則改判無法驗證）。",
+   "lastReviewed": "2026-10-14"
   },
   {
    "id": "obs-2026-08-25-3",
@@ -1966,7 +1966,9 @@
    "text": "CFRA 的銀行分析師（稿內拼作 Ken Lee／Ken Lyon）認為大型銀行第三季信用品質持平，備抵呆帳不會顯著增加，真正的壓力在存款流失與淨利差。本條以「摩根大通、美國銀行、花旗、富國四家 2026 年第三季的信用損失準備提列（provision for credit losses）合計，年增不超過 20%」為 claim。檢驗方式：加總四家 2026Q3 財報的信用損失準備提列，與 2025Q3 合計比較；年增 ≤20% 記應驗，20%–35% 記部分應驗，>35% 記落空。（到期 2026-11-15）",
    "due": "2026-11-15",
    "status": "觀察中",
-   "source": "Bloomberg Surveillance｜Upward Pressure on Yields and Equities"
+   "source": "Bloomberg Surveillance｜Upward Pressure on Yields and Equities",
+   "reviewNote": "2026-10-14 回訪：四家已有三家公布 2026Q3（SEC 8-K，2026-10-13）：摩根大通信用損失準備 27.43 億美元（2025Q3 34.03 億，年減約 19%）、花旗 25.86 億（24.50 億，年增 6%）、富國 10.29 億（6.81 億，年增約 51%）；三家合計 63.58 億對 65.34 億，年減約 3%。美國銀行尚未公布。合計要超過 20% 門檻，美國銀行單家需逾約 30 億美元，可能性低但未結算。維持觀察中（due 2026-11-15），待美國銀行財報後改判。",
+   "lastReviewed": "2026-10-14"
   },
   {
    "id": "obs-20261013-3",
@@ -1975,6 +1977,30 @@
    "due": "2027-06-30",
    "status": "觀察中",
    "source": "Bloomberg Surveillance｜Upward Pressure on Yields and Equities"
+  },
+  {
+   "id": "obs-20261014-1",
+   "date": "2026-10-14",
+   "text": "Wells Fargo Advisors 的 James Taylor 說 10 年期公債 5.24% 是 24 年高點、「不知道它會在這裡待多久」，建議保守型投資人趁現在買債；同日 Ed Yardeni 則認為 4% 到 5% 是可以長住的常態。本條以「10 年期美債殖利率在 2027-01-13 低於 5.24%」為 claim。檢驗方式：查 FRED DGS10 在 2027-01-13（休市則取前一個交易日）的值；低於 5.00% 記應驗，介於 5.00% 與 5.24% 之間記部分應驗，不低於 5.24% 記落空。（到期 2027-01-20）",
+   "due": "2027-01-20",
+   "status": "觀察中",
+   "source": "Prof G Markets｜Has Nvidia Become Too Big To Fail?；Bloomberg Surveillance｜Markets, Earnings, and Oil"
+  },
+  {
+   "id": "obs-20261014-2",
+   "date": "2026-10-14",
+   "text": "RBC 的 Lori Calvasina 說企業還沒把伊朗戰爭的成本放進財測，她已在模型裡把 2027 年每股盈餘先砍一成。本條以「S&P 500 的 CY2027 由下而上每股盈餘共識預估，在 2026-10-13 到 2027-01-13 之間被下修」為 claim。檢驗方式：比較 FactSet Earnings Insight 在 2026-10-13 前後與 2027-01-13 前後兩期所載的 CY2027 EPS 預估；下修 2% 以上記應驗，下修 0% 至 2% 記部分應驗，持平或上修記落空。（到期 2027-01-20）",
+   "due": "2027-01-20",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Markets, Earnings, and Oil"
+  },
+  {
+   "id": "obs-20261014-3",
+   "date": "2026-10-14",
+   "text": "RBC 的 Lori Calvasina 預期 S&P 500 會出現一次 5% 到 10% 的「第一級」拉回，點位約 7,000 到 7,400。本條以「2026-10-14 至 2027-01-13 之間，S&P 500 至少有一天收盤比該期間（含 2026-10-13 收盤）的前高低 5% 以上」為 claim。檢驗方式：用 FRED SP500 計算該期間的最大收盤回撤；5% 以上記應驗，3% 至 5% 記部分應驗，不到 3% 記落空。（到期 2027-01-20）",
+   "due": "2027-01-20",
+   "status": "觀察中",
+   "source": "Bloomberg Surveillance｜Markets, Earnings, and Oil"
   }
  ]
 }
