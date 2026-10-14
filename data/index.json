@@ -1,7 +1,22 @@
 {
- "updated": "2026-10-13T19:21:46+00:00",
- "updatedLabel": "10/14 03:21",
+ "updated": "2026-10-14T19:22:30+00:00",
+ "updatedLabel": "10/15 03:22",
  "days": [
+  {
+   "date": "2026-10-15",
+   "label": "2026年10月15日（週四）",
+   "short": "10/15 週四",
+   "episodeCount": 8,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Prof G Markets",
+    "Latent Space",
+    "In Good Company"
+   ],
+   "file": "data/2026-10-15.json"
+  },
   {
    "date": "2026-10-14",
    "label": "2026年10月14日（週三）",
@@ -1060,5 +1075,5 @@
    ]
   }
  ],
- "count": 75
+ "count": 76
 }
