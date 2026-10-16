@@ -1,7 +1,26 @@
 {
- "updated": "2026-10-15T19:25:13+00:00",
- "updatedLabel": "10/16 03:25",
+ "updated": "2026-10-16T19:26:55+00:00",
+ "updatedLabel": "10/17 03:26",
  "days": [
+  {
+   "date": "2026-10-17",
+   "label": "2026年10月17日（週六）",
+   "short": "10/17 週六",
+   "episodeCount": 11,
+   "shows": [
+    "MacroVoices",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Forward Guidance",
+    "Money Stuff: The Podcast",
+    "Prof G Markets",
+    "In Good Company",
+    "Hard Fork"
+   ],
+   "file": "data/2026-10-17.json"
+  },
   {
    "date": "2026-10-16",
    "label": "2026年10月16日（週五）",
@@ -1093,5 +1112,5 @@
    ]
   }
  ],
- "count": 77
+ "count": 78
 }
