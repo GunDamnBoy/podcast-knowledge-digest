@@ -48,11 +48,11 @@
 |---|---|---|
 | 00:55 | `pmset repeat` 排定喚醒 | 把機器叫醒，讓底下兩個排程跑得到 |
 | 01:00 | launchd `com.kenny.podfetch` | 抓音檔、Gemini 轉錄、寫出逐字稿 |
-| 03:00 | Cowork 排程 **`podcast-daily-300`**（cron `0 3 * * *`） | 讀逐字稿、寫摘譯、發布 |
+| 03:00 | 雲端排程「Podcast daily 0300」（`CRON_TZ=Asia/Taipei 0 3 * * *`，實際約 03:10 觸發；2026-10-05 起，舊為桌面排程 `podcast-daily-300`） | 讀逐字稿、寫摘譯、發布 |
 
 **03:00 這個時段有一個必須知道的結構性取捨**：台北 03:00 ＝ 美東前一天 15:00，而主要節目集中在台北 04:00–06:30 落地（All-In 約 06:23）。所以**前一晚的美東晚間集數在今天這一版必定收不到，會出現在明天凌晨那一版**——All-In 約在發布後 21 小時進日報。**這是設計，不是故障，不要去追，也不必每天在回報中解釋。** 沒有任何集數會遺失：podfetch 視窗以 `last_run_utc` 為起點、日報又會去重，順延的集數下一版必定收得到。動機與完整代價見 `MAINTENANCE.md` 第 7 節。
 
-**排程機制備忘**：Cowork 的 cron 以**本機時區**計算，直接寫 03:00，不要換算 UTC。每次執行都是全新工作階段、讀不到任何過往對話，因此任務 prompt 必須自包含。**現行做法不是「先完整讀過本檔」了**（2026-08-30 訂正，那句話從 08-21 降級起就過期了）：日常執行讀的是 `kb-core` 那四份規格，本檔**只在當日有 A 類節目時讀第 1 節**取官方稿入口，權威在 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 0 步。**排程只在 Claude 桌面 App 開著時執行**，App 關閉時錯過的會在下次啟動補跑。
+**排程機制備忘**：雲端排程的 cron 帶 `CRON_TZ=Asia/Taipei`，直接寫 03:00，不要換算 UTC。每次執行都是全新工作階段、讀不到任何過往對話，因此任務 prompt 必須自包含。**現行做法不是「先完整讀過本檔」了**（2026-08-30 訂正，那句話從 08-21 降級起就過期了）：日常執行讀的是 `kb-core` 那四份規格，本檔**只在當日有 A 類節目時讀第 1 節**取官方稿入口，權威在 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 0 步。**排程在雲端觸發，資料夾經 Mac 上的 Claude 桌面 App 連進工作階段**——App 沒開或 Mac 離線時資料夾連不上，那一輪會在第 0 步停下（2026-10-17 訂正：舊寫「只在桌面 App 開著時執行、錯過的下次啟動補跑」，那是桌面排程器時代的行為）。
 
 ---
 
@@ -65,8 +65,8 @@
 | Acquired | RSS `https://feeds.transistor.fm/acquired` 內 `<podcast:transcript>` → `share.transistor.fm/s/<id>/transcript.txt` |
 | Dwarkesh Podcast | `https://www.dwarkesh.com/api/v1/archive?sort=new&limit=10` → `dwarkesh.com/p/<slug>` |
 | Latent Space | `https://www.latent.space/api/v1/archive?sort=new&limit=10` → `latent.space/p/<slug>`。<br>**2026-09-26 起取回連續失效**（09-26、09-27、09-30、10-02、10-03）：archive API 經 `WebFetch` 仍查得到當集（偵測沒問題），但當集頁直連回 `CONNECT 403`、`WebFetch` 回的是模型轉述而非逐字，且在約 01:15–01:27 處截斷（10-03 那集片長 1:41、止於 01:15:11）。**出口政策沒變之前，抓了也拿不全**；退第二層時 `source` 照「入口可達、取回失效」寫（三種退回原因見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之二步）。 |
-| Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（列表頁 `WebFetch` 讀得到，每集一個 `…/<編號>-transcript-of-the-podcast-interview-…/file` 的 PDF 連結）。**上架時點不固定**：08-07 時落後一週以上（當天最新只到 MV543／7-30），**但 2026-09 下旬起多半當天就上架**（09-26 的 #551、10-03 的 #552 都是）——**先看列表，不要預設「尚未上架」**。<br>**瓶頸在取回，不在入口**（2026-10-03 補）：直連（curl，沙箱與 Mac 皆然）被 egress proxy 回 `CONNECT 403`；`WebFetch` 經小模型處理，**要它「整份逐字照錄」會拒絕、只給摘要**，但**指定頁碼「逐字照錄第 N–M 頁」拿得到逐字稿**（10-03 實測：第 6–9 頁一次取回，帶 `Erik:`／`David:` 講者標記與頁首頁碼）。做法：先問總頁數與最後一段，再每次 4–5 頁分段取，**優先取 podfetch 稿被整段複製蓋掉的那幾頁**；拿回的是轉述就不要當原話用。全部取回才算第一層；只補了部分區間時 `sourceLayer` 填 2、`source` 寫明哪一段取自官方稿。`quotes[].original` 仍一律回 podfetch 稿挑。退第二層時 `source` 照「入口可達、取回失效」寫（三種退回原因見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之二步） |
-| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market`。<br>**⚠️ 2026-09-02 實測：本列原本開的兩條取 slug 的路今天都不通。**（一）**節目列表頁是前端渲染**，`web_fetch` 只取得到頁框與導覽、**沒有任何集數連結**；（二）**WebSearch 找不到當集**（查得到同主題的舊集與 Research 文章，查不到 09-01 那一集）；（三）內建瀏覽器**對 `goldmansachs.com` 的存取被拒**，所以「用瀏覽器渲染列表頁」這條也走不了。當天退第二層。**這三條下次要照順序再試一次**（尤其是瀏覽器那條，被拒可能是當次的核准狀態而不是永久的）—— **但瀏覽器那條只在互動對話補跑時試，不要在 03:00 那一輪試**（2026-09-12 補上）：排程無人值守，`request_access` 的核准視窗沒有人按，會把整個 subagent 掛住；同日 FT 那一列就是這樣卡了 4 小時 54 分。**排程輪次撞到存取被拒就退第二層。****取不到就退第二層並在 `source` 分辨「尚未上架」與「入口失效」——09-02 的形態偏向後者**，因為同名節目的舊集數頁仍然存在。<br>**紀律（比照 FT）：gsx 每次有新集數時，走通與否都要在回報中寫一句。** 沒有這一句，它的失效不會累積成證據，只會每天重撞一次——FT 那一列 08-15 換入口，就是靠這種累積才知道舊入口壞了。 |
+| Macro Voices | `https://www.macrovoices.com/guest-content/list-guest-transcripts`（列表頁 `WebFetch` 讀得到，每集一個 `…/<編號>-transcript-of-the-podcast-interview-…/file` 的 PDF 連結）。**上架時點不固定**：08-07 時落後一週以上（當天最新只到 MV543／7-30），**但 2026-09 下旬起多半當天就上架**（09-26 的 #551、10-03 的 #552 都是）——**先看列表，不要預設「尚未上架」**。<br>**瓶頸在取回，不在入口**（2026-10-03 補）：直連（curl，沙箱與 Mac 皆然）被 egress proxy 回 `CONNECT 403`；`WebFetch` 經小模型處理，**要它「整份逐字照錄」會拒絕、只給摘要**，**指定頁碼「逐字照錄第 N–M 頁」只在 10-03 成功過一次**（第 6–9 頁一次取回，帶 `Erik:`／`David:` 講者標記與頁首頁碼）；**10-10 三次、10-17 一次全部被拒**，10-17 的回覆明講有 125 字元的引用上限。**每集最多試一次，被拒就退第二層，不要換頁碼重試。**做法：先問總頁數與最後一段，再每次 4–5 頁分段取，**優先取 podfetch 稿被整段複製蓋掉的那幾頁**；拿回的是轉述就不要當原話用。全部取回才算第一層；只補了部分區間時 `sourceLayer` 填 2、`source` 寫明哪一段取自官方稿。`quotes[].original` 仍一律回 podfetch 稿挑。退第二層時 `source` 照「入口可達、取回失效」寫（三種退回原因見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之二步） |
+| Exchanges at Goldman Sachs | `goldmansachs.com/insights/goldman-sachs-exchanges/<slug>`（逐字稿內嵌全文）。**slug 不是節目標題的直譯**——用標題硬拼會回空頁而不是 404，看起來像「沒有官方稿」。08-07 實例：標題是 AI 債務與信用市場，slug 卻是 `how-ai-debt-is-reshaping-the-credit-market`。<br>**⚠️ 2026-09-02 實測：本列原本開的兩條取 slug 的路今天都不通。**（一）**節目列表頁是前端渲染**，`web_fetch` 只取得到頁框與導覽、**沒有任何集數連結**；（二）**WebSearch 找不到當集**（查得到同主題的舊集與 Research 文章，查不到 09-01 那一集）；（三）內建瀏覽器**對 `goldmansachs.com` 的存取被拒**，所以「用瀏覽器渲染列表頁」這條也走不了。當天退第二層。**這三條下次要照順序再試一次**（尤其是瀏覽器那條，被拒可能是當次的核准狀態而不是永久的）—— **但瀏覽器那條只在互動對話補跑時試，不要在 03:00 那一輪試**（2026-09-12 補上）：排程無人值守，`request_access` 的核准視窗沒有人按，會把整個 subagent 掛住；同日 FT 那一列就是這樣卡了 4 小時 54 分。**排程輪次撞到存取被拒就退第二層。****取不到就退第二層，並在 `source` 照三種退回原因（尚未上架／入口失效／入口可達、取回失效，定義見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之二步）擇一寫明——09-02 的形態偏向入口失效，10-14 是入口可達、取回失效**，因為同名節目的舊集數頁仍然存在。<br>**紀律（比照 FT）：gsx 每次有新集數時，走通與否都要在回報中寫一句。** 沒有這一句，它的失效不會累積成證據，只會每天重撞一次——FT 那一列 08-15 換入口，就是靠這種累積才知道舊入口壞了。 |
 | Unhedged (FT) | **入口是 FT 站內搜尋：`https://www.ft.com/search?q="<該集原文標題>"`**（2026-08-15 更正）。**兩個舊入口都不對**——`ft.com/unhedged` 是電子報存檔、不含 podcast；`ft.com/the-economics-show` 只列 The Economics Show 自己的集數，**同樣不含 Unhedged**（08-15 實測，該頁找不到當集）。只能走 Chrome：`navigate` 搜尋頁 → 取候選連結 `href` → **選標題帶 `Transcript:` 前綴的那一個**（每集有兩個頁面，另一個是只有播放器與簡介的集數頁，正文僅約 2,700 字元，很容易誤判成「付費牆擋住」）→ `navigate` → `get_page_text`。<br>**「只能走 Chrome」是硬規則，不要退而求其次用內建瀏覽器**（2026-09-12 補強）：內建瀏覽器有自己的 profile、沒有 FT 登入，而且 `ft.com` 被標為 high-risk，核准視窗上明寫 "asks before each visit"，**連 `scope: site` 都不會留存**。09-12 那一輪 `web_fetch` 回 403（`URL is on blocklist`）之後，subagent 自己改走內建瀏覽器並觸發 `request_access`，而排程無人值守沒有人按 —— **那一集卡了 4 小時 54 分**（同日其他 11 集 3.7–12.2 分鐘），日報從 03:30 延到 08:48，而日報照樣 `exit 0`、**五小時在輸出上完全看不見**。**所以：`web_fetch` 回 403 blocklist 就直接退第二層，在 `source` 寫明「入口失效」並在回報中具名，不要換瀏覽器再試。**<br>**Unhedged 的 feed 會放姊妹節目 The Economics Show 的重播**（08-08 實例：8/6 的 feed 放的是原 6/19 那集）。遇到重播要在 `published` 與 `source` 標明原始播出日，不要當成新集數 |
 | ~~Masters in Business~~ | **當日執行一律當 B 類，不要去抓**：官方稿在 `ritholtz.com/<YYYY>/<MM>/transcript-<guest-slug>/`，但**固定晚 1–2 週**，當集必定還沒上架。留在本表只是備查，補跑舊集數時才用得到。（**2026-08-30 訂正**：本表表頭寫「這類節目每天都要去抓」，而這一列的括號寫「新集數改走 B」，**兩句直接相反**；照表頭的字面做就會每天浪費一次抓取。） |
 
@@ -323,8 +323,9 @@ podcast-knowledge-digest/
 └── .github/workflows/deploy.yml
 ```
 
-**每天要動三個檔**：新增 `data/YYYY-MM-DD.json`、把該日加到 `data/index.json` 的
-`days` 陣列**最前面**（一律由新到舊）、回訪並寫回 `data/observations.json`。
+**日報那一輪只寫兩個東西**：草稿 `outbox/podcast/<date>.draft.json` 與帳本 `data/observations.json`；
+`data/YYYY-MM-DD.json` 與 `data/index.json`（`days` 由新到舊）**由 publish 從草稿寫**，日報自己寫會撞 `exit 11`
+（2026-10-17 訂正：原文「每天要動三個檔」與第 5 節 09-17 的作廢橫幅、`DIGEST-PROMPT`「這一輪不做的事」直接衝突）。
 **`index.html` 不要動。**
 
 `chars` 由組檔時的 python 一律用這一行覆寫子代理填的值：
@@ -414,7 +415,7 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
   > 而它留著一支已退場的推送者留了三天** —— `MAIN.md` 的硬規矩在 08-21 就訂正過，
   > 沒有人回頭改這裡。**兩份規則同時存在時，改到沒在跑的那一份不會有任何徵兆。**
 - **連線資料夾**：需要**四個**——`podcast-transcripts`（讀逐字稿）、`kb-core`（讀規格與程式）、
-  `outbox`（寫草稿到 `outbox/podcast/`）、`podcast-knowledge-digest`（寫帳本與網站資料）。
+  `outbox`（寫草稿到 `outbox/podcast/`）、`podcast-knowledge-digest`（寫帳本；日檔與索引由 publish 寫）。
   **連線不保證跨工作階段留存**，失敗的樣子和「podfetch 沒跑」一模一樣。**讀不到就先自己連**：
   `mcp__cowork__request_cowork_directory`，無人值守下實測不會跳核准對話框。
   **這只適用於本機 Cowork**；雲端工作階段連到 Mac 時資料夾走 `mcp__remote-devices__device_*`，
@@ -441,53 +442,14 @@ ep["chars"] = len("".join(p for s in ep.get("sections") or [] for p in s.get("pa
 
 ## 8. 變更紀錄（CHANGELOG）
 
-### 2026-09-13
+### 2026-10-17
 
-- **補登 09-02 與 09-12 兩筆漏記的第 1 節改動。** 那兩次都改了本檔第 1 節（權威區），
-  **而本節一筆都沒加** —— 違反第 9 節自己訂的「本檔改動必須在第 8 節加一筆」。
-  **改了不記，下一場無從回頭驗收**，這正是 `08-08 ④` 記過的形態。由 09-13 維護場的漂移稽核抓到。
-- **非 `data/` 檔的提交責任升成 repo 通則。** 原本只寫在維護場的收工檢查
-  （`MAINTENANCE.md` 第 6 節、`MODIFY.md` 驗證第 6 項），而 09-13 那次肇事**不是維護場改的**，
-  於是那條規則的觸發點根本沒被走到：本檔一個未提交的變更讓 publish 連續八小時回
-  `exit 15 @ worktree-dirty`。**`podcast-knowledge-digest` 的非 `data/` 變更沒有任何自動提交者、
-  也沒有任何自動推送者**（`kbcorepush` 只顧 kb-core，`kbpublish.podcast` 的 `staged_paths` 是 `["data"]`），
-  唯一的機制就是動它的人當場提交。**任何人、任何場次動了本 repo 的非 `data/` 檔，當場提交。**
-  這是本檔第三次肇事、該形態第四次發生（08-24／08-31／09-03／09-13）。
+- **第 1 節 MacroVoices 列**：「指定頁碼逐字照錄拿得到」改成只成功過一次（10-03），10-10 三次、10-17 一次全被拒（明講 125 字元引用上限），每集最多試一次。**GSX 列**的退回原因由兩種補成三種、指向 `DIGEST-PROMPT` 第 1 之二步。
+- **排程搬到雲端的過期記載**：第 0 節時序表與排程機制備忘改成雲端「Podcast daily 0300」；第 8 節維護規則訂正（排程 prompt 是 `DIGEST-PROMPT` 的副本，不是本檔的）。
+- **第 4 節「每天要動三個檔」改寫**為「日報只寫草稿與帳本，日檔與索引由 publish 寫」，與第 5 節作廢橫幅一致；第 6 節資料夾清單同步。
+- 第 8 節斷鏈（「第 9 節」）訂正；09-13、09-12、08-30 三場條目歸檔至 `MAINTENANCE.md` 第 11 節。**09-17、09-28、10-03 三場改過本檔卻沒有在此記一筆**，來歷見 `MAINTENANCE.md` 第 12 節逐場登記。
 
-### 2026-09-12
-
-- **第 1 節 Unhedged (FT) 那一列補上「只能走 Chrome」的硬規則。** 09-12 那一輪 `web_fetch`
-  回 403（`URL is on blocklist`）之後，subagent 自己升級去走內建瀏覽器並觸發 `request_access`，
-  而排程無人值守沒有人按 —— **那一集卡了 4 小時 54 分**（同日其他 11 集是 3.7 到 12.2 分鐘），
-  日報從 03:30 延到 08:48。**而它在輸出上完全看不見**：日報照樣 `exit 0`、`source` 也據實寫了入口失效。
-  規則因此是兩條：A 類只走本表指定的那條路，走不通就退第二層；**排程輪次一律不呼叫 `request_access`**
-  （`ft.com` 標為 high-risk，核准視窗明寫 "asks before each visit"，連 `scope: site` 都不留存）。
-- **第 1 節 gsx 那一列補上「瀏覽器那條只在互動對話補跑時試」。** 同一個成因，先擋住。
-
-### 2026-08-30
-
-- **本檔第 3／4 節的抄本刪除、第 8 節歸檔，讓本檔回到單次 `Read` 讀得完。** 實測改動前
-  33,977 字元／**28,507 token，超出 25,000 上限 14%**，截斷在第 405 行 ——
-  **而失效橫幅明文保留的四塊權威裡，第 6 節（基礎設施備忘）與第 8 節（本節）正好在截斷點之後**。
-  08-17 ⑤ 那筆「✅ 一次 `Read` 讀得完」與它當時立的完成條件（加字後 Read 一次確認無截斷）
-  都已失效，同批訂正。刪之前逐條 grep 過，**只有「排序」與「寫作紀律」兩條規則沒有第二個家，
-  留在原地未搬**。
-- **循環重複的形態定義擴大（`anchors`／`preamble`／`DIGEST-PROMPT` 正副本同批改）。**
-  原本四份都寫「同一個短句連續重複 N 次」，而 08-30 的 twentyvc 是**兩句交替 20 次**，
-  「找相鄰兩行相同」對它結構上是盲的。同批補上一個可否證的不變量
-  （單一區塊固定是「句長 ＋ k − 1」token，與次數無關）與一個免費的定位訊號（段級語速 warning）。
-- **`DIGEST-PROMPT.md` 正本與排程副本重新同步。** 兩邊各缺一塊、且用量那一節結論相反
-  （正本「搆得到了」／副本「搆不到」），正本自己還有標題與內文打架。查證後確認
-  **量測已於 08-24 晚間自動化**（`com.kenny.kbscan`），整節重寫成「這一輪什麼都不用做」，
-  並把副本獨有的「不要抄自述值」警告補回正本。
-- **帳本那三處「52 條無到期日」改成指向 `healthcheck.py` 的記分板，不再各記一個會過期的數字。**
-  **過程本身值得記**：複驗子代理回報「52 是錯的、實際 58」，主代理**先照著改了兩份規格，
-  之後才去讀程式**——讀完發現兩個數都是真的、只是定義不同（58 ＝ 沒有 `due` 欄位；
-  52 ＝ 連 text 回退也沒有，**而閘門用的是後者**），原本的 52 從頭到尾沒錯，錯的訂正當日撤回。
-  **一個沒有標定義的數字會主動招來錯的訂正，而訂正看起來比原文更可信，因為它帶著新的量測。**
-
-
-> **維護規則（不要刪這段）**：本檔與排程任務 `podcast-daily-300` 的 SKILL.md 是**一組兩份**，改任一邊都必須同步另一邊，並在本節加一筆。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
+> **維護規則（不要刪這段）**：本檔改動都要在本節加一筆。**排程（雲端「Podcast daily 0300」）的 prompt 是 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 的副本，不是本檔的**（2026-10-17 訂正：原文寫本檔與排程 SKILL.md「一組兩份」，與檔頭橫幅矛盾）。**事故經過寫進 `MAINTENANCE.md` 第 7 節，不要寫進這裡**——本節只記「改了什麼、為什麼改」。日期由新到舊。
 > 2026-08-09 發現這條規則在 08-08 隨紀錄被搬進 MAINTENANCE 第 7 節後，**brief 本體整整一天沒有任何一句要求雙邊同步**——而 08-04 的 SKILL.md 整份覆寫事故正是這類漏抄造成的。**歸檔時要分辨哪些是紀錄、哪些是規則；規則不跟著走。**
 >
 > **更早的變更紀錄已歸檔至 `MAINTENANCE.md` 第 11 節。**

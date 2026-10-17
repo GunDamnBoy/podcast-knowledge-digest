@@ -43,7 +43,7 @@
 ├── data/YYYY-MM-DD.json       # 每日內容
 ├── data/observations.json     # 觀察點記分板（逐日回訪更新）
 ├── robots.txt                 # 全站 noindex
-├── AGENT_BRIEF.md             # 每日產出的完整規格
+├── AGENT_BRIEF.md             # 只剩第 1／2／6／8 節權威（節目清單與官方稿入口等）；規格在 kb-core/podcast/
 ├── MAINTENANCE.md             # 維護說明與事故／決策檔案
 └── .github/workflows/deploy.yml
 ```

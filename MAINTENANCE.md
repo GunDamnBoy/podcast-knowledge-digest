@@ -14,7 +14,7 @@
 | # | 檔案／位置 | 角色 | 誰會讀它 |
 |---|---|---|---|
 | 1 | `~/podcast-knowledge-digest/AGENT_BRIEF.md` | **完整規格**：各節目的全文來源與取得方式、podfetch 管線、內容規格、資料格式、發布流程。**現役節目名單本身不在裡面**——唯一的家是 `~/.podfetch/shows.json` | 每日排程在第 0 步完整讀過 |
-| 2 | 排程任務 `podcast-daily-300` 的 SKILL.md | **執行骨架**：流程順序與分支判斷，**正本是 `kb-core/scripts/podcast/DIGEST-PROMPT.md`，排程那份是整份複製的副本**。<br>**2026-08-23 訂正**：本列原本寫舊 taskId，且「唯一例外是第 3 步的子代理任務卡（抄了 brief 第 3／4 節）」整句已過期——任務卡 08-22 起是獨立檔 `kb-core/scripts/podcast/preamble.md`，而數字的家是 `anchors.json` 不是 brief 第 3／4 節。 | 排程觸發時直接執行 |
+| 2 | 雲端排程「Podcast daily 0300」的 prompt（2026-10-05 起；舊為桌面排程 `podcast-daily-300` 的 SKILL.md） | **執行骨架**：流程順序與分支判斷，**正本是 `kb-core/scripts/podcast/DIGEST-PROMPT.md`，排程那份是整份複製的副本**。<br>**2026-08-23 訂正**：本列原本寫舊 taskId，且「唯一例外是第 3 步的子代理任務卡（抄了 brief 第 3／4 節）」整句已過期——任務卡 08-22 起是獨立檔 `kb-core/scripts/podcast/preamble.md`，而數字的家是 `anchors.json` 不是 brief 第 3／4 節。 | 排程觸發時直接執行 |
 | 3 | `~/podcast-knowledge-digest/index.html` | 前端外殼：CSS、渲染邏輯、節目徽章 | 瀏覽器 |
 | 4 | `~/podcast-knowledge-digest/data/*.json` | 每日內容 | `index.html` |
 | 5 | `~/.podfetch/`（腳本、`config.json`、`shows.json`、`state.json`、`logs/`） | 01:00 的轉錄管線，由 launchd `com.kenny.podfetch` 觸發 | 排程排錯時會讀 |
@@ -37,7 +37,7 @@
 2. 讀 `AGENT_BRIEF.md`（全部 —— **讀完要確認回傳沒有截斷提示**，它曾兩次撐破 `Read` 上限而截斷點在權威區之前，見第 6 節）與排程 SKILL.md（`list_scheduled_tasks` 取得 `path` 後 Read）。
 3. **先比對兩者是否已經不同步**，有的話先修好再談新需求。
 4. 改 `AGENT_BRIEF.md`。
-5. 用 `mcp__scheduled-tasks__update_scheduled_task` 同步排程 prompt。
+5. 用 `mcp__claude-code-remote__update_trigger` 的 `prompt` 同步排程（整份覆寫；這支排程需要電腦，回 `needs_device_approval` 時請使用者在連到 Mac 的 Cowork 對話核准，不要刪掉重建）。
 6. 在 brief 第 8 節加變更紀錄；**事故經過與被否決的選項寫進本檔第 7 節**，不要寫進 brief。
 7. 若動到節目清單，`~/.podfetch/shows.json` 與 `index.html` 的 `.ep.s-<key>::before`／`.b-<key>`／深色模式那一組都要補。
 8. 收工前再跑一次 `healthcheck.py`，並用子代理獨立比對 brief 與 SKILL.md。
@@ -97,7 +97,7 @@ python3 ~/kb-core/scripts/podcast/healthcheck.py
 - **`snapshot.sh` 曾經會安靜產生「空快照」（2026-08-16 修）。** 它的 `BASE` 原本寫死 `$HOME/.podfetch`、**沒有掛載點偵測**，所以在 Cowork 沙箱裡（`$HOME` 不是 `/Users/kenny`）每個檔案都印「（缺）」，然後**照樣建目錄、寫 MANIFEST、回報「快照完成」**——那筆會出現在 `--list` 裡，看起來就是一個正常的還原點。**而 repo 外的檔案沒有 git，快照是唯一還原點。** 已補上與 `healthcheck.py` 的 `resolve()` 同一套順序（先找 `/sessions/*/mnt`、再退回家目錄），並加了守衛：**一個檔都沒抄到就自刪目錄、印錯誤、回非 0**。`SKILL.md` 單獨缺仍屬正常（`~/Documents` 是 macOS TCC 保護區，沙箱看不到）。**教訓：兩支腳本讀同一組路徑，只有一支做了偵測——「另一支也需要嗎」這個問題當時沒有人問。**
 - **shell 腳本裡 `$VAR` 後面緊接全形字元，在 Mac 上會炸（2026-08-17 ③）。** `snapshot.sh` 的最後一行寫 `echo "快照完成：$DEST（來源 BASE＝$BASE）"`，**macOS 的 bash 是 3.2.57**，它的識別字掃描會把 `（`（U+FF08，`EF BC 88`）那幾個高位元組吃進變數名，於是那個變數變成未設定，`set -u` 當場中止並印 `DEST?: unbound variable`（`?` 是終端機在渲染那串無效位元組）。**修法：一律寫 `${DEST}`**，大括號讓邊界明確，任何版本都對。
   **這個 bug 有三個性質值得記住**：①**只在 Mac 上出現**——Cowork 沙箱是 bash 5.1，解析完全正常，所以在沙箱跑一百次也測不到，**而 Mac 正是唯一能取得完整快照（含 `SKILL.md`）的地方**；②**失敗點在最後一行**，`mkdir`／`cp`／MANIFEST 全都已經完成，**所以快照其實是好的，壞的只有那句「快照完成」與離開碼**——看到這個錯誤先去 `--list` 確認，不要急著重跑；③**它是 `08-16 ⑥` 那一輪加掛載點偵測時引進的**，而那一列的驗收狀態一直掛著「守衛與偵測未被排程觸及，仍待實戰」——**8/16 之後每一次「請在 Mac 補跑一次完整快照」都是非 0 離開，只是沒有人回報**。**「待實戰」掛著沒人去踩，就等於沒有人發現它已經壞了。**
-- **`update_scheduled_task` 的 `prompt` 是整份覆寫，不是局部編輯。** 送出前一定要先 Read 目前的 SKILL.md，以它為基礎改。2026-08-04 就這樣蓋掉了另一場維護的四項改動（見第 7 節）。**「我記得的版本」在多場維護之間一定會過期**，而 SKILL.md 不在 git 裡，沒有任何機制會擋。
+- **`update_trigger`（桌面排程時代是 `update_scheduled_task`）的 `prompt` 是整份覆寫，不是局部編輯。** 送出前一定要先用 `list_triggers` 讀目前的 `derived_state.prompt`，以它為基礎改。2026-08-04 就這樣蓋掉了另一場維護的四項改動（見第 7 節）。**「我記得的版本」在多場維護之間一定會過期**，而排程 prompt 不在 git 裡，沒有任何機制會擋。
 - **brief 說「已同步進 SKILL.md」不等於真的同步。** 紀錄與實況會脫鉤，而紀錄看起來更可信。子代理比對時要專門檢查這一項。
 - **`web_fetch` 對 RSS／XML 一律回 `[binary data]`**，不要指望直接讀 feedUrl。
 - **FT 存取失效時不會報錯**，只會安靜退回付費牆。每次都要檢查正文長度（Unhedged 通常 5,000 字元以上）。
@@ -949,7 +949,7 @@ podfetch 舊版用固定 26 小時窗口，漏跑一天就會產生缺口——7
 | 時間（台北） | 事件 | 需要什麼 |
 |---|---|---|
 | **01:00** | **`com.kenny.podfetch`** | Mac 醒著，約 30–45 分鐘（六集） |
-| **03:00** | **`podcast-daily-300`** | Mac 醒著、Claude 桌面版開著 |
+| **03:00** | 雲端排程「Podcast daily 0300」（實際約 03:10 觸發） | Mac 醒著、Claude 桌面版開著（資料夾經它連進雲端工作階段） |
 | 07:35 | `advisory-dashboard-daily`（另一條線） | Mac 醒著、Chrome 開著 |
 | 至 11:30 | 該線跑完 | 同上，持續 |
 
@@ -1017,6 +1017,51 @@ pmset -g ps         # 應顯示 "AC Power"
 ---
 
 ## 11. 變更紀錄歸檔（自 `AGENT_BRIEF.md` 第 8 節移入）
+
+### 2026-09-13
+
+- **補登 09-02 與 09-12 兩筆漏記的第 1 節改動。** 那兩次都改了本檔第 1 節（權威區），
+  **而本節一筆都沒加** —— 違反第 8 節末「維護規則」自己訂的「本檔改動必須在第 8 節加一筆」（原文誤寫第 9 節，本檔沒有第 9 節；2026-10-17 訂正）。
+  **改了不記，下一場無從回頭驗收**，這正是 `08-08 ④` 記過的形態。由 09-13 維護場的漂移稽核抓到。
+- **非 `data/` 檔的提交責任升成 repo 通則。** 原本只寫在維護場的收工檢查
+  （`MAINTENANCE.md` 第 6 節、`MODIFY.md` 驗證第 6 項），而 09-13 那次肇事**不是維護場改的**，
+  於是那條規則的觸發點根本沒被走到：本檔一個未提交的變更讓 publish 連續八小時回
+  `exit 15 @ worktree-dirty`。**`podcast-knowledge-digest` 的非 `data/` 變更沒有任何自動提交者、
+  也沒有任何自動推送者**（`kbcorepush` 只顧 kb-core，`kbpublish.podcast` 的 `staged_paths` 是 `["data"]`），
+  唯一的機制就是動它的人當場提交。**任何人、任何場次動了本 repo 的非 `data/` 檔，當場提交。**
+  這是本檔第三次肇事、該形態第四次發生（08-24／08-31／09-03／09-13）。
+
+### 2026-09-12
+
+- **第 1 節 Unhedged (FT) 那一列補上「只能走 Chrome」的硬規則。** 09-12 那一輪 `web_fetch`
+  回 403（`URL is on blocklist`）之後，subagent 自己升級去走內建瀏覽器並觸發 `request_access`，
+  而排程無人值守沒有人按 —— **那一集卡了 4 小時 54 分**（同日其他 11 集是 3.7 到 12.2 分鐘），
+  日報從 03:30 延到 08:48。**而它在輸出上完全看不見**：日報照樣 `exit 0`、`source` 也據實寫了入口失效。
+  規則因此是兩條：A 類只走本表指定的那條路，走不通就退第二層；**排程輪次一律不呼叫 `request_access`**
+  （`ft.com` 標為 high-risk，核准視窗明寫 "asks before each visit"，連 `scope: site` 都不留存）。
+- **第 1 節 gsx 那一列補上「瀏覽器那條只在互動對話補跑時試」。** 同一個成因，先擋住。
+
+### 2026-08-30
+
+- **本檔第 3／4 節的抄本刪除、第 8 節歸檔，讓本檔回到單次 `Read` 讀得完。** 實測改動前
+  33,977 字元／**28,507 token，超出 25,000 上限 14%**，截斷在第 405 行 ——
+  **而失效橫幅明文保留的四塊權威裡，第 6 節（基礎設施備忘）與第 8 節（本節）正好在截斷點之後**。
+  08-17 ⑤ 那筆「✅ 一次 `Read` 讀得完」與它當時立的完成條件（加字後 Read 一次確認無截斷）
+  都已失效，同批訂正。刪之前逐條 grep 過，**只有「排序」與「寫作紀律」兩條規則沒有第二個家，
+  留在原地未搬**。
+- **循環重複的形態定義擴大（`anchors`／`preamble`／`DIGEST-PROMPT` 正副本同批改）。**
+  原本四份都寫「同一個短句連續重複 N 次」，而 08-30 的 twentyvc 是**兩句交替 20 次**，
+  「找相鄰兩行相同」對它結構上是盲的。同批補上一個可否證的不變量
+  （單一區塊固定是「句長 ＋ k − 1」token，與次數無關）與一個免費的定位訊號（段級語速 warning）。
+- **`DIGEST-PROMPT.md` 正本與排程副本重新同步。** 兩邊各缺一塊、且用量那一節結論相反
+  （正本「搆得到了」／副本「搆不到」），正本自己還有標題與內文打架。查證後確認
+  **量測已於 08-24 晚間自動化**（`com.kenny.kbscan`），整節重寫成「這一輪什麼都不用做」，
+  並把副本獨有的「不要抄自述值」警告補回正本。
+- **帳本那三處「52 條無到期日」改成指向 `healthcheck.py` 的記分板，不再各記一個會過期的數字。**
+  **過程本身值得記**：複驗子代理回報「52 是錯的、實際 58」，主代理**先照著改了兩份規格，
+  之後才去讀程式**——讀完發現兩個數都是真的、只是定義不同（58 ＝ 沒有 `due` 欄位；
+  52 ＝ 連 text 回退也沒有，**而閘門用的是後者**），原本的 52 從頭到尾沒錯，錯的訂正當日撤回。
+  **一個沒有標定義的數字會主動招來錯的訂正，而訂正看起來比原文更可信，因為它帶著新的量測。**
 
 ### 2026-08-24
 
@@ -1591,7 +1636,8 @@ cp ~/.podfetch/snapshots/<時間戳>/podfetch.py ~/.podfetch/   # 還原
 | 09-24（09-28 補登） | `kb-core/skills/maintain/` 七套文件同批改寫（本場未親歷） | `skills/maintain/podcast/{MAIN,FILES,MODIFY,SYNC-CHECKLIST}.md`（留下 `MODIFY.md.orig`、`SYNC-CHECKLIST.md.orig` 兩份 09-17 版） | **不明** —— 09-28 同步比對子代理從檔案 mtime（09-24 00:47–00:48 UTC）發現這一場，但本表與第 11 節都沒有它的紀錄。依本表格式規則「只寫區塊不寫列 ＝ 沒有登記」，這一列是替它補的**索引**，內容只有能從檔案看到的事實 | ❓ 無從判定。兩份 `.orig` 是否該刪，**等知道那一場的人確認** |
 | 09-28 | **環境表／記分板誤報／段尾截斷偵測／篇幅與帳本閘門各補一條／權威區矛盾** | `scripts/podcast/healthcheck.py`（`_updated_taipei_date()`）、`DIGEST-PROMPT.md`（第 0 步環境表、第 1 步執行 shell、第 2 步跨日去重、第 3 步 `SendMessage`、第 4 步 `sourceLayer` 與觀察點下限、第 5 步判決欄位與 `source`；＋排程副本）、`checks/podcast.py`（`_ledger`、`_chars_in_tier`）、`anchors.json`（`observations_low_episode_day`、`official_transcript_overrun_field`、`quality.chunk_truncation_*`、`_cycle_note` 尾段數字）、`tools/podcast_dupmap.py`（`chunk_truncations()`）、`BRIEF.md`（欄位清單加 `sourceLayer`）、`AGENT_BRIEF.md`（第 0 節 Word 執行者、第 1 節兩條去重、第 5 節橫幅、第 6 節與排查的連線說明、表頭）、`README.md`（MIB 不列 A 類）、`skills/maintain/podcast/{MAIN,MODIFY,SYNC-CHECKLIST}.md`、本檔第 1303 行 | 起因是 09-28 日報那一輪第一次在**雲端工作階段**跑：①`DIGEST-PROMPT` 寫死的 `/sessions/*/mnt`＋`request_cowork_directory` 在雲端 `Bash` 不存在，這一輪是臨場改用 `device_bash` 才跑完；②healthcheck 記分板 WARN 用字串比「台北日期檔名 > UTC 時間戳」，**每天必響**；③tip `[14:29]`→`[20:00]` 約 5.5 分鐘掉字，manifest OK、dupmap 乾淨，只有 subagent 讀出來；④單集日為湊滿 2 條觀察點收進兩條勉強過線的；⑤篇幅閘門沒實作官方稿 10% 容許；⑥`AGENT_BRIEF` 權威區叫人「從舊檔移除」（必撞 `exit 11`）、Word 執行者三處說法不一。**上一列（09-17）結案**：交件載體規則 09-28 實跑一個 subagent、檔案落地無掉件；回執 `pushed` 正常 | ⏳ 環境表要等下一次雲端排程輪次照字面跑通才算成立；段尾截斷的比值門檻 0.8 是判斷，全庫實測 5 處觸發（初版程式只報 3 處、文件寫約 10 處，同日驗證子代理抓到後改正）、**只有 09-28 tip 與 09-27 twentyvc 兩處有獨立佐證**；`sourceLayer` 要等第一次 A 類走第一層的日子才驗得到。**09-29 結案：環境表 ✅**——09-29 03:00 那一輪是雲端排程，照第 0 步的表用 `device_bash` 認出掛載、`python3` 跑通兩支工具；段尾截斷當天未觸發、`sourceLayer` 當天沒有 A 類，兩項仍 ⏳ |
 | 09-29 | **探測 5xx 不再快取成三天／Transcribe 排除／第四層佔位不套段數** | `kb-core/scripts/podcast/podfetch.py`（`_BAD_MODEL_TOKENS`、`probe_model()` 的 5xx 重試、`PROBE_TRANSIENT`、`build_model_pool()` 重測與 `force_reprobe`）、`kb-core/checks/podcast.py`（`_chars_in_tier` 佔位分支＋fixture／near_miss）、`kb-core/podcast/anchors.json`（`fallback_order` 第 4 層註記）、本檔第 4C／6／7 節；另在 Mac 上人工改 `~/.podfetch/state.json`（刪 `probe`、`seen` 移除四集）。**未動，理由**：`BRIEF`／`preamble`／`DIGEST-PROMPT`（第四層佔位的段數豁免是閘門實作細節，執行者照 `fallback_order` 寫約 500 字即可，不必知道段數；改 `DIGEST-PROMPT` 還要整份重貼排程副本）、`AGENT_BRIEF` 第 2 節（podfetch 的設計細節已於 08-17 移到本檔第 4C 節，那裡只留讀輸出的方法） | 01:00 一次 25 秒的 503 尖峰被 72 小時探測快取放大，池子只剩 3.6 Flash 與 TPM 10K 的 Transcribe，六集沒有一集寫得出來；03:00 那一輪要退第四層時撞上段數閘門。**上一列（09-28）結案**：環境表 ✅，另兩項仍 ⏳ | ⏳ **一半有實戰資料**：06:47 手動重跑時 5xx 重試觸發一次並通過、池子回到三個 Lite 在前，8 集 7 OK；**但四支都還沒在正式輪次發生過**：`PROBE_TRANSIENT`／120 秒重測／重排（06:47 那次重試第一下就過了，沒進重測）、「仍過載或名額被補滿→標 `force_reprobe`」（同日複驗補上後一半，模擬五種情境通過）、`transcribe` 排除（06:47 它本來就輪不到）、佔位集數走閘門——下一次 01:00 探測遇到尖峰、或第一次真的交出 ⚠︎ 佔位集數時回來結 |
-| 10-03 | **官方稿第三種退回原因／轉錄自編段／派工共通檔與工作目錄隔離／文件與程式小修**（四批，使用者於互動場指定） | `DIGEST-PROMPT.md`（第 1 步自編段與溢出區間、第 1 之二步三種退回原因表、第 3 步篇幅級距用語／`dispatch-common.md`／工作目錄、第 7 步 `exit 13`；＋雲端排程副本）、`scripts/podcast/dispatch-common.md`（新）、`preamble.md`（開頭用語、第九節段尾截斷與自編段、第十節斷鏈）、`BRIEF.md` 第三節（退回原因三種）、`anchors.json`（`observations.source` 判決欄位與哨兵訂正、`_fields` 的 `source`／`reviewNote` 宣稱訂正）、`systems/podcast.py`（`REQUIRED` 補 `dedup`）、`healthcheck.py`（`check_shows_sync` docstring 註記）、`AGENT_BRIEF.md` 第 1 節（MacroVoices、Latent Space 兩列）與第 2 節（FT 入口已走通）、`skills/maintain/{SKILL.md（`name` 改成帶引號，對齊已安裝副本、消掉 `check_skill_copy` 的 WARN）,podcast/FILES.md,podcast/SYNC-CHECKLIST.md}`、本檔第 6 節 | 10-03 日報實跑踩到的四件事：（一）09-26 起 MacroVoices／Latent Space 是「入口可達、取回失效」，規格只認得兩種退回原因，`source` 每天寫法不同、累積不成證據；（二）Bloomberg TV 與 Odd Lots 出現轉錄自編段，所有機械檢查都沒反應；（三）「第 N 層」同時指篇幅與退援層級，hardfork 的 `sourceLayer` 被填成 3；（四）十二個 subagent 共用暫存區，同名腳本互相覆寫。外加同步比對子代理抓到的文件與程式不一致 | ⏳ 下一輪日報驗：派工單是否用 `dispatch-common.md`＋每集工作目錄、`sourceLayer` 有沒有再填錯、A 類退回的 `source` 是否照三種寫 |
+| 10-03 | **官方稿第三種退回原因／轉錄自編段／派工共通檔與工作目錄隔離／文件與程式小修**（四批，使用者於互動場指定） | `DIGEST-PROMPT.md`（第 1 步自編段與溢出區間、第 1 之二步三種退回原因表、第 3 步篇幅級距用語／`dispatch-common.md`／工作目錄、第 7 步 `exit 13`；＋雲端排程副本）、`scripts/podcast/dispatch-common.md`（新）、`preamble.md`（開頭用語、第九節段尾截斷與自編段、第十節斷鏈）、`BRIEF.md` 第三節（退回原因三種）、`anchors.json`（`observations.source` 判決欄位與哨兵訂正、`_fields` 的 `source`／`reviewNote` 宣稱訂正）、`systems/podcast.py`（`REQUIRED` 補 `dedup`）、`healthcheck.py`（`check_shows_sync` docstring 註記）、`AGENT_BRIEF.md` 第 1 節（MacroVoices、Latent Space 兩列）與第 2 節（FT 入口已走通）、`skills/maintain/{SKILL.md（`name` 改成帶引號，對齊已安裝副本、消掉 `check_skill_copy` 的 WARN）,podcast/FILES.md,podcast/SYNC-CHECKLIST.md}`、本檔第 6 節 | 10-03 日報實跑踩到的四件事：（一）09-26 起 MacroVoices／Latent Space 是「入口可達、取回失效」，規格只認得兩種退回原因，`source` 每天寫法不同、累積不成證據；（二）Bloomberg TV 與 Odd Lots 出現轉錄自編段，所有機械檢查都沒反應；（三）「第 N 層」同時指篇幅與退援層級，hardfork 的 `sourceLayer` 被填成 3；（四）十二個 subagent 共用暫存區，同名腳本互相覆寫。外加同步比對子代理抓到的文件與程式不一致 | ✅ 大致成立（10-17 日報實跑驗證）：11 集派工單都用 `dispatch-common.md`＋每集工作目錄、11／11 交件無掉件；`sourceLayer` 全是正確整數（unhedged 1、其餘 2）；A 類退回 `source` 照三種寫。⚠️ **例外一件**：MacroVoices「指定頁碼逐字照錄」10-10、10-17 連續被拒，10-17 起改為每集最多試一次 |
+| 10-17 | **MacroVoices 取回改寫／排程遷雲端的過期記載／溢出訊號量測（不設門檻）／AGENT_BRIEF 與小錯一批**（四批，使用者於互動場指定；同日先跑完日報） | `DIGEST-PROMPT.md`（第 1 步溢出訊號一段、第 1 之二步 MacroVoices；＋雲端排程副本）、`podcast/anchors.json`（新增 `quality._end_overflow_note`、`boundary` 改用「篇幅級距」）、`checks/podcast.py`（第 11 條訊息與註解「層級」→「篇幅級距」，只動字串）、`systems/podcast.py`（註解五欄→六欄）、`scripts/podcast/config.json`（`_comment_stale` 23 檔標時點）、`AGENT_BRIEF.md`（第 0 節時序與排程備忘、第 1 節 MacroVoices／GSX 兩列、第 4 節「每天要動三個檔」、第 6 節資料夾、第 8 節斷鏈與維護規則、09-13／09-12／08-30 歸檔至本檔第 11 節並加 10-17 條目）、`README.md`、`data/observations.json`（7 條觀察中把回訪寫進 `verdict` 的移進 `reviewNote` 開頭、`verdict` 清空）、`skills/maintain/{SKILL.md,podcast/MAIN.md,podcast/MODIFY.md,podcast/FILES.md,podcast/SYNC-CHECKLIST.md}`、本檔第 2／3／9 節的排程記載 | （一）MacroVoices 頁碼取回 10-10、10-17 連續被拒，10-17 明講 125 字元引用上限，而流程仍教執行者這樣做；（二）排程 10-05 搬到雲端「Podcast daily 0300」，維護文件約十處仍寫 `podcast-daily-300`／`list_scheduled_tasks`／`uploads/SKILL.md`／「只差 front matter 五行」；（三）溢出訊號 10-17 一天 6／11 集響、全是拉伸——量了全庫 397 份分佈，**決定不設門檻**（理由在 anchors）；（四）同步比對子代理抓到的 AGENT_BRIEF 內部矛盾與程式註解小錯 | ⏳ 下一輪日報驗：MacroVoices 有新集時是否只試一次就退；下一場維護驗：`SYNC-CHECKLIST` 改用 `list_triggers` 後走不走得通、排程 prompt 是否已同步（本場若回 `needs_device_approval` 則仍未同步） |
 
 > **`subagent_tokens_k ÷ transcript_kb` 這個判準立了兩天，08-18 第一次算得出來——而它一算出來就顯示自己有缺陷（2026-08-18）。**
 > | 日期 | 子代理 | 逐字稿 KB | `subagent_tokens_k` | 每 KB |
