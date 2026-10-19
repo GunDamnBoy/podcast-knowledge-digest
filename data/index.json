@@ -1,7 +1,21 @@
 {
- "updated": "2026-10-18T19:14:00+00:00",
- "updatedLabel": "10/19 03:14",
+ "updated": "2026-10-19T19:13:46+00:00",
+ "updatedLabel": "10/20 03:13",
  "days": [
+  {
+   "date": "2026-10-20",
+   "label": "2026年10月20日（週二）",
+   "short": "10/20 週二",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "Acquired"
+   ],
+   "file": "data/2026-10-20.json"
+  },
   {
    "date": "2026-10-19",
    "label": "2026年10月19日（週一）",
@@ -1137,5 +1151,5 @@
    ]
   }
  ],
- "count": 80
+ "count": 81
 }
