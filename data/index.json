@@ -1,7 +1,22 @@
 {
- "updated": "2026-10-19T19:13:46+00:00",
- "updatedLabel": "10/20 03:13",
+ "updated": "2026-10-20T19:10:43+00:00",
+ "updatedLabel": "10/21 03:10",
  "days": [
+  {
+   "date": "2026-10-21",
+   "label": "2026年10月21日（週三）",
+   "short": "10/21 週三",
+   "episodeCount": 7,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Forward Guidance",
+    "Prof G Markets",
+    "Invest Like the Best"
+   ],
+   "file": "data/2026-10-21.json"
+  },
   {
    "date": "2026-10-20",
    "label": "2026年10月20日（週二）",
@@ -1151,5 +1166,5 @@
    ]
   }
  ],
- "count": 81
+ "count": 82
 }
