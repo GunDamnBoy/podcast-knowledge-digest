@@ -1,7 +1,26 @@
 {
- "updated": "2026-10-21T19:16:39+00:00",
- "updatedLabel": "10/22 03:16",
+ "updated": "2026-10-22T19:17:30+00:00",
+ "updatedLabel": "10/23 03:17",
  "days": [
+  {
+   "date": "2026-10-23",
+   "label": "2026年10月23日（週五）",
+   "short": "10/23 週五",
+   "episodeCount": 11,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "No Priors",
+    "Latent Space",
+    "Dwarkesh Podcast",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ],
+   "file": "data/2026-10-23.json"
+  },
   {
    "date": "2026-10-22",
    "label": "2026年10月22日（週四）",
@@ -1182,5 +1201,5 @@
    ]
   }
  ],
- "count": 83
+ "count": 84
 }
