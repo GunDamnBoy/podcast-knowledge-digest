@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
   "items": [
     {
@@ -505,7 +505,9 @@
       "text": "同一集給出兩個可直接對照的素材端量化規格：每月需 400 至 500 則新素材，而純 AI 生成的完整影片是垃圾內容、頂多佔 5%。第二個數字與過去半年多數 AI 影音工具的行銷主張正面衝突。若未來一至兩季出現實際案例顯示全 AI 素材轉換率追平真人創作者素材，該 5% 上限即被推翻；若各家投放團隊實務比例仍停在個位數，代表分發端的信任折價比生成成本更難消除。",
       "status": "觀察中",
       "verdict": "",
-      "verdictDate": ""
+      "verdictDate": "",
+      "lastReviewed": "2026-10-24",
+      "reviewNote": "2026-10-24 回訪：本條無到期日、檢驗方式無可機械取得的公開資料（投放團隊的 AI 素材比例）；今日 13 集逐字稿無相關內容，查不到，維持觀察中。"
     },
     {
       "id": "obs-20260816-3",
@@ -620,7 +622,9 @@
       "text": "Forward Guidance 兩位主持人判斷 AI 資本支出的獲利高峰就在這一兩季、半導體可能正在做右肩，主張把配置從半導體移往醫療創新與 neocloud；20VC 同一天的立場相反，認為在算力過剩、資本充沛的環境裡用單位經濟學否決成長型標的會系統性錯過報酬。兩者對立。 檢驗方式：費城半導體指數（SOX）2026 年最後一個交易日的收盤價是否低於 2026-08-20 收盤價。低於＝Forward Guidance 對，持平或更高＝20VC 對。（到期 2026-12-31）",
       "status": "觀察中",
       "verdict": "",
-      "verdictDate": ""
+      "verdictDate": "",
+      "lastReviewed": "2026-10-24",
+      "reviewNote": "2026-10-24 回訪：本輪未取得 SOX 指數報價（無外部查證），僅有逐字稿口述——Forward Guidance 稱那斯達克單日跌近 3%、AI 資本支出下修，Bloomberg 稱開盤道瓊重挫近 500 點；方向偏 Forward Guidance，但到期日 2026-12-31 未到、無收盤價可比，維持觀察中。"
     },
     {
       "id": "obs-2026-08-21-3",
@@ -978,7 +982,9 @@
       "text": "原油 80 至 90 美元是新的價格層架，不會回到 70 或 60。The Market Huddle 的 Patrick Ceresna 的依據是部位結構——5、6 月的崩跌把約 25% 的總多單洗出、空單建到 23 萬口，之後兩邊都沒有回補，因此新的賣壓缺乏跟進者；他的操作含義是原油本身適合收租型策略，真正的上檔彈性在能源股。同日 Bloomberg 的 Paul Sankey 從基本面給出相容但不相同的版本：真正的緊俏在柴油（每桶等值 250 美元）與煉能，委內瑞拉的原油協議對此無用，而壓低油價反而會傷到美國的伴生天然氣供給。檢驗方式：於 2026-12-01 查核 WTI 近月合約在 2026-09-01 至 2026-12-01 期間是否曾以低於 70 美元收盤；曾經跌破即為 Ceresna 的層架論落空。（到期 2026-12-01）",
       "status": "觀察中",
       "verdict": "",
-      "verdictDate": ""
+      "verdictDate": "",
+      "lastReviewed": "2026-10-24",
+      "reviewNote": "2026-10-24 回訪：查今日四集逐字稿的油價口述——高盛 Daan Struyven 稱布蘭特約 112 美元、Bloomberg Surveillance 稱 115 美元、Forward Guidance 稱近月約 112–113 美元、2027 年 3 月合約約 101 美元；遠高於 80–90 美元層架，目前與 claim 一致，但 claim 要到期日才判，維持觀察中。"
     },
     {
       "id": "obs-2026-09-02-1",
@@ -2210,6 +2216,30 @@
       "due": "2027-02-15",
       "status": "觀察中",
       "source": "Dwarkesh Podcast｜What will computer chips look like in 2045?"
+    },
+    {
+      "id": "obs-20261024-1",
+      "date": "2026-10-24",
+      "due": "2027-01-22",
+      "source": "Exchanges at Goldman Sachs｜Why Oil Prices Are Surging Despite Recovering Supply；Forward Guidance｜The Only Way Out Is Through | Weekly Roundup",
+      "text": "高盛的 Daan Struyven（Exchanges at Goldman Sachs）判斷布蘭特約 112 美元中有約 27 美元是風險溢價、公允價值約 85 美元；同日 Forward Guidance 的 Quinn Thompson 判斷緩衝已耗盡、油價只能往上。本條以 Struyven 的「溢價會消退」為 claim。檢驗方式：2027-01-22 當日，查布蘭特原油近月期貨收盤價；低於 100 美元記應驗，100 至 112 美元記部分應驗，高於 112 美元記落空。（到期 2027-01-22）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261024-2",
+      "date": "2026-10-24",
+      "due": "2027-01-22",
+      "source": "MacroVoices｜MacroVoices #554 Dr. Anas Alhajji + Louis-Vincent Gave: Developing Crises in Middle-East and France",
+      "text": "Gavekal 的 Louis-Vincent Gave（MacroVoices）把法國定性為借外幣式的新興市場債務危機。本條以「法國對德國 10 年期公債利差三個月內擴大」為 claim。檢驗方式：2027-01-22 當日，比較法國 10 年期 OAT 對德國 10 年期 Bund 的殖利率利差，2027-01-22 與 2026-10-22 的收盤水準；擴大 20 個基點以上記應驗，變動在 ±20 個基點內記部分應驗，收斂 20 個基點以上記落空。（到期 2027-01-22）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261024-3",
+      "date": "2026-10-24",
+      "due": "2027-01-24",
+      "source": "Hard Fork｜What’s the Deal With Billy Evans? A Spoiler-Filled Guide to ‘You Can See Everything’",
+      "text": "紐約時報的 Rob Copeland（Hard Fork）說 Musk 在 SpaceX 財報電話會議上幾乎證實正研究與 Tesla 合併，案子已進入獨立董事委員會階段。本條以「三個月內正式宣布合併協議」為 claim。檢驗方式：2027-01-24 當日，查 SpaceX 與 Tesla 是否已公開宣布簽署合併協議或確定性合併條款；已宣布記應驗，僅公開確認仍在談判記部分應驗，宣布終止或未有任何進一步公開進展記落空。（到期 2027-01-24）",
+      "status": "觀察中"
     }
   ]
 }
