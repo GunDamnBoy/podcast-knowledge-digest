@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
   "items": [
     {
@@ -694,8 +694,8 @@
       "verdict": "",
       "verdictDate": "",
       "due": "2026-11-23",
-      "reviewNote": "2026-09-22 回訪：本條的檢驗標的是 Berkshire Hathaway 2026 年第三季 10-Q 的當季庫藏股買回金額，而第三季至 2026-09-30 才結束、10-Q 約於 11 月上旬公告，今日結構上不可驗。維持觀察中，到期 2026-11-23，屆時檢驗資料應已可取得。",
-      "lastReviewed": "2026-09-22"
+      "reviewNote": "2026-09-22 回訪：本條的檢驗標的是 Berkshire Hathaway 2026 年第三季 10-Q 的當季庫藏股買回金額，而第三季至 2026-09-30 才結束、10-Q 約於 11 月上旬公告，今日結構上不可驗。維持觀察中，到期 2026-11-23，屆時檢驗資料應已可取得。\n2026-10-25 回訪：檢驗依據為 Berkshire 2026 年第三季 10-Q，預期 11 月上旬公告，今日尚未發布，維持觀察中。",
+      "lastReviewed": "2026-10-25"
     },
     {
       "id": "obs-2026-08-24-1",
@@ -727,8 +727,8 @@
       "verdict": "",
       "verdictDate": "",
       "text": "CATL 港股（3750.HK）對深圳 A 股（300750.SZ）30–35% 的溢價會朝 10–20% 收斂。Manish Karira 以台積電 ADR 對台股長期約 15% 的溢價作參照，認為現行價差偏高，但承認何時收斂說不準。檢驗方式：以匯率調整後的兩地收盤價計算溢價，若降到 25% 以下記應驗，維持 30% 以上或擴大記落空（到期 2026-11-24）。",
-      "reviewNote": "2026-09-22 回訪：查 CATL 兩地價差，僅取得 A 股 2026-09-16 前後約 304.22 元人民幣，以及一則 CLSA 研究指 H-A 溢價創掛牌以來新高並預期持續；未取得可據以計算的同日兩地收盤價，方向亦與「溢價收斂」相反但證據不足。維持觀察中，到期 2026-11-24。\n2026-10-09 回訪：WebSearch「CATL Hong Kong shares premium over A-shares October 2026」只取得舊訊號——2026-03 港股溢價創 48% 紀錄（Bloomberg、GuruFocus）、2026-04 寧德港股配售約 50 億美元後溢價受壓（Bloomberg），查無 2026 年 10 月的兩地價差數字。無法判定，維持觀察中（due 2026-11-24）。",
-      "lastReviewed": "2026-10-09"
+      "reviewNote": "2026-09-22 回訪：查 CATL 兩地價差，僅取得 A 股 2026-09-16 前後約 304.22 元人民幣，以及一則 CLSA 研究指 H-A 溢價創掛牌以來新高並預期持續；未取得可據以計算的同日兩地收盤價，方向亦與「溢價收斂」相反但證據不足。維持觀察中，到期 2026-11-24。\n2026-10-09 回訪：WebSearch「CATL Hong Kong shares premium over A-shares October 2026」只取得舊訊號——2026-03 港股溢價創 48% 紀錄（Bloomberg、GuruFocus）、2026-04 寧德港股配售約 50 億美元後溢價受壓（Bloomberg），查無 2026 年 10 月的兩地價差數字。無法判定，維持觀察中（due 2026-11-24）。\n2026-10-25 回訪：WebSearch 查 CATL H 股對 A 股溢價近況，僅得無日期的報導標題（含 IFRE「CATL reverses A to H discount」），取不到可核對的當前兩地收盤價差，維持觀察中。",
+      "lastReviewed": "2026-10-25"
     },
     {
       "id": "obs-2026-08-25-1",
@@ -1686,8 +1686,8 @@
       "due": "2026-11-06",
       "status": "觀察中",
       "source": "Prof G Markets｜Wall Street Veteran: The Bond Sell-Off Is A Buying Opportunity",
-      "reviewNote": "2026-10-08 回訪：今日 Prof G Markets（Why The S&P Just Hit A Record High）稱交易者押注年底前升息的機率逾七成，方向與開帳時一致；10 月 FOMC 尚未召開，結構上不可驗。維持觀察中（due 2026-11-06）。\n2026-10-18 回訪：本條要等 10 月 FOMC 會議結果，會議尚未召開，無法結算。增量訊號：babypips 9-30 報導稱 8 月核心 PCE 低於預估後，交易員把下一次升息預期從 10 月延到 12 月，方向不利於本條 claim，但這是市場預期、不是決議。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：查 10-21 版 Bloomberg Surveillance TV（10 月 19 日）：美銀 Aditya Bave 主張 10 月做第二次升息，但節目稱 CoreWeave 消息後市場對 10 月升息只定價 4–5 個基點（CPI 後一度約六成）；FOMC 決議在選前六天（10-28）尚未發生，無結果。維持觀察中（due 2026-11-06）。\n2026-10-23 回訪：查 FOMC 會議日程（fedratecalc.com 2026 年 10 月頁），10 月會議為 10/27–28、決議 10/28 公布，尚未召開；當日 Bloomberg Surveillance 主持人僅稱聯準會可能還會再升息，非結果。維持觀察中。",
-      "lastReviewed": "2026-10-23"
+      "reviewNote": "2026-10-08 回訪：今日 Prof G Markets（Why The S&P Just Hit A Record High）稱交易者押注年底前升息的機率逾七成，方向與開帳時一致；10 月 FOMC 尚未召開，結構上不可驗。維持觀察中（due 2026-11-06）。\n2026-10-18 回訪：本條要等 10 月 FOMC 會議結果，會議尚未召開，無法結算。增量訊號：babypips 9-30 報導稱 8 月核心 PCE 低於預估後，交易員把下一次升息預期從 10 月延到 12 月，方向不利於本條 claim，但這是市場預期、不是決議。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：查 10-21 版 Bloomberg Surveillance TV（10 月 19 日）：美銀 Aditya Bave 主張 10 月做第二次升息，但節目稱 CoreWeave 消息後市場對 10 月升息只定價 4–5 個基點（CPI 後一度約六成）；FOMC 決議在選前六天（10-28）尚未發生，無結果。維持觀察中（due 2026-11-06）。\n2026-10-23 回訪：查 FOMC 會議日程（fedratecalc.com 2026 年 10 月頁），10 月會議為 10/27–28、決議 10/28 公布，尚未召開；當日 Bloomberg Surveillance 主持人僅稱聯準會可能還會再升息，非結果。維持觀察中。\n2026-10-25 回訪：查 2026 年 10 月 FOMC 會期為 10/27–28，截至今日（美東 10/24）尚未召開、無決議可判，維持觀察中。",
+      "lastReviewed": "2026-10-25"
     },
     {
       "id": "obs-20261001-1",
@@ -2239,6 +2239,30 @@
       "due": "2027-01-24",
       "source": "Hard Fork｜What’s the Deal With Billy Evans? A Spoiler-Filled Guide to ‘You Can See Everything’",
       "text": "紐約時報的 Rob Copeland（Hard Fork）說 Musk 在 SpaceX 財報電話會議上幾乎證實正研究與 Tesla 合併，案子已進入獨立董事委員會階段。本條以「三個月內正式宣布合併協議」為 claim。檢驗方式：2027-01-24 當日，查 SpaceX 與 Tesla 是否已公開宣布簽署合併協議或確定性合併條款；已宣布記應驗，僅公開確認仍在談判記部分應驗，宣布終止或未有任何進一步公開進展記落空。（到期 2027-01-24）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261025-1",
+      "date": "2026-10-25",
+      "due": "2027-01-25",
+      "source": "Prof G Markets｜The AI Bubble Isn't Where You Think It Is",
+      "text": "Ed Elson（Prof G Markets）判斷 Anthropic 面對公開市場的估值檢驗時，會選擇延後 IPO 而不是降價上市。本條以「Anthropic 在 2027-01-25 前未完成公開上市」為 claim。檢驗方式：2027-01-25 當日，查 Anthropic 股票是否已在任何公開交易所掛牌交易；尚未掛牌記應驗，已掛牌記落空。（到期 2027-01-25）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261025-2",
+      "date": "2026-10-25",
+      "due": "2027-01-25",
+      "source": "All-In Podcast｜AI Cyber Panic, Ken Griffin's Bubble Warning, The Fall of France?",
+      "text": "All-In 的主持人引 Polymarket 給法國降評 91% 機率，主張債券義勇軍會逼迫法國財政重設。本條以「三個月內法國主權評等遭降評」為 claim。檢驗方式：2027-01-25 當日，查 2026-10-25 至該日之間 S&P、Moody's、Fitch 三家是否至少一家調降法國長期主權評等；有調降記應驗，僅調降展望記部分應驗，三家皆未動作記落空。（到期 2027-01-25）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261025-3",
+      "date": "2026-10-25",
+      "due": "2027-01-25",
+      "source": "Bloomberg Surveillance｜Affordability In Focus Ahead of Midterms; US National Wealth Tax Debate",
+      "text": "Joe Weisenthal（Bloomberg Money）主張推高利率的是 AI 等投資支出帶來的通膨衝動而非財政，只要資本支出週期延續，長天期利率就會維持高檔。本條以「美國 10 年期公債殖利率三個月後不低於 2026-10-23 收盤水準」為 claim。檢驗方式：2027-01-25 當日，比較美國 10 年期公債殖利率與 2026-10-23 收盤值；持平或更高記應驗，下降 25 個基點以內記部分應驗，下降超過 25 個基點記落空。（到期 2027-01-25）",
       "status": "觀察中"
     }
   ]
