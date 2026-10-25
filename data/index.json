@@ -1,7 +1,18 @@
 {
- "updated": "2026-10-24T19:13:24+00:00",
- "updatedLabel": "10/25 03:13",
+ "updated": "2026-10-25T19:12:24+00:00",
+ "updatedLabel": "10/26 03:12",
  "days": [
+  {
+   "date": "2026-10-26",
+   "label": "2026年10月26日（週一）",
+   "short": "10/26 週一",
+   "episodeCount": 2,
+   "shows": [
+    "The Market Huddle",
+    "We Study Billionaires (TIP)"
+   ],
+   "file": "data/2026-10-26.json"
+  },
   {
    "date": "2026-10-25",
    "label": "2026年10月25日（週日）",
@@ -1238,5 +1249,5 @@
    ]
   }
  ],
- "count": 86
+ "count": 87
 }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
   "items": [
     {
@@ -1000,7 +1000,9 @@
       "date": "2026-09-02",
       "due": "2026-12-02",
       "text": "到 2026 年 12 月初，美國州級的資料中心禁建／暫停令數量會多於一個。高盛的 Carly Davenport 與 George Lee 在 Exchanges at Goldman Sachs 給出目前的基準線：全美只有一個州級禁建令，但超過 300 件區域或地方層級動議在跑；Davenport 明說她盯的正是十一月選舉前後州級禁建令會不會擴散到紐約或德州那種規模的市場，而德州州長已著手查核資料中心專案。George Lee 以核電業敗給民粹的前例警告，技術解方齊備並不保證輿論買單。這條與 obs-2026-08-30-3 是同一主題但門檻更硬——後者只要求「具體監管動作」，這條要求可以直接清點的數量變化。**檢驗方式：清點 2026 年 12 月 2 日當日生效或已通過的州級資料中心禁建／暫停令是否仍為一件（到期 2026-12-02）。**",
-      "status": "觀察中"
+      "status": "觀察中",
+      "reviewNote": "2026-10-26 回訪：WebSearch 查得 Jones Day 2026-07 文〈New York enacts first statewide data center moratorium〉與 Planetizen〈Maine legislature passes nation's first data center moratorium〉，兩則各稱「首個」，與本條 09-02 的「全美只有一個州級禁建令」基準線關係未釐清（緬因是否實際生效、時間先後未查證），不改判，維持觀察中。",
+      "lastReviewed": "2026-10-26"
     },
     {
       "id": "obs-2026-09-02-3",
@@ -1055,7 +1057,9 @@
       "status": "觀察中",
       "verdict": null,
       "verdictDate": null,
-      "text": "AppLovin 的安裝量已從 2024 年第三季的 +39% 轉為連續兩季負成長，而 Max 在高營收手遊的中介滲透率達 55%、頂級手遊逾 73%，核心市場接近滲透上限；We Study Billionaires 的兩位主持人據此判定成長論述已從「拿份額」變成「開新市場」，而剩下的槓桿（電商、自建社群 App Jist、連網電視）各有格式不相容、未公告與無時程的問題。檢驗方式：查 AppLovin 2026 年第三季財報或法說會揭露的安裝量年增率，仍為負記應驗，轉正記落空（到期 2026-12-04）。"
+      "text": "AppLovin 的安裝量已從 2024 年第三季的 +39% 轉為連續兩季負成長，而 Max 在高營收手遊的中介滲透率達 55%、頂級手遊逾 73%，核心市場接近滲透上限；We Study Billionaires 的兩位主持人據此判定成長論述已從「拿份額」變成「開新市場」，而剩下的槓桿（電商、自建社群 App Jist、連網電視）各有格式不相容、未公告與無時程的問題。檢驗方式：查 AppLovin 2026 年第三季財報或法說會揭露的安裝量年增率，仍為負記應驗，轉正記落空（到期 2026-12-04）。",
+      "reviewNote": "2026-10-26 回訪：WebSearch 查得 AppLovin 於 2026-10-07 公告將發布第三季財報（Business Wire 經 Morningstar），財報尚未發布、安裝量年增率無資料，維持觀察中。",
+      "lastReviewed": "2026-10-26"
     },
     {
       "id": "obs-20260905-1",
@@ -1907,7 +1911,9 @@
       "text": "20VC 的 Rory O'Driscoll 指出 Anthropic 將在 11 月中上市、上市前會揭露 Q3 數字。本條以「Anthropic 股票在 2026-11-30 前於公開市場掛牌交易」為 claim。檢驗方式：查 Anthropic 是否在 2026-11-30（含）前完成 IPO 並開始交易；已掛牌交易記應驗，已公開遞交上市申請文件但尚未交易記部分應驗，兩者皆無記落空。（到期 2026-12-01）",
       "due": "2026-12-01",
       "status": "觀察中",
-      "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B"
+      "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B",
+      "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。",
+      "lastReviewed": "2026-10-26"
     },
     {
       "id": "obs-20261010-1",
@@ -2263,6 +2269,22 @@
       "due": "2027-01-25",
       "source": "Bloomberg Surveillance｜Affordability In Focus Ahead of Midterms; US National Wealth Tax Debate",
       "text": "Joe Weisenthal（Bloomberg Money）主張推高利率的是 AI 等投資支出帶來的通膨衝動而非財政，只要資本支出週期延續，長天期利率就會維持高檔。本條以「美國 10 年期公債殖利率三個月後不低於 2026-10-23 收盤水準」為 claim。檢驗方式：2027-01-25 當日，比較美國 10 年期公債殖利率與 2026-10-23 收盤值；持平或更高記應驗，下降 25 個基點以內記部分應驗，下降超過 25 個基點記落空。（到期 2027-01-25）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261026-1",
+      "date": "2026-10-26",
+      "due": "2027-01-26",
+      "source": "We Study Billionaires (TIP)｜TIP855: Shopify (SHOP): The Big Winner of Agentic Commerce? w/ Shawn O'Malley & Daniel Mahncke",
+      "text": "We Study Billionaires 的 Shawn O'Malley 與 Daniel Mahncke 指出，AI 平台若從「導流管道」轉為「中間經銷商」（Meta 已表態要對 Muse 完成的交易收費），Shopify 的抽成會被分走；他們目前看到的是抽成率維持約 2.4%。本條以「Shopify 的商家解決方案抽成率（merchant solutions 營收 ÷ GMV）在下一次公布時不低於 2.3%」為 claim。檢驗方式：2027-01-26 當日，以 Shopify 最近一次已公布季報（預期為 2026 年第三季）計算商家解決方案營收除以 GMV；≥2.3% 記應驗，2.2%–2.3% 記部分應驗，低於 2.2% 記落空。（到期 2027-01-26）",
+      "status": "觀察中"
+    },
+    {
+      "id": "obs-20261026-2",
+      "date": "2026-10-26",
+      "due": "2027-01-26",
+      "source": "The Market Huddle｜LONG VOL: THE EMPTIEST ROOM AROUND (Guest: Robert Mullin)",
+      "text": "The Market Huddle 的來賓 Robert Mullin 主張單極全球化與低通膨的體制已經結束，各國同步擴張赤字、追求供應鏈自主，美國通膨中樞會落在 3% 到 4%。本條以「美國 2026 年 12 月 CPI 年增率不低於 3.0%」為 claim。檢驗方式：2027-01-26 當日，查美國勞工統計局公布的 2026 年 12 月 CPI 年增率（未季調、全項目）；≥3.0% 記應驗，2.5%–3.0% 記部分應驗，低於 2.5% 記落空；若當日尚未公布記無法驗證。（到期 2027-01-26）",
       "status": "觀察中"
     }
   ]
