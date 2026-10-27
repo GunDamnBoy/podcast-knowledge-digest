@@ -1,7 +1,20 @@
 {
- "updated": "2026-10-26T19:13:05+00:00",
- "updatedLabel": "10/27 03:13",
+ "updated": "2026-10-27T19:12:51+00:00",
+ "updatedLabel": "10/28 03:12",
  "days": [
+  {
+   "date": "2026-10-28",
+   "label": "2026年10月28日（週三）",
+   "short": "10/28 週三",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "The Compound and Friends",
+    "Invest Like the Best"
+   ],
+   "file": "data/2026-10-28.json"
+  },
   {
    "date": "2026-10-27",
    "label": "2026年10月27日（週二）",
@@ -1262,5 +1275,5 @@
    ]
   }
  ],
- "count": 88
+ "count": 89
 }
