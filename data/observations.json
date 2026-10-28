@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28",
+ "updated": "2026-10-29",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -594,7 +594,9 @@
    "text": "Stuart Kaiser（Citi）認為超大規模業者「用 6% 借、賺 30%」，資本支出短期不會因利率停下；Ben Thompson 認為最近的瓶頸就是錢。兩者對立。 檢驗方式：2026 年第四季財報季，四大超大規模業者是否有任何一家下修 2027 年資本支出指引。有＝Thompson 對，無＝Kaiser 對。（到期 2027-02-28）",
    "status": "觀察中",
    "verdict": "",
-   "verdictDate": ""
+   "verdictDate": "",
+   "reviewNote": "2026-10-29 回訪：claim 要看 2026 年第四季財報季（2027 年 1–2 月）的 2027 資本支出指引；目前是第三季財報季，10-29 版 Compound 稱 Amazon 的關鍵是資本支出指引別再大幅上修、Meta 啟動約 950 億美元增資，均屬預期非結果。維持觀察中（due 2027-02-28）。",
+   "lastReviewed": "2026-10-29"
   },
   {
    "id": "obs-2026-08-20-3",
@@ -1571,7 +1573,9 @@
    "text": "前達拉斯聯儲總裁 Robert Kaplan（高盛副董事長，Exchanges at Goldman Sachs）主張市場押的升息次數多於實際會發生的，並給出路徑：九月升息正確，十月傾向跳過，十二月再升一次後停在他估的名目中性利率 4%–4.25% 附近；市場多押的部分是對 Warsh 反應函數與油價衝擊延長的風險溢價。這與 09-18 開帳的 Bill Dudley（一碼不夠、期貨定價三到四次）直接相反。檢驗方式：2026-12-25 當日，查 2026 年 10 月與 12 月兩次 FOMC 決議。十月未升息且 12 月會後聯邦資金目標區間上緣為 4.25% 記應驗；十月即升息，或 12 月會後上緣達 4.50% 以上記落空；兩次都未升息（上緣仍為 4.00%）記部分應驗。（到期 2026-12-25）",
    "due": "2026-12-25",
    "status": "觀察中",
-   "source": "Exchanges at Goldman Sachs｜Why Markets May Be Pricing in Too Many Fed Rate Hikes"
+   "source": "Exchanges at Goldman Sachs｜Why Markets May Be Pricing in Too Many Fed Rate Hikes",
+   "reviewNote": "2026-10-29 回訪：10-28 FOMC 維持不變（Yahoo Finance、Fox Business、PBS），Kaplan「十月傾向跳過」那一半成立；應驗另需 12 月會後目標區間上緣為 4.25%，12 月會議未召開，維持觀察中（due 2026-12-25）。",
+   "lastReviewed": "2026-10-29"
   },
   {
    "id": "obs-20260925-2",
@@ -1690,10 +1694,12 @@
    "date": "2026-09-30",
    "text": "Prof G Markets 引述預測市場（Kalshi）給聯準會 10 月升息約七成機率。本條以「10 月會升息」為 claim。檢驗方式：2026-11-06 當日，查 2026 年 10 月 FOMC 會議的利率決議。升息記應驗；維持不變或降息記落空；若會議延期或當日尚未召開記無法驗證。（到期 2026-11-06）",
    "due": "2026-11-06",
-   "status": "觀察中",
+   "status": "落空",
    "source": "Prof G Markets｜Wall Street Veteran: The Bond Sell-Off Is A Buying Opportunity",
-   "reviewNote": "2026-10-08 回訪：今日 Prof G Markets（Why The S&P Just Hit A Record High）稱交易者押注年底前升息的機率逾七成，方向與開帳時一致；10 月 FOMC 尚未召開，結構上不可驗。維持觀察中（due 2026-11-06）。\n2026-10-18 回訪：本條要等 10 月 FOMC 會議結果，會議尚未召開，無法結算。增量訊號：babypips 9-30 報導稱 8 月核心 PCE 低於預估後，交易員把下一次升息預期從 10 月延到 12 月，方向不利於本條 claim，但這是市場預期、不是決議。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：查 10-21 版 Bloomberg Surveillance TV（10 月 19 日）：美銀 Aditya Bave 主張 10 月做第二次升息，但節目稱 CoreWeave 消息後市場對 10 月升息只定價 4–5 個基點（CPI 後一度約六成）；FOMC 決議在選前六天（10-28）尚未發生，無結果。維持觀察中（due 2026-11-06）。\n2026-10-23 回訪：查 FOMC 會議日程（fedratecalc.com 2026 年 10 月頁），10 月會議為 10/27–28、決議 10/28 公布，尚未召開；當日 Bloomberg Surveillance 主持人僅稱聯準會可能還會再升息，非結果。維持觀察中。\n2026-10-25 回訪：查 2026 年 10 月 FOMC 會期為 10/27–28，截至今日（美東 10/24）尚未召開、無決議可判，維持觀察中。\n2026-10-28 回訪：查 2026-10-28 版 Bloomberg Surveillance 音訊主集〈Previewing the Fed Meeting and AI IPOs〉與電視版（10-27 錄製）：FOMC 兩天會議 10-27 開跑、決議 10-28 美東下午才公布，來賓 Rob Kaplan、Gensler、Ludovic Subran 一致預期本週按兵不動、12 月升息，方向不利於本條「10 月升息」claim，但仍屬預期、不是決議。維持觀察中（due 2026-11-06），下一輪即可依決議結算。",
-   "lastReviewed": "2026-10-28"
+   "reviewNote": "2026-10-08 回訪：今日 Prof G Markets（Why The S&P Just Hit A Record High）稱交易者押注年底前升息的機率逾七成，方向與開帳時一致；10 月 FOMC 尚未召開，結構上不可驗。維持觀察中（due 2026-11-06）。\n2026-10-18 回訪：本條要等 10 月 FOMC 會議結果，會議尚未召開，無法結算。增量訊號：babypips 9-30 報導稱 8 月核心 PCE 低於預估後，交易員把下一次升息預期從 10 月延到 12 月，方向不利於本條 claim，但這是市場預期、不是決議。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：查 10-21 版 Bloomberg Surveillance TV（10 月 19 日）：美銀 Aditya Bave 主張 10 月做第二次升息，但節目稱 CoreWeave 消息後市場對 10 月升息只定價 4–5 個基點（CPI 後一度約六成）；FOMC 決議在選前六天（10-28）尚未發生，無結果。維持觀察中（due 2026-11-06）。\n2026-10-23 回訪：查 FOMC 會議日程（fedratecalc.com 2026 年 10 月頁），10 月會議為 10/27–28、決議 10/28 公布，尚未召開；當日 Bloomberg Surveillance 主持人僅稱聯準會可能還會再升息，非結果。維持觀察中。\n2026-10-25 回訪：查 2026 年 10 月 FOMC 會期為 10/27–28，截至今日（美東 10/24）尚未召開、無決議可判，維持觀察中。\n2026-10-28 回訪：查 2026-10-28 版 Bloomberg Surveillance 音訊主集〈Previewing the Fed Meeting and AI IPOs〉與電視版（10-27 錄製）：FOMC 兩天會議 10-27 開跑、決議 10-28 美東下午才公布，來賓 Rob Kaplan、Gensler、Ludovic Subran 一致預期本週按兵不動、12 月升息，方向不利於本條「10 月升息」claim，但仍屬預期、不是決議。維持觀察中（due 2026-11-06），下一輪即可依決議結算。\n2026-10-29 回訪：查 2026-10-28 FOMC 決議：Yahoo Finance 即時報導（Interest rates held steady in split vote）、Fox Business（Federal Reserve holds rates steady ahead of election）、PBS（Fed leaves key interest rate unchanged）三個來源一致，10 月會議維持利率不變、未升息。依檢驗方式「維持不變記落空」改判落空。",
+   "lastReviewed": "2026-10-29",
+   "verdict": "2026-10-28 FOMC 維持利率不變（Yahoo Finance、Fox Business、PBS 一致報導），10 月未升息，claim 落空。",
+   "verdictDate": "2026-10-29"
   },
   {
    "id": "obs-20261001-1",
@@ -1766,8 +1772,8 @@
    "due": "2026-11-06",
    "status": "觀察中",
    "source": "MacroVoices｜MacroVoices #552 David Rosenberg: Navigating The Noise",
-   "reviewNote": "2026-10-09 回訪：claim 所指的財政部 11 月季度再融資公告（11 月 4 日）尚未發生，今天無結果可查；確認到期日 2026-11-06 落在公告之後、檢驗方式可執行。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-28 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；本輪未找到新的前瞻指引訊號，到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。",
-   "lastReviewed": "2026-10-28"
+   "reviewNote": "2026-10-09 回訪：claim 所指的財政部 11 月季度再融資公告（11 月 4 日）尚未發生，今天無結果可查；確認到期日 2026-11-06 落在公告之後、檢驗方式可執行。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-28 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；本輪未找到新的前瞻指引訊號，到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-29 回訪：財政部 11 月季度再融資公告預定 11-04 公布，尚未發生；10-29 版各集（Bloomberg 兩集提到十年債約 5%）未涉及標售規模。無結果，維持觀察中（due 2026-11-06）。",
+   "lastReviewed": "2026-10-29"
   },
   {
    "id": "obs-20261004-1",
@@ -2039,7 +2045,9 @@
    "text": "紐約聯儲總裁 Williams 與前聖路易聯儲總裁 Bullard 都指向年底前再升息一次，PGIM 的 Rob Sockin 則認為十月 28 日就該升。本條以「FOMC 在 2026-12-31 前至少再升息一次」為 claim。檢驗方式：比較 FRED DFEDTARU（聯邦資金利率目標區間上限）在 2026-12-31 與 2026-10-14 的值；較高記應驗，持平記落空；另記升息是否發生在 10-28 會議，以判 Sockin 的十月主張。（到期 2027-01-07）",
    "due": "2027-01-07",
    "status": "觀察中",
-   "source": "Bloomberg Surveillance｜CPI and the AI Trade；Bloomberg Surveillance｜Bloomberg Surveillance TV: October 14th, 2026"
+   "source": "Bloomberg Surveillance｜CPI and the AI Trade；Bloomberg Surveillance｜Bloomberg Surveillance TV: October 14th, 2026",
+   "reviewNote": "2026-10-29 回訪：10-28 FOMC 維持不變（Yahoo Finance、Fox Business、PBS），Rob Sockin「十月 28 日就該升」的附帶主張未成真，已記於此；主 claim「12-31 前至少再升一次」取決於 12 月會議，維持觀察中（due 2027-01-07）。",
+   "lastReviewed": "2026-10-29"
   },
   {
    "id": "obs-20261015-2",
@@ -2341,6 +2349,30 @@
    "due": "2027-01-27",
    "source": "Bloomberg Surveillance｜Previewing the Fed Meeting and AI IPOs；Prof G Markets｜The $800 Billion Catch Behind Anthropic's IPO",
    "text": "摩根士丹利的 Mike Wilson（Bloomberg Surveillance）說表面下的修正已到「第九局」、期中選舉與 FOMC 是讓修正收尾的清算事件、多頭延續到 2027 年；同日 FT 的 Robert Armstrong（Prof G Markets）卻說「狂熱已經破了」。本條以 Wilson 的說法為 claim：「標普 500 指數 2027-01-26 收盤高於 2026-10-27 收盤」。檢驗方式：2027-01-27 當日，比較標普 500 指數 2027-01-26 與 2026-10-27 的收盤值（遇休市取前一個交易日）；上漲 5% 以上記應驗，上漲 0 至 5% 記部分應驗，下跌記落空。（到期 2027-01-27）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261029-1",
+   "date": "2026-10-29",
+   "due": "2027-01-29",
+   "source": "The Compound and Friends｜Dirty Dozen Charts, Anthropic’s S-1, Amazon Earnings Preview, Cost of Capital Hits AI；In Good Company｜Bill Ackman: Concentrated Investing, Permanent Capital, and the Value of Being Challenged",
+   "text": "The Compound and Friends 的兩位主持人看好 Amazon 財報過關、股價可上看 275 美元，前提是資本支出指引不再大幅上修；同日 Bill Ackman（In Good Company）說 Amazon 是 Pershing Square 在「解放日」後買進的 AI 大型股之一。本條以「Amazon 股價在 2027-01-28 收盤不低於 275 美元」為 claim。檢驗方式：2027-01-29 當日，查 Amazon（AMZN）2027-01-28 收盤價（遇休市取前一個交易日）；≥275 美元記應驗，250 至 275 美元記部分應驗，低於 250 美元記落空。（到期 2027-01-29）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261029-2",
+   "date": "2026-10-29",
+   "due": "2027-01-29",
+   "source": "Bloomberg Surveillance｜Fed Decision and Tech Earnings",
+   "text": "Dominic Constan（Bloomberg Surveillance）認為聯準會的主要作用是守住長端可信度、別讓 10 年與 30 年期公債衝上 6%，同集 Constance Hunter 則強調結構性摩擦讓通膨難回 1990 年代模式。本條以「美國 10 年期公債殖利率在 2026-10-29 至 2027-01-28 之間任一交易日收盤都低於 6%」為 claim。檢驗方式：2027-01-29 當日，查 FRED DGS10 在該期間的最高值；全程低於 6.00% 記應驗，任一日達到或超過 6.00% 記落空。（到期 2027-01-29）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261029-3",
+   "date": "2026-10-29",
+   "due": "2027-01-29",
+   "source": "Unhedged (FT)｜How much is Anthropic really worth?",
+   "text": "FT Lex 的 John Foley（Unhedged）說 JetBlue 債券約剩四折、債權人正為可能的重整組織起來，並押廉航退場讓大型航空票價長期墊高。本條以「JetBlue 在 2027-01-28 前宣布債務重組」為 claim。檢驗方式：2027-01-29 當日，查 JetBlue 是否已公告聲請破產保護、與債權人達成債務交換或重組協議（以公司公告或 SEC 8-K 為準）；有記應驗，僅有報導中的談判記部分應驗，兩者皆無記落空。（到期 2027-01-29）",
    "status": "觀察中"
   }
  ]
