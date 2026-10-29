@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29",
+ "updated": "2026-10-30",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -535,8 +535,8 @@
    "status": "觀察中",
    "verdict": "",
    "verdictDate": "",
-   "reviewNote": "2026-10-06 回訪：WebSearch 確認 Anthropic 已公開遞交 IPO 申請（The Star 10-01〈Anthropic IPO filing highlights Big Tech reliance〉、InvestmentNews 稱 S-1 揭露營收 12 倍、算力帳單 5,180 億美元），10-05 的 Prof G Markets 亦逐項討論該 S-1。算力採購承諾已部分公開，但本條另兩項（Alphabet 下一季在手訂單集中度、Amazon 對 Anthropic 評價利益重評方向）要等 Q3 財報。維持觀察中。",
-   "lastReviewed": "2026-10-06"
+   "reviewNote": "2026-10-06 回訪：WebSearch 確認 Anthropic 已公開遞交 IPO 申請（The Star 10-01〈Anthropic IPO filing highlights Big Tech reliance〉、InvestmentNews 稱 S-1 揭露營收 12 倍、算力帳單 5,180 億美元），10-05 的 Prof G Markets 亦逐項討論該 S-1。算力採購承諾已部分公開，但本條另兩項（Alphabet 下一季在手訂單集中度、Amazon 對 Anthropic 評價利益重評方向）要等 Q3 財報。維持觀察中。\n2026-10-30 回訪：Alphabet 第三季財報已公布，10-30 版 Prof G Markets 引述雲端營收年增 103%、Odd Lots 稱 Google Cloud 營收約翻倍，但兩集都沒有提到在手訂單金額或 Anthropic 佔比；WebSearch「Alphabet Q3 2026 earnings Google Cloud backlog Anthropic」只找到 2025 年的舊文與 7 月的預測文，未查到本季集中度揭露。Amazon 對 Anthropic 評價利益的重評方向也未查到。無結果，維持觀察中。",
+   "lastReviewed": "2026-10-30"
   },
   {
    "id": "obs-20260817-3",
@@ -1256,8 +1256,8 @@
    "verdict": null,
    "verdictDate": null,
    "text": "第一，**下週的 FOMC 是今天十二集裡最快能對答案的分歧點，而且它是雙重的——升不升是一題，升了之後長端往哪走是另一題，而後者才是真正有人押了具體機制的那一題。** Forward Guidance 的 Felix Jauvin 主張這一輪長端上行由**期限溢酬**主導（他用名目 GDP 對十年期的迴歸推得公允值約 5.8%，等於財政部在硬守至少 100 個基點的人為折價），因此一次性、不帶循環暗示的升息之後，長端殖利率**會回落**；Bloomberg Surveillance TV 的 JP Morgan 資產管理來賓主張相反，認為市場必然把首次升息延伸成循環預期，**長端反而走高**。檢驗方式：查九月 FOMC 決議日與其後五個交易日的 10 年期美債殖利率收盤——若升息且第五個交易日收盤低於決議前一日，記 Felix 應驗、JP Morgan 落空；若升息且高於決議前一日，記 JP Morgan 應驗、Felix 落空；若未升息，兩者皆記無法驗證。（到期 2026-12-12）",
-   "lastReviewed": "2026-09-25",
-   "reviewNote": "2026-09-25 回訪：查美國財政部 Daily Treasury Par Yield Curve 的 10 年期值：決議前一日 09-16 為 5.01%，決議日 09-17 為 4.94%，其後 09-18 5.01%、09-21 4.96%、09-22 4.96%、09-23 5.11%（第四個交易日已高於決議前一日）。檢驗方式指定的是第五個交易日 09-24，該日數值本輪查詢時尚未公布，無法結案；維持觀察中，下次回訪取 09-24 值即可判定。"
+   "lastReviewed": "2026-10-30",
+   "reviewNote": "2026-09-25 回訪：查美國財政部 Daily Treasury Par Yield Curve 的 10 年期值：決議前一日 09-16 為 5.01%，決議日 09-17 為 4.94%，其後 09-18 5.01%、09-21 4.96%、09-22 4.96%、09-23 5.11%（第四個交易日已高於決議前一日）。檢驗方式指定的是第五個交易日 09-24，該日數值本輪查詢時尚未公布，無法結案；維持觀察中，下次回訪取 09-24 值即可判定。\n2026-10-30 回訪：再查第五個交易日 09-24 的 10 年期值。WebSearch 找到的都是次級來源（octagonai 彙整 CNBC 盤中 5.12%–5.14%、Sigmanomics 5.11%），FRED DGS10 與財政部 Par Yield Curve 的 09-24 官方值仍取不到（FRED CSV 經 WebFetch 回 binary data）。次級來源一致高於決議前一日 09-16 的 5.01%，方向偏向 JP Morgan 應驗、Felix 落空，但官方收盤值未核實，依保守原則不結案；維持觀察中，下次取得官方 09-24 值即可判定。"
   },
   {
    "id": "obs-20260912-2",
@@ -1772,8 +1772,8 @@
    "due": "2026-11-06",
    "status": "觀察中",
    "source": "MacroVoices｜MacroVoices #552 David Rosenberg: Navigating The Noise",
-   "reviewNote": "2026-10-09 回訪：claim 所指的財政部 11 月季度再融資公告（11 月 4 日）尚未發生，今天無結果可查；確認到期日 2026-11-06 落在公告之後、檢驗方式可執行。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-28 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；本輪未找到新的前瞻指引訊號，到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-29 回訪：財政部 11 月季度再融資公告預定 11-04 公布，尚未發生；10-29 版各集（Bloomberg 兩集提到十年債約 5%）未涉及標售規模。無結果，維持觀察中（due 2026-11-06）。",
-   "lastReviewed": "2026-10-29"
+   "reviewNote": "2026-10-09 回訪：claim 所指的財政部 11 月季度再融資公告（11 月 4 日）尚未發生，今天無結果可查；確認到期日 2026-11-06 落在公告之後、檢驗方式可執行。維持觀察中（due 2026-11-06）。\n2026-10-21 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-28 回訪：財政部 11 月季度再融資公告（11-04）尚未發布，今日無結果可查；本輪未找到新的前瞻指引訊號，到期日 2026-11-06 仍落在公告之後、檢驗方式可執行。維持觀察中。\n2026-10-29 回訪：財政部 11 月季度再融資公告預定 11-04 公布，尚未發生；10-29 版各集（Bloomberg 兩集提到十年債約 5%）未涉及標售規模。無結果，維持觀察中（due 2026-11-06）。\n2026-10-30 回訪：財政部 11 月季度再融資公告預定 11-04 公布，尚未發生；10-30 版各集（Bloomberg 三集、Prof G 談 10 年期與期限溢價）都沒有談到標售規模或前瞻指引。無結果，維持觀察中（due 2026-11-06）。",
+   "lastReviewed": "2026-10-30"
   },
   {
    "id": "obs-20261004-1",
@@ -1920,8 +1920,8 @@
    "due": "2026-12-01",
    "status": "觀察中",
    "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B",
-   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。",
-   "lastReviewed": "2026-10-27"
+   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。\n2026-10-30 回訪：10-30 版 20VC 與 Odd Lots 都以已公開遞交的 Anthropic S-1 為前提討論（20VC 稱衝刺兩兆美元 IPO），但兩集都沒有提到定價日或掛牌日；仍屬「已公開遞件、尚未交易」，目前落在部分應驗區間，到期日 2026-12-01 未到，維持觀察中。",
+   "lastReviewed": "2026-10-30"
   },
   {
    "id": "obs-20261010-1",
@@ -2373,6 +2373,30 @@
    "due": "2027-01-29",
    "source": "Unhedged (FT)｜How much is Anthropic really worth?",
    "text": "FT Lex 的 John Foley（Unhedged）說 JetBlue 債券約剩四折、債權人正為可能的重整組織起來，並押廉航退場讓大型航空票價長期墊高。本條以「JetBlue 在 2027-01-28 前宣布債務重組」為 claim。檢驗方式：2027-01-29 當日，查 JetBlue 是否已公告聲請破產保護、與債權人達成債務交換或重組協議（以公司公告或 SEC 8-K 為準）；有記應驗，僅有報導中的談判記部分應驗，兩者皆無記落空。（到期 2027-01-29）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261030-1",
+   "date": "2026-10-30",
+   "due": "2027-01-30",
+   "source": "We Study Billionaires (TIP)｜TIP856: Airbnb (ABNB): The Business Outgrew Its Peak, The Stock Hasn't w/ Kyle Grieve & Shawn O'Malley",
+   "text": "Shawn O'Malley 與 Kyle Grieve（We Study Billionaires）承認贊助刊登比預期慢，最近兩次法說完全沒提；Shawn 把它移出基本情境，改成只放在樂觀情境的上檔。本條以「Airbnb 在 2027-01-29 前不會正式推出讓房東付費提高排序的贊助刊登」為 claim。檢驗方式：2027-01-30 當日，查 Airbnb 新聞稿、2026 年第三季與第四季股東信及官方部落格；未推出記應驗，只宣布測試或時程記部分應驗，已對房東正式開放付費排序記落空。（到期 2027-01-30）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261030-2",
+   "date": "2026-10-30",
+   "due": "2027-01-30",
+   "source": "Bloomberg Surveillance｜Outlook for Inflation, Oil, and Tech",
+   "text": "Edward Morse（Hartree Partners，Bloomberg Surveillance）認為原油衝擊遠小於 1970 年代，真正的緊繃在成品油：煉油系統做不出足夠柴油，柴油價格持續上漲。本條以「美國柴油零售均價在 2027 年 1 月最後一週高於 2026 年 10 月最後一週」為 claim。檢驗方式：2027-01-30 當日，查 EIA 週資料 U.S. No 2 Diesel Retail Prices，比較 2027-01-25 當週與 2026-10-26 當週的數值；上漲 5% 以上記應驗，上漲 0 至 5% 記部分應驗，下跌記落空。（到期 2027-01-30）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261030-3",
+   "date": "2026-10-30",
+   "due": "2027-02-10",
+   "source": "Prof G Markets｜Microsoft Rises, Google Tanks: Why Investors Are Polarized On Big Tech",
+   "text": "Mike Gapen（摩根士丹利，Prof G Markets）預期核心 PCE 年底約 3%、明年底約 2.6%，所以聯準會走慢速升息。本條以「2026 年 12 月核心 PCE 物價指數年增率不低於 2.9%」為 claim。檢驗方式：2027-02-10 當日，查 BEA 公布的 2026 年 12 月核心 PCE 物價指數年增率（以首次公布值為準）；不低於 2.9% 記應驗，2.7% 至 2.9% 記部分應驗，低於 2.7% 記落空；若該月資料到期日仍未公布記無法驗證。（到期 2027-02-10）",
    "status": "觀察中"
   }
  ]

@@ -1,0 +1,1712 @@
+{
+ "date": "2026-10-30",
+ "label": "2026年10月30日（週五）",
+ "generatedAt": "2026-10-29T19:16:54.681216Z",
+ "crossCut": {
+  "title": "跨節目交叉觀察",
+  "intro": "今天十一集有四條線。第一條是 10-28 FOMC 按兵不動之後的解讀：四集 Bloomberg 與 Prof G 的來賓對「決定」幾乎沒有異議，分歧全在下一步與長端。第二條是 AI 建設的錢從哪裡來：三檔節目都把壓力定位在價值鏈下游，卻對「營收補不補得上」給出相反答案。第三條是微軟對 27% 員工提出自願離職方案，它被讀成 AI 取代人力的訊號，但同一天就有人押相反方向。第四條是代理時代的守門人：資料庫、權限、旅遊入口三個產業各自回答「代理替人做決定時，誰還收得到錢」。",
+  "points": [
+   {
+    "title": "共識：決定合理、溝通失分；對撞：AI 降溫是聯準會的緩衝，還是聯準會樂見的事",
+    "body": "對 10-28 的按兵不動，來賓幾乎一致給出「決定說得過去、理由沒講清楚」的評語：**Jonathan Ferro**（Bloomberg Surveillance 即時反應）說真正的指引來自 Williams 與 Jefferson，不是主席記者會；**Mike Feroli**（摩根大通，Bloomberg Surveillance TV）認為政策根本稱不上緊縮，「若真的數據依賴，為何要等」；**Mike Gapen**（摩根士丹利，Prof G Markets）把它讀成對抗能源第二輪效應的慢速升息，預期 12 月與明年 3 月各升一次，但同樣批評華許沒把理由說清楚。**正面對撞的是 AI 與利率的關係**：**Priya Misra**（摩根大通）與 **Jeff Rosenberg**（BlackRock）把主席對金融條件的說法讀成「AI 交易洩氣等於市場替聯準會緊縮」，是一種軟性緩衝；**Jim Bullard**（前聖路易聯儲總裁，Bloomberg Surveillance TV）卻說聯準會可能樂見 AI 熱潮降溫，意思是它不會替 AI 資產的修正托底。長端的處方也分成兩邊：BlackRock（Rosenberg 與 TV 版的 Kagi Chatri，稿內拼法）看曲線變陡帶一點鴿派、10 年期 5% 以上的中段債緩衝夠厚，「股票很好、債券更好」；**Darrell Cronk**（富國銀行，Bloomberg Surveillance）則估 10 年期明年 5.5% 到 5.75%、6% 也有可能，處方是偏短存續期。分辨誰對的線索：12 月會議是否升息，以及升息後長端是跟著走高還是回落。"
+   },
+   {
+    "title": "交集：AI 融資的裂縫在周邊；對撞：營收補不補得上缺口",
+    "body": "三檔節目都把壓力定位在價值鏈下游，而不是超大型業者本身。**Alex Altmann**（Barclays，Odd Lots）把 neo cloud 當成金絲雀，Cipher 可轉債重挫、牽連 CoreWeave 債券，他稱現在是泡沫週期的「否認期」；**Gil Luria**（DA Davidson，Prof G Markets）說 AI 建置的資本有限，巨頭仍募得到錢，壓力先落在 Oracle 與更下游的小型業者；**20VC** 的主持群則看到資金來源從舉債轉向股權，銀行消化 AI 債已觸頂，連 Anthropic 的晶片債都要 Broadcom 擔保。Odd Lots 與 Prof G 都引用了 Google Cloud 營收約翻倍（Prof G 稿內為年增 103%），Luria 的解釋是市場在為自由現金流定價，不是為雲端成長定價：微軟維持正的自由現金流所以漲，Google 搜尋放緩加上負的自由現金流所以跌。**正面對撞的是營收那一端**：Altmann 主張標普 500 一年淨利只有約 5 兆美元，企業營收在市場要的時間內補不了缺口；**Jason Lemkin 與 Rory O'Driscoll**（20VC）則把 Anthropic S-1 讀成營收、利潤率與留存率全面超出預期；Cronk 也以企業獲利連三季成長 25% 為股市辯護。另一個少有人提的風險來自 **Libby Cantrell**（PIMCO，Bloomberg Surveillance）：2027 年 36 州州長改選可能讓資料中心遇到暫停令，這是信用與營收以外的第三條路。"
+   },
+   {
+    "title": "對撞：微軟的離職方案是 AI 取代人力，還是只有成熟巨頭才這樣做",
+    "body": "微軟對 27% 員工提出自願離職方案，同時出現在兩檔節目。**Ed Elson**（Prof G Markets）認為這不是修正疫情期間的過度招聘，而是 AI 取代科技業人力的結構性訊號；**Rory O'Driscoll**（20VC）給出會計機制：2026 年買進的算力 2027 年開始折舊，會衝擊微軟、Google、Meta 的營業利益，壓縮人力是最直接的調節閥，Cloudflare 裁員 20% 也是前兆。**方向相反的是 No Priors 的 Jake Stauch**（Serval）：公司從一月 20 人擴張到 200 人，他預期還會加速招聘，主張生產力越高越要多雇人。**Nitin Nohria**（哈佛商學院前院長，Masters in Business）站在中間：他把「AI 啃掉職涯最底下那一階」當成問題的起點，但全集沒有任何數據量化這件事。兩種說法可以同時成立，分水嶺在公司所處的階段：守利潤率的巨頭在減人，搶市場的新創在加人。真正要看的是初階招聘數據會不會擴及科技業以外。"
+   },
+   {
+    "title": "交集：代理替人做決定時，信任、權限與入口變成收費點",
+    "body": "三個看似無關的產業今天給出同一個答案。**Latent Space** 的 Supabase 兩位創辦人說，建資料庫的已經不是開發者，而是替使用者動手的代理；每個前沿模型都把 Supabase 列為整合式後端首選，「被模型預設推薦」本身就是護城河（主持人 swyx 是其種子輪天使投資人）。**Jake Stauch**（No Priors）主張模型越強，企業越會把員工權限收到最小，例外的申請、核准與稽核就是 Serval 要擁有的那一層。**We Study Billionaires** 的 **Kyle Grieve** 則從反面擔心：下一代旅客可能直接問聊天機器人該住哪裡，Airbnb 會像 Booking 付錢給 Google 一樣付錢給 AI；**Shawn O'Malley** 用數據回應，第二季 64% 的入住晚數經由 app 預訂、比例還在上升。**Jeetu Patel**（思科，Bloomberg Surveillance）補上同一條線的總結：代理普及的瓶頸是信任，不是需求。共識是價值會流向代理繞不過去的那一層；分歧在那一層是模型的預設推薦（Supabase）、企業的權限治理（Serval），還是自有的使用者入口（Airbnb）。"
+   }
+  ]
+ },
+ "postscript": {
+  "title": "本期觀察後記",
+  "paragraphs": [
+   "**第一，Shawn O'Malley 與 Kyle Grieve（We Study Billionaires）承認贊助刊登比預期慢，最近兩次法說完全沒提；Shawn 把它移出基本情境，改成只放在樂觀情境的上檔。本條以「Airbnb 在 2027-01-29 前不會正式推出讓房東付費提高排序的贊助刊登」為 claim。** **檢驗方式：2027-01-30 當日，查 Airbnb 新聞稿、2026 年第三季與第四季股東信及官方部落格；未推出記應驗，只宣布測試或時程記部分應驗，已對房東正式開放付費排序記落空。**（到期 2027-01-30）",
+   "**第二，Edward Morse（Hartree Partners，Bloomberg Surveillance）認為原油衝擊遠小於 1970 年代，真正的緊繃在成品油：煉油系統做不出足夠柴油，柴油價格持續上漲。本條以「美國柴油零售均價在 2027 年 1 月最後一週高於 2026 年 10 月最後一週」為 claim。** **檢驗方式：2027-01-30 當日，查 EIA 週資料 U.S. No 2 Diesel Retail Prices，比較 2027-01-25 當週與 2026-10-26 當週的數值；上漲 5% 以上記應驗，上漲 0 至 5% 記部分應驗，下跌記落空。**（到期 2027-01-30）",
+   "**第三，Mike Gapen（摩根士丹利，Prof G Markets）預期核心 PCE 年底約 3%、明年底約 2.6%，所以聯準會走慢速升息。本條以「2026 年 12 月核心 PCE 物價指數年增率不低於 2.9%」為 claim。** **檢驗方式：2027-02-10 當日，查 BEA 公布的 2026 年 12 月核心 PCE 物價指數年增率（以首次公布值為準）；不低於 2.9% 記應驗，2.7% 至 2.9% 記部分應驗，低於 2.7% 記落空；若該月資料到期日仍未公布記無法驗證。**（到期 2027-02-10）"
+  ]
+ },
+ "episodes": [
+  {
+   "id": "bloomberg-1",
+   "trackId": "1000798584600",
+   "showKey": "bloomberg",
+   "show": "Bloomberg Surveillance",
+   "title": "Bloomberg Surveillance｜即時反應：聯準會按兵不動，Lisa Cook 與 Beth Hammack 投反對票",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Instant Reaction: Fed Stands Pat; Lisa Cook & Beth Hammack Dissent"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798584600"
+    }
+   ],
+   "published": "2026年10月29日｜片長 22 分鐘",
+   "minutes": 21.8,
+   "sourceLayer": 2,
+   "hosts": "Jonathan Ferro、Tom Keene、Lisa Abramowicz",
+   "guest": "摩根大通 Priya Misra、BlackRock 的 Jeff Rosenberg，以及 Bloomberg 駐華府的 Mike McKee",
+   "source": "podfetch 稿（Gemini 語音轉錄，2 段，completeness 1.00，status OK）。開頭 [00:00]–[01:38] 為 Vanguard 廣告與 Bloomberg Business Week 節目宣傳，片尾 [23:18] 為 Stock Movers 廣告，皆不當內容。末端時間戳 [23:18] 超出片長 21:47，經判定為時間戳拉伸，不是自編段，[21:47]–[23:04] 照常採用。無照缺漏處理的區間。非重播。原標題提到的 Lisa Cook 與 Beth Hammack 投反對票，稿內完全沒有討論。",
+   "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798584600",
+   "chars": 2499,
+   "summary": "這集是 FOMC 決議後的即時反應，核心張力只有一個：主席的措辭比行動鷹派得多。聲明說經濟強勁、通膨偏高，聯準會卻維持 3.75%～4% 不動。主持人 Jonathan Ferro 的結論很直接：真正的指引來自 Williams 與 Jefferson，而「新聯準會聽起來跟舊聯準會很像」。來賓則各自讀出唯一說得通的理由：金融條件已經收緊，而且主席明白點出利率對 AI 交易很重要。換句話說，AI 交易一旦洩氣，就等於市場替聯準會做了緊縮。BlackRock 的 Jeff Rosenberg 把當天殖利率曲線變陡解讀為一點鴿派訊號；摩根大通的 Priya Misra 則提醒，市場仍定價三次升息，比最鷹派的官員還多。會議次數將減少、記者會縮短，也讓反應函數變得更難讀。",
+   "guests": [
+    {
+     "name": "Priya Misra",
+     "affiliation": "JP Morgan"
+    },
+    {
+     "name": "Jeff Rosenberg",
+     "affiliation": "BlackRock"
+    },
+    {
+     "name": "Mike McKee",
+     "affiliation": "Bloomberg"
+    }
+   ],
+   "topics": [
+    "聯準會與利率",
+    "信用與債市",
+    "AI資本支出"
+   ],
+   "quality": {
+    "completeness": 1.0,
+    "status": "OK",
+    "speakerNote": "稿內講者編號與實際人物大量混用，以下依稿內點名判定。Speaker 7 是 Jonathan Ferro（被稱 John／Jonathan，自述曾站在歐洲央行草坪上）。Speaker 9 是 Tom Keene（被稱 Tom／TK）。Speaker 8 至少混了五個人：Lisa（06:05 被點名，依 shows.json 電視版候選判為 Lisa Abramowicz）、摩根大通的 Priya Misra（07:30 被介紹，轉錄成 pre-misser／Pre／Priya）、Mike McKee（16:15 被介紹）、Jeff Rosenberg（18:14 被介紹，轉錄成 Rosenberger／Frozenberg，以 23:04 收尾點名的 Rosenberg 為準），另外 11:31 那一行後半其實是 Tom Keene 問 Ferro 的話。第二段 [20:00] 起編號重排：Speaker 1 是 Rosenberg，Speaker 2 混了提問的主持人（21:26 那句應為 Tom Keene），Speaker 3 是片尾廣告的 Carol Massar。Speaker 6 是主席聲明與記者會的原音片段。聯準會主席在稿內寫作 Kevin Walsh，可能是 Kevin Warsh 的轉錄誤差，但稿內沒有其他依據，正文沿用稿內拼法。名單比對：音訊主集的 Paul Sweeney 沒有出現；實際陣容是電視版的 Ferro、Abramowicz 加上 Tom Keene，Annmarie Hordern 沒有出現。",
+    "timestampNote": "末端時間戳 [23:18]，片長 21:47，溢出約 1.07 倍。判定為時間戳拉伸，不是自編段，依據如下：（一）字數 4,780，預期 4,757，幾乎吻合，沒有多出的內容；（二）[21:47]–[23:04] 是 Rosenberg 回答 Meltzer 的提問，內容引用前面的 Priya 與 Mike McKee 等人，前後一致，以 23:04 主持人道謝收尾，之後才是 [23:18] 的片尾廣告；（三）講者沒有換一組人。段界 [20:00] 從句中接續（an increase in / interest rates），沒有截斷。循環重複三個訊號：57 行 4,951 詞，平均每行 86.9 詞，最長一行 465 詞是 Ferro 的長篇獨白，沒有行內循環；讀稿沒有原地打轉；溢出已如上說明。dupmap 判為乾淨，讀稿也沒有發現整段複製。"
+   },
+   "takeaways": [
+    {
+     "title": "主席措辭鷹派、行動按兵不動，指引要看委員會核心",
+     "body": "聲明對經濟與通膨的評估像要升息，最後卻不動，主持人與來賓都認為言行落差很大。Ferro 指出，Williams 與 Jefferson 事前講過的話，比主席的記者會更能預告決策。投資人想推估下一步，應優先追蹤 Williams（11 月 6 日）、Jefferson 與 Waller 的談話，而不是逐字解讀主席的措辭。"
+    },
+    {
+     "title": "金融條件成為政策變數，AI 交易與利率綁在一起",
+     "body": "Misra 與 Rosenberg 都把主席對金融條件的說法，解讀為承認 AI 交易對利率敏感。AI 交易一旦洩氣，就等於市場替聯準會緊縮，升息的急迫性也跟著下降。對投資人來說，AI 相關資產的修正可能同時壓低利率預期；這是一種軟性緩衝，但來賓不願稱之為明確的「聯準會賣權」。"
+    },
+    {
+     "title": "利率定價比官員更鷹，曲線變陡被讀成鴿派暗示",
+     "body": "Misra 指出市場仍定價三次升息，比最鷹派官員的預測還多；當天二年期殖利率下降、長端上升，曲線變陡。Rosenberg 認為這帶一點鴿派意味。如果聯準會繼續以時間換取資訊，短端的升息定價可能過度，在債券部位的存續期間與曲線布局上值得納入考量。"
+    },
+    {
+     "title": "會議減少與記者會縮短，事件風險變得更集中",
+     "body": "改革方向是減少會議、縮短記者會，點陣圖也可能取消；但哪一次會議會被跳過、何時開始都還不清楚。McKee 指出，這讓聯邦基金期貨難以定價。在溝通更少的新體制下，單一數據與個別官員談話對市場的衝擊可能放大，交易時需要預留更大的波動空間。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "決議與市場第一反應",
+     "paragraphs": [
+      "聯準會把聯邦基金利率目標區間維持在 3.75%～4%。聲明說國內支出有韌性、生產力成長強勁、資本投資穩健、失業率變化不大，但通膨仍然偏高；又說累積更多資訊，有助於判斷什麼樣的政策立場能讓通膨及時回到 2%。記者會結束時，標普 500 漲約 0.33%、那斯達克漲 0.4%；二年期殖利率降 3 個基點至約 4.70%，十年期升 4 個基點、三十年期升 5 個基點，曲線變陡，美元走弱。",
+      "Jonathan Ferro 說，記者會進行到某一刻，交易台上的人都開始望向窗外，因為已經學不到任何東西。他認為主席 Walsh（稿內拼法）言行脫節：通膨太高、經濟強勁，聯準會卻按兵不動，開場聲明聽起來倒像剛升息。他也說，Anthropic 執行長 Dario 對這個結果應該很滿意；Lisa 補充，Anthropic 幾週後就要 IPO，擔心 AI 引發信用利差動盪的人，今天大概都鬆了一口氣。"
+     ]
+    },
+    {
+     "heading": "唯一說得通的理由：市場替聯準會做事",
+     "paragraphs": [
+      "Lisa Abramowicz 指出，主席唯一鬆口的地方是市場波動。他說這段期間「資訊豐富」，也說這是新體制：表面上他上任後只升息一次，實際上是五個月前就開始執行的一整套「貨幣藥方」。Ferro 說主席「差一點就說出市場正在替我們做一部分工作」；以他對經濟的評估，這是唯一能解釋為何不升息的說法。",
+      "Ferro 認為真正的指引來自委員會核心。Williams 與 Jefferson 前幾週就說過可以跳過一個月、需要更多時間，數據還沒出來就說了，而這正是主席今天講的話；Williams 下一次公開談話在 11 月 6 日。Lisa 則反問：如果聯準會依賴數據，看的究竟是哪些數據？選舉、油價、剛公布的 CPI、GDP，還是「看窗外」？反應函數比以前更不清楚了。"
+     ]
+    },
+    {
+     "heading": "摩根大通 Priya Misra：政策可以，解釋不夠",
+     "paragraphs": [
+      "Misra 說主席想傳達「鷹派按兵不動」，但很難做到。她把政策和溝通分開看：從市場反應來看，市場並不認為聯準會在通膨上落後，因為聯準會已經升息，而且可能再升。她希望主席解釋這次決策的性質：是撤回風險管理式降息、改採風險管理式升息，還是重新校準中性利率？主席幾乎沒談數據。她認為這次不像七月那樣完全溝通失誤，但留下的疑問更多。",
+      "她說貨幣政策本來就透過金融條件影響經濟。主席說金融條件收緊、且在預期之內，等於反駁「AI 交易對利率不敏感」的說法。如果 AI 交易洩氣，利率可能下降，金融條件卻會收緊，市場就替聯準會做了工作。主席這次沒有明說，是因為七月講過類似的話，被解讀成市場在逼聯準會就範；但她認為 Williams 與 Jefferson 看過市場後，也覺得升息沒那麼急了。"
+     ]
+    },
+    {
+     "heading": "委員會分歧與市場定價",
+     "paragraphs": [
+      "Tom Keene 問，各地總裁和理事會不會跟主席唱反調？Misra 說還不到那個地步，但現在得像數最高法院的票一樣，逐一數每位官員的立場。新主席上任時，聯準會本來就意見分歧：這是供給衝擊嗎？會不會滲入需求？只是 AI，還是正在擴散？摩根大通仍把它看成供給衝擊，升息屬於風險管理。她認為 Jefferson、Williams 與 Waller 立場一致，但整個委員會未必如此。這次升不升，只對交易十月聯邦基金期貨的人有差，真正重要的是升息總次數：市場仍定價三次升息，比最鷹派官員的預測還多。",
+      "Bloomberg 的 Mike McKee 說，主席想改變溝通風格卻不知道怎麼改，華爾街只得到模糊的印象。這次會議到十二月之間只剩一份 CPI；明天公布的 PCE，聯準會早就知道數字。油價在漲、戰爭還在打，「看窗外」看不出多少東西。主席強調經濟正在加速；如果衝擊已經從供給面轉到需求面，聯準會就還有工作要做，但這一點他沒有回答。"
+     ]
+    },
+    {
+     "heading": "溝通改革：會議更少、記者會更短",
+     "paragraphs": [
+      "Ferro 認為主席想改變溝通方式，卻被困在金融海嘯後建立的溝通架構裡：他非開記者會不可，但顯然不想開，也沒什麼話好說。他拿歐洲央行近年的情況相比，結論是：想擺脫舊聯準會的新聯準會，聽起來跟舊的很像。嘴上強調通膨、想錨定預期，卻容忍高於目標的通膨和剛公布的難看數據，不肯行動。第一個問題就是「經濟這麼強，為什麼不升息」，記者換了五十種方式問，他一次也沒回答。Ferro 強調他不是在主張升息，而是拿聯準會自己的說法來對照它的行動。",
+      "會議次數是另一個懸念。McKee 說，華爾街有人傳訊問他：如果減少開會從明年秋天開始，會跳過哪一次？九月和十二月有經濟預測，跳過十月看似合理；但市場不知道哪一次會議確定不會動作，期貨要怎麼定價？Ferro 反諷，若每次都像今天這樣，不如明天就減為六次。Lisa 說，曲線變陡反映市場認為聯準會會等更久，而會議變少，能出手的機會也變少。Misra 反而偏好多開會，因為決策本身比記者會更說明問題。"
+     ]
+    },
+    {
+     "heading": "回到五〇年代？",
+     "paragraphs": [
+      "Tom Keene 認為傳統分析在這裡失效。主席談「協定」，也寫過 McChesney Martin 與 1951 年的協議，像是想回到 Burns 之前、六〇年代以前那個單純的年代；Keene 說，他覺得自己像在看電影《歡樂谷》。他也不知道摩根大通的 Michael Feroli 這樣的經濟學家，要拿「新貨幣藥方」怎麼辦。Misra 回應：大幅提升的生產力或許有相似之處，但今天的經濟和新聞流速，都跟五〇年代不一樣了。"
+     ]
+    },
+    {
+     "heading": "BlackRock Jeff Rosenberg：AI 是總經事件",
+     "paragraphs": [
+      "Rosenberg 列出三點。第一，不動作的理由是要等更多數據。第二，油價談得比預期少，但主席仍說油價上漲要留意。第三也最重要：金融條件的討論多了很多。主席不願說金融條件緊，卻承認正在收緊，並把它連到 AI，等於點明利率對 AI 很重要。他的解讀是，利率不再跟著油價走，改跟 AI 交易走；曲線變陡帶一點鴿派意味，因為聯準會會留意自己是否把金融條件收得太緊。",
+      "被問到「聯準會賣權」還在不在，Rosenberg 不敢說它安然無恙，但認為主席對市場很敏感。主席回答韓國記者時說，他對當地市場的關注超乎外界想像，可見他明白 AI 對成長有多重要。本月市場嗅出的是：AI 既是個體事件，也是總經事件；一旦被削弱，主要效果是壓低通膨。被問到 Alan Meltzer 會怎麼看，他說主席已在可行範圍內改革，例如每人只能問一題、記者會從約一小時縮到約三十分鐘；但與過去最大的不同在於，消費靠財富效果撐起來，經濟對利率與金融條件更敏感。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "對一位想擺脫舊聯準會的主席來說，看完今天下午的過程，我的結論是：這個新聯準會聽起來跟舊聯準會非常像。",
+     "by": "Jonathan Ferro",
+     "original": "So for a Fed chair that's trying to move away from the old Fed, my conclusion watching this play out this afternoon is that this new Fed sounds a whole lot like the old Fed."
+    },
+    {
+     "text": "如果 AI 交易洩氣，利率可能下降，但金融條件可能收緊，那就是市場在替聯準會做事。",
+     "by": "Priya Misra（JP Morgan）",
+     "original": "If the air is coming out of the AI trade, well interest rates might come down, but financial conditions might tighten, and then the market's doing the work for the Fed."
+    },
+    {
+     "text": "聽他今天說的，他們想要更多時間看窗外。他們從窗外要看到什麼？",
+     "by": "Mike McKee（Bloomberg）",
+     "original": "When you listen to what he said today, they want more time to look out the window. What are they going to see out the window?"
+    },
+    {
+     "text": "這個月我們看到的，是市場嗅出 AI 既是個體事件，也同樣是總經事件。",
+     "by": "Jeff Rosenberg（BlackRock）",
+     "original": "what we saw this month was the market sort of sniffing out that AI is a macro event as much as it is a micro event."
+    },
+    {
+     "text": "這傢伙跟現代貨幣分析根本不在同一個星球上。",
+     "by": "Tom Keene",
+     "original": "This guy is on another planet from modern monetary."
+    }
+   ]
+  },
+  {
+   "id": "bloomberg-2",
+   "trackId": "1000798716989",
+   "showKey": "bloomberg",
+   "show": "Bloomberg Surveillance",
+   "title": "Bloomberg Surveillance｜名目 6% 的經濟、每桶 114 美元的油，與被低估的 AI 政治風險",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Outlook for Inflation, Oil, and Tech"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798716989"
+    }
+   ],
+   "published": "2026年10月29日｜片長 39 分鐘",
+   "minutes": 39.4,
+   "sourceLayer": 2,
+   "hosts": "Tom Keene, Paul Sweeney",
+   "guest": "富國銀行 Darrell Cronk、彭博行業研究 Ira Jersey、Hartree Partners 特別顧問 Edward Morse、思科產品長 Jeetu Patel、PIMCO 的 Libby Cantrell",
+   "source": "podfetch 機器轉錄稿（Gemini，3 段，manifest status OK、completeness 0.92）。開頭、各段間與片尾的 The Big Take 宣傳、HSBC 廣告與節目口播未當內容。末端時間戳 [41:34] 溢出片長 39:21，判定為時間戳拉伸而非自編段（第三段 [40:00] 起是與 Libby Cantrell 的同一段對話收尾、片尾口播與廣告）。第一、二段交界 [19:55]→[20:00] 疑似掉了幾個字，該處不據以補寫。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798716989",
+   "chars": 2651,
+   "summary": "這一集的張力在於：每個來賓都在描述一個「太熱」的世界，卻對熱度會不會傷到資產價格給出不同答案。第三季名目 GDP 約 6%、PCE 平減指數 3.6%，Darrell Cronk 與 Ira Jersey 都認為聯準會只能慢速但持續升息，10 年期殖利率明年可能上看 5.75% 甚至 6%——但 Cronk 仍看好股市，因為獲利連三季成長 25%、本益比反而收縮。油價方面，Edward Morse 解釋為何荷莫茲海峽封閉對油價的衝擊遠小於 1970 年代（石油密集度大降），真正的緊繃在柴油等成品油。最值得注意的反向警訊來自 PIMCO 的 Libby Cantrell：市場低估了 AI 在選民心中的負面形象，2027 年 36 州州長改選可能讓資料中心建設遭遇暫停令與更高成本，而思科的 Jeetu Patel 則指出 AI 代理普及的瓶頸是信任，不是需求。",
+   "guests": [
+    {
+     "name": "Darrell Cronk",
+     "affiliation": "Wells Fargo"
+    },
+    {
+     "name": "Ira Jersey",
+     "affiliation": "Bloomberg Intelligence"
+    },
+    {
+     "name": "Edward Morse",
+     "affiliation": "Hartree Partners"
+    },
+    {
+     "name": "Jeetu Patel",
+     "affiliation": "Cisco"
+    },
+    {
+     "name": "Libby Cantrell",
+     "affiliation": "PIMCO"
+    }
+   ],
+   "topics": [
+    "聯準會與利率",
+    "能源與大宗商品",
+    "AI資本支出"
+   ],
+   "quality": {
+    "completeness": 0.92,
+    "status": "OK",
+    "speakerNote": "主持人依稿判定為 Tom Keene 與 Paul Sweeney（稿內多次被點名 Tom、Paul，[23:47] 提到 Paul Sweeney），與 shows.json 音訊主集名單相符；Alexis Christoforous 在 [06:46]、[33:26] 被提及在場，但無可辨識的發言，未列為主持人。講者編號不可靠：第一段 Speaker 7 同時涵蓋 Keene、Sweeney 與 Edward Morse 自 [16:08] 起的大部分回答；Speaker 9 同時涵蓋 Ira Jersey、主持人在 [08:08] 的提問與 Morse 在 [14:56]–[15:40] 的回答；[12:28]–[13:00] Ira Jersey 談足球的回答被標成 Speaker 7。金句 Morse 那條（[16:34] 行，標 Speaker 7）依內容歸屬。姓名轉錄錯誤：Ira Jersey 在 [13:07] 作 Ira Juicy，Edward Morse 在 [18:50] 作 Ever Morse；聯準會主席在 [08:19]、[11:40] 被轉錄為 Kevin Morris，[09:11] 作 warsh Fed，正文寫華許（Warsh）。Patel 提到的 Muse 無法確認是什麼產品，正文未具名。",
+    "timestampNote": "末端時間戳 [41:34] 溢出片長 39:21（約 1.06 倍），判定為時間戳拉伸而非自編段：第三段 [40:00] 起是與 Libby Cantrell 同一段對話的自然延續（她剛說自己來自科羅拉多，接著談野馬隊、酋長隊與 PIMCO 不坐私人飛機），無講者換組、無與前文矛盾，之後只有片尾口播與 The Big Take 廣告；第二段末端時間戳也明顯壓縮（[38:49] 單行約 300 詞，下一行卻是 [39:01]）。第一、二段交界 [19:55]→[20:00] 句子從 on the knees. 直接接 is a return to soft power，疑似掉了幾個字，未據以補寫。循環重複三訊號：行內——335 行約 8,679 詞、每行 25.9 詞，最長一行 470 詞是 Cantrell [35:10] 的連貫獨白，無重複；行級——未見原地打轉，The Big Take 宣傳出現在 [00:00]、[13:39]、[32:06]、[41:11] 四次是真實廣告插播，非轉錄跳針；區塊級——溢出 1.06 倍，如上判定為拉伸。"
+   },
+   "takeaways": [
+    {
+     "title": "名目 6% 的經濟讓長天期殖利率易上難下",
+     "body": "Cronk 預期明年 10 年期公債殖利率在 5.5% 到 5.75%，6% 也有可能；Jersey 以名目 GDP 推算公債約 5%、非 AAA 公司債約 6%。近期空頭回補造成的殖利率下滑不改方向。對投資人而言，長存續期部位的風險偏高，兩位來賓的共同處方是偏短存續期、偏高品質信用。"
+    },
+    {
+     "title": "聯準會是慢速升息，不是急轉彎",
+     "body": "華許領導的聯準會以每季一次左右的步調升息，2028 年起每年只開六次會，而一旦升息就要在高點停留相當時間。基期效應可能讓整體 CPI 在明年夏天前後接近 2%，那才是政策鬆動的可能窗口。押注快速降息的部位要有耐心，或重新評估時程。"
+    },
+    {
+     "title": "獲利撐住股市，但前提是不能斷",
+     "body": "Cronk 指出企業獲利連續第三季成長 25%、連續第八季兩位數成長，本益比反而收縮，所以即使 10 年期升到 5.75% 股市仍可表現。這個看法完全建立在獲利軌跡延續上。投資人應把獲利修正而非利率本身當作主要警訊。"
+    },
+    {
+     "title": "油價風險集中在成品油，而非原油",
+     "body": "石油密集度大降讓荷莫茲封閉對原油的衝擊遠小於 1970 年代，OPEC 大成員增產意願也會壓抑長期溢價；但成品油庫存處於十年低點，柴油持續上漲，煉油產能短期補不回來。對投資人而言，煉油利差與柴油價格比原油本身更值得盯，美伊外交與期中選舉後的軍事動向是主要事件風險。"
+    },
+    {
+     "title": "AI 基建的州層級政治風險被低估",
+     "body": "Cantrell 認為 2027 年 36 州州長改選可能帶來資料中心暫停令，或至少讓超大規模業者付出更高的社區成本；Patel 則指出代理普及的瓶頸是信任與安全。對 AI 資本支出鏈的投資人，時程與成本假設應計入州層級的摩擦，而資安供應商可能是信任門檻提高下的受益者。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "數據之後：一個名目 6% 的經濟",
+     "paragraphs": [
+      "第三季 GDP 初值公布後，Tom Keene 請富國銀行的 Darrell Cronk 解讀：實質 GDP 3.4%，略高於預期，物價指數 2.3%，名目 GDP 約落在 6%。Cronk 說這「絕對」仍是榮景經濟，而且市場太少談名目 GDP——企業和消費者都是用名目金額在花錢，「我們活在名目經濟裡，不是實質經濟裡」。",
+      "他點出政策上的矛盾：聯準會偏好的 PCE 平減指數 3.6%、GDP 成長 3.4%、失業率 4.2% 且沒有裁員潮，這不是寬鬆的配方。主席前一天記者會反覆說會把通膨帶回 2%，但眼前不是 2%，所以聯準會「該動手了」。",
+      "Keene 追問主席口中的「protocol」。Cronk 的解讀是改寫前瞻指引的敘事：淡化點陣圖、縮短記者會、每位記者只問一題。他不認為能僵硬到由規則決定行動，主席要的是更多結構、看趨勢而非單月數據，所以市場定價的升息時點是 9 月、12 月與 3 月這種每季一次的節奏。",
+      "債市上，他已連續 16 個月偏短存續期、偏高品質信用。雖然過去一週半的空頭回補把 10 年期殖利率壓到 5%，他預期明年會在 5.5% 以上、更可能是 5.75%，6% 也不排除。微軟這次發 2 到 40 年期債，和當天 7 年期公債標售正面競爭。即便如此他仍看好股市：獲利將連續第三季成長 25%、連續第八季兩位數成長，本益比反而收縮。"
+     ]
+    },
+    {
+     "heading": "Ira Jersey：慢，但不會停的升息",
+     "paragraphs": [
+      "彭博行業研究的 Ira Jersey 從名目 GDP 推長天期利率：名目 GDP 6%，扣掉公債的流動性溢價，公債殖利率約 5% 上下，非 AAA 公司債整體約 6% 或略高。所以重點是這個 6% 的環境能否一季接一季延續；核心 PCE 年增 3.1%。",
+      "他看聲明稿而非問答：委員會的前瞻指引是維持鷹派、以偏慢的步調持續升息，直到通膨趨勢下降。2028 年起每年會議由八次減為六次，這大概就是華許（Warsh）領導下的節奏。他拿葛林斯潘每次會議升 1 碼的「measured pace」相比，只是更慢；委員會裡也有人想升得更多。",
+      "為何不升快一點？聯準會能大幅壓抑企業與家庭需求，但得升得更兇，而在低聘僱、低裁員的環境下，非農轉負不需要太多推力，他們不想成為下一次衰退的禍首。他也認為聯準會在爭取時間：光靠基期效應，明年夏天前後整體 CPI 就會接近 2%。而一旦升息，就得在高點停留相當時間。"
+     ]
+    },
+    {
+     "heading": "Edward Morse：荷莫茲、柴油與消失的石油密集度",
+     "paragraphs": [
+      "Keene 問：油已經在流經波斯灣，螢幕上為何還是每桶 114 美元？Hartree Partners 的 Edward Morse 說，沒人知道荷莫茲是否真的解決、美國會不會在期中選舉後一小時就開戰、又有多少油真的到了該去的地方；煉油系統拿不到足夠原油，柴油價格持續上漲。",
+      "他拿 1978 到 82 年比較：伊朗革命、兩伊戰爭、蘇聯入侵阿富汗，油價從 14 美元漲到 40 美元，之後在眾人以為還會漲時又跌了 10 美元。那時漲幅比如今荷莫茲完全封閉還大，原因是 GDP 的石油密集度大降：1973 年禁運時全球 GDP 每成長 1%，石油需求成長 1.4%；去年石油需求甚至負成長。",
+      "但成品油是另一回事：原油在流動，成品油沒有。以未來需求天數計，原油與成品油庫存都在近十年低點，成品油更嚴峻，因為中東與俄羅斯的煉廠出不了貨，加州與歐洲又有煉廠關閉。煉油是沒人想做的高風險投資，沒有快速解方，只能看華府與德黑蘭能否外交解決。",
+      "地緣上，他引用 Ian Bremmer 的「G0 世界」：美國放棄領導、得罪敵友，現任總統不相信軟實力。Keene 糾正他，荷莫茲是被美國攻擊的國家封鎖的；Morse 隨即說「是我們關閉了荷莫茲」。他對重新開放仍樂觀，因為伊朗處境艱難、領導層分裂。",
+      "Paul Sweeney 問，若荷莫茲回不到一月前的狀態，原油是否會長期帶溢價？Morse 答「是也不是」：石油密集度的下降可能在中國帶頭下加速，全球已找到運輸燃料的替代品；OPEC 已死、難以重組，但最大的成員都想多產，足以抵銷這個風險。"
+     ]
+    },
+    {
+     "heading": "Jeetu Patel：AI 代理像青少年",
+     "paragraphs": [
+      "思科產品長 Jeetu Patel 說，AI 進入第二階段，個人代理正迎來類似 ChatGPT 的時刻。聊天機器人只回答問題，代理能自主執行任務；矛盾在於不給它郵件、行事曆、信用卡的權限它就沒用，一給權限風險就急升。思科正投入數十億美元處理信任與安全。",
+      "他說代理像青少年：極聰明、不怕後果、判斷常出錯。往後越來越難分辨是惡意攻擊改變了代理行為，還是它只是太執著於你給的目標，所以要持續監控、一偏離就攔截；他也認為企業用 token 越有效率，資安體質越好。企業採用仍很早期，代理卡在信任，他自己也還沒把支票帳戶交給代理。",
+      "誰來付錢？他說營收已在：Anthropic 的營收是終端用戶在付費，Azure 與 Google 的雲端營收代表基礎設施也有人買單，信任再提升一兩級用量就會爆發。對 Anthropic S-1 的末日式風險因子，他說風險可觀但不必誇大。他不認為會走向壟斷，但商業模式會變：零售商未來可能得先說服一個彙整多家資訊的代理，而不是直接打廣告給消費者。"
+     ]
+    },
+    {
+     "heading": "Libby Cantrell：期中選舉與反資料中心政治",
+     "paragraphs": [
+      "節目先談微軟新債：AAA 發行人，承銷商為摩根大通、UBS 與富國銀行。Sweeney 指出投資級債案常用來回報平時提供企業金融服務的銀行，並引彭博行業研究 Rob Shiffman 的看法，這類發行會越來越多。",
+      "PIMCO 的 Libby Cantrell 說期中選舉下週登場，她兩週前在國會山莊感受到共和黨對眾院近乎放棄，參院仍有希望但全國氛圍很差。她認為客戶低估了 AI 的政治有多糟：2027 年除了兩院，還有 36 州州長改選，不少人以反 AI、反資料中心為政見，上任後最簡單的表態就是像紐約那樣暫停新建；即使不暫停，超大規模業者與資料中心開發商也得花更多錢說服社區。",
+      "若民主黨拿下眾院甚至參院，未來兩年會有大量調查，從對伊朗的戰爭、Epstein 檔案、總統家族利益衝突到大型科技；法案會卡住，例如 5,000 美元支票。不論誰贏支出都會增加，只是組成不同：偏共和黨多國防，分治則醫療加國防。她的結語在稿中是「赤字大概會變好」，與前句方向相反，可能是口誤或轉錄錯誤。",
+      "人口結構上，她的家鄉科羅拉多選區從兩三個增至八個，亞利桑那如今由兩位民主黨參議員代表。她建議別把 2026 結果過度外推到 2028，民主黨若勝更像抗議票；要看的是 2024 年轉投川普的西語裔男性會不會回流。對一般選民，資料中心承載了對 AI 的焦慮、生活負擔與對大型科技的不信任，「大型科技正在變成大型菸草」。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "我們認為明年 10 年期殖利率會在 5.5% 以上，更可能是 5.75%。",
+     "by": "Darrell Cronk",
+     "original": "we think next year, the 10 year is north of 550, probably more like 575."
+    },
+    {
+     "text": "我能想到最接近的答案是一個很單純的因素：GDP 的石油密集度大幅下降了。",
+     "by": "Edward Morse",
+     "original": "the closest I can come to an answer is that a very simple factor, the oil intensity of GDP has fallen dramatically."
+    },
+    {
+     "text": "差別在於這些代理就像青少年。他們極度聰明、不怕後果，而且判斷失誤的頻率，Paul，遠比你我希望的還要高。",
+     "by": "Jeetu Patel",
+     "original": "The difference is that these agents are like teenagers. They're supremely intelligent. They have no fear of consequence and they exercise poor judgment far more frequently, Paul, than you and I would like."
+    },
+    {
+     "text": "我認為大家低估了 2027 年這波 AI 基礎建設可能遭遇的摩擦有多大。",
+     "by": "Libby Cantrell",
+     "original": "people are underestimating how much friction there could be in this AI infrastructure build out come 2027."
+    },
+    {
+     "text": "我無意誇大，但在某些方面，大型科技在人們心中正在變成大型菸草。",
+     "by": "Libby Cantrell",
+     "original": "I don't I don't mean to be hyperbolic, but in some ways big tech is becoming big tobacco, like in people's minds."
+    }
+   ]
+  },
+  {
+   "id": "bloomberg-3",
+   "trackId": "1000798736276",
+   "showKey": "bloomberg",
+   "show": "Bloomberg Surveillance",
+   "title": "Bloomberg Surveillance｜GDP 強勁、Fed 卻按兵不動：Feroli、BlackRock 與 Bullard 拆解 Warsh 的暫停",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Bloomberg Surveillance TV: October 29th, 2026"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798736276"
+    }
+   ],
+   "published": "2026年10月30日｜片長 19 分鐘",
+   "minutes": 18.5,
+   "sourceLayer": 2,
+   "hosts": "Lisa Abramowicz 與一位未具名的主持人（稿內未自我介紹，不猜名字）",
+   "guest": "JPMorgan 的 Mike Feroli、BlackRock 的 Kagi Chatri（轉錄拼寫），以及前聖路易 Fed 總裁 Jim Bullard",
+   "source": "podfetch 機器轉錄稿（Gemini API，2 段，completeness 0.97，status OK）。開頭 Masters in Business 宣傳與 [00:41] 預錄台呼、[08:40]–[10:31] 與 [13:32]–[14:41] 的廣告與節目宣傳、[21:02] 片尾 Wall Street Week 廣告均未當內容。末端時間戳 [21:02] 溢出片長 18:32，經判讀為時間戳拉伸而非自編段：第 2 段 [20:00] 起的 Bullard 發言與 [19:36] 句尾「So I I don't think」無縫銜接、內容與前文一致，且以正式片尾台呼收尾，因此照常採用。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id296237493?i=1000798736276",
+   "chars": 2829,
+   "summary": "第三季 GDP 年化成長落在 3% 中段、個人消費接近 4%，初領失業金持續低於 20 萬，而 Fed 前一天卻選擇不升息——這是本集的核心矛盾。JPMorgan 的 Feroli 認為政策根本稱不上緊縮，暫停雖然說得過去，但主席 Warsh 沒有講出好理由；九月後的通膨數據比之前更熱，「若真的數據依賴，為何要等？」更耐人尋味的是：理事 Cook 投下主張升息的反對票，而白宮正試圖解除她的職務。BlackRock 則把這個環境翻譯成配置：股票很好、債券更好——10 年期殖利率超過 5% 時，中段債券的緩衝夠厚。前聖路易 Fed 總裁 Bullard 補上委員會內部的視角：這次暫停早在九月就已決定，而 Fed 其實可能樂見 AI 熱潮降溫。三位來賓對 Fed 的看法一致：決定本身合理，溝通令人失望；反應函數愈不清楚，長天期的不確定性溢價就愈高，而在 30 兆美元的債務面前，每一個基點都要付錢。",
+   "guests": [
+    {
+     "name": "Mike Feroli",
+     "affiliation": "JP Morgan"
+    },
+    {
+     "name": "Kagi Chatri",
+     "affiliation": "BlackRock"
+    },
+    {
+     "name": "Jim Bullard",
+     "affiliation": "前聖路易聯準銀行總裁"
+    }
+   ],
+   "topics": [
+    "聯準會與利率",
+    "信用與債市",
+    "美股大盤"
+   ],
+   "quality": {
+    "completeness": 0.97,
+    "status": "OK",
+    "speakerNote": "shows.json 候選為 Jonathan Ferro、Lisa Abramowicz、Annmarie Hordern，但三人同時出現的只有 [00:41] 預錄台呼。實際對談中：Speaker 6 在 [01:06] 被主持人稱為 Lisa，判定為 Lisa Abramowicz；Speaker 5 是主要主持人，全集沒有自我介紹，也沒有人叫他的名字，因此不寫名字（文中稱「主持人」）；Annmarie Hordern 沒有可辨識的出場。來賓：Mike Feroli（[02:09] 介紹，JP Morgan）、Kagi Chatri（[10:40] 介紹，BlackRock。名字照轉錄拼寫，ASR 可能拼錯，下游如需真名請另行查證）、Jim Bullard（[16:05] 介紹）。Speaker 12（[15:20]）依上下文判定為 Warsh 記者會片段，沒有直接點名，因此未列入金句。講者分軌有幾處混亂：[06:18]–[06:28] 主持人與 Lisa 的對話被切錯；[16:05] 介紹 Bullard 的那句被標成 Speaker 6；第 2 段 [20:00] 起講者編號重新從 1 開始（Speaker 1 為 Bullard，Speaker 2 為主持人，Speaker 3 為台呼）。另有轉錄錯字依上下文校正：hammock→Hammack、Bar→Barr、core weave→CoreWeave、City→Citi。",
+    "timestampNote": "末端時間戳 [21:02] 溢出片長 18:32（約 1.135 倍）。判定為時間戳拉伸，不是自編段，依據有四點：（一）第 2 段 [20:00] 的 Bullard 發言「I don't think you can put that back in the bag」直接接上第 1 段 [19:36] 未說完的「So I I don't think」，沒有斷層；（二）內容談透明化、Bernanke、Greenspan，與前文一致，沒有矛盾；（三）後面接正式片尾台呼 [20:38] 與 Wall Street Week 廣告 [21:02]，結構正常；（四）講者編號重置來自分段轉錄，不是換了一組人。拉伸在第 1 段內就已出現，例如 [17:33]→[18:05] 一句短問用了 32 秒，[12:27]→[12:59] 約 200 詞只占 32 秒，[13:32]→[14:41] 一則短廣告用了 69 秒，所以時間戳不宜拿來定位實際時刻。三個循環重複訊號：行內（76 行／約 4,394 詞，每行 57.8 詞，偏高的原因是來賓長段獨白，最長一行約 217 詞是 [12:27] Chatri 的完整論述，沒有短句循環）、行級（沒有原地打轉）、區塊級（溢出已判定為拉伸），全部沒有發現重複。段界 [20:00] 沒有內容缺漏。"
+   },
+   "takeaways": [
+    {
+     "title": "經濟沒有在等 Fed：政策實際上不緊縮",
+     "body": "GDP 落在 3% 中段，消費接近 4%，初領失業金低於 20 萬，再加上 AI 帶動近 20% 的設備投資與數千億美元的募資，Feroli 認為很難說政策是緊縮的。九月後的通膨數據更熱，Fed 卻暫停，代表短期內通膨很可能停在 3% 以上。投資人應該把「高利率維持更久」列為基本情境，不要押注快速降溫。"
+    },
+    {
+     "title": "成長只靠單一引擎，AI 是上檔也是單點風險",
+     "body": "Feroli 形容經濟是「單引擎飛行」，Bullard 則說 Fed 可能樂見 AI 熱潮降溫，因為營收、建設速度與借貸三面紅旗都在揮。這表示 Fed 不見得會替 AI 相關資產的修正托底。持有大量 AI 資本支出曝險的投資組合，需要另外評估這個集中度風險。"
+    },
+    {
+     "title": "反應函數不清楚，期限溢價就有上升壓力",
+     "body": "減少開會次數、記者會說不清理由、點陣圖的角色曖昧，都讓市場更難推估 Fed 的下一步。Feroli 說期限溢價雖然還沒暴衝，但已高於五個月前，而 30 兆美元的債務讓每一個基點都很昂貴。長天期公債因此要多算一層制度不確定性的風險補償，存續期間的配置宜保守。"
+    },
+    {
+     "title": "BlackRock 的配置：品質股加上曲線中段",
+     "body": "10 年期殖利率超過 5% 時，中段債券在利率上升 100 個基點的情境下損失有限，下跌時又有凸性，因此 10 月固定收益 ETF 創下史上最大流入。股票則偏重盈餘報酬高、自由現金流強的品質股。「股票很好、債券更好」說的是重新平衡，不是全面避險。"
+    },
+    {
+     "title": "Cook 的升息反對票是政治與鷹派訊號的交叉點",
+     "body": "白宮試圖解除 Cook 職務、12 月又有聽證會，她卻投下主張升息的反對票，連一般不被視為鷹派的成員都主張升息，表示委員會內部的升息壓力不只來自傳統鷹派。Bullard 的「兩次升息加上檢討」也指向同一方向。12 月會議與新的經濟預測摘要是下一個關鍵節點，利率敏感部位不宜假設升息循環已經結束。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "強勁的第三季：消費、GDP 與資本湧入",
+     "paragraphs": [
+      "第三季個人消費成長接近 4%，GDP 年化季增落在 3% 中段，兩者都高於預期，其中消費的上修幅度尤其大。Lisa Abramowicz 指出，初領失業金每次都低於 20 萬，低到有人懷疑數據本身出了問題，大家也就不太提它了。市場沒有在擔心勞動市場，問題只在於經濟加速得多快。",
+      "主持人強調這一週的募資規模：Microsoft、SpaceX、Anthropic、Meta 合計數千億美元正流進美國經濟。Lisa 接著說，這些錢會進入資本支出與零組件價格，撐住現有水準，甚至推高通膨。Fed 以市場波動為由按兵不動，這股資金潮正好把那個理由抵銷掉，也讓人懷疑 Fed 究竟靠什麼判斷貨幣政策這帖藥有沒有效。"
+     ]
+    },
+    {
+     "heading": "Mike Feroli（JPMorgan）：政策不緊縮，暫停可辯護但沒被辯護",
+     "paragraphs": [
+      "被問到政策是否緊縮，Feroli 說看不出來：GDP 與初領失業金都很強，很難主張政策真的緊縮。當天的數據大致符合預期，經濟強、消費強、通膨仍高。季末消費略有放緩，可持續性的疑問整年都有，消費卻一路撐住。設備投資年化成長將近 20%，大多是科技設備，所以強勁的程度令人印象深刻，但也是「單引擎飛行」，高度仰賴 AI 這一條故事線。",
+      "對於前一天沒有升息 25 個基點，他認為暫停說得過去，只是沒聽到像樣的辯護。Williams 等人主張「暫時性」的說法還沒完全出局，通膨主要來自供給衝擊。不過升息的理由也很充分：九月會議之後的通膨數據比會前更熱，「如果是數據依賴，為什麼要等？」這個理由主席並沒有講出來。",
+      "Lisa 提到，偏好股票勝過債券的投資人隱含一個假設：通膨會長期停在 3% 以上，Fed 也不急著拉回 2%。Feroli 認為降到 2% 附近確實有難度。今年的通膨集中在商品，看起來是關稅與能源漲價的殘餘轉嫁，工資沒有形成壓力，所以只要不利的供給衝擊停止，回到 3% 以下是可能的。2% 比較難，因為服務通膨仍偏高。至於代價，他說核心 PCE 從 5.5% 降到 3% 並沒有帶來痛苦，2022 到 2024 年至少前三分之二是「完美去通膨」，因此有機會不靠失業率大幅上升就達成。",
+      "這次決定是否與政治有關？主席給的答案是否定的，Feroli 說五年後公布的會議紀錄裡也不會出現選舉的討論。真正讓人意外的是理事 Cook 主張升息的反對票：白宮一直試圖解除她的職務，12 月有聽證會，而主張升息顯然討不了白宮的歡心。大家原本也不認為她屬於鷹派。主持人說，換成 Hammack、Logan、Kashkari 或 Barr 投這一票都不會令人意外，偏偏是 Cook。",
+      "談到 Fed 打算減少開會次數，Feroli 說這件事對市場定價明年的利率路徑很重要，最好盡早說清楚拿掉的是哪一場。若沿用現行時程只取消一場，兩次會議之間會相隔 12 到 13 週，那場會議的分量就會被放大。官方以框架檢討為理由，他並不信服，因為過去辦框架檢討的年份照樣開八次會。他還點出一個諷刺：Warsh 當年擔任英國央行外部顧問時，曾建議對方從一年 12 次減為 8 次，理由正是要向國際標準看齊。",
+      "Lisa 接著問，反應函數、開會次數等方面的不確定升高，推高了不確定性溢價，這被視為長天期公債風險溢價上升的原因之一，對美國赤字的傷害有多大？Feroli 說，多數期限溢價的量測並沒有大幅跳升，但確實比五個月前高；債務規模到了 30 兆美元，每一個基點都很要緊。"
+     ]
+    },
+    {
+     "heading": "BlackRock：股票很好，債券更好",
+     "paragraphs": [
+      "BlackRock 的 Chatri 給這場記者會打的分數低於 A+，不過仍有收穫：主席至少試著解釋，經濟成長已經轉強，為什麼這時候還要暫停。Lisa 說，Fed 把 CoreWeave 的小幅波動與利差擴大當成暫停的理由，市場因此解讀成「這個 Fed 不會出手壓估值」，轉向追逐風險。Chatri 說這不是看多風險資產的唯一理由。財報季的獲利成長達 30%，大幅超預期的公司到目前還沒被市場獎勵；GDP 在 3% 中段，名目 GDP 仍超過 6.5%。加上殖利率大幅走高，她現在可以告訴客戶：股票很好，債券更好。",
+      "Citi 的 Kate Moore 當天早上的看法是股票好、債券較差，因為通膨可能更熱更久。Chatri 回應，她仍然看好股票，但應該集中在品質股，也就是盈餘報酬高的公司；利率若要長期偏高，自由現金流就更重要。固定收益方面，資金正流向殖利率曲線的前段與中段。10 年期殖利率超過 5% 時緩衝夠厚：即使未來 12 個月利率上升 100 個基點，持有中段債券的損失也不大，利率下跌則能享受凸性。10 月是固定收益 ETF 史上流入最多的月份，客戶要的正是曲線中段。",
+      "針對期中選舉，她給客戶的口訣是 K-POP，也就是把政治擋在投資組合之外。依選舉結果轉向避險很誘人，波動也一定會有，但從 1970 年代以來，期中選舉後的 11、12 月市場多半上漲。歷史不能拿來預測，但財報季顯示，現在適合持有部分股票，也適合持有中段債券。她說「債券回來了」，既能提供收益，最近也重新發揮壓艙的作用。"
+     ]
+    },
+    {
+     "heading": "Warsh 的「看窗外」與 Bullard 的委員會視角",
+     "paragraphs": [
+      "節目播出記者會片段，依上下文是 Warsh 的發言：他說同仁們評估經濟的方法是「看窗外」，稱之為「審問現實」；消費者加油時也看得到油價上漲，他不會否認這件事。主持人說，Warsh 的節奏很難聽下去，就像 Yellen 剛開始主持記者會時那樣，讀講稿比聽輕鬆。Lisa 則說，問題在於看不出他到底想傳達什麼。",
+      "Bullard 認為這次決定是對的，而且九月會議時就已拍板，委員會隱含的是一季動一次的節奏。紐約 Fed 總裁 Williams 的看法在委員會很普遍：不必頻繁行動，可以先等到 12 月，屆時新的經濟預測摘要（SEP）會決定 2027 年怎麼走。他說 Warsh 其實只要講清楚：上次會議剛動過，會前後市場波動很大，兩年期殖利率漲了約 40 個基點，委員會想先觀察效果，12 月再見。",
+      "Lisa 指出，Warsh 實際上提到了信用利差擴大，問 Fed 是否希望風險資產繼續撐住這場 AI 豪賭。Bullard 說沒人知道答案，但依他在委員會的經驗，他們大概樂見 AI 熱潮降溫。紅旗已經很多：營收從哪裡來、建設速度多快、背後的大量借貸。市場開始出現裂痕，正在重新估算這場熱潮會走到哪裡，而 Fed 向來偏好平穩，不喜歡現在這種狂熱。",
+      "他認為市場應該清楚委員會在各個時點會怎麼行動，換了新主席總會有一段磨合期。他上次的說法「兩次升息加上希望」，修正為「兩次升息加上檢討」：九月畫點陣圖時，委員們覺得不必為 2027 年寫什麼，先等到 12 月再說。主持人吐槽，Warsh 不想要點陣圖，別人照樣畫點；不想開記者會，還是得開；他想淡化前瞻指引，其他官員卻照樣發表演說。Bullard 說點陣圖也許會消失，但成員，尤其是各地區 Fed 總裁，仍會出來談經濟。Bernanke 任內完成的透明化革命收不回去，而且是好事，市場愈理解委員會，定價就愈準確。至於主席，他說 Warsh 有點回到 Greenspan 的路線：多一點市場，少一點委員會。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "所以這股強勁確實令人印象深刻，但它也是某種程度上的單引擎飛行。",
+     "by": "Mike Feroli（JPMorgan）",
+     "original": "Uh, so the strength is really uh, impressive, but it is also, you know, kind of flying on one engine."
+    },
+    {
+     "text": "當你背著 30 兆美元的債務，每一個基點都很要緊。",
+     "by": "Mike Feroli（JPMorgan）",
+     "original": "when you have a uh uh a a a debt of 30 trillion, every basis point is going to matter, right?"
+    },
+    {
+     "text": "這是個難得的機會，我們可以告訴客戶：股票很好，債券更好。",
+     "by": "Kagi Chatri（BlackRock，轉錄拼寫）",
+     "original": "it's a really incredible opportunity where we get to tell clients, equities are great, bonds are greater."
+    },
+    {
+     "text": "Fed 向來喜歡事情平順一點、溫和一點，而不是像現在這樣的狂熱。",
+     "by": "Jim Bullard（前聖路易 Fed 總裁）",
+     "original": "the Fed always likes things to be smoother, more tempered, you know, more not not a frenzy like we have now."
+    }
+   ]
+  },
+  {
+   "id": "oddlots-1",
+   "trackId": "1000798666995",
+   "showKey": "oddlots",
+   "show": "Odd Lots",
+   "title": "Odd Lots｜華爾街現在到底怎麼看 AI 交易",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "What Wall Street Really Thinks About the AI Trade Now"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id1056200096?i=1000798666995"
+    }
+   ],
+   "published": "2026年10月29日｜片長 41 分鐘",
+   "minutes": 41.2,
+   "sourceLayer": 2,
+   "hosts": "Tracy Alloway、Joe Weisenthal",
+   "guest": "Barclays 全球股票戰術策略主管 Alex Altmann",
+   "source": "podfetch 稿（Gemini 語音轉錄，3 段，completeness 1.02、status OK）；無官方稿。片頭廣告與節目宣傳 [00:00]–[01:13]、中段廣告 [13:15]–[14:11] 與 [22:12]–[22:57]、片尾宣傳與廣告 [42:03]–[43:56] 不作內容；[14:11] 回到正題時 Joe 的提問從句中接起，開頭幾秒可能落在廣告處。末端時間戳溢出片長（[43:56] 對 41:10）經判讀為時間戳／音檔長度差異而非自編段，正文採用至 [41:55]。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id1056200096?i=1000798666995",
+   "chars": 3131,
+   "summary": "本集最尖銳的張力是：華爾街對 AI 的共識仍壓倒性看多，但 Barclays 的 Alex Altmann 認為這正是泡沫週期的「否認期」。融資裂縫已經從周邊出現——Cipher 發可轉債重挫股價、牽連 CoreWeave 債券，資料中心債與超大型業者投資級債利差早已走寬——Barclays 調查卻只有約六成投資人承認 AI 融資是問題。他用兩組數字支撐「錢不是無限的」：2026 年淨發行量與利率的歷史關係徹底瓦解，而標普 500 一年淨利只有約 5 兆美元，撐不起動輒數兆的 AI 支出敘事。反方證據就在錄音當下出現：Azure 成長 48%、Google Cloud 營收翻倍，Anthropic S-1 營收亮眼。兩邊的交會點是分化——現金火山型的超大型業者撐得住，靠槓桿的 neo cloud 才是矛尖；而指數層面的平靜，只是多經理人基金擁擠交易與 AI 因子劇烈輪動相互抵銷的結果。",
+   "guests": [
+    {
+     "name": "Alex Altmann",
+     "affiliation": "Barclays"
+    }
+   ],
+   "topics": [
+    "AI資本支出",
+    "信用與債市",
+    "美股大盤"
+   ],
+   "quality": {
+    "completeness": 1.02,
+    "status": "OK",
+    "speakerNote": "主持人與 shows.json 候選相符：Tracy Alloway（[01:13] 自我介紹，第一段 Speaker 4）、Joe Weisenthal（[01:16]，第一段 Speaker 5）；來賓 Alex Altmann 為第一段 Speaker 6。講者編號逐段重編且不可靠：第二段（[20:00]–[39:47]）Speaker 1、Speaker 2 都混雜 Altmann、Joe、Tracy 三人，[23:23] 的 Speaker 3 與片中廣告配音同號；第三段 Speaker 1＝Tracy、Speaker 2＝Joe（依片尾自我介紹）。第一段也有併行：[03:29] 標為 Speaker 6 的是主持人提問、[18:12] Speaker 4 一行後半是 Joe 的回應、[10:16] Altmann 長段夾有主持人插話。第二、三段歸屬依上下文判定；無法確定是 Joe 或 Tracy 的發言（[28:01] 的提問、[29:49] 甲骨文補充、[30:30] 波動提問）正文寫「主持人」。片尾稿內誤作「Joe Wisenthal」「All Thoughts」，為轉錄誤聽。",
+    "timestampNote": "末端時間戳 [43:56] 溢出片長 41:10（約 1.07 倍）。判讀為時間戳／音檔長度差異，不是自編段：第三段 [40:00]–[43:56] 675 詞，段內語速約 172 wpm 與全集一致；[39:47]/[40:00] 段界在 Tracy 句中（service/says）無縫接續；講者未換組、內容與前文不矛盾；[42:03] 起是格式正常的 Odd Lots 片尾（製作人、Discord、電子報）與 Bloomberg Tech 廣告；全集 completeness 1.02 也不支持多出一大段。推測下載音檔含動態插入廣告而長於目錄片長。正文採用至 [41:55]，[42:03] 以後為片尾與廣告不採。第一段時間戳有壓縮：[13:15] Barclays 廣告佔 51 秒而 [14:06] Ritholtz 廣告只佔 5 秒，[19:02]→[19:20] 約 80 詞擠在 18 秒，不依時間戳切章節。循環重複三訊號：行內——328 行／9,247 詞、每行 28.2 詞，最長一行 666 詞為 [06:02] Altmann 正常長獨白（夾主持人插話），無短句重複；行級——相鄰相同行 2 處為 [26:51]/[26:52]「Sorry.」與 [35:28]/[35:29]「Azure.」，皆正常對話，未見原地打轉；區塊級——溢出已如上判定非循環。未見自編段或段尾截斷。"
+   },
+   "takeaways": [
+    {
+     "title": "融資裂縫從周邊開始，neo cloud 信用是金絲雀",
+     "body": "Altmann 把 neo cloud 視為周邊、超大型業者視為核心，類比金融海嘯先從次貸工具出事。Cipher 可轉債牽連 CoreWeave 債券、資料中心債與超大型業者投資級債利差緩步走寬，都是早期訊號。投資人不該因為核心公司財報亮眼就假設風險被隔離，neo cloud 的債券、CDS 與發行條件值得當成領先指標追蹤。"
+    },
+    {
+     "title": "資本競爭讓利率重新變得重要",
+     "body": "Barclays 研究顯示 2026 年淨發行量與兩年期殖利率的歷史關係徹底瓦解，今年投資級加高收益淨發行約 1.1 兆美元，AI 必須與其他產業搶錢。「AI 對高利率免疫」的說法已被 Meta 財報與 neo cloud 融資困難推翻。對投資人而言，要把 AI 鏈依資金來源分層：現金火山型業者與靠槓桿擴張的業者，對利率與信用環境的敏感度完全不同。"
+    },
+    {
+     "title": "營收缺口才是長期問題，轉機在消費端",
+     "body": "標普 500 一年淨利約 5 兆美元，對照動輒數兆的 AI 支出與可服務市場敘事，錢要從哪來仍無解；開放權重模型市占攀升、token 成本暴跌、在地運算興起，也壓縮前沿模型的定價空間。Altmann 認為企業營收在市場要的時間框架內補不了缺口，真正的轉折訊號是消費端殺手級應用，或某家超大型業者收手資本支出——兩者都值得列入觀察清單。"
+    },
+    {
+     "title": "指數平靜是假象，風險藏在因子擁擠",
+     "body": "多經理人基金資產超過 1 兆美元、加上槓桿，擁擠交易讓波動表現在劇烈的因子輪動而非 VIX，Alphabet 跌 7.9%、微軟漲 6.4% 在指數層面相互抵銷就是例證。明年標普獲利成長約 75% 與 AI 生態系相關，指數投資人其實已高度押注 AI；以為持有大盤就分散了 AI 風險，是需要重新檢視的假設。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "開場：在 FOMC、Anthropic S-1 與甲骨文之間做一次體檢",
+     "paragraphs": [
+      "本集錄於 10 月 28 日。Joe Weisenthal 坦言自己「跟丟了劇情」：共識交易是什麼、大家在怕什麼、CoreWeave 這類資料中心公司怎麼了，他需要一次現實檢查。Tracy Alloway 說這次時機剛好：FOMC 剛決議，本週稍早 Anthropic 遞出 S-1，甲骨文又在聯準會記者會期間釋出指引、股價大漲 12%。Joe 認為超大型雲端業者的資本支出與舉債規模，在多數人心中遠比聯準會決議重要。來賓是 Barclays 全球股票戰術策略主管 Alex Altmann。"
+     ]
+    },
+    {
+     "heading": "共識仍然看多，但已進入「否認期」",
+     "paragraphs": [
+      "Altmann 說共識很清楚：AI 列車已經開動、不會停。若逼美、歐、亞各類投資人選邊，答案會壓倒性看多。但泡沫週期圖上，反轉後的第一段下跌就叫「否認」；他不說泡沫已破，但把兩種敘事並排，現在正是否認期，因為所有人仍極度看多。",
+      "他舉韓國記憶體股為例：有人拿 SK 海力士等只有三倍本益比當買進理由，但這在終端機上一查就有。本益比這麼低，是因為市場認定記憶體正處獲利高峰，而老規矩是不要在循環股獲利高點買進。Joe 據此歸納：市場其實並不期待記憶體公司的 EPS 持續暴增。"
+     ]
+    },
+    {
+     "heading": "周邊與核心：neo cloud 是矛尖",
+     "paragraphs": [
+      "既然看多，為何大家在傳 CoreWeave 的 CDS 圖？Altmann 界定：neo cloud 受託建置算力再賣給預定或投機性的客戶，多數幾乎沒有營業現金流，是 AI 融資光譜中風險最高的一端；Google、Amazon 則是「現金火山」，完全不同類別。他刻意不聳動地類比金融海嘯：問題不是從系統性重要銀行開始，而是早 12 到 24 個月從次貸工具開始。",
+      "他說 neo cloud 的融資問題已經明擺著：由比特幣挖礦轉型的 Cipher 因無法直接進債市而改發可轉債，重挫自家股價；CoreWeave 債券隨之下跌並非自身消息，而是投資人把兩件事連起來。資料中心債（例如 Meta 那一檔）早已擴大利差數月，超大型業者投資級債也在走寬。Barclays 調查中只有約六成投資人認為 AI 融資會是問題；他認為答案應是 100%，這就是「否認一個已經到來的現實」。"
+     ]
+    },
+    {
+     "heading": "錢不是無限的",
+     "paragraphs": [
+      "Tracy 補充，CoreWeave 下跌也因執行長受訪時談到近乎無上限的借款；她問市場是否正從「錢似乎無限」轉向更挑剔、不是人人借得到的時期。Altmann 說正是如此：他在全球拜訪投資人時聽到幾乎一致的看法是 AI 對高利率免疫，這顯然不是真的，Meta 財報也凸顯融資有其限制。",
+      "Barclays 夏天回溯約 1995 年以來投資級、高收益、公債與股票的年度淨發行量占市值比，發現利率降則發行增，關係穩定——直到 2025、2026 年。對照兩年期殖利率，2026 年關係徹底瓦解，相對基準利率的發債量幾乎是有資料以來最高；網路泡沫時至少美國政府還有盈餘。重點是資本競爭：AI 不是在真空中發債，其他產業也要融資，Barclays 預估今年投資級加高收益淨發行約 1.1 兆美元，而資金有限。"
+     ]
+    },
+    {
+     "heading": "營收要從哪裡來",
+     "paragraphs": [
+      "Joe 替多頭發問：GPU 與電力總有人付錢，不會歸零，資本為何猶豫？Altmann 說「蓋了就會有人來」沒錯，但一是矛尖出現金絲雀就該注意，二是營收。Barclays 8 月底報告的起點是 SpaceX 喊出約 30 兆美元的可服務市場，約等於美國 GDP；而微軟與蘋果自 1990 年以來經通膨調整的累計營收加起來不到 10 兆。標普 500 營收約 17 兆、費用 11 到 12 兆，淨利只有約 5 到 5.5 兆；Ramp 與 OpenRouter 數據也顯示 token 支出近期趨平。",
+      "Joe 表明 Barclays 參與 Anthropic IPO，所以不問來賓，但他說 S-1 營收數字好得驚人，而 OpenRouter 主要反映找便宜中國模型的使用者。Tracy 回應，S-1 確實看得到獲利進展，但「數十億的盈餘對上數兆的估值」正是市場爭論的缺口。"
+     ]
+    },
+    {
+     "heading": "開放權重、在地運算與消費端殺手級應用",
+     "paragraphs": [
+      "談到開源與前沿模型之爭，Altmann 承認這與多頭敘事有點矛盾：開放權重模型市占從約兩成升到最高約八成，token 成本只剩約百分之一，可能是史上通縮最快的資產之一；不過 GPU 租金一直在漲，所以 AI 不會水漲船高，而會分化。他更在意開放權重加上在地執行：如同 2007 年沒人相信 iPhone 能有今天的算力，要代理幫你管信箱、寫客訴信，不必呼叫俄亥俄州資料中心的 Hopper 或 Vera Rubin，明年手機晶片就做得到。",
+      "Joe 引述舊金山的「前沿匯點」說法：真正需要博士級智慧的可能只有生技、晶片設計、量化交易等少數產業。Altmann 說未來難料，但讓他重新轉為積極的，會是消費端殺手級應用；企業營收在市場要的時間內補不了缺口，而消費者暫時不需要前沿模型。最大的變革常是現有技術的新用法，未來 12 到 18 個月普及的「百 IQ 代理工作流程」可能才是下一波上升來源。Joe 分享用 ChatGPT 從散落郵件整理孩子行程，Altmann 反問這一個月值多少錢——這決定營收輪廓。"
+     ]
+    },
+    {
+     "heading": "什麼會嚇到投資人",
+     "paragraphs": [
+      "主持人問下一個打擊多頭信念的會是什麼。Altmann 說是某家超大型業者收手資本支出，但這輪財報可能還太早，也許要等到明年；上一輪是 Google 說資本支出會顯著更高，才點燃這波熱情。越靠近西岸技術震央，公司與投資人越買帳，有回音室味道。主持人補充甲骨文表示到明年 5 月額外募資限在約 200 億美元，市場解讀為好事。Altmann 說結果是標普幾乎不動：對超大型業者好的事對記憶體股不利，資金劇烈輪動，像「電話亭裡的刀戰」。"
+     ]
+    },
+    {
+     "heading": "波動都在，唯獨不在波動指標裡",
+     "paragraphs": [
+      "主持人問為何到處都是波動，已實現波動與 VIX 卻不高。Altmann 說結構面是多經理人基金資產從 2020 年約 3,000 億美元膨脹到超過 1 兆美元，再加槓桿；高利率對多空策略特別有利，實際動用的只是保證金，其餘資金可停在高息工具賺票息。但資金三倍以上，可交易標的卻沒變多，大家又都用相同風格因子中和風險，只是製造不同形式的擁擠。這些資金對指數相對中性，所以波動不在指數，而在劇烈的因子輪動。",
+      "技術面是「AI 因子」：投資人一直問他能否描繪它，答案是不能，因為它隨敘事改變。年初很多人想放空軟體股，那是 AI 因子的一部分，如今軟體股接近 12 個月高點，基金因此難以避險。說到底不是做多就是做空 AI，而過去三年做空 AI 大概都不賺錢。"
+     ]
+    },
+    {
+     "heading": "錄音中途的財報與標普的「Kospi 化」",
+     "paragraphs": [
+      "錄音途中 Alphabet 與微軟公布財報：Alphabet 跌 7.9%，排除流量取得成本的營收不如預期；微軟漲 6.4%，Azure 成長 48%，高於 Bloomberg 彙整預估的 44.8%；Joe 唸出 Google Cloud 營收約 300 億美元、成長 103%，自己都不敢相信。兩檔巨型股反應劇烈卻相互抵銷。Altmann 說有現金火山本業的公司才有本錢進行這場美國史上最大的資本支出實驗，他算出約占 GDP 12%、相當於「兩個荷蘭」，金字塔與長城之外想不出前例。他也說明年標普獲利成長約三分之二來自半導體，加上 AI 生態系約 75%；Joe 說標普已變成韓國 Kospi。"
+     ]
+    },
+    {
+     "heading": "主持人收尾",
+     "paragraphs": [
+      "Tracy 認為關鍵是分化：市場從資本充裕轉向更挑剔。Joe 說「利率不重要了」是經典的這次不一樣——成長 44% 時誰在乎利率 5% 或 5.25%？但至少在邊際、在 neo cloud 這類槓桿公司身上，利率顯然重要。Tracy 補充，超大型業者的獲利前提是其他企業買服務提升生產力，這還沒反映在那些企業的獲利上，指數卻越來越押注 AI。Joe 說今年規模化賺到錢的投資人多少都靠 AI 因子，並提到史丹佛一位資工學生覺得華爾街還不夠信 AI，認為連討論 GPU 是否過剩都代表沒搞懂。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "我們現在正處於否認期，因為每個人都還極度看多。",
+     "by": "Alex Altmann",
+     "original": "we're in the denial phase right now because everyone is still extremely bullish."
+    },
+    {
+     "text": "所以 AI 現在發生的事，在我看來幾乎就是在否認一個已經到來的現實。",
+     "by": "Alex Altmann",
+     "original": "So what's happening in AI to me is evidence of like almost a denial of of a reality that's already here."
+    },
+    {
+     "text": "以前幾乎有個普遍看法——你們應該也聽過——AI 對高利率免疫。",
+     "by": "Alex Altmann",
+     "original": "And there was this almost universal view that, and you guys would have heard it as well, AI was immune to high interest rates."
+    },
+    {
+     "text": "結果就是持續的劇烈輪動，我稱之為電話亭裡的刀戰。",
+     "by": "Alex Altmann",
+     "original": "so you just get this constant violent rotation and I I call it like a knife fight in a phone booth"
+    },
+    {
+     "text": "但那是投資人對自己說的謊。",
+     "by": "Joe Weisenthal",
+     "original": "But that is a lie that investors tell themselves."
+    }
+   ]
+  },
+  {
+   "id": "profg-1",
+   "trackId": "1000798670223",
+   "showKey": "profg",
+   "show": "Prof G Markets",
+   "title": "Prof G Markets｜微軟漲、Google 跌：投資人為何對大型科技股兩極分化",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Microsoft Rises, Google Tanks: Why Investors Are Polarized On Big Tech"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id1744631325?i=1000798670223"
+    }
+   ],
+   "published": "2026年10月29日｜片長 36 分鐘",
+   "minutes": 36.1,
+   "sourceLayer": 2,
+   "hosts": "Ed Elson",
+   "guest": "DA Davidson 科技研究主管 Gil Luria（談微軟與 Google 財報）、摩根士丹利美國首席經濟學家 Mike Gapen（談聯準會決議）",
+   "source": "podfetch 稿（Gemini API 語音轉錄，第 2 層）。稿從 [02:08] 開始，前 2 分 08 秒不在稿內；[19:57] Commute 廣告句中斷、下一行 [21:01] 才接回，約 1 分鐘缺口（皆為片頭／廣告位置，未據以生成內容）；Luria 第一段回答開頭在 [03:45]–[03:47] 間被截掉半句。末端 [36:04]–[37:51] 判定為時間戳拉伸（內容是同一段評論的延續與正常片尾工作人員名單），照常使用。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id1744631325?i=1000798670223",
+   "chars": 2814,
+   "summary": "同一天公布財報，微軟漲、Google 跌，Gil Luria 給的分水嶺不是 AI 成長，而是錢從哪裡來：微軟靠向 neo cloud 租溢出算力、維持正的自由現金流，不必看資本市場臉色；Google 雲端翻倍，卻被最賺錢的搜尋突然放緩與負 91 億美元的自由現金流拖累，還得持續發債增資。他進一步指出 AI 建置的資本是有限的，巨頭仍募得到，壓力會先落在 Oracle 與價值鏈下游的小型業者。下半場 Morgan Stanley 的 Mike Gapen 解讀聯準會在兩票主張升息的異議下按兵不動，認為這是對抗能源衝擊「第二輪效應」的慢速升息策略，但主席華許沒有把理由說清楚；Ed Elson 則以微軟對 27% 員工提出自願離職方案為例，主張這已不是修正疫情期間過度招聘，而是 AI 取代科技業人力的結構性訊號。",
+   "guests": [
+    {
+     "name": "Gil Luria",
+     "affiliation": "DA Davidson"
+    },
+    {
+     "name": "Mike Gapen",
+     "affiliation": "Morgan Stanley"
+    }
+   ],
+   "topics": [
+    "AI資本支出",
+    "聯準會與利率",
+    "個股拆解"
+   ],
+   "quality": {
+    "completeness": 0.77,
+    "status": "OK",
+    "speakerNote": "主持人依稿判定為 Ed Elson（[02:10] 自我介紹、[37:51] 結尾再報名）。shows.json 候選的 Scott Galloway 未參與本集，只出現在 [17:43] Pivot 巡演廣告裡（與 Kara Swisher 同台），不可寫成主持人。Luria 訪談段（[02:16]–[19:57]）全無講者標記，問答歸屬依語意判定（提問為 Elson、回答為 Luria），金句據此標注並註明判定方式。Gapen 段標記有錯置：[27:31] 突然出現的「Speaker 3」內容是 Gapen 回答的延續；[31:05]–[31:41]、[33:12]、[33:38]–[33:43] 標為 Speaker 1 的內容（核心 PCE 2.6%、12 月與 3 月升息預估、新主席適應期等）依語意屬 Gapen，正文依此歸屬；[34:34]–[34:39] 標 Speaker 1 的「說很多卻什麼都沒說」應為 Elson。來賓姓名稿內同時作 Mike Gapen 與 Michael Gapen；Fed 主席稿內多拼作 Walsh、一處作 Warsh。",
+    "timestampNote": "稿從 [02:08] 開始，前 2 分 08 秒不在稿內（推測為片頭／廣告，未據以生成內容）；[19:57] Commute 廣告句中斷，[21:01] 才接回，約 1 分鐘缺口位於廣告時段；[03:45]–[03:47] Luria 第一段回答開頭被截掉半句。completeness 0.77（5,875／7,596 詞）的缺口主要在上述廣告與片頭位置，正文論點未見語意斷裂。末端時間戳 [37:51] 溢出片長 36:04 約 5%：[36:04]–[37:51] 是 Elson 同一段評論的連貫延續與正常片尾工作人員名單，講者沒換、內容不矛盾，判定為時間戳拉伸而非自編段，照常使用。循環重複三訊號：行內——388 行／約 6,637 詞、每行 17.1 詞、最長 66 詞，正常；行級——通讀未見原地打轉；區塊級——溢出僅約 5%，且溢出段內容不重複，無訊號。"
+   },
+   "takeaways": [
+    {
+     "title": "自由現金流成為大型科技股的評價分水嶺",
+     "body": "微軟靠向 neo cloud 租溢出算力加上本業較高獲利，維持正的自由現金流，不必發債增資；Google、Meta、亞馬遜則已轉負或需外部融資。投資人比較 hyperscaler 時，除了雲端成長率，應把自由現金流正負與融資需求列為同等重要的指標，市場目前顯然在為後者定價。"
+    },
+    {
+     "title": "Google 的風險在搜尋而非雲端",
+     "body": "雲端翻倍（年增 103%）抵不過核心搜尋成長突然放緩，而 Meta 廣告成長是 Google 的兩倍多，顯示問題是 Google 特有、不是廣告景氣。一季不足以定論，但接下來幾季的搜尋成長率是驗證「AI 侵蝕搜尋」假說的關鍵數據，持有者應盯緊而非只看雲端。"
+    },
+    {
+     "title": "AI 建置資本有限，壓力先落在價值鏈下游",
+     "body": "Luria 認為投資等級巨頭仍募得到錢，只是成本會反映在殖利率與股價；真正危險的是 Oracle 這類已被迫改走供應商融資的業者，以及更下游的小型 neo cloud。部分 CDS 走高與債券高殖利率是資本市場開始緊縮的早期訊號，值得追蹤。"
+    },
+    {
+     "title": "Fed 走慢速升息，通膨黏到明年第一季",
+     "body": "Gapen 預期 12 月與明年 3 月各升息一次，核心 PCE 年底約 3%、明年底約 2.6%，仍高於目標。對利率敏感資產而言應準備「更高、更久」；而華許少說話的風格與委員會內部分歧，意味政策訊號的不確定性與市場波動可能偏高。"
+    },
+    {
+     "title": "AI 正在取代科技業人力",
+     "body": "微軟對 27% 員工提出自願離職，若落實人數將低於疫情前，Elson 認為這是結構性而非循環性。對投資人而言，以資本支出替代人事成本可能是巨頭支撐利潤率的手段；但目前影響限於科技業特定職位，尚未擴及整體就業數據。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "開場：兩份財報，兩種反應",
+     "paragraphs": [
+      "主持人 Ed Elson 開場（稿內 [02:10] 自我介紹）。前一交易日主要指數在聯準會決議後走高，10 年期美債殖利率上升；布蘭特原油仍在每桶約 114 美元高檔，因傳出美國可能在期中選舉後再度空襲伊朗。Oracle 預估 2029 年自由現金流轉正，股價大漲 11%。",
+      "主題是同日公布財報、反應卻南轅北轍的兩家巨頭。微軟營收年增 19%，首度單獨揭露 Azure 營收，雲端業務年增 48%，盤後一度漲 5%；Google 第三季營收成長 25%，但廣告營收不如預期、自由現金流下滑，股價一度重挫 11%。來賓是 DA Davidson 科技研究主管 Gil Luria。"
+     ]
+    },
+    {
+     "heading": "微軟：乾淨的超預期，自由現金流仍為正",
+     "paragraphs": [
+      "Luria 認為微軟是全面的乾淨超預期：逾 1,200 億美元規模的 Azure 從 42% 加速到 48%，利潤率還更好；非 AI 業務也夠好，讓營收、獲利與財測都優於預期。更關鍵的是，在亞馬遜、Google、Meta 都已做不到的情況下，微軟自由現金流仍是正的，雖然年減 27%。",
+      "他解釋微軟的做法不同：只自建足以掌握能見度的容量，其中一大部分簽 15 年長約，其餘以短約向 neo cloud（新興 GPU 雲端業者）租用溢出算力，滿足客戶又少花資本支出。加上本業更賺錢，它不必像 Google 發債又增資、或像 Meta 賣股、舉債、動用特殊目的載具那樣仰賴資本市場。",
+      "Elson 追問這是「看起來比較好」還是真的更強。Luria 說是真的：微軟長短期容量兼採，Azure 仍在加速，AI 也帶動企業軟體、基礎設施與應用軟體銷售，推動 Windows 與 Office 客戶升級。只要花的不超過賺的，就不必受制於資本市場——而市場這週對 Meta 做了什麼，大家都看到了。"
+     ]
+    },
+    {
+     "heading": "Google：雲端翻倍，搜尋卻突然放緩",
+     "paragraphs": [
+      "Google 的問題不在雲端。雲端營收年增 103%、規模翻倍到約 1,200 億美元，部分來自 TPU 銷售，很大一塊是 Anthropic 的動能：即使成長放緩，Anthropic 仍以轉介費與運算費把大量營收帶進 Google Cloud。Luria 說，若只公布這部分，股價會是漲的。",
+      "癥結是核心廣告，尤其是搜尋。市場長期擔心「人們不再 Google、改用 GPT」，過去幾年 Google 都化解了疑慮，這一季搜尋成長卻突然放緩；公司歸因於基期偏高，但沒人料到。這是 Google 史上最賺錢的生意與核心現金來源。問題也不在廣告市場：Meta 上週成長加速到十幾％高段，速度已是 Google 的兩倍多，正在搶市占。",
+      "Elson 指出搜尋營收沒有衰退、只是成長放緩，對這麼大的業務不意外。Luria 同意只有一季、言之過早，不必恐慌；但這正是 ChatGPT 問世時暴露的那根神經。Google 在搜尋曾有九成以上市占，在聊天機器人卻只排第二。它在 AI 流程中賣廣告做得不錯，但若使用者行為轉變正在加速，可能終究不夠。"
+     ]
+    },
+    {
+     "heading": "AI 建置的資本是有限的",
+     "paragraphs": [
+      "Google 單季資本支出超過 510 億美元（前季 450 億），自由現金流轉負至負 91 億美元。Luria 說照此速度它得回到資本市場，且公司已重申明年大增資本支出，市場解讀是從約 2,000 億增至 3,000 億美元；資金仍可得，但會壓在殖利率與股價上。Google 也開始把需求外包，等於追隨微軟三年前的路，代價是利潤率下降。",
+      "Elson 問：巨頭越來越依賴資本市場，Meta 據他理解超額認購五倍、募到約 850 億至 950 億美元，若音樂停了它們是否就完了？Luria 說要看「它們」指誰。資本有限，Meta 在申報文件裡就說要趁錢還在先拿；SpaceX、Google 剛募完，Anthropic 三週後也要大舉募資。從部分 CDS 走高與某些債券的極高殖利率看，有些角落可能已開始凍結。",
+      "他的排序是：微軟不需要資本；亞馬遜、Google、Meta 仍是投資等級，一定限度內募得到；該擔心的是其他人。Oracle 已把募資縮為 200 億美元（股債各 100 億），不是不缺錢，而是改走 B 計畫：客戶自備晶片、供應商融資。再往下游到稿內轉錄作「Corov」的小型業者（疑指 CoreWeave），他不確定錢從哪來。"
+     ]
+    },
+    {
+     "heading": "聯準會按兵不動：理由去哪了",
+     "paragraphs": [
+      "下半場談 Fed。Fed 如預期按兵不動，但理事 Lisa Cook 與克里夫蘭聯準銀行總裁 Beth Hammack 投反對票、主張升息一碼，是 Cook 2022 年上任來首次異議。主席凱文・華許（稿內多拼作 Walsh）稱部分企業與家庭的信用條件已收緊，聲明則把經濟從「穩健」上調為「強勁」；明年起八次會議中有一次專談長期策略。交易人在 Kalshi（稿作 Kelchi）押 12 月升息機率 80%。來賓是摩根士丹利美國首席經濟學家 Mike Gapen。",
+      "Gapen 認為最突出的是主席沒給出令人信服的解釋：成長強、勞動市場穩、通膨高於目標，為何不動？他向來不愛多說，但向市場說明決策理由本是最容易做到的事。Elson 則質疑有政治動機：這是期中選舉前一週，總統又不喜歡升息。",
+      "Gapen 的解讀是：多數委員認為通膨主要來自供給面，升息不會讓市場多出石油，要做的是防止能源價格外溢到其他商品，即對抗「第二輪效應」，所以升得較少並觀察外溢。Elson 不買帳：Fed 先前已升過息，現在又說對油價無效，不連貫。Gapen 回應，大幅升息能快速壓低通膨但經濟代價高；委員會要的是適度再校準，利率該更高，但不必每次會議都升。"
+     ]
+    },
+    {
+     "heading": "2% 目標、通膨路徑與新主席的作風",
+     "paragraphs": [
+      "對 Elson「2% 永遠達不到」的懷疑，Gapen 說目標可行：解放日關稅前通膨本在下降，歐洲已回到目標，若無關稅、俄烏與中東衝突的供給衝擊，美國可能已接近 2%。但說了要達標，行動就得跟上，今天的訊息有矛盾。他預期核心 PCE 年增約 3.1%、年底約 3%，第一季受「殘餘季節性」偏高，明年底約 2.6%；Fed 將在 12 月與明年 3 月各再升息一次。",
+      "談華許，Gapen 說他明顯想少說話，令習慣大量資訊的市場挫折；他以改革者自居，想把偏離核心原則的機構拉回來，而其他 FOMC 成員仍照老方法做事，訊息難免分歧。不過新主席通常要六個月到一年才發展出自己的風格，初期顛簸並不罕見。"
+     ]
+    },
+    {
+     "heading": "評論：微軟自願離職方案與 AI 取代人力",
+     "paragraphs": [
+      "最後是 Elson 的評論。微軟宣布對全球 27% 員工提供自願離職方案，等於付錢請近三分之一員工離開。七月它才以 AI「改變工作方式」為由裁員近 5,000 人，九月季資本支出應超過 500 億美元，很難不讓人覺得支出正排擠薪資。反方說法是疫情期間過度招聘，微軟疫後兩年增加近 6 萬人，這只是循環性修正。",
+      "Elson 的反駁是：若真減掉 27%，總人數會低於疫情前，這不像修正過度招聘，而像 AI 的結構性後果。至於取代員工的是 AI 本身還是 AI 的成本，他反問有何差別。他也強調 AI 對美國整體就業的影響幾乎可忽略，但在這個產業、這類職位已開始顯現；這次宣布等於承認了用 AI 取代人力的目標。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "如果人們不再 Google、改用 GPT，就意味廣告賣得更少。過去幾年他們都能化解這些疑慮，讓 Google 搜尋保持不錯的成長，但這一季看起來突然放緩了。",
+     "by": "來賓 Gil Luria（DA Davidson；此段稿內無講者標記，依問答結構判定）",
+     "original": "If people stop Googling and start GPT-ing, that means less ad sales and they've been able to assuage those concerns for the last couple of years and keep nice growth rates within Google search, but this quarter it appeared to abruptly slow down."
+    },
+    {
+     "text": "大家都花很多錢，但微軟花得稍微負責一點，而有時候光是這樣，就足以贏得投資人的肯定。",
+     "by": "來賓 Gil Luria（DA Davidson；此段稿內無講者標記，依問答結構判定）",
+     "original": "They're all spending a lot, but Microsoft's doing it a little bit more responsibly and and sometimes that's all you need to get the credit from investors."
+    },
+    {
+     "text": "一旦越過他們、往價值鏈下游走，碰到那些小咖，我不確定資金要從哪裡來。",
+     "by": "來賓 Gil Luria（DA Davidson；此段稿內無講者標記，依問答結構判定）",
+     "original": "Once you start getting past them in the value chain, in the food chain, and you get to the ankle biters like Corov, I'm not sure where the capital's going to come from."
+    },
+    {
+     "text": "換句話說，Fed 升息並不會讓市場多出石油。",
+     "by": "來賓 Mike Gapen（Morgan Stanley）",
+     "original": "In other words, the Fed raising rates doesn't bring more oil to markets."
+    },
+    {
+     "text": "換個方式說，這看起來不像是在修正過度招聘。",
+     "by": "主持人 Ed Elson",
+     "original": "Put another way, that doesn't look like a correction to an overhiring problem."
+    }
+   ]
+  },
+  {
+   "id": "twentyvc-1",
+   "trackId": "1000798662966",
+   "showKey": "twentyvc",
+   "show": "20VC",
+   "title": "20VC｜Anthropic 遞出 S1 衝刺兩兆 IPO｜Instinct 傳募 300 億｜微軟 27% 員工收到離職方案、Meta 發股籌 950 億資本支出",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "20VC: Anthropic Files S1 Ahead of $2TRN IPO | Instinct's Rumoured $30 Billion Fundraise | Microsoft Laysoff 27,000 While Meta Taps Equity Markets for $95 Billion Capex Spending Spree"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id958230465?i=1000798662966"
+    }
+   ],
+   "published": "2026年10月29日｜片長 60 分鐘",
+   "minutes": 60.1,
+   "sourceLayer": 2,
+   "hosts": "Harry Stebbings、Jason Lemkin、Rory O'Driscoll",
+   "guest": "",
+   "source": "podfetch 稿（Gemini 語音轉錄，manifest status OK、completeness 1.14）。[1:00:02]–[1:03:12] 位於片尾廣告結束之後、超出片長 60:04，內容與本集矛盾，判為轉錄自編段，整段未採用（第四轉錄段，[1:00:00] 起）。開場 [01:21]–[03:58] 與片尾 [57:26]–[1:00:01] 為贊助廣告，未摘譯。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id958230465?i=1000798662966",
+   "chars": 5251,
+   "summary": "這一集的張力在於：Anthropic 的 S1 好到讓唱衰者閉嘴（五年走到 IPO、帳上兩千億美元現金、淨收入留存率 900%），但同一份文件也揭露這門生意的殘酷——八成營收來自不到六個月的模型、七八成算力花在訓練，連 Anthropic 的晶片債都得靠 Broadcom 擔保。主持群的答案是 AI 支出正從舉債轉向股權化（Anthropic、Meta、Google 輪番發股），而帳單的另一半將在 2027 年折舊入帳時由員工支付——微軟對 27% 員工開出離職方案就是預演。後半段的模擬投委會把私募狂熱具象化：Instinct 300 億、OpenAI 1.25 兆，Jason 的「100 天規則」與 Rory 的報酬矩陣，正是這個 risk-on 市場裡紀律與錯失恐懼的拉鋸。",
+   "guests": [],
+   "topics": [
+    "AI資本支出",
+    "創投與私募",
+    "科技產業"
+   ],
+   "quality": {
+    "completeness": 1.14,
+    "status": "OK",
+    "speakerNote": "稿內 Speaker 編號極不穩定：同一編號在不同段落分屬不同主持人（例如 Speaker 3 在 [05:40] 是 Jason、[07:26] 是 Rory，Speaker 4 在 [14:50] 是 Harry；[20:00] 段之後 Speaker 1／2 亦多次對調），另有 [09:15]–[09:25] 標籤殘缺為「Speaker 9]」。主持人由 [00:26] Harry Stebbings 自我介紹並點名 Jason Lemkin、Rory O'Driscoll（稿作 Rory Driscoll）確認，與 shows.json 名單一致；個別發言依點名與內容判定，判定不了者未具名（如 OpenAI 執行長反省、黑色十月後半段觀點），推論市場那段以「依上下文應為 Rory」標示。金句僅取講者可由上下文確認者。",
+    "timestampNote": "末端時間戳溢出：最後時間戳 [1:03:12]、片長 60:04。判定為轉錄自編段而非時間戳拉伸：真實節目在 [57:23] 收尾、[57:26]–[1:00:01] 為片尾廣告（與開場廣告同稿，時間總長吻合片長），[1:00:02]–[1:03:12] 則在廣告之後重開一段投委會投票與 Anduril、祖克柏討論，內容與本集矛盾（Rory 對 OpenAI 案先前只說「不瘋狂」且附條件，此處直接投 Yes；把 15 億估值的軍犬新創說成 Anduril；祖克柏話題口吻與前文 Rory 的保留立場不符；結尾套語式點名）。整段未採用。循環訊號：行數÷字數 868 行／約 13.8k–16.3k 詞，每行約 16–19 詞，無行內循環；未見原地打轉；自跑 12-gram 重複只命中開場預告句與兩次廣告稿，無整段複製。[20:00] 段界一行以「of this」從句中接起，疑有數字遺失，影響輕微。標題稱「微軟裁員 27,000」，稿內實際說的是向 6 萬名員工（約 27%）提供自願離職方案，摘譯依稿。"
+   },
+   "takeaways": [
+    {
+     "title": "Anthropic S1 重設 AI 公司的估值與流動性基準",
+     "body": "營收、利潤率、現金與留存率全面優於預期，五年就走到兩兆美元級 IPO。主持群認為這會讓 LP 與創投重新評估「時間價值」：當最頂尖的案子六年內就能完整變現，10 到 18 年才分配的標的需要更高報酬才說得過去。投資人應預期上市後指數納入與散戶資金帶來的需求，但也要留意它可能吸走其他成長股的注意力與資金。"
+    },
+    {
+     "title": "模型保鮮期只有半年：規模是護城河，也是單點風險",
+     "body": "八成營收來自上市不到六個月的模型，七八成算力花在訓練，代表前沿模型公司必須持續砸百億美元級資本才能留在場上。這對能開大支票的領先者有利，對中小型 neolab 則近乎淘汰賽。投資人評估模型公司時，應把下一代模型的研發與融資能力視為核心變數，而非只看當期毛利。"
+    },
+    {
+     "title": "AI 資本支出正在「股權化」，晶片需求暫時無虞",
+     "body": "銀行消化 AI 債務已觸頂（Broadcom 需替 Anthropic 晶片債擔保），但 Anthropic、Meta、Google 等改用發股籌錢，Meta 本季更是首度資本支出超過自由現金流。對半導體與記憶體供應鏈而言，買方資金來源仍在；對大型科技股股東，則意味著稀釋與自由現金流壓力上升。"
+    },
+    {
+     "title": "2027 年折舊潮：人力成本成為守利潤的調節閥",
+     "body": "Rory 指出 2026 年買方尚未認列折舊，2027 年起將衝擊微軟、Google、Meta 的營業利益，屆時壓縮人力是最直接的手段，微軟的大規模離職方案與 Cloudflare 裁員 20% 是前兆。投資人應追蹤超大型雲端業者的折舊費用與人力費用，並留意裁員可能加劇反 AI 的政治與輿論風險。"
+    },
+    {
+     "title": "中國開放權重模型信任崩解，推論中介層風險升高",
+     "body": "Qwen 在聲稱不連網時仍回傳資料，加上 DeepSeek 遭聯邦機構封鎖，企業資安長很難再核准中國模型。這有利 Anthropic、OpenAI 等封閉模型的定價權，對仰賴中國模型多樣性的 OpenRouter、Fireworks、Baseten 等推論業者則是逆風；Jason 估開放權重份額可能半年內大幅萎縮，持有這類部位的投資人需重估成長假設。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "Anthropic S1：幾乎挑不出毛病的成績單",
+     "paragraphs": [
+      "開場 Harry 直說本週只有一件事最重要：Anthropic 遞出 S1，上半年營收 163 億美元。Rory 的評價是「幾乎每個維度都很出色」：利潤率、營業利益（連扣除股票薪酬後都是）、客戶集中度、算力效率都優於預期，現金與資產負債表更是驚人；唯一缺口是沒有揭露第三季營收。他說唱衰者至少暫時只能閉嘴，舉證責任已經落在看空的一方。",
+      "Jason 認為市場甚至還低估了 Anthropic：從創立到 IPO 只花五年，SpaceX 花了 24 年；一家從 OpenAI 出走的「賭氣創業」走到這一步，前所未見。他從流動性的時間價值切入：一般投資要 18 年才完整分配，Anthropic 不到六年就能變現，「那我何必浪費時間在要 10 到 12 年才 IPO 的案子上？」Rory 同意，這種規模、速度與報酬會讓其他一切顯得事倍功半；Bessemer 的 Byron Deeter 也在電視上說這是該公司百年來最好的投資。",
+      "現金部位是另一個亮點。Jason 說它上市前帳上已有約 1,100 億美元，募了 1,300 億只花掉一百億出頭；交易完成後現金約 2,000 億美元，是全美企業第一或第二大的現金堆。",
+      "上市反應方面，Rory 預期會很受歡迎：若在 Nasdaq 掛牌會很快進入 QQQ 相關指數，S&P 500 則有獲利門檻要等，但他認為這檔股票本身就是大家想持有的，不需要指數拉抬。Jason 判斷未來兩季不會失手：S1 的淨收入留存率高達 900%，即使扣掉試點與試用、實際可能在 300%–400%，加上品牌、Nasdaq 100 與 SpaceX 效應，「為什麼要跟它對賭？」"
+     ]
+    },
+    {
+     "heading": "隱憂：六個月的模型保鮮期與吃緊的債市",
+     "paragraphs": [
+      "被要求扮黑臉時，Rory 點出最耐人尋味的數字：八成營收來自上市不到六個月的模型。S1 沒有給出傳統毛利率，而是把算力成本放在一起，附註顯示七到八成算力花在訓練而非推論。換言之，模型造價極高、服務起來相當賺錢，但只能賣六到十二個月，接著就得砸大錢做下一代——和一套產品能賣 10 到 15 年的軟體完全不同。",
+      "他認為這可以兩面解讀：失手一次就完蛋；也可以說這對 Anthropic 反而是優勢——上半年算力花了 80 億美元、明年可能 160 億，能開出百億美元級算力支票的玩家極少，願意持續激進推新模型的領先者反而築起門檻。代價是這場賽局「光入場就要花幾十億、幾十億再幾十億」。Jason 補上 Elon 的說法：多數新創實驗室（neolab）撐不過這一輪。",
+      "Jason 認為最糟的指標不在 S1 裡：Anthropic 為了向 Broadcom 買晶片安排的債務融資，市場吃不下，最後由 Broadcom 出面擔保大部分，利率還比預期高；銀行分銷 neolab 債務也越來越難。連 Anthropic 都如此，代表後續融資正在變難。",
+      "Rory 反駁：銀行能消化的債務確實已到極限，但近幾週的真正主軸是「股權化」——Anthropic 將發行約千億美元股票、Meta 發了 700 億、Google 年初約 800 億，SpaceX 也已上市。一群資金成本低、又願意承受稀釋的公司會讓這波支出繼續下去，趨勢不會停。Elon 趁機宣稱只靠舉債的對手會死，Rory 稱這是「很 Elon 的落井下石」。"
+     ]
+    },
+    {
+     "heading": "OpenAI 的烏龍球",
+     "paragraphs": [
+      "被問到 OpenAI 執行長讀 S1 會怎麼想，回答是過去無法改變，若有自省應該大量反省；眼下只能整頓業務、收斂、盡快上市，同時用激進的價格戰打亂 Anthropic 的第三季。Jason 細數 OpenAI 的烏龍：放 Dario 出走、開除又找回執行長、非營利轉營利的風波，讓 Anthropic 在程式碼這個殺手級應用上主導近一年——在 AI 時間裡等於五到十年。"
+     ]
+    },
+    {
+     "heading": "微軟的自願離職方案與 AI 折舊帳單",
+     "paragraphs": [
+      "Harry 帶出微軟新聞：向 22.3 萬名員工中的 6 萬人提供自願離職方案，約占 27%。Jason 說不會所有人都接受，微軟先前也已裁過約一成；這是一場賽局——要對所有不想留的人開放，再猜接受率，結果可能只留住本來就要走的人。",
+      "但他認為這等於公開告訴 27% 的員工「我們不要你」，比直接裁員更像被烙上紅字。他回顧 2022 年底以來各種「人道」嘗試——不用 Slack 或 email、改成面談、避開假期——都沒有比較好；這是想要人道、結果最不人道的做法，還不如一天內再裁 9%，「用 Teams 宣布然後往前走」。",
+      "Rory 同意唯一贏家是已找好下一份工作、等於手握遣散費「買權」的人。更值得注意的是微軟認為少掉一到一成五的人也行，不知是 AI 效率還是本來就不需要。他的框架是：2026 年是黃金期，賣晶片的認列收益、買資本支出的還沒認列折舊；2027 年折舊開始打到微軟、Google、Meta，為守住營業利益只能壓人力。",
+      "Jason 擔心這會餵養反 AI 情緒，因為敘事就是「為了付 GPU 與推論，只好砍人」。他舉 Cloudflare 為教材：業績每季加速，卻在 5 月 7 日裁員 20%，至今看不出對業務有損。他稱為裁員 2.0、3.0：一部分為了付基礎設施，一部分是「受夠了表演式 AI」。",
+      "Jason 也說每場董事會都更有壓力、每個領域競爭更多，再也養不起閒人。過去 SaaS 公司以為 ARR 到幾億美元就能踏上「穩定平台」喘口氣，現在這種平台不存在——或許要到上百億以上才有——所以裁員只會加速。"
+     ]
+    },
+    {
+     "heading": "Meta 以股權籌錢，晶片股反倒受惠",
+     "paragraphs": [
+      "Harry 接著談 Meta：本週一啟動最高 950 億美元的募資，350 億普通股與特別股、600 億按市價發行計畫；同時晶片股一天蒸發 2,000 億美元市值，neocloud 股價重挫。Rory 認為這是兩件不相干的事：Meta 本季資本支出首度超過自由現金流，雖然核心業務一季仍產生約 330 億美元現金、是地球上最好的生意之一，但轉負就發股。",
+      "至於晶片，Rory 說 S1 公布後晶片股反彈，記憶體指數大漲、韓股當天漲 10%（SK 海力士）。兩週前 CoreWeave 引發恐慌，但 CoreWeave 只是兩三百億美元的公司，Anthropic 則是兩兆美元、交易後坐擁兩千億美元並要全部花在晶片上的公司。Jason 補一個反例：中國科創類指數（稿作 Star 15）今年跌 40%，AI 行情在不同市場明顯不同步。"
+     ]
+    },
+    {
+     "heading": "中國開放權重模型的信任危機",
+     "paragraphs": [
+      "DeepSeek 募得約 150 億美元，是中國史上最大私募輪，主要投資人包括寧德時代與騰訊。Jason 的判斷是中國開放權重模型在美國「已經結束」：DeepSeek 正被各聯邦機構封鎖。更關鍵的是 Cohere 揭露的 Qwen 事件：阿里巴巴的 Qwen 模型在聲稱不連網時，仍會連到阿里巴巴位於中國與新加坡的伺服器並上傳資料。",
+      "Jason 認為 Cohere 也在為自己造勢，這多半是訓練錯誤而非刻意後門，約十萬次呼叫才發生一次；但 SaaStr 一天就跑四萬次 API，大企業一天數百萬次，可能每十分鐘就上傳一次。是錯誤還是間諜都不重要，何況可能被他國情報單位利用——沒有資安長會核准。相較之下，Anthropic 已重回聯邦 GSA 採購清單並給四成折扣，而 Kimi 對大規模使用的推論商要收約三成營收。Rory 把這比作一個會主動把來賓名單洩漏給競爭對手的實習生，並提醒 Anthropic 的 S1 風險因素自己也寫了：模型可能說謊。",
+      "Harry 追問整條堆疊：OpenRouter 這類閘道、Fireworks、Baseten 等推論業者，很大程度靠中國模型的多樣性起家，模型版圖萎縮會怎樣？Jason 指出 Elon 以 600 億美元收購的 Cursor 主要仍跑在 Kimi 等中國開源模型上，只因 Grok 還不夠好，一旦能換就會換。Rory 則認為美國必須有人做開源（例如 Nvidia），否則封閉模型的定價權只會更高——「那就更該在 IPO 買 Anthropic」。",
+      "推論市場的前景出現分歧。Jason 估計有 56.3% 機率 OpenRouter 只是一時現象：OpenAI 失手時 Anthropic 是唯一頂尖寫程式模型，中國開放權重模型才補上缺口；如今各家推出更便宜更好的模型，開放權重在 OpenRouter 的份額可能半年內從六成多掉到一成。他在投委會仍支持 Fireworks，只是承認風險在一週內明顯升高。另一方（依上下文應為 Rory）則說推論業者營收加總才約 50 億美元，封閉兩強已達千億；只要一成支出願意為省錢忍受開源的「腦力負債」，這仍是「所有市場之母」。"
+     ]
+    },
+    {
+     "heading": "「黑色十月」：人人都會被駭",
+     "paragraphs": [
+      "OpenAI 的模型與 Wiz 找出兩個潛藏十多年的 PHP 重大漏洞。Jason 說每個人都會被駭：PHP 仍占網路約四成，老舊網站比例更高，IT 團隊三年前就被裁、沒人修補，「像《駭客軍團》實境版」；每個攻擊面都會近乎即時曝光。另一觀點是能付大額贖金的目標有限，攻擊熱度可能一度趨緩，但勒索軟體正愈來愈專業化。"
+     ]
+    },
+    {
+     "heading": "私募大輪與一場模擬投委會",
+     "paragraphs": [
+      "本週私募輪：Legora 以 88 億美元估值募 5.5 億、ARR 突破 2 億；前 OpenAI 研究長 Bob McGrew 的新公司以 15 億估值募 2.32 億 A 輪；Kevin Weil 離開 OpenAI 創立 Warp Science，募 2.15 億；Flapping Airplanes 募 10 億；傳出 Instinct 以 300 億估值募資，營收倍數與上一輪相同。Jason 的疑問是股權何時會被耗盡：Instinct 需要錢付推論，不是虛榮募資，但即使拿遍主權基金，旋轉木馬總會停；他在 Instagram 發文談 Instinct，收到上千則私訊、過半想投資。",
+      "接著是半開玩笑的模擬投委會。Harry 主張毫不猶豫投 Instinct 300 億：西方等了多年的 WeChat 式超級 App（金融、身分、安全），Instinct 有小機率就是；下檔有保護，微軟等雲端巨頭會立刻收購。Jason 投下「黑石子」否決：沒有營收、毛利為負、商業模式不清，只有一個月的動能；他要求成長輪至少 100 天牽引力，以 400 億估值投 Fireworks 就符合這條規則。",
+      "Rory 把問題抽象化：一邊是已知市場、穩健成長、但有五個競爭者而上限被封頂；一邊是若成為人人都用的 iMessage 替代品就值 2,000 億美元的無上限機會。正確做法是排出三種情境的報酬矩陣：大成功、還行、失敗。",
+      "Jason 隨即提出更激進的方案：把基金的 20% 投入 OpenAI 1.25 兆美元那一輪。理由是短暫錯價——Anthropic 火熱，市場以為 OpenAI 在掙扎，數字卻不是如此，就像當年 Anthropic 1,830 億美元那一輪。他主張兩家都會成為 10 到 20 兆美元的公司，企業 AI 預算占比還會從 0.1% 升到 2%–3%，最壞情況也是賺一倍；20% 恰好是 LPA 不需 LP 同意的上限。",
+      "Rory 認為「不瘋狂」：若確定這是最後一輪私募、OpenAI 也像 Anthropic 一樣「開竅」轉向收斂，風險調整後甚至比其他標的安全；若還要無限燒錢、後面還有私募輪，就不該做。Harry 提議同時投 Instinct 與 OpenAI 當避險，被回嗆「如果這是你對避險的定義，千萬別去管避險基金」。"
+     ]
+    },
+    {
+     "heading": "軍犬、LP 情緒與市場結構",
+     "paragraphs": [
+      "Palmer Luckey 共同創立的軍犬新創（稿中名稱不一）以 15 億美元估值募資，要以基因改造培育軍犬。一位主持人（依語氣應為 Rory）坦言毫無可加的價值，「投資備忘錄大概只有一句：好酷，投 5,000 萬」。Jason 看出與 Luckey 另一家加固筆電新創的共通點：都在補國安供應鏈的主權缺口（軍犬多來自歐洲、加固筆電零件幾乎都不在美國），市場或許不大，但他有通路，能吃下整個市場。",
+      "Harry 說 LP 最常見的回饋是：每個大型平台都募得更大、花得更快、明年又要回來募。主持群的回應是大家都是巴夫洛夫的狗，三年前投 Anthropic 的感覺太好，出事前都會 risk-on。另一位主持人（依內容應為 Rory）補充：公開市場以十年期本益比看處於歷史高點，以預估本益比看卻便宜，部分因為企業認列了持有私人公司股權的一次性收益；S&P 只有四五十檔科技與 AI 股在漲，其餘約 450 檔表現平庸；IPO 稀少因為大家在等兆元級上市——所以正是平台大舉投入私募的時機。"
+     ]
+    },
+    {
+     "heading": "祖克柏與加州富豪稅",
+     "paragraphs": [
+      "Jason 認為被低估的新聞是祖克柏與董事會為了離開加州角力數月：雙方請律師談判，他甚至威脅一週內賣掉所有房產離開，除非董事會給他想要的股權。另一位主持人（依內容應為 Rory）說即使關係和睦也該各自請律師，流程是保護；加州富豪稅（5%，因投票權計算實際更高，且可能再加碼）一兩週內見分曉，「人們喜歡把錢捐掉，但不喜歡被拿走」，而不論結果，這項稅已成功趕走足夠多富豪。節目錄於週三，當晚微軟與 Alphabet 公布財報，Harry 預言它們只會花更多資本支出。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "我其實認為，這一週、乃至過去幾週真正有意思的是，我們正在把這個問題股權化。",
+     "by": "Rory O'Driscoll",
+     "original": "But I actually think the interesting thing about this week and about the last few weeks has been we're equitizing the issue."
+    },
+    {
+     "text": "這就是 AI 的帳單到期的時刻，而它將以這種方式被支付。",
+     "by": "Rory O'Driscoll",
+     "original": "And this is what this is when the bill for AI comes due and this is how it will be paid."
+    },
+    {
+     "text": "就算十萬次裡只有一次，你的機密資料在未經你知情與同意、且明明被指示不要這麼做的情況下，被上傳到阿里巴巴位於中國或新加坡的伺服器，哪個資安長會核准這個模型？",
+     "by": "Jason Lemkin",
+     "original": "It doesn't matter if one out of 100,000 times your date your confidential data is being uploaded to Chinese and Alibaba servers in Asia and China or in Singapore without your knowledge and without your consent when it's been directed not to, what CISO or CISO is going to approve this model?"
+    },
+    {
+     "text": "我願意接受這種倍數、願意擲骰子，但成長輪我要看到 100 天的牽引力。",
+     "by": "Jason Lemkin",
+     "original": "I'm willing to do the multiples, I'm willing to roll the dice, but I want 100 days of traction for a growth round."
+    }
+   ]
+  },
+  {
+   "id": "nopriors-1",
+   "trackId": "1000798684005",
+   "showKey": "nopriors",
+   "show": "No Priors",
+   "title": "No Priors｜正面挑戰 ServiceNow：Serval 執行長 Jake Stauch 談「給其他人用的 coding agent」",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Taking on ServiceNow: Coding Agents the Rest of Us with Serval Co-Founder and CEO Jake Stauch"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id1668002688?i=1000798684005"
+    }
+   ],
+   "published": "2026年10月29日｜片長 38 分鐘",
+   "minutes": 38.1,
+   "sourceLayer": 2,
+   "hosts": "Sarah Guo、Elad Gil",
+   "guest": "Jake Stauch，企業服務管理與自動化新創 Serval 共同創辦人暨執行長",
+   "source": "No Priors 2026-10-29 播出，非重播。使用 podfetch 機器逐字稿（Gemini API 轉錄，2 段，status OK，completeness 1.11）。開頭 [00:00]–[00:33] 為片頭預告剪輯，內容取自 [29:46]–[31:46] 與 [13:01]–[13:16]，不重複計入。無照缺漏處理的區間。公司名稿內轉成 Server／Serval／servile 不一，依節目標題統一寫 Serval。",
+   "url": "https://podcasts.apple.com/us/podcast/id1668002688?i=1000798684005",
+   "chars": 3660,
+   "summary": "這一集最值得讀的是一個反直覺的護城河論證：模型越強，企業越會把每個員工的權限收緊到「最小權限」，而例外的申請、核准與稽核軌跡正是 Serval 想擁有的那一層——所以 Stauch 把產品定義成「邊界」而非「智慧」，主張 AI 進步只會讓自己更不可或缺。他用同一套邏輯解釋為何不走「疊在巨頭上」或「往下打中小企業」的常見路線，而是第一天就把 ServiceNow 圈成目標：自動化本來就該用程式碼表達，過去卡在多數人不會寫，coding agent 解掉這一點後，拖拉式工作流程平台的根基就鬆動了。同時他也替 SaaS 末日論劃了線：被吃掉的是數百個點狀工具與中介軟體，ERP、ITSM、CRM 這類記錄系統不會消失、只會換一批新的在位者。成長數字（一月 20 人、現在 200 人）與「沒有產品部門」的組織設計，則是他對「生產力越高越要多雇人」的實際下注。",
+   "guests": [
+    {
+     "name": "Jake Stauch",
+     "affiliation": "Serval"
+    }
+   ],
+   "topics": [
+    "AI技術與應用",
+    "科技產業",
+    "創投與私募"
+   ],
+   "quality": {
+    "completeness": 1.11,
+    "status": "OK",
+    "speakerNote": "講者標記嚴重錯亂：Speaker 1／2／3／5 在同一人的連續發言中途頻繁切換（例如 [08:21]–[08:45] Jake 談創業計畫被拆成 Speaker 1 與 2，[12:51]–[13:26]、[14:12]–[14:22] Jake 的答覆被標成 Speaker 2，[15:23] 起的 Fox 案例被標成 Speaker 3，[06:05] 出現 Speaker 5），因此全集不依標籤歸屬，金句一律依內容（以 Serval 執行長身分的第一人稱陳述）判為 Jake Stauch，主持人提問統稱「主持人」不分 Sarah Guo 或 Elad Gil。主持人：[00:49] 開場者說「Today, Elad and I are here」，Elad 在稿內具名；另一位依節目慣例為 Sarah Guo，但稿內未出現其名字，屬依節目慣例判定；與 shows.json 候選一致。片尾 [37:44]「Thanks, Jonas」疑為轉錄錯誤，未採用。公司名稿內轉成 Server／Serval／servile、前東家轉成 Vacata／Verccata，依節目標題統一寫 Serval，前東家不具名。",
+    "timestampNote": "front matter 無 timestamp_notes。自查：（一）行內：413 行／9,710 詞，每行約 23.5 詞，最長一行 85 詞，無行內循環；（二）行級：通讀未見原地打轉，僅有 [03:08]、[03:29]、[33:05] 等短應答詞（Yes／Yeah）相鄰重複，屬正常口語；（三）區塊級：末端時間戳 [37:59] 未溢出片長 38:05。小幅時間戳回跳兩處：[03:48]→[03:36]（Mhm 插入）、[06:05]→[06:00]→[06:04]，內容連貫不影響。[19:43]→[20:00] 為轉錄段界，前後問答相接，無截斷。[27:18]→[27:46] 單行內跨 28 秒，可能有少量漏字，語意連貫。片尾 [37:43] 起為標準結尾語，其後無自編段；各段段尾亦未見自編內容。開頭 [00:00]–[00:33] 為片頭預告剪輯，與正文重複屬正常。"
+   },
+   "takeaways": [
+    {
+     "title": "AI 越強，權限治理層越值錢",
+     "body": "Stauch 的核心論證是：代理普及會迫使大企業把員工權限收到最小，例外的申請、核准與稽核變成高頻剛需。若這個推論成立，掌握提權流程與工單軌跡的平台受益於模型進步而非被它取代。投資人評估企業 AI 應用層時，可把「是否站在權限與合規的咽喉點」當作抗商品化的檢驗標準。"
+    },
+    {
+     "title": "ServiceNow 的風險在於「建置成本」被 coding agent 重新定價",
+     "body": "ServiceNow 的價值很大一部分來自可客製的工作流程平台，而客戶的怨言正是建置慢、仰賴顧問、價格逐年上漲。若自動化改以 AI 生成程式碼表達，建置成本與顧問生態系的護城河都會被侵蝕。對 ServiceNow 與其導入夥伴生態，這是值得追蹤的結構性挑戰，而非單一競品威脅；觀察點是大客戶全公司級的替換案例（本集舉 Fox）是否增加。"
+    },
+    {
+     "title": "SaaS 末日是點狀工具的事，不是記錄系統的事",
+     "body": "Stauch 認為自建主要記錄系統在經濟上多半不划算，被淘汰的會是數百個點狀 SaaS 與中介軟體，ERP、ITSM、CRM 等類別會留下、但可能換上新在位者。對投資人而言，小市值的點狀解決方案與整合中介層承受的壓力，可能大於大型平台本身；大型平台的風險則來自 AI 原生的同類取代者，而非「客戶自己寫」。"
+    },
+    {
+     "title": "企業 token 支出會回縮但總量續升，ROI 證明成為定價關鍵",
+     "body": "CIO 正從燒 token 的實驗期回縮，但多數企業才剛起步，整體支出仍預期上升；卡關的是 ROI 量化。Serval 改以工作流程執行次數計價，代表應用層正在尋找比 token 更貼近「完成的工作」的計價單位。投資人可留意應用層公司能否把產出換算成可對照人力或舊平台成本的指標，這會影響續約與擴張率。"
+    },
+    {
+     "title": "「生產力越高越要多雇人」是高速成長公司的實際下注",
+     "body": "Serval 從一月 20 人擴張到 200 人，執行長仍預期加速招聘，並取消產品部門、把決策下放給貼近客戶的工程師。這顯示至少在成長期的 AI 新創，AI 提升個人產能並未轉成縮編，而是被用來擴大野心。對評估這類公司而言，人力與營運費用的快速膨脹需搭配營收與客戶擴張數據一起看，本集並未揭露營收數字。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "為什麼挑上 ServiceNow",
+     "paragraphs": [
+      "Serval 做的是企業服務管理與自動化：員工在工作上提問、求助，把不喜歡的例行工作自動化，底層由程式碼生成代理（code gen agents）完成，正面對手是這個領域的老牌在位者 ServiceNow。Stauch 是在前一家公司發現這個題目的——那家公司把企業實體安全產品賣給 IT 團隊，他花了多年跟 IT 部門對話，最愛問「你們花最多錢、也最討厭的是什麼」，ServiceNow 常常名列前茅。",
+      "痛點不在功能不夠，而在太難建。ServiceNow 本質上是一個強大、可高度客製的工作流程自動化平台，但每個新點子都要自己實作、常常還要請顧問，結果永遠落後需求六到十二個月。做一個要用五到十年的大型入職流程還可以接受，但若想跟上源源不絕的自動化需求，它追不上；再加上價格高且逐年上漲，「跟不上業務、又越來越貴」就是使用者的主要怨氣。"
+     ]
+    },
+    {
+     "heading": "給「其他人」的 coding agent",
+     "paragraphs": [
+      "主持人點出，企業最早大規模採用 AI 的是工程師用 coding agent，Serval 則把這個類別擴張到 IT 人員與不擅長寫程式的人。Stauch 的解釋是：工程團隊敢放手用 AI，是因為有程式碼審查流程，連十九歲實習生寫出很強的東西，都要先過關才進正式環境。Serval 想把同樣的安全網帶給企業其他部門——底層是 coding agent，上面包著抽象層、護欄與控管，所有變更都走預備環境、核准與稽核軌跡。",
+      "核心洞見是：IT 其實想要自己動手建東西，而世界上多數公司沒有工程部門、只有 IT 部門，負責建置與設定公司所有技術的就是他們。所以 Serval 把自己定位為 IT 的 AI 平台，再由 IT 推廣到人資、財務、法務等團隊。後段他補充，Serval 把 IT「當大人看」：給他們工程師等級的工具、隨時看得到底層程式碼並可走完整開發流程，但也不強迫他們看懂；同一個平台要同時服務會寫程式的 IT 工程師，和永遠不想看到程式碼、卻有複雜流程要建的行銷或人資同仁。"
+     ]
+    },
+    {
+     "heading": "權限越收越緊，邊界就是產品",
+     "paragraphs": [
+      "被問到 OpenAI 等推出的個人代理會不會取而代之，Stauch 認為那些產品在消費者、中小企業乃至中型企業都很好用，但大企業的審批流程多到他自己創業前都低估了。個人的權限極其有限，就算公司准你帶自己的代理上班（很多時候不准），它可能連你的信都讀不全，能做的事非常少。Serval 因為跟 IT 合作、能用服務帳號與管理員權限串接系統，所以能讓員工透過嚴格、確定性的審批流程取得即時（just-in-time）提權，執行一次確定性工作流程，全程記錄——底層它本來就是一套工單系統。",
+      "他進一步預測，個人存取權只會越來越受控：過去多給一點權限無傷大雅，但當每個人都握有代理，稍微超出常規的權限能造成的破壞就被放大，資安風險已經在顯現。大企業的理性做法是把所有人壓到真正的最小權限，再大量處理例外。Serval 要當授予例外、設定核准程序、留下稽核與工單的那一層；他說公司不自己做模型，而是做護欄，模型越聰明，產品越強大，客戶也越想收緊邊界。"
+     ]
+    },
+    {
+     "heading": "第一天就瞄準最大的那一家",
+     "paragraphs": [
+      "Stauch 坦言他們的計畫「很妄想」：第一天兩個人在共同創辦人 Alex 家客廳，就列出所有企業軟體公司、圈起 ServiceNow，說要打敗它並做得更大。主持人指出，挑戰大型企業軟體的新創通常不是做一層疊在巨頭上的外掛（成功轉成自有平台的例子他只想得到 Veeva，稿內轉作 Viva），就是往下打中小企業與中型市場。Stauch 認為疊一層會被封頂，往下打則要等很多年；從大企業出發，產品、團隊與成長的每個決定都會根本不同。",
+      "為什麼是 ServiceNow 而不是 Salesforce？因為他們看得懂 AI 在這裡解開了什麼。他和共同創辦人很早就相信，企業自動化最好的表達方式是程式碼；拖拉式流程建構器對非技術人員太複雜、對技術人員又抽象得惱人，問題只是會寫程式的人太少。當 AI 讓任何人都能寫程式，最大的自動化平台市場自然就是取代這些龐大的老牌軟體。兩年半前 AI 寫程式還停在自動補全，他們押的是 coding agent 會變好：這是可驗證的領域，而重設密碼、取得核准這類確定性的程序腳本更好驗證。早期示範時要餵模型大量範例，後來模型強到只要 API 存在，很難找到它自動化不了的流程。"
+     ]
+    },
+    {
+     "heading": "落地：前線部署、ProServal 與不做客製",
+     "paragraphs": [
+      "Stauch 承認技術能做的遠超過企業已用到的，差距在擴散：要理解人、流程與實際存在的工作流程，仍然需要人。Serval 派「部署策略師」與前線部署軟體工程師到客戶現場導入；導入後客戶總有一長串想自動化的事，就像軟體工程一樣，工作需求是無限的，所以又組了名為 ProServal 的自動化工程團隊提供持續服務。賣法是由上而下，打 IT 高層再擴到其他部門；他要說服客戶的不是「換掉在位者不會出事」，而是「這會讓你升官」，例如最大客戶之一 Fox Corporation 全公司導入，現場主導遷移的人被提名為全公司 MVP。",
+      "至於哪些需求進核心平台，他說 Serval 從不做客製功能，而這個類別也沒人這樣要求——每個需求遲早都是其他客戶也要的。由於底層是程式碼生成，每家公司的重設密碼或離職流程本來就長得很不一樣，這種差異已內建在平台原語裡，Serval 等於是 IT 部門的 IDE。反過來，若看到許多客戶反覆自建同一種自動化，就升格為正式功能，例如偵測過時或互相衝突的知識庫文章、自動回收沒人在用的軟體授權。"
+     ]
+    },
+    {
+     "heading": "SDLC 與建構代理 Catalyst",
+     "paragraphs": [
+      "被問到產品的核心設計原則，Stauch 首推軟體開發生命週期：開發、預備、正式環境之間的關卡與分支，在工程界理所當然，但多數新 AI 產品沒有採納，只想著做酷炫代理直接上線。大型金融機構不可能不經審查與使用者驗收測試就推出新的代理能力。他觀察許多 AI 公司要花一兩年甚至更久才補上這一課，整個產業現在才開始採用前線部署、開發流程與合規；也有公司看清企業軟體要付出的代價後選擇不做，把市場讓給別人。",
+      "第一代 AI 工具的問題是系統再強，都得訓練客戶理解產品的各種原語，前線工程師常常最後乾脆自己幫客戶建。於是 Serval 做了名為 Catalyst 的管理代理：管理員用對話描述需求，由它建自動化、設定核准規則、權限檢查與政策，並理解整個部署，成為進入產品的主要介面。他也補充，這類代理能解決「空白頁」問題，一路陪使用者解釋概念、提出建議，等於把很多人慢慢變成工程師。"
+     ]
+    },
+    {
+     "heading": "Token 成本、ROI 與 SaaS 末日論",
+     "paragraphs": [
+      "談到企業今年對程式碼生成支出的態度——先放手試、再大量燒 token、然後收緊並檢視誰真的有產出——Stauch 說他確實看到 CIO 客戶從「token 狂燒期」回縮，但多數公司才剛開始採用，總量仍會大幅上升；客戶並不擔心長期預算，仍計畫增加支出，他們缺的是 ROI 的證明，而目前沒人真正搞懂買來的 token 換到了什麼。Serval 因此按「工作流程執行次數」計價，認為那比 token 更能反映實際完成的工作，也想幫客戶把完成的工作換算成其他平台、計價模式或人力的成本。",
+      "對「SaaS 末日」，他的看法是分層的。試過用 vibe coding 自建主要記錄系統的公司都發現，建置與維護企業軟體很貴，除非需求真的很獨特，否則不划算；邊緣案例要有人維護、得養團隊，而且沒人想待在內部工具團隊。真正會縮水的是點狀解決方案：很多公司有數百個 SaaS，實際大概只需要二三十個，中介軟體也會消失，被核心記錄系統與平台吞掉。ERP、人資系統、ITSM、CRM 這些類別不會消失，但會換上新一代在位者——Serval 正在取代的就是其中之一。"
+     ]
+    },
+    {
+     "heading": "背景代理：終極登月與信任問題",
+     "paragraphs": [
+      "Stauch 把背景代理稱為企業軟體的終極登月：自己去找出所有問題並解決。難處在於企業既希望它高度自主、不必有人盯著，又對自主性深感恐懼；代理為了完成任務做出意料之外的事已有前例。他的務實解法是能力逐步升級：代理回報「我想呼叫這個工具、執行這支腳本」，人類逐項核准並加上護欄，久而久之工具箱夠大，就能解決多數問題。雖然得一直盯著很煩，但否則代理理論上能寫程式對所有系統動手，那是無上限的資安風險。他認為這同時是模型與護欄的問題：記憶與上下文要更好，但權限與信任會一直是最大的課題，就像與人共事也得回報確認。"
+     ]
+    },
+    {
+     "heading": "200 人、沒有產品部門",
+     "paragraphs": [
+      "公司成立約兩年半，今年一月 20 人、現在 200 人，而且他預期招聘速度還會加快。理由是工作需求、競爭與野心都沒有上限：每個員工的產能遠高於一年前，正因如此才要更多人。他形容這個類別的可服務市場大小更取決於公司的野心，而非市場本身的限制，因為他們要自動化的是全世界每個員工的各種工作；這不見得比較輕鬆，因為空間太大，要做的取捨也更多。",
+      "組織上，Serval 讓工程師高度貼近客戶：都在客戶的 Slack 頻道裡，多數人至少每週、很多人幾乎每天上客戶電話，他比喻成「浸泡在國外學外語」。產品開發因此下放到工程團隊，公司沒有產品部門。代價是產品變得比任何人（包括他自己）跟得上的還快，所以要雇產品導向的工程師、把決策推到第一線，也要願意快速撤回、砍掉自己鍾愛的東西。他最自豪的是多次推翻過去很投入的做法，認為反覆自我重塑的能力，是這個時代少數耐久的東西。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "邊界本身就是我們的產品，因為我們是讓一家規則、審批、流程與政治都很多的大企業，能安全、放心、大規模採用這些工具的方法。",
+     "by": "Jake Stauch",
+     "original": "And the boundaries are the product for us because we are the way that a large enterprise uh with a lot of rules and approvals and process and politics can adopt these tools safely and comfortably at scale."
+    },
+    {
+     "text": "藉由掌握企業裡權限如何被提升，你越是收緊終端使用者的權限，我們就變得越強大、越不可或缺。",
+     "by": "Jake Stauch",
+     "original": "So by owning how privileges get escalated in the enterprise, we actually become more powerful and more essential the more you clamp down on end user permissions."
+    },
+    {
+     "text": "我覺得我們必須說服自己和客戶：Serval 是讓你在公司升官的方法。",
+     "by": "Jake Stauch",
+     "original": "I think we have to convince ourselves and our customers that server is the way you get promoted at work."
+    },
+    {
+     "text": "正因為每個員工的生產力都高出許多，我們其實想要更多員工，而不是更少。",
+     "by": "Jake Stauch",
+     "original": "And so I I think because every employee is so much more productive, we actually want more of them, not less of them."
+    }
+   ]
+  },
+  {
+   "id": "latentspace-1",
+   "trackId": "1000798219873",
+   "showKey": "latentspace",
+   "show": "Latent Space",
+   "title": "Latent Space｜為什麼代理都愛 Supabase：兩位創辦人談 Select 大會發表、產品導向銷售與「每月數十億個資料庫」",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "Why Agents Love Supabase"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id1674008350?i=1000798219873"
+    }
+   ],
+   "published": "2026年10月27日｜片長 77 分鐘",
+   "minutes": 76.6,
+   "sourceLayer": 2,
+   "hosts": "Shawn Wang (swyx)",
+   "guest": "Supabase 兩位共同創辦人（逐字稿轉錄作「couple」與「Ant」，依主持人稱兩位創辦人推定為 Paul Copplestone 與 Ant Wilson）",
+   "source": "退至第 2 層（podfetch 逐字稿，Gemini 語音轉錄）。退回原因：官方稿入口失效——AGENT_BRIEF 第 1 節指定的 latent.space/api/v1/archive 入口經 WebFetch 回 robots_disallowed，入口本身取不到任何內容（不是尚未上架）。照缺漏處理：第 1 段末 [16:00]–[20:00] 約 4 分鐘不在稿內（段尾截斷，[16:00] 為空行、下一行自段界整點 [20:00] 接起）。另 [40:00]–[1:00:00]（第 3 段）整段無講者標記，發言歸屬只依語意判斷。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id1674008350?i=1000798219873",
+   "chars": 6399,
+   "summary": "這一集表面上是 Supabase 大會的發表巡禮，真正的張力在一個數字：Supabase 現在每月啟動約 500 萬個資料庫，卻認為自己得準備每月啟動數十億個——因為建資料庫的已經不是開發者，而是替非技術使用者動手的代理。整集的論點都繞著這件事轉：代理替使用者完成註冊到啟用，讓漏斗頂端暴增的同時啟用率與付費轉換反而上升；每個前沿模型都把 Supabase 列為整合式後端的首選，這個位置來自 LLM 起飛前四年的時機與社群內容，後來者很難複製；而為了接住這種量，他們重寫 Postgres operator（Multigres）、換儲存引擎（OrioleDB）、收購 Turso，並因算力吃緊引入 CapitalG、走向多雲。另一條值得注意的線是他們對企業市場的冷靜：創辦人斷言正式環境的資料庫「幾乎永遠不會遷移」，即使程式代理讓改寫變容易，難的仍是停機與腦分裂——所以未來五年只打新案，而不是去搶 Oracle。須留意主持人 swyx 是 Supabase 種子輪天使投資人，Supabase 也是節目贊助商。",
+   "guests": [
+    {
+     "name": "Paul Copplestone（稿內轉錄作「couple」）",
+     "affiliation": "Supabase"
+    },
+    {
+     "name": "Ant Wilson（稿內作「Ant」）",
+     "affiliation": "Supabase"
+    }
+   ],
+   "topics": [
+    "AI技術與應用",
+    "科技產業",
+    "創投與私募"
+   ],
+   "quality": {
+    "completeness": 0.95,
+    "status": "OK",
+    "speakerNote": "主持人只有 Shawn Wang (swyx)：開場 [00:00]–[05:28] 的 Speaker 1 自述為 Supabase 種子輪天使投資人、AI Engineer 主辦者，可確認是他。shows.json 候選中的 Vibhu、Brandon Anderson、RJ Honicky 本集均未出現。來賓是 Supabase 兩位共同創辦人，[05:28] 稿內作「couple and Ant」，後文另有「Anne」，依此與 swyx 所稱「兩位創辦人」判定為 Paul Copplestone 與 Ant Wilson；但逐句歸屬無法判定哪一位，故正文與金句一律寫「來賓」或「Supabase 共同創辦人」。講者編號在各轉錄段之間互換：第 1 段主持人多為 Speaker 2、來賓為 Speaker 3/4（但 [07:13] 的提問被標成 Speaker 3）；第 2 段（[20:00] 起）主持人變成 Speaker 1、來賓變成 Speaker 2；第 3 段 [40:00]–[1:00:00] 除首行外全無講者標記（即 manifest 所稱 Speaker 2 連續 20 分鐘，實為整段沒標，內容明顯是多人對談）；第 4 段又混標。正文中歸給 swyx 的發言（代幣對人力支出比、模式坍縮的回應、AEO 追蹤器）是依語意判斷，非依標籤。轉錄專名錯誤：multigrade＝Multigres、Tso＝Turso、Oriel DB＝OrioleDB、Vitesse＝Vitess、Suko 為 Vitess 創造者、Malta for Versaille 為 Vercel 的 Malte；[1:06:35]／[1:09:06] 的「postgres 維護者、以 Haskell 撰寫」依語意應為 PostgREST。",
+    "timestampNote": "段尾截斷：[16:00] 為空行、下一行從段界整點 [20:00] 接起，第 1 段末約 4 分鐘不在稿內（與 manifest 字數缺口約 825 詞、約 4 分鐘相符）；前後兩句語意恰好能接上（大公司經營迷因帳號），但未據此補寫或硬接。時間戳回跳：[14:46] 之後下一行是 [14:12]，回退 34 秒並一路延續到 [16:00]，第 1 段尾部的時間戳不可靠，章節未依時間戳切分。[40:00] 與 [1:00:00] 兩個段界前後句子連貫（enterprise / pharmaceuticals；launch the database / run the migrations），無截斷。循環重複三訊號：行內——1,001 行／16,883 詞，每行 16.9 詞，最長一行為 [01:37] swyx 開場獨白，屬正常；行級——通讀未見原地打轉，相鄰相同行只有 yeah、okay 類應答；區塊級——末端時間戳 [1:16:28] 對片長 76:38 無溢出。自編段：片尾以致謝收束、之後無內容，各段段尾未見講者重編或與本集矛盾的內容。"
+   },
+   "takeaways": [
+    {
+     "title": "代理成了獲客通路，漏斗反常地兩端同升",
+     "body": "代理替使用者完成註冊到啟用，Supabase 的註冊數暴增，啟用率與付費轉換卻不降反升，而且幾乎沒花行銷預算。swyx 的 AEO 追蹤顯示每個前沿模型都把它列為整合式後端首選，這個位置來自 LLM 起飛前的時機與社群內容，後來者難以複製。對投資人而言，評估開發者工具公司時，「是否為模型預設推薦」已是核心護城河與成長指標，但它也依賴模型行為，可能因實驗室合作或模型更新而移轉。"
+    },
+    {
+     "title": "規模化瓶頸是「每月數十億個資料庫」，連帶推高算力需求",
+     "body": "Supabase 目前每月啟動約 500 萬個資料庫，卻以每月數十億個為規劃目標，收購 Turso、重寫 operator（Multigres）、換儲存引擎（OrioleDB）都為此而做。創辦人說今年一直受運算容量限制，因此引入 CapitalG 並走向多雲、GCP。對投資人的含義是：代理產生的海量小型工作負載正在成為雲端與 CPU 需求的新來源，雲端業者（節目中提到 DigitalOcean 一年內大漲）可能受惠，而 Supabase 本身的毛利將取決於能否把每個資料庫的成本壓到極低。"
+    },
+    {
+     "title": "不打遷移戰：Oracle 等既有資料庫的威脅被高估",
+     "body": "創辦人斷言正式環境的資料庫幾乎永遠不會遷移，即使程式代理讓改寫預存程序變容易，真正的障礙仍是停機損失與雙軌並行的腦分裂。Supabase 因此未來約五年只打企業新案，以 Control Tower 與新工作負載進入企業。對投資人而言，押注「代理會加速汰換 Oracle 等舊資料庫」的論點應打折扣；新創資料庫的企業營收更可能來自新增專案，而非搶走既有大客戶。"
+    },
+    {
+     "title": "以增量成長計酬的產品導向銷售，與被掀掉的 PLG 天花板",
+     "body": "Supabase 以未回覆的客戶為對照組（每月成長 25%），業務協助過的帳戶成長 125%，只就中間 100 個百分點的增量計酬。創辦人說原以為 PLG 上限約 1 億到 2 億美元營收，AI 讓這個天花板消失，今年的營收目標四個月就達成。對投資人的含義是：衡量銷售效率時應看增量而非配額，而 Supabase 的成長主要來自自助通路；但須記得這些數字出自創辦人口述、主持人是其早期投資人，且 swyx 表示 IPO 還要一段時間。"
+    },
+    {
+     "title": "AI 工具支出的參考基準：代幣對人力支出比",
+     "body": "swyx 提出多數公司代幣支出約為人力支出的 0.1，拉到 1 大致安全，超過 1.5 可能有麻煩；Supabase 自報每月 AI 支出約 30 萬美元、員工約 450 人，換算每人每月約 670 美元。對投資人而言，這提供了檢視軟體公司營運費用結構的粗略量尺：AI 支出若持續上升，要看它是否換來端到端流程的自動化，而不只是用量排行。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "開場：主持人的利益揭露與三個主題",
+     "paragraphs": [
+      "本集開頭是主持人 swyx 的個人引言，他先把利益關係講清楚：他是 Supabase 六年前種子輪的天使投資人，那也是他的第一筆天使投資；Supabase 是 2023 年首屆 AI Engineer 大會的第一個贊助商，現在也成為 Latent Space 節目的第一個贊助商。他說 Supabase 六年內估值從零走到 100 億美元，是完全遠端的開源公司，已幾乎成為託管 Postgres 的標準。讀者應把本集視為由投資人兼受贊助方主持的創辦人訪談，這也是兩位創辦人第一次一起上節目。",
+      "swyx 把這次 Select 大會的發表歸成「建置、營運、規模化」三個主題。建置面他最看重不用 Docker 就能啟動 Supabase，以及把運算跑在資料庫旁邊的 Supabase Compute；他特別強調宣告式 schema：與其走「建表、遷移、再遷移」的傳統路線，不如讓資料庫狀態以檔案形式放進 Git，讓代理讀得懂、能分叉。他的評語是這些改動表面上為代理而做，其實人類一直都需要。營運面是更多日誌、檢查與連線脈絡，加上自家的 ETL 管線；規模化面則呼應口號「從原型到 PB 級」。"
+     ]
+    },
+    {
+     "heading": "Select 大會的四項發表",
+     "paragraphs": [
+      "第一項是 Supabase Compute。來賓說現有的 Edge Functions 跑在 Deno 上、有約兩秒的限制，社群一直要求跑更長的工作負載，例如切塊與向量嵌入。新產品是長時間執行、無伺服器、與資料庫在同一私有網路的完整運算實例，延遲低到可直接開 Postgres 連線，不再限定 Deno，可跑 Rust、Python，甚至直接在裡面跑代理；類比的話是「容器型的 Lambda」。",
+      "第二項是 OrioleDB 進入完整 beta。它是 Postgres 現行儲存引擎 heap 的直接替代品，速度約快 1.5 到 2 倍，應用端不必改，還省掉 vacuum 與膨脹這類背景作業。過去一年的工作是讓它通過 PG regress 完整相容測試、每晚跑 TPC-C 基準與 Jepsen 測試，確保不會丟資料。Supabase 收購了這項技術、為專利付費，現在以涵蓋專利的 Apache 2 授權免費釋出。",
+      "第三項是 Multigres（逐字稿多拼作 multigrade）。來賓說他們檢視了 Postgres 生態裡所有負責叢集、容錯切換與備份的 operator，發現在特定條件下每一個都可能丟資料，於是從頭重寫；新系統經過 1,000 次連續容錯切換未丟任何資料，完全開源，在 Supabase 平台上先採邀請制。主導者是當年為 MySQL 打造分片系統 Vitess 的工程師（逐字稿作 Suko），這次把相容性擺第一：日後推出分片時使用者不必改任何查詢，部分功能預計明年初上線，設計夥伴包括 Postman 與 Perplexity。swyx 稱之為「Postgres 全面稱霸的最後一塊」，來賓補充 Vitess 撐起 YouTube、GitHub，工作負載若要離開 MySQL 就需要這種東西。",
+      "第四項是橫向擴張。Supabase 目前每月在平台上啟動約 500 萬個資料庫，預期未來每月要啟動數十億個，這需要全新架構，因此宣布收購以 SQLite 為基礎、主打代理用資料庫的 Turso（逐字稿作 Tso）。理由是使用者結構在變：大量沒有技術共同創辦人的人在建整間公司，例如客戶 Magic School 的創辦人原本是老師。來賓說若給每個人一套專屬 Postgres 叢集，全世界的實體電腦很快會不夠用——而今年他們確實一直在處理成長帶來的運算容量問題。"
+     ]
+    },
+    {
+     "heading": "早期史：Hacker News、迷因與一次被迫的搬遷",
+     "paragraphs": [
+      "對談接著轉入行銷史。雙方提到 Turso 創辦人 Glauber 也是「迷因大師」，Supabase 自己的迷因則由創辦人帶著一小群年輕人每週開「迷因工作坊」產出，難處在於要同時懂技術與開發者的幽默。逐字稿在 [16:00] 到 [20:00] 之間有約四分鐘缺漏；之後接上的內容是：曾有人寫長文拆解 Supabase 的推特策略並貼上 Hacker News，那篇文章後來反而成了他們給新進行銷人員的教材。",
+      "他們承認大量成長來自 Hacker News，也被版主 dang 多次訓誡，例如一週發太多東西；有一次的「發表週」幾乎每項發表都登上首頁，創辦人截圖炫耀而挨罵，事後也承認那確實是炫耀。首次曝光其實是別人替他們貼的：原本標語「即時 Postgres」沒人在乎，改成「開源的 Firebase 替代品」約 12 小時後那篇文章就上線，至今仍是該站歷來最高之一，使用者從 8 人變成 800 人。",
+      "當時每個資料庫跑在兩台每月 5 美元的 DigitalOcean 機器上，1 萬美元額度約 48 小時燒完；進 YC 後 DigitalOcean 以已用過 1 萬美元方案為由，拒給另一個 30 萬美元的額度方案，AWS 則開出約 15 萬美元額度，於是他們在 YC 第一週把 800 個資料庫搬上 AWS。創辦人說以現在的 AWS 帳單看，DigitalOcean 錯失了一個超大客戶，但疫情期間保守也情有可原；節目中也提到 DigitalOcean 近一年大漲、市值約 160 億美元。"
+     ]
+    },
+    {
+     "heading": "算力吃緊、CapitalG 與多雲",
+     "paragraphs": [
+      "被問到 CPU 短缺，來賓說他們隨時都在逼近容量上限，常跟 AWS 開會，靠密切規劃、多付錢與合作換取容量。他並預告將宣布新的投資方 CapitalG，它能接觸 Alphabet 生態；Supabase 因此開始考慮多雲策略——他們需要更多運算，GCP 是顯而易見的選擇——也希望深度嵌入 Gemini 等 AI 實驗室的產品。",
+      "swyx 質疑資料庫架構若依賴 S3 的特性，多雲並不容易。來賓認為 S3 做什麼其他家都會跟進，並點出 S3 幾年前免費上線的強一致性，以及 S3 Express 的意義：寫入延遲約一到兩毫秒、夠耐久，可先當快取層再轉存到更便宜的 S3。但 Redis 仍然需要，快取層級依序是記憶體、NVMe、本地磁碟與 S3。"
+     ]
+    },
+    {
+     "heading": "AI 的三個篇章，以及模型為何都推薦 Supabase",
+     "paragraphs": [
+      "Supabase 的口號已從「週末建好、擴展到百萬」換成「從原型到 PB 級」。來賓說最大的變化是變現速度：過去先選資料庫、做產品、最後才加收費，現在代理層就能接上 Stripe，有客戶開專案當週就產生可觀收入；看到有人上線頭幾天就賺進約 1 萬美元，他們才確信 vibe coding 是真的。對照 NFT 熱潮時只淺嘗即止（加了以太坊與 Solana 登入），這次他們決定同時押注小型原型與大型客戶兩端，也因此需要更多人。",
+      "他們把 AI 對 Supabase 的影響分成三章。第一章是向量嵌入：主張 Postgres 搭配獨立開發者 Andrew Kane 的擴充就能當向量資料庫，不需另一個資料庫。第二章是 2024 年底 Lovable、Bolt 等 vibe coding 平台興起，內部曾爭論要不要服務這些「玩具」用途，最後以「在你起步時就在場，讓你永遠不想離開」的使命決定投入。第三章是今年模型變強後的爆發：註冊數急升，而他們幾乎沒花行銷預算，多半只靠迷因。",
+      "最反直覺的數字是：漏斗頂端湧入更多消費型流量時，啟用率與付費轉換通常會下降，但 Supabase 兩者都上升。原因是代理替使用者完成從註冊到啟用的那一步，摩擦幾乎歸零，這批使用者的付費轉換率還高於傳統開發者用戶。來賓也說其他開發者工具應該看到同樣現象，只是程度不同。",
+      "swyx 拿出自己的 AEO（回答引擎最佳化）追蹤器：每一個前沿模型都把 Supabase 列為「整合式後端」的首選。他的解釋是 Supabase 剛好在 LLM 起飛前三到四年進入市場，並把自己定位成當時龍頭 Firebase 的頭號挑戰者。來賓坦言時機是意外，但早期大量投入社群，社群寫的部落格、YouTube 與 podcast 教學都被模型吸收，開源也有幫助；現在要做的是守住領先。"
+     ]
+    },
+    {
+     "heading": "社群：直接送股票",
+     "paragraphs": [
+      "去年 Select 他們宣布要做群眾募資，但律師一整年都說人數這麼多、多數又不是合格投資人，沒有可行機制；直到他們問「如果不讓人投資、直接送股票呢」，答案是可以。於是撥出約 100 萬美元的 Supabase 股票送給社群成員。第一位是 Discord 上的傳奇人物 Gary（逐字稿先作 Austin、又更正為 Abbott）：六年內回答約 2 萬個問題，其中 1.3 萬個在提問後一小時內回覆，是一位退休後迷上 Supabase 的真人。",
+      "談到 Discord 內容不公開、無法擴散，來賓說結論是 Discord 用戶就用 Discord、Reddit 用戶就用 Reddit，兩邊都得經營；他們另把有價值的問答整理進 GitHub Discussions 再掛到官網，等於拿 GitHub 當內容管理系統，讓重複的問題能被搜尋、也被模型吸收。至於開源版的市占，他們刻意不在開源版裡放任何追蹤，所以不知道。"
+     ]
+    },
+    {
+     "heading": "企業端：Control Tower、產品導向銷售與只打新案",
+     "paragraphs": [
+      "有大型製藥公司跑著上百個開源版 Supabase，要求集中管理工具，因此他們推出 Control Tower，讓企業監控、管理整群資料庫。它是把 Supabase for Platforms 重新包裝給企業：後者在 2025 年 12 月推出，替 AI 公司批次啟動數百萬個資料庫，swyx 稱之為近期最成功的發表。（[40:00]–[1:00:00] 這一段逐字稿沒有講者標記，以下歸屬依語意判斷。）",
+      "銷售上，Supabase 以 PLG 聞名，每一批 YC 新創約六成使用它，榜樣是 Stripe——少數向上進攻十年仍保住開發者喜愛的工具。他們的「產品導向銷售」看產品觸發訊號（規模上升、撞到限制、出錯、付費到某個門檻）：假設每週發 1,000 封信、500 人回覆，沒回覆的那群當對照組，帳戶每月成長 25%；有回覆的由團隊打電話協助，AI 依流量模式生成腳本，帳戶成長 125%。中間那 100 個百分點的增量才是業務的獎酬依據，而不是傳統配額。",
+      "企業端的核心判斷是幾乎沒有人會遷移正式環境的資料庫。Supabase 創業之初的論點就是：所有靠遷移搶客戶的資料庫公司最後都失敗，即使做出更大、更好、更能擴展的 Postgres 也一樣；所以要在第一天以新案落地，再讓客戶留到第一千天、第一萬天。未來約五年企業端重心都是新案，Multigres 只是客戶真要遷移時的選項。另一個變化是決策者：多年沒寫程式的產品長靠 Lovable 加 Supabase 自己做內部工具，成了 C 級的擁護者。",
+      "swyx 問 Lovable 也將有自己的資料庫功能，兩者誰更黏。來賓說經營資料庫很難，遷移資料庫也比遷移前端難；他稱讚 Lovable 是第一個寫出好技能檔、阻止代理對資料庫亂來的公司——早期代理會把圖片塞進 Postgres、關掉安全設定只求專案能跑——如今模型本身已不再犯這類錯。"
+     ]
+    },
+    {
+     "heading": "Oracle、HTAP 與 durable workflow",
+     "paragraphs": [
+      "swyx 轉述一位董事會成員的論點：Supabase 不只取代 Firebase，也會成為新的 RDS。談到 Oracle，來賓引述約一年前聽到的說法：以營收計只有約 5% 的 Oracle 工作負載跑在雲端。他認為「拔掉 Oracle」聽來很美、Supabase 也會嘗試，但極其困難。swyx 提出程式代理或許讓改寫上百萬行預存程序變容易；來賓回應難處不在改寫，而在 OLTP 資料庫撐著最賺錢的應用，停機一分鐘就是損失，雙軌並行又會出現難以調和的腦分裂，所以多數人選擇把新工作負載拆出去。",
+      "對 Databricks 宣稱解決 HTAP，來賓說他們更關注 DuckDB 與 DuckLake——能直接讀物件儲存、也能讀 Postgres 的開源分析引擎，像是「分析界的 Postgres」。他們不打算把 Postgres 變成分析資料庫：OLTP 到一定規模必須分片，擴展到 PB 級的最佳路線是分片，分析另外處理，硬把兩者合併不太合理。至於 swyx 一直推的 durable workflow，過去社群試做都卡在兩秒逾時，有了 Compute 這個基本元件才可能做。"
+     ]
+    },
+    {
+     "heading": "前沿實驗室與被掀掉的 PLG 天花板",
+     "paragraphs": [
+      "來賓說公司的 P0 是贏下策略性的 AI 實驗室與模型、延續 PLG，企業端專攻新工作負載；目前合作以美國實驗室為主，因為流量主要來自那裡。在實驗室的應用商店上架是一回事，成為它們產生 artifact 時的預設後端是另一回事；過去做不到是因為規模：以 ChatGPT 約 12 億月活躍用戶計，每人每月啟動一個資料庫就是 12 億台 Postgres，這正是收購 Turso 的理由。",
+      "創業之初他們估計 PLG 能做到 1 億、或許 2 億美元營收，之後就得換銷售模式；AI 把這個天花板掀掉了，現在不知道上限在 10 億還是 20 億美元。來賓說 18 個月前若問他怎麼讓漏斗頂端放大十倍，他會說辦不到；今年初公司聚會訂下一個「瘋狂」營收目標，有人擔心團隊達不到會失望，結果四個月就達標。"
+     ]
+    },
+    {
+     "heading": "未來：代理怎麼開發、模式坍縮與開源",
+     "paragraphs": [
+      "被問到最想知道的未知數，來賓答：開發會怎麼做、人們會開發什麼。Supabase 從「最好的儀表板體驗」走到 API 驅動的無頭模式，今年重點是「程式碼優先、Git 原生」：本機的 supabase 資料夾就代表整個資料庫，這次完成宣告式 schema 的最後一步，並釋出可用於任何 Postgres 的新函式庫（逐字稿作 PG Dot）。理由是傳統遷移檔是歷史紀錄，代理要從上千個檔案推斷一張表的形狀，或真的啟動資料庫跑完遷移才能檢查，都太慢。他預期未來非工程師對手機說「我要做 X」，應用一秒後就上線。",
+      "有一方擔心代理會讓所有軟體收斂到同一種做法（模式坍縮），失去工程界那些論戰帶來的多樣性。swyx 認為低品味的休閒建構者會收斂到模型的平均值——也就是 Supabase——但高手永遠在意細節，並會逐步向下擴散；他也說一般大學「大概完了」。兩位創辦人說彼此很少爭執，因為多半不重要；他們當年在新加坡 Entrepreneur First 同住一屋，七人都是技術背景，後來多數室友成了早期員工。首位全職員工 Steve Chavez 是 PostgREST 維護者（逐字稿寫作 postgres，依後文以 Haskell 撰寫判斷），YC 合夥人要他們忘掉別急著招人的建議、立刻雇他，而他們讓他繼續專心維護那個專案。",
+      "談開源的未來，來賓認為用 Rust 改寫是合理的機制：許多開源工具會收斂到一種最有效的語言，但不會每次都重寫，最後各類別只有少數贏家，例如若有人用 Rust 重寫以 Haskell 寫成的 PostgREST，那個分支可能就是該類別的贏家。他也提到 Vercel 的 Malte（逐字稿作 Malta）主張出錢把所有 C／C++ 依賴一次改寫成 Rust，視為開源的一次性升級；Supabase 會全力支持，但他不認為真會發生，因為人們喜歡自己動手。"
+     ]
+    },
+    {
+     "heading": "內部 AI 花費與招募",
+     "paragraphs": [
+      "Supabase 的 AI 政策跟組織一樣去中心化：各產品團隊自己決定用什麼工具，只在成本上開始收斂。swyx 提出一個供企業參考的指標——代幣支出對人力支出的比例：多數公司約 0.1，拉到 1 大致安全，超過 1.5 可能有麻煩。來賓透露 Supabase 目前每月 AI 花費約 30 萬美元、員工約 450 人；用量高度偏斜，但重點不該是花多少，而是有多少端到端流程不再需要人介入。因為是非同步、凡事留紀錄的遠端公司，他們正以全部歷史文件建構公司層級的代理框架。",
+      "結尾是招募：約 50 個職缺、全球遠端、不論住哪裡同薪。最缺 SRE，因為成長太快；篩選關鍵是真心想遠端工作。對談中有人表示 AI SRE 是代理新創最難的類別之一，AI 至今仍未攻克「讓系統持續運轉」。swyx 以朋友兼投資人身分收尾，說期待 Supabase 敲鐘上市，但「看來還要一段時間」。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "目前我們平台每個月啟動大約 500 萬個資料庫。而在我們知道自己要去的那個未來，我們認為每個月得啟動數十億個。",
+     "by": "Supabase 共同創辦人（逐字稿標為 Speaker 4；講者標記不可靠，未指定是哪一位）",
+     "original": "At the moment, we launch about 5 million databases on our platform every single month. And kind of the future where we know we're going, we think that we're going to have to launch billions per month."
+    },
+    {
+     "text": "原因在於從註冊到啟用這一步，代理替你做完了。",
+     "by": "Supabase 共同創辦人（講者標記不可靠，未指定是哪一位）",
+     "original": "Um, and, and the reason is because the sign-up to activation, the agent does it for you."
+    },
+    {
+     "text": "結果只是打通電話、幫他們一把，這些帳戶就成長了 125%。",
+     "by": "Supabase 共同創辦人（該段無講者標記，依語意判斷）",
+     "original": "And it turns out just getting on a call and helping people out, their account then grows 125%."
+    },
+    {
+     "text": "你就是沒辦法說服人遷移，即使你做出更大、更好、更能擴展的 Postgres 也一樣。",
+     "by": "Supabase 共同創辦人（該段無講者標記，依語意判斷）",
+     "original": "You just can't convince people to migrate even if you build a bigger, better, more scalable Postgres."
+    },
+    {
+     "text": "但因為 AI，那個天花板就這樣被掀掉了，我們也不知道它現在到哪裡去了。",
+     "by": "Supabase 共同創辦人（該段無講者標記，依語意判斷）",
+     "original": "But because of AI, like that ceiling just lifted and we don't know where it got left to."
+    }
+   ]
+  },
+  {
+   "id": "dwarkesh-1",
+   "trackId": "1000798746978",
+   "showKey": "dwarkesh",
+   "show": "Dwarkesh Podcast",
+   "title": "Dwarkesh Podcast｜我從詹森與摩西斯身上學到的權力課",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "What I learned about power from LBJ and Robert Moses"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id1516093381?i=1000798746978"
+    }
+   ],
+   "published": "2026年10月30日｜片長 25 分鐘",
+   "minutes": 24.7,
+   "sourceLayer": 2,
+   "hosts": "Dwarkesh Patel",
+   "guest": "",
+   "source": "podfetch 逐字稿（Gemini API 語音轉錄，2 段，completeness 0.90，status OK）。官方稿退回原因：dwarkesh.com archive API 查得到當集，dwarkesh.com/p/lessons-in-power 有文章版全文，但取回工具拒絕逐字取回、只給摘要（入口可達、取回失效），故退回第 2 層；官方頁只取用其章節結構（Coda 已併入開場段）輔助判斷主題轉換，正文與金句全部取自 podfetch 稿。無照缺漏處理的區間；非重播。本集為 Dwarkesh Patel 單人朗讀的影片散文，夾雜數段檔案影片原音（稿中標為 Announcer）。",
+   "url": "https://podcasts.apple.com/us/podcast/id1516093381?i=1000798746978",
+   "chars": 2986,
+   "summary": "這不是訪談，而是 Dwarkesh Patel 為隔天播出的 Robert Caro 專訪所做的功課：把 Caro 兩部權力傳記拆成可操作的權力機制。最有意思的是兩個人物的鏡像對照——Robert Moses 從理想主義者出發，靠親手起草的法條、把權力寫進受憲法保護的債券契約、以及讓銀行工會律師黨老大都分到好處的「建設聯盟」，在不經選舉的位置上當了三十年紐約最有權勢的人，最後權力從手段變成成癮；Lyndon Johnson 則是從頭到尾的機會主義者，把一個只有「優先發言權」的參院多數黨領袖職位，靠壟斷籌碼、掌控議程、獨佔資訊三招變成全國第二大的權力，直到真正掌權後才把它用在少有人知道他懷抱的民權理想上。兩條路線共同的教訓是：正式職權往往只是空殼，真正的權力來自設計規則、控制資金流與資訊流，以及讓別人離不開你。",
+   "guests": [],
+   "topics": [
+    "投資哲學",
+    "地緣政治"
+   ],
+   "quality": {
+    "completeness": 0.9,
+    "status": "OK",
+    "speakerNote": "全集只有一位主講者（Speaker 1），開場自述「I recently interviewed Robert Caro」，判定為 Dwarkesh Patel，與 shows.json 候選相符。稿中標為 Announcer 的 7 行是穿插的檔案影片原音（新聞片旁白、Moses 本人或他人的訪談片段），無法逐一確認講者身分，正文未把它們歸給任何具名人物，金句也不取自這些行。",
+    "timestampNote": "末端時間戳 [23:56]，片長 24:42，無溢出。第 2 段從 [20:00] 接起，首句「knew with that bill」承接上一行結尾「amendments that have nothing to do」，[14:41] 那一行 958 詞以約 182 wpm 估算正好延續到約 20:00，判定為段界正常銜接、無截斷缺漏。三種循環重複訊號：行內——20 行／4,502 詞，長行（[04:17] 884 詞、[14:41] 958 詞、[20:00] 737 詞）係單人朗讀長段落，行內 6-gram 最多重複 3 次（「the road that connected to the」，屬原文修辭），無短句循環；行級——無原地打轉；區塊級——無溢出。片尾 [23:56] 收尾語之後無自編段，各段段尾亦無。轉錄個別字詞有誤（如「powers into grant」、「got to a right to」），正文以語意轉述處理，未影響論點。"
+   },
+   "takeaways": [
+    {
+     "title": "真正的權力常藏在條款細節與資本結構裡",
+     "body": "Moses 靠一句「可不時以新債償舊債、用於任何其他目的」與債券契約條款，把一座橋的臨時機構變成受憲法保護、無限續命的建設帝國。對投資人而言，判斷一個機構或公司的實際控制力，要讀章程、債券契約與授權條款，而不是只看頭銜；再融資權、契約保護與用途寬鬆的條文，往往才是權力長期鎖定的地方。"
+    },
+    {
+     "title": "讓別人離不開你，比正式職權更牢固",
+     "body": "Moses 同時掌握 12 個職位、全國最強的工程團隊與聯邦資金入口，市長只能蓋他要蓋的或什麼都不蓋，辭職要脅因此屢試不爽。評估監管機構、國營事業或關鍵供應商時，值得問的是：誰握有唯一可執行的技術能力與資金通道？替代成本越高，該方的議價能力與政策影響力就越大，也越難被輪替。"
+    },
+    {
+     "title": "集中受益者的聯盟能壓過分散的反對",
+     "body": "Moses 的 YIMBY 機器讓銀行、工會、律師、黨老大都從每項新工程分到好處，任何阻擋者都會接到這些人的電話。這提醒讀者：大型基建、產業政策能否推動，關鍵不只在民意，而在有沒有一個利益集中、會主動護航的受益聯盟；看不到這樣的聯盟，再受歡迎的計畫也容易被 NIMBY 式的集中反對拖垮。"
+    },
+    {
+     "title": "控制議程與資訊流，就控制了結果",
+     "body": "Johnson 把只有優先發言權的空殼職位，透過壟斷籌碼、用一致同意協議鎖定議程、讓所有資訊經過自己，變成全國第二大的權力，並用跨議題交換通過 1957 年民權法。判讀立法與監管走向時，與其追公開辯論，不如看誰掌握議程設定與幕後交換——法案最終版本往往取決於看似無關的議題被如何打包。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "為什麼做這支影片",
+     "paragraphs": [
+      "Dwarkesh 說，Robert Caro 花 50 年寫四卷 Lyndon Johnson 傳記，之前又花 7 年寫紐約「總建築師」Robert Moses，公認是最好的政治權力研究，也是他最愛的書。六年來他最想訪問的就是 Caro，終於訪到，隔天播出。這支影片是他重讀時整理的權力課。"
+     ]
+    },
+    {
+     "heading": "Robert Moses：把權力寫進法條與債券",
+     "paragraphs": [
+      "Moses 建了 Triborough 與 Verrazzano 大橋、Cross Bronx 快速道路、Jones Beach、Lincoln Center 與數百座公園泳池；到 1964 年紐約州完工的 899 英里公路有 672 英里出自他手。他從未當選公職，卻當了三十多年紐約最有權勢的人。答案之一是：他親手寫管他自己的法律。他是州議會最好的法案起草人，寫進去的權力連投票的議員都不知道自己給了。",
+      "最好的例子是公共事業機構（public authority）：政府設立的公司，發債蓋一座橋，收過路費還清債券後拆掉收費站、把橋交給市府、自行解散。1933 年的 Triborough 大橋機構法第一條確實這麼寫，但 Moses 在第九條某個分項加了一句：機構可以「不時」以新債償還舊債，新債可用於「任何其他公司目的」。於是在舊債到期前，機構隨時能發一筆全新的 40 年期債券，做完全不同的用途。",
+      "他還讓機構可以興建連接道路與「與本計畫用途不相牴觸的設施」——路接路、路接橋、路邊的公園，全都算數，等於能改造紐約大半的道路、公園與住宅，經費則靠過路費與以其為擔保的舉債。1946 年紐約市政府觸及法定舉債上限前只能借 1.5 億美元，Triborough 同年能借 3.6 億，是全美最大城市的兩倍多。",
+      "萬一日後的州長或市長想收回權力呢？美國憲法規定各州不得立法損害契約義務，而公共機構發行的債券正是契約。Moses 在法案中加入條款，讓他能把「任何影響債券安全的事項」寫進債券契約，包括愛收多少過路費、收多久、盈餘歸機構。債券一賣出，這些權力就連議會、州長、市長都撤不回，除非召開制憲會議；而債券壽命又能靠再融資無限延長。一部只為蓋兩座橋的法案，就這樣變成能在紐約任何地方蓋任何東西、且受聯邦憲法保護的機構。"
+     ]
+    },
+    {
+     "heading": "不可或缺的人",
+     "paragraphs": [
+      "但債券保證不了他一直當主席。法案規定委員任期中只能「經正式聽證、依具體指控」才能撤換，而 Caro 寫道 Moses 本人並不貪腐，是政治圈所說的「金錢上清白」，所以根本沒有指控可提。至於每六年的續任，他巔峰時同時身兼 12 個公職，有的由市長任命、有的由州長任命，沒有人能一次砍掉九頭蛇的所有頭；拔掉他任何一個職位，就等於跟紐約最有權勢的人結仇。",
+      "更重要的是，沒有市長或州長想開除他。Dwarkesh 認為，今天對 Moses 的負面印象定型於 1970 年代紐約的犯罪與去工業化黑暗期，但那主要是結構因素。他職涯大半極受歡迎，曾被紐約高中生票選為最受敬佩的紐約人：上任公園局長頭四個月就完成 1,700 處公園翻修。關鍵是他能在一個選舉週期內完工，市長授權他蓋東西，連任前就能剪綵。對比之下，第二大道地鐵 1972 年動工、2017 年才通第一段。",
+      "他也掌握錢。聯邦工程經費優先給藍圖已定的城市，而 Moses 擁有全國最好的規劃工程團隊，到 1936 年紐約拿到全國大蕭條救濟工程經費的七分之一，用在他挑的計畫上。市長沒有能力另擬方案，只能蓋 Moses 想蓋的，或什麼都不蓋。於是他動輒以辭職要脅，LaGuardia 的律師乾脆印了一疊寫好的辭職表格。玩笑背後是真實的恐懼：接受辭呈不只丟掉計畫與經費，他經營多年的報業人脈（包括《紐約時報》的 Sulzberger 家族）還會讓隔天頭版一致寫「超然於政治的人被懦弱政客逼走」。"
+     ]
+    },
+    {
+     "heading": "YES 聯盟與權力的成癮",
+     "paragraphs": [
+      "比民意更大的權力來源，是他與私人利益的連結。今天大家熟悉的是 NIMBY：集中的利益團體阻擋廣受歡迎的計畫；Moses 則打造了一個集中的 YIMBY 派系——一部確保全州最有權勢的人都能從新建設獲利的分贓機器：銀行不經競標以大幅折價買他的債券，工會得到工作，有關係的律師拿到律師費，黨老大替幾乎不可能倒塌的橋仲介保險抽佣。誰擋路，這些受益者就會打電話給他，不管是區長還是州長本人。",
+      "Caro 筆下的 Moses 起初是理想主義者。1910 年代他是加入「好政府」運動的年輕改革者，試圖以誠實能幹的行政取代 Tammany Hall 的恩庇政治，但改革被扼殺、機器贏了，他從中學到沒有權力實現的理想毫無用處。Caro 寫道，權力起初是他夢想的僕人，但權力不是持有者能隨意使用而不受反噬的工具，而是一種讓人需要越來越大劑量的毒品，而 Moses 成了上癮者。"
+     ]
+    },
+    {
+     "heading": "Lyndon Johnson：把空殼職位變成第二大權力",
+     "paragraphs": [
+      "Johnson 的故事正好相反。他大半職涯看不出一貫的意識形態，什麼最有利就做什麼。初進參院時，他看出最有權勢的是保守的南方議員，就把自己捏成他們的形狀；前喬治亞州參議員 Talmadge 對 Caro 說，Johnson 對黑人並無同情的跡象，「他打從心裡跟我們站在一起」。然而當上總統後，他推動了 1964 年民權法與 1965 年投票權法。Moses 是理想主義者變成為權力而權力，Johnson 則是機會主義者，掌權後才把權力用在少有人知道的理想上。",
+      "在參院，Caro 稱他是「一個從未有過主人的機構的主人」。開國者刻意讓參院不受領導：Johnson 請國會圖書館列出多數黨領袖的正式權力，結果只有一項——在議場優先發言。此前的領袖只是避雷針，參院做不成什麼都怪他，卻沒有權力改變；他的兩位前任都因此丟了自己的席位。Johnson 44 歲就當上領袖（參院平均年齡約 60），很大原因是幾乎沒人想要這份苦差事。他靠三招把它變成僅次於總統的權力。",
+      "第一招是籌碼：確保自己手上有可以許諾與可以威脅的東西。法案能否排上議程、委員會主席是否放行、眾院議長 Rayburn 的直通線、德州石油商的競選金，都要經過他。他還把實行約一世紀的委員會資歷制，幾乎一夜改成由他掌控的黨團指導委員會協商分配。1957 年 Kefauver 在一項重要動議上投票反對他，同一週，Kefauver 原本預期拿到的外交委員會席位就給了資淺得多的 John F. Kennedy。",
+      "第二招是議程：誰決定哪個版本付諸表決、帶哪些修正，誰就控制結果。參院辯論原本不設時限，議員可提無關修正案無限拖延；Johnson 的工具是一致同意協議，限定辯論時間與修正機會。前任很少用，他卻讓協議沒談好法案就不上議場，因為他要每一票都事先在私下、在他籌碼最有用的地方談定，不讓公開辯論臨時改變任何人的心意。參議員 Paul Douglas 說，在 Johnson 手下，所有戲碼都在開演前於後台演完。",
+      "第三招是當所有交易的中間人。他讓每個委員會派幕僚回報草擬內容，助理追蹤每位參議員，自己整天泡在衣帽間與走廊，清楚每個人真正要什麼、願意放棄什麼，再由他撮合交易、確保自己佔上風。1957 年民權法就是例子：他想選總統，而反民權的南方人拿不到民主黨提名。卡關點是南方堅持選務官員案件須經陪審團審理，北方認為全白人陪審團永不定罪、等於掏空法案。Johnson 花七個月拼出交易：西部議員得到愛達荷與奧勒岡間聯邦水壩的表決，中西部共和黨人得到罷工工人的陪審團審判權，溫和派得到黑人可任聯邦陪審員的條款，南方要的陪審團保證留下、所以不阻撓議事。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "也就是說，Moses 現在只要把權力寫進他發行的債券，就能將它們牢牢鞏固。",
+     "by": "Dwarkesh Patel",
+     "original": "That is to say, Moses could now entrench his powers simply by writing them into the bonds that he issued."
+    },
+    {
+     "text": "機器贏了，而 Moses 學到：沒有實現它們的權力，理想毫無用處。",
+     "by": "Dwarkesh Patel",
+     "original": "The machine won, and Moses learned that ideals are useless without the power to realize them."
+    },
+    {
+     "text": "但權力不是持有者能隨意使用而不受懲罰的工具。它是一種毒品，讓使用者需要越來越大的劑量，而 Moses 就是使用者。",
+     "by": "Dwarkesh Patel（朗讀 Robert Caro《The Power Broker》原文）",
+     "original": "But power is not an instrument that its possessor can use with impunity. It is a drug that creates in the user a need for larger and larger doses, and Moses was a user"
+    },
+    {
+     "text": "無論一位參議員需要什麼才能存活——是錢、委員會席位，還是攸關他家鄉州的法案能否通過——Johnson 都能給，Johnson 也都能扣住不給。",
+     "by": "Dwarkesh Patel",
+     "original": "Whatever a senator needed to survive, whether that was money, committee seats, or the passage of bills that mattered to his home state, Johnson could give, and Johnson could withhold."
+    },
+    {
+     "text": "如參議員 Paul Douglas 所說，在 Johnson 手下，所有的戲都在開演前於後台演完。",
+     "by": "Dwarkesh Patel（轉述 Paul Douglas）",
+     "original": "As Senator Paul Douglas put it, under Johnson, all the actions take place offstage before the play begins."
+    }
+   ]
+  },
+  {
+   "id": "tip-1",
+   "trackId": "1000798615476",
+   "showKey": "tip",
+   "show": "We Study Billionaires (TIP)",
+   "title": "We Study Billionaires (TIP)｜Airbnb（ABNB）一年後回顧：業務已超越高峰，股價還沒",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "TIP856: Airbnb (ABNB): The Business Outgrew Its Peak, The Stock Hasn't w/ Kyle Grieve & Shawn O'Malley"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id928933489?i=1000798615476"
+    }
+   ],
+   "published": "2026年10月29日｜片長 86 分鐘",
+   "minutes": 86.1,
+   "sourceLayer": 2,
+   "hosts": "Shawn O'Malley、Kyle Grieve",
+   "guest": "",
+   "source": "podfetch 機器轉錄稿（Gemini 語音轉錄，5 段，completeness 0.99、status DEGRADED）。manifest 的「整段複製 215 token」經比對為片中廣告重播：NetSuite 廣告讀稿在第一次廣告時段 [24:53]–[26:04] 與第二次廣告時段 [51:25]–[52:36]（同在第二轉錄段，dupmap 標為段1）各播一次，Plus500 廣告亦重播（[23:58] 與 [50:30]），兩處前後都有「back to the show」，節目內容在 [49:28] 與 [52:38] 前後銜接無缺，非轉錄複製蓋掉內容，沒有照缺漏處理的區間。末端時間戳 [1:29:42] 超出片長 86:05 約 4%，判定為均勻的時間戳拉伸，片尾為正常結語與免責聲明，無自編段。[21:50] 一段是節目播放的 Brian Chesky 2025 年第四季法說會錄音。非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id928933489?i=1000798615476",
+   "chars": 6443,
+   "summary": "這集的張力在一組對不上的數字：Shawn O'Malley 一年多前推薦的 Airbnb 股價已漲到他當初估的約 150 美元內在價值，成為兩人投資組合第二大持股；但 Kyle Grieve 一攤開財報就發現，2024 年以來營收只成長 9%、營業現金流只成長約 4%，遠低於 IPO 以來 19% 與 39% 的複合成長。兩人拆解的結論是現金流放緩多半是自找的：管理層主動壓低利潤率再投資、「先訂後付」把預收現金往後推、利息收入跟著縮水，而成長本身已重新加速到中雙位數，app 內預訂占比持續上升、印度與巴西等新市場高速成長，在 AI 代理的威脅下反而更像是 Airbnb 自己掌握了旅程起點。真正落空的是原論點的 take rate 槓桿：贊助刊登被 Chesky 擱到「先搞定 AI 搜尋」之後，take rate 卡在約 13%，利潤率擴張也比預期慢。Shawn 據此把廣告移出基本情境、對利潤率更有耐心，淨算內在價值變化不大；Kyle 則認為回購讓每股價值被低估，兩人決定不動作。標題的反差也在這裡：營運槓桿在 2021 年啟動、股價在那時創下歷史高點，近六年後業務獲利大增，股價卻仍未回到當時的位置。",
+   "guests": [],
+   "topics": [
+    "個股拆解",
+    "投資哲學",
+    "AI技術與應用"
+   ],
+   "quality": {
+    "completeness": 0.99,
+    "status": "DEGRADED",
+    "speakerNote": "主持人為 Shawn O'Malley 與 Kyle Grieve（[01:58] 片頭旁白介紹、[03:29] Shawn 稱 Kyle 生日、[44:51] 點名 Kyle），與標題一致；shows.json 候選中的 Stig Brodersen、Clay Finck、Daniel Mahncke 本集未出現。講者編號在各轉錄段之間不一致，依內容線索判定：第一段（00:00–20:00）Speaker 2＝Kyle、Speaker 3＝Shawn，但 [16:03]–[17:05] 與 [18:22]–[19:27] 由 Kyle 說的話被標成 Speaker 3（自稱「Shawn and myself」）；第二段（20:00–40:00）Speaker 1＝Shawn、Speaker 2＝Kyle，[21:50] Speaker 3 為節目播放的 Brian Chesky 法說會錄音；第三段（40:00–1:00:00）對調為 Speaker 1＝Kyle、Speaker 2＝Shawn；第四段（1:00:00–1:20:00）Speaker 1＝Shawn、Speaker 2＝Kyle（[1:06:36] 提到兒子、[1:14:54] 稱加拿大為母國），且 162 行無講者標記全集中在這一段（[1:00:06]–[1:19:48]），歸屬依上下文判定；第五段（1:20:00–）Speaker 1＝Kyle、Speaker 2＝Shawn。片頭 Speaker 4、片尾 Speaker 3 與 [22:53]–[26:04]、[49:31]–[52:36] 的廣告為旁白／廣告讀稿。少數段落（如 [27:27] 談 take rate 與 AI 代理）歸屬有一定不確定性。",
+    "timestampNote": "末端時間戳 [1:29:42] 超出片長 86:05 約 4%（1.04 倍），判定為均勻時間戳拉伸而非自編段：17,852 詞÷199 wpm 恰約 89.7 分，五個轉錄段在 [20:00]、[40:00]、[1:00:00]、[1:20:00] 都是句子中間無縫接續，無段尾截斷；片尾 [1:28:05] 起是正常結語（Chesky 名言）與 TIP 標準免責聲明，之後沒有新內容、沒有換一組講者、與正文無矛盾。dupmap 的整段複製（[24:53]–[26:04] → [51:25]–[52:36]，215 token）是 NetSuite 廣告在兩次廣告時段各播一次，Plus500 廣告也重播（[23:58]／[50:30]，因「Plus 500／Plus500」寫法不同未被偵測），前後都有「back to the show」，正文在 [49:28]→[52:38] 銜接完整，不影響內容，無照缺漏處理區間。循環重複三訊號：行內——679 行約 19,568 詞、每行 28.8 詞，最長一行 480 詞為 [37:35] Shawn 的連貫長論述，行內 6-gram 最多重複 2 次，無；行級——未見原地打轉；區塊級——時間戳溢出僅 4%，屬拉伸，無。小異常：第二段 [36:10]→[37:35] 有約半分鐘時間戳空隙、[39:26]/[39:41]/[39:59] 間距偏緊，內容連貫，不影響。章節時間點因拉伸約晚實際音檔 4%。"
+   },
+   "takeaways": [
+    {
+     "title": "現金流放緩是選擇與時點，不是護城河破洞",
+     "body": "2024 年以來營收成長 9%、營業現金流約 4%，主因是管理層主動壓低利潤率再投資、先訂後付把預收現金延後、浮存金利息收入縮水。6 月對 6 月未賺得費用持平而訂單成長 18%，正是這個時點差。投資人看 Airbnb 的現金流要區分「錢沒賺到」與「錢晚到」，並把取消率當成先訂後付的新風險指標。"
+    },
+    {
+     "title": "take rate 槓桿延後，應移出基本情境",
+     "body": "贊助刊登被 Chesky 擱在「先做好 AI 搜尋」之後，take rate 卡在約 13%，還從 2024 年的 13.6% 略降。Shawn 自己的修正是基本情境假設 take rate 持平、廣告只當樂觀情境的上檔。對持股人來說，估值不應再預支廣告收入；Chesky 口中 10 億美元的廣告營收若真的落地，就是純粹的驚喜。"
+    },
+    {
+     "title": "AI 時代的關鍵數字是 app 內預訂占比",
+     "body": "誰擁有旅程起點，誰就不必付租金給別人；Booking 付給 Google，Airbnb 靠品牌直達。第二季 64% 入住晚數經 app 預訂、app 內晚數年增 23%，加上 2 億驗證身分與 5 億則評論，是對抗 AI 代理商品化的主要防線。投資人應把 app 占比當成 AI 風險的領先指標：持續上升就安心，停滯或下滑就要重新評估獲客成本優勢。"
+    },
+    {
+     "title": "回購有四成在抵銷股權薪酬",
+     "body": "去年回購 38 億美元、股權薪酬 16 億，ROE 約 35% 也被縮小的股東權益墊高。好消息是 2026 年上半年股權薪酬成長首次低於營收，稀釋後股數一年少約 5%。評估自由現金流與股東報酬時應扣除股權薪酬，並觀察它占營收比能否從 13% 回落到約 11%。"
+    },
+    {
+     "title": "成長的新來源在印度、巴西與飯店漏斗",
+     "body": "擴張市場成長是核心市場兩倍，印度年增 60%、巴西逾 30%，而且是同一套 app、同一個 take rate 複製過去。飯店與體驗是低成本獲客管道，35% 首次飯店客一年內會轉訂住家。營運槓桿已在 2021 年啟動，股價卻仍低於當年高點，這是持有派認為業務跑在股價前面的核心論據。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "一年後回顧：成長為什麼慢了",
+     "paragraphs": [
+      "本集由 Shawn O'Malley 與 Kyle Grieve 主持，回顧 Shawn 在 2025 年初於 Intrinsic Value 節目推薦的 Airbnb。這檔股票如今是他們 intrinsic value 投資組合第二大持股，股價比平均成本高出逾 33%。Shawn 提到今夏世界盃，光是為此就新增 15 萬間房源，房東賺進數億美元，房客來自 196 國、湧向北美 16 個主辦城市。",
+      "Kyle 的疑慮在數字上：IPO 以來營收年複合成長 19%，營業現金流更達 39%，那是營運槓桿——就像 Visa，網路建好後多刷一筆幾乎不花成本。但 2024 年到現在，營收只成長 9%，營業現金流放慢到接近 4%。一年太短，暫時逆風不代表論點破了，但他想弄清楚原因。"
+     ]
+    },
+    {
+     "heading": "商業模式：旅遊業的收費站",
+     "paragraphs": [
+      "Airbnb 是雙邊市場：一邊是房東，從只有一間空房的屋主、一年只住幾週的度假屋主，到管理數十間的專業業者；另一邊是房客。Airbnb 擁有店面、搜尋、支付、評價，以及最重要的房東與房客之間的信任，卻不買房，就像 Uber 不擁有車。2026 年第二季的訂房總額（GBV）逾 270 億美元，平均每晚房價比 Shawn 首次推薦時漲了約 20 美元；但 GBV 不是營收，就像 Domino's 的系統銷售額，Airbnb 只抽一部分。",
+      "收費方面，Airbnb 四年來並行兩種模式：分攤制由房東付約 3%、房客另付約 14% 服務費；房東全付制由房東付約 15.5%，房客只看到單一價格。使用物業管理軟體的房東 2025 年底已轉換，今年 9 月 15 日起歐洲以外全部改為單一 15.5%，歐洲則在 10 月 13 日前完成，房客服務費實質消失。take rate 一直約 13%：1,000 美元的週末豪宅，Airbnb 留下約 130 美元。",
+      "這就是輕資本的威力。飯店得擁有或租賃物業、雇櫃台與清潔人員，空房時薪水照付；Airbnb 把這些都交給房東，資本支出只占營收 0.27%。主要費用是支付處理、客服、AirCover 這類扮演保險角色的信任安全計畫、工程師薪資，以及進軍美國以外市場的獲客支出。"
+     ]
+    },
+    {
+     "heading": "行銷優勢與浮存金",
+     "paragraphs": [
+      "疫情期間 Airbnb 關掉大部分成效型行銷，流量仍回來約九成，目前約 90% 顧客直接或經免費管道上門。Booking.com 據報每年花 50 至 70 億美元在廣告上，主要買 Google 點擊。2025 年 Airbnb 行銷費約占營收五分之一，Booking 約三分之一、Expedia 約一半。兩人都盛讚 Airbnb 的設計：Kyle 說 Booking 與 Expedia 若拿掉品牌顏色他根本分不出來。",
+      "Airbnb 還有浮存金。Kyle 用巴菲特早年投資的 Blue Chip Stamps 類比：零售商預付買印花、顧客日後才兌換，有些永遠不兌換，這段時差就成了可投資的無息資金。禮物卡與提前數月付款的訂單讓 Airbnb 能把現金放進短期債券，利息收入每年數億美元。Shawn 把它當紅利而非核心。核心之外，2025 年 5 月 Airbnb 重新推出「體驗」並新增「服務」，可在 app 內預約私廚、按摩、攝影師；上一季新增 1,000 項體驗，供給年增逾 80%。"
+     ]
+    },
+    {
+     "heading": "原始論點計分卡",
+     "paragraphs": [
+      "Shawn 當初押三個槓桿：GBV 未來五年低雙位數成長；贊助刊登推升 take rate；營收攤在固定成本上帶動利潤率擴張。第一項明確達成，Kyle 說 2024 年第四季以來 GBV 年複合成長 34%，2026 年上半年成長 16%，接近歷史水準。Shawn 指出，在油價推高機票、通膨偏高之下訂房仍穩定複合，驗證了商業模式。",
+      "第二項落空：2026 年第二季 take rate 約 13.2%，比 2024 年的 13.6% 略降，2025 年的降幅是疫情後最大。Shawn 澄清他講的廣告不是像 Uber 那樣在 app 裡放其他商品的橫幅，而是像 Amazon 或 Google 搜尋那樣，讓房東對「夏威夷三房」這類關鍵字出價排到推薦第一位；但最近兩次法說完全沒提。第三項難下定論：營業利潤率季度起伏大，最近兩季高於去年同期，但 2022 年以來毛利率沒動，營收轉成現金的比例還略降。Kyle 的計分：GBV 勝、take rate 平手、利潤率難說。"
+     ]
+    },
+    {
+     "heading": "廣告為何遲到：先搞定 AI 搜尋",
+     "paragraphs": [
+      "Kyle 播放 Brian Chesky 在 2025 年第四季法說會的回答：ChatGPT 問世後，傳統搜尋將變成對話式 AI 搜尋，若要做贊助刊登，就要以那種形式設計廣告單元；所以先抓「最容易流失的機會」AI 搜尋，目前只對很小比例的流量上線、快速迭代，之後才會看贊助刊登。",
+      "Shawn 承認高估了推出速度，但投資本來就不押在廣告時點上；Airbnb 的介面近乎完美，或許還沒想出不損及體驗的整合方式，不像 Amazon 那樣不在乎。Kyle 補充 VRBO 已開始做贊助刊登，而且替人找住處的 AI 代理只看評分、評價、價格與設施，根本不管是否付費贊助。Shawn 同意這有幾分道理，但認為把購物決策全交給代理仍未經驗證；保險業務只在 12 國提供、營收年增 60%，是另一個能放大的小槓桿。"
+     ]
+    },
+    {
+     "heading": "競爭與護城河：房客才是真正的鎖",
+     "paragraphs": [
+      "Booking 已有 910 萬間另類住宿房源，最新投資人簡報顯示這塊成長 4%；Airbnb 的入住晚數與體驗預訂合計年增 10%，仍在奪市占——供給最多不等於贏。Kyle 認為訂飯店用 Booking，找整棟房子用 Airbnb。「臥室晚數」（入住晚數乘以臥室數）創新高，而且比入住晚數成長更快，代表大房子與團體出遊增加：一棟房子、一個廚房，大家圍著同一張桌子，這是飯店給不了的。",
+      "另一道護城河是信任。今年 Chesky 被問到 AI 聊天機器人會不會把 Airbnb 擠出訂房流程，他的回答是聊天機器人沒有 2 億個驗證身分、5 億則評論，也不能傳訊給房東，而九成房客都會傳訊。Kyle 轉述一位研討會與會者的遭遇：透過 Booking 訂的飯店想改行程，飯店不能改、AI 客服處理不了、找不到真人，訂單只能作廢。Kyle 認為這是累積而來的資產：每晚訂房都多一則評論、一個驗證身分、一段房東房客關係，Airbnb 花了近二十年才累積 5 億則評論，對手砸多少錢都買不到。",
+      "供給端也有網路效應：Shawn 首次推薦時約 70% 房源是 Airbnb 獨家，多數房東只有一間房，自然刊登在最熟悉、房客最多的平台。Kyle 扮黑臉：用物業管理軟體、多平台刊登的專業房東房源最好，卻也對價格最敏感，Airbnb 若變貪心，他們幾乎沒有轉換成本就能移到 VRBO 或 Booking——護城河對房客與小房東強，對專業業者弱。",
+      "Shawn 大致同意，管理 30 間房的人只忠於當天淨價最好的平台。財務長 Ellie Mertz 在法說會說明，API 串接的專業房東在各平台設同一價，Airbnb 再疊上房客服務費，同一間房在 Airbnb 看起來更貴；改成單一費率後，房東定的價就是房客看到的價，take rate 持平，所以不是在擠壓專業業者。但他反駁護城河弱的說法：專業業者明天就能下架，卻帶不走 Airbnb 的房客。第二季 64% 的入住晚數經由 app 預訂（去年 59%），app 內晚數年增 23%，是整體 10% 的兩倍多。"
+     ]
+    },
+    {
+     "heading": "現金流為何跟不上營收",
+     "paragraphs": [
+      "Kyle 找到三個原因。第一是支出增加：行銷與產品開發隨著新聘人手成長得略快於營收，管理層 2025 年初就告訴市場會讓 EBITDA 利潤率略低，以換取下一段成長。第二是浮存金收益今年下滑，利率不可控，但 Airbnb 代客戶持有的資金從 2025 年底的 70 億美元增加到第二季底逾 120 億。Shawn 樂見再投資，希望 AI 讓他們不必多聘人，例如客服自動化，但不要在客服這麼敏感的地方過度躁進。",
+      "第三是 2025 年年中推出、2026 年初國際化的「先訂後付」。Shawn 說這是他首次推薦時還不存在的功能：顧客晚付款，Airbnb 能賺利息的浮存金就變少，這解釋了為什麼利率上升、利息收入反而下滑。Kyle 拆帳：未賺得費用今年跳升約 60% 至 28 億美元，但那是春天訂夏天的季節性；6 月對 6 月幾乎持平，同期訂單卻成長 18%，差距就是先訂後付。現金沒有消失，只是從提前數月變成接近入住才到。",
+      "損益表上營收本來就在入住時才認列，管理層說這個功能讓用戶更早預訂、也拉高平均每晚房價。代價是沒付錢的房客更容易取消，Airbnb 已明確點名這一點，所以訂單作為未來營收的領先指標變得沒那麼可靠。Kyle 視之為交換：放棄部分現金時點與確定性，換更多訂單；只要取消率可控就划算，他會在接下來幾季緊盯這個數字。"
+     ]
+    },
+    {
+     "heading": "資本效率、股權薪酬與回購",
+     "paragraphs": [
+      "ROIC 對 Airbnb 不適用：它握有大量客戶現金、幾乎不需資本，投入資本算出來是負的，就像檸檬水攤的客人把桌子、杯子、檸檬全都預付了。Kyle 改看 ROE，約 35%。Shawn 補充，ROIC 對鐵路或零售業很關鍵，但 Airbnb 的房子是房東的、錢是客人先付的，所以他首次推薦時改看自由現金流與營業利潤率——去年自由現金流占營收 38%。他也提醒 ROE 被回購墊高：股東權益從去年底約 82 億美元縮到 6 月的 78 億，ROE 上升不全是業務變好。",
+      "股權薪酬是 Kyle 口中的「科技稅」，要跟超大型雲端業者搶工程師。好消息是增速趨緩：2024 年年增約 25%，2025 年約 13%。Shawn 指出股權薪酬連三年成長快於營收，2025 年占營收 13%；2026 年上半年首次翻轉，營收成長 17%、股權薪酬成長約 15%，管理層也說今年股權薪酬與人數成長都會放緩。稀釋後股數一年少約 5%，但去年回購 38 億美元、股權薪酬 16 億，約四成回購只是在抵銷稀釋。他預期股權薪酬金額續升、占營收比回落到約 11%，每年 40 至 50 億美元的自由現金流多半拿去回購，股數每年減少幾個百分點。",
+      "資產負債表很乾淨：長期負債 2025 年底為零，目前 25 億美元，用來償還舊債，短期負債為零，到期日最遠到 2036 年。為何有現金還舉債？Shawn 解釋過去 12 個月回購 47 億美元、現金流 48 億，舉債讓他們不必為了還債而縮減回購，獲利可支付利息逾 90 倍，出事風險極低。"
+     ]
+    },
+    {
+     "heading": "治理：創辦人模式與 Chesky 的薪酬",
+     "paragraphs": [
+      "Kyle 欣賞 Chesky 沒有為了建立帝國去做大型併購。2024 年 Chesky 在 Y Combinator 對一群創辦人說，「雇用好人、放手讓他們做」的傳統建議差點毀了 Airbnb，他反其道而行，親自審產品細節；Paul Graham 據此寫出爆紅文章〈Founder Mode〉。Shawn 補充，Airbnb 2025 年底約 8,200 名員工，與疫情前相當，營收卻增加一倍以上；今年關鍵專案從構想到上線的時間縮短最多 60%，推出的功能多了近 80%。",
+      "利益一致方面，Chesky 自 2021 年起底薪 1 美元。Shawn 估計三位共同創辦人擁有逾四分之一的經濟權益、逾 80% 投票權，約 220 億美元身家押在股票上。Kyle 說明 Chesky 的薪酬方案：10 年內每年可歸屬 120 萬股，但必須達到從 125 到 465 美元不等的門檻，等於假設股價年報酬 30%；2023 至 2025 年都沒達標，2026 年委託書顯示只達成前兩關，而且所得將捐給慈善。",
+      "Shawn 喜歡方案夠積極，但純看股價的設計可能誘使管理層冒險，例如大型併購、舉債回購、犧牲獲利追成長；Chesky 反而避開大併購、保留大量淨現金、接受略低利潤率再投資。方案也有護欄：門檻以 60 日均價計、每批各有資格日、歸屬後兩年才交付股票，而且獎酬相對他既有的持股很小。其他高管的 2026 年獎金簡化為 75% 看營收成長、25% 看調整後 EBITDA 利潤率，拿掉最容易操弄的主觀指標；他唯一挑剔的是調整後 EBITDA 排除股權薪酬，希望改用每股自由現金流，才能反映稀釋。"
+     ]
+    },
+    {
+     "heading": "風險：AI 入口、監管與景氣循環",
+     "paragraphs": [
+      "Kyle 擔心的不是 AI 取代住宿，而是客流入口：Booking 不擁有旅程起點，只能付租金給 Google；Airbnb 大多避開這筆稅，因為人們直接搜尋「地點＋Airbnb」。但他兒子 20 歲時，可能直接問 ChatGPT 或 Claude 該住哪裡。Shawn 說若 Airbnb 得付錢給 OpenAI 或 Claude 導流、房源被代理式搜尋商品化，地位會大幅削弱；但 ChatGPT 問世四年後，仍約三分之二入住晚數在 app 內預訂且持續上升，AI 還已解決 45% 的客服問題。Kyle 認為只要盯著 app 使用數據即可。",
+      "監管方面，紐約禁令仍在，歐盟 2026 年起要求短租註冊、資料分享與稅務透明，巴塞隆納計劃數年內在住宅區全面禁止短租。Shawn 認為這是急性、局部的逆風，而非威脅全局的慢性病：紐約禁令前一年約貢獻 8,500 萬美元、僅約 1% 營收，禁令首年短租房源減少逾 80%，整體財報卻幾乎看不出影響，因為 Airbnb 有逾 900 萬間房源、遍及 220 多國。要警惕的是從城市擴散到整個國家，西班牙去年就命令下架約 65,000 筆不合規房源。Kyle 補充二階效應：旅客可能改住鄰近城市或飯店，而 Airbnb 現在也賣飯店。",
+      "最後是景氣循環：衰退時入住晚數與每晚房價同步下跌，加上工程師與行銷等固定成本，營運槓桿會反向運作。Kyle 認為這是全產業的風險，Airbnb 資產負債表強、廣告支出低，更扛得住。他也點出標題的反差：營運槓桿在 2021 年啟動，股價恰在那時創下歷史高點，近六年後營收持續複合、獲利大幅提高，股價卻還沒回到那個位置。"
+     ]
+    },
+    {
+     "heading": "成長槓桿：新市場、飯店與體驗",
+     "paragraphs": [
+      "Shawn 首次推薦時，Airbnb 只在約五個國家深度滲透。如今擴張市場的入住晚數成長是核心市場的兩倍：巴西年增逾 30%、首次預訂者增加 40%，日本成長在 15% 到 20% 之間，最意外的是印度加速到 60%。Shawn 說明這些數字以房客居住地計算，代表 Airbnb 真的贏得當地新客戶。產品也有在地微調，例如巴西、墨西哥開放免息分期，並逐國投放行銷。核心市場同樣不差：北美創三年來最佳成長、歐洲加速，拉丁美洲成長約 20%。",
+      "飯店是另一條獲客管道：占總入住晚數仍是個位數，但上一季成長速度是住家的三倍。35% 首次透過 Airbnb 訂飯店的人一年內會再訂住家，搭配價格匹配保證與回饋點數。首次預訂者成長 11%，是四年來最快。體驗供給年增近 80%，預訂座位數加速成長；去年底近半體驗預訂沒有搭配住宿，代表有人專程來訂體驗。去年投入 2 至 2.5 億美元，Chesky 形容是逐城推出的多年工程，Shawn 視為長期選擇權。管理層指引營收成長中雙位數。"
+     ]
+    },
+    {
+     "heading": "估值與結論：不動作",
+     "paragraphs": [
+      "Shawn 認為業務比首次推薦時更好：營收去年成長 10%，今年前兩季分別成長 18% 與 17%，管理層預期全年至少中雙位數。負面驚喜是利潤率：營業利潤率從 2024 年的 23% 降到去年約 21%，股權薪酬也持續攀升。Chesky 曾說廣告是通往 10 億美元高毛利增量營收的簡單路徑，但選擇先搞定 AI；他原本以 EV/EBIT、低至中 20 倍出場倍數估出每股約 150 美元，股價如今在 150 多美元的中高段，一年多就追上了。",
+      "若更新模型，他會做兩項調整：基本情境假設 take rate 持平，贊助刊登只放進樂觀情境；對利潤率擴張更有耐心，因為不能同時期待更高成長與更高利潤率。成長加快大致抵銷廣告延後與利潤率放緩，內在價值變化不大。Kyle 唯一的異議是模型對股數太保守：2022 年以來稀釋股數每年縮減近 3%，若持續以低於內在價值的價格回購，每股價值會更高。這檔股票約占組合 13%，兩人決定比照 Alphabet 的做法：什麼都不做，讓論點自己發展。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "聊天機器人沒有我們的 2 億個驗證身分、沒有我們 5 億則自有評論，也不能傳訊息給房東，而我們九成的房客都會傳。",
+     "by": "Shawn O'Malley（引述 Brian Chesky）",
+     "original": "a chatbot does not have our 200 million verified identities or our 500 million proprietary reviews, and it can't message the host, which 90% of our guests do."
+    },
+    {
+     "text": "物業管理業者明天就可以把房源從 Airbnb 下架，但他們帶不走 Airbnb 的房客。",
+     "by": "Shawn O'Malley",
+     "original": "a property manager can pull their listings off of Airbnb tomorrow, but they can't take Airbnb's guests with them."
+    },
+    {
+     "text": "這就像在算一個檸檬水攤的報酬率，而客人已經把桌子、杯子、檸檬、糖、水和冰塊的錢全部先付給你了。",
+     "by": "Kyle Grieve",
+     "original": "So, it's like trying to calculate the return on a lemonade stand where your customer paid you in advance for the table, the cups, the lemon, the sugar, the water, and the ice, all upfront."
+    },
+    {
+     "text": "想想 Airbnb、Booking 或 Expedia 的商業模式，誰擁有起點，誰就能收租。",
+     "by": "Kyle Grieve",
+     "original": "So, when you think of the business models of Airbnb, Booking or Expedia, whoever kind of owns the starting point is the one that gets the charge to rent."
+    },
+    {
+     "text": "營運槓桿是雙向的，好的時候會非常好，壞的時候也會非常壞。",
+     "by": "Shawn O'Malley",
+     "original": "operating leverage works in both directions, and when things are going good, they're going really good, and when they're going bad, they can go really bad."
+    }
+   ]
+  },
+  {
+   "id": "mib-1",
+   "trackId": "1000798717581",
+   "showKey": "mib",
+   "show": "Masters in Business",
+   "title": "Masters in Business｜At The Money：AI 時代如何準備職涯",
+   "meta": [
+    {
+     "k": "節目標題",
+     "v": "At The Money: Preparing for a Career During in Age of Artificial Intelligence"
+    },
+    {
+     "k": "原始連結",
+     "v": "https://podcasts.apple.com/us/podcast/id730188152?i=1000798717581"
+    }
+   ],
+   "published": "2026年10月29日｜片長 16 分鐘",
+   "minutes": 15.9,
+   "sourceLayer": 2,
+   "hosts": "Barry Ritholtz",
+   "guest": "Nitin Nohria，哈佛商學院前院長、Thrive Capital 執行董事長，新書《The CEO: Role, Reality, and Responsibility》作者",
+   "source": "podfetch 逐字稿（Gemini 語音轉錄，單段，status OK，completeness 0.78）；MiB 新集數一律走 B 類、無官方稿。開頭 [00:01]–[00:32] 為 Bloomberg Stock Movers 廣告與片頭，未納入正文。無照缺漏處理區間，非重播。",
+   "url": "https://podcasts.apple.com/us/podcast/id730188152?i=1000798717581",
+   "chars": 2091,
+   "summary": "AI 正在啃掉職涯階梯最底下那一階，而這一集真正的張力在於：當知識唾手可得、入門工作被機器吃掉，年輕人過去靠基層苦工磨出來的判斷力要從哪裡來？哈佛商學院前院長 Nitin Nohria 的答案不是逃離 AI，而是把它當成「量身打造的漫威戰衣」——在課堂上逼學生唸出 AI 的答案、再逐條說出同意與不同意之處，把批判性思考練成與 AI 並肩思考的能力；同時他也替專業深度與通才兩條路都留了位置，並用「八成新創最後做的事和起點只是遠親」、「不開心至少撐三到六個月再判定死胡同」等具體尺度，回答轉向與堅持之間的取捨。對投資人而言，這一集的訊號是：人才市場的稀缺性正從「知道什麼」移向「如何判斷」，而名牌雇主的溢價正在被一代看著 Google、Facebook 從零長大的畢業生重新定價。",
+   "guests": [
+    {
+     "name": "Nitin Nohria",
+     "affiliation": "Harvard Business School（前院長）／Thrive Capital（執行董事長）"
+    }
+   ],
+   "topics": [
+    "AI技術與應用",
+    "投資哲學"
+   ],
+   "quality": {
+    "completeness": 0.78,
+    "status": "OK",
+    "speakerNote": "講者標籤在稿內已是真名（Barry Ritholtz、Nitin Nohria、Announcer），與開場介紹及結尾點名一致；主持人與 shows.json 候選 Barry Ritholtz 相符。Ritholtz 轉述的「Bob Michael, head of fixed income at JP Morgan」照稿內拼法保留，未做正規化。",
+    "timestampNote": "front matter 無 timestamp_notes。自查：24 行約 2,650–2,720 詞（每行約 113 詞，偏長但為單人長段回答的自然結果，無行內短句重複）；全文讀過無行級原地打轉、無區塊級循環；末端時間戳 [15:59] 對片長 955,000 ms（15:55），溢出約 4 秒（約 1.004 倍），該行為正常結尾致謝與節目收尾，內容與本集一致，判定為時間戳輕微拉伸而非自編段。[14:31]→[15:04] 間隔 33 秒但對應一個長提問，屬正常。片尾之後無額外內容，未發現自編段。"
+   },
+   "takeaways": [
+    {
+     "title": "人才稀缺性從「知道什麼」移向「如何判斷」",
+     "body": "Nohria 的教學已改成先要學生唸出 AI 的答案、再說出同意與不同意之處，前提是知識將隨手可得。對投資人而言，這意味著教育、培訓與人資服務的價值主張會轉向判斷力與體驗式學習，而純知識傳遞型的商業模式面臨被商品化的壓力。"
+    },
+    {
+     "title": "入門職位被 AI 侵蝕是本集的前提，不是結論",
+     "body": "訪談以「AI 攻擊職涯第一階」作為問題起點，但全集沒有任何數據量化這件事。投資人可以把它當作值得追蹤的勞動市場假說——例如觀察企業初階招聘與實習規模的變化——而不是已被證實的趨勢。"
+    },
+    {
+     "title": "名牌雇主的人才溢價正在被重新定價",
+     "body": "Nohria 觀察到哈佛商學院學生從非名牌公司起步的勇氣大幅增加，原因是這代人親眼看著 Google、Facebook 在十到十五年內崛起。對新創與創投生態而言，頂尖人才的供給更充沛，有利於早期公司的招募；對依賴品牌吸引人才的大型金融與顧問業者，則是一個長期的招募成本壓力訊號。"
+    },
+    {
+     "title": "轉向是常態：八成成功新創的終點只是起點的遠親",
+     "body": "引用 Amar Bhide 的研究，即使成功的創業者，八成最後做的事也只是原始構想的遠親。對早期投資人而言，這支持押注團隊的韌性與轉向能力，而非押注最初的產品構想；同時 Nohria「不開心至少撐三到六個月」的尺度，也提醒堅持與停損之間需要一個事先設定的時間框架。"
+    },
+    {
+     "title": "半數哈佛商學院校友終將創業，供給端持續擴大",
+     "body": "Nohria 說哈佛商學院學生到職涯結束時有 50% 會選擇創業，路徑包括成立投資機構與收購小型企業。這意味著小型企業收購、獨立投資機構與家族企業傳承的資金需求有穩定的供給來源，是私募與搜尋基金類策略的長期背景因素。"
+    }
+   ],
+   "sections": [
+    {
+     "heading": "AI 吃掉入門職位之後，判斷力從哪裡來",
+     "paragraphs": [
+      "Barry Ritholtz 開門見山：如果 AI 正在攻擊職涯階梯的第一階，那些過去靠入門工作累積的技能與判斷力，剛畢業的大學生要怎麼補？來賓 Nitin Nohria 是哈佛商學院前院長、新書《The CEO: Role, Reality, and Responsibility》作者，也是 Joshua Kushner 旗下創投 Thrive Capital 的執行董事長。",
+      "Nohria 認為學生應該更堅定地利用求學時間培養批判性思考與自我詰問的能力。他現在教個案時會先要學生「把你的 AI 代理對這個個案說了什麼唸給我聽」，因為進職場後使用這些工具會是必要條件；接著追問：你同意哪些、不同意哪些、又追問了什麼讓思考更進一步？依賴 AI 取得資訊、再深入詰問它，學會與它並肩思考——他說這是學生將被要求具備的能力，最好的學生會這樣準備自己。"
+     ]
+    },
+    {
+     "heading": "漫威戰衣：專業與通才都還有位置",
+     "paragraphs": [
+      "Ritholtz 歸納為：與其當「一英吋寬、一英里深」的領域專家，不如培養批判閱讀、批判思考等廣泛的後設技能。Nohria 用漫威比喻回應：AI 就像你的漫威戰衣，但必須調校到適合自己，就像不是每位英雄都有同樣的超能力。你如何運用這股非凡能力讓自己與眾不同，會是人們必須找到的新優勢。",
+      "至於主修是否重要——尤其在 STEM 技能似乎正被商品化之際——Nohria 認為專業本身就可以是一種超能力，並不會消失。深耕電腦科學的人能回答如何用 AI 寫程式、如何確保安全這類頂尖實驗室研究者在處理的問題，那是缺乏同等直覺與經驗的人做不到的；對其他人而言，超能力可能是寫作或歷史。但也會有人選跨領域主修、刻意不靠專業取勝而當通才，他認為通才在這個世界同樣非常重要。"
+     ]
+    },
+    {
+     "heading": "第一份工作：該全心投入還是當作實驗",
+     "paragraphs": [
+      "Ritholtz 問，過去被稱為「至關重要」的第一份工作，現在該視為探索喜好的實驗，還是對公司與產業的全心承諾？Nohria 以近四十年教學經驗說，學生大致分兩種。第一種很早就知道人生使命，他對這些人說：直接去做，找個地方承諾、深耕，不要浪費時間到處跑實驗，因為人生的實驗答案已經揭曉，接下來是兌現。",
+      "第二種人——他把自己也算在內，大學入學時毫無頭緒、進研究所時仍然沒有——必須透過實驗發現自己擅長什麼。他對這些人說：不要害怕實驗，不要因為還不知道想做什麼而焦慮；但當訊號出現時要用心聽，身體、心智與內心會告訴你這就是你該做的，那時就全心鎖定。若很早還找不到方向，不要急躁，給自己一點寬容。"
+     ]
+    },
+    {
+     "heading": "轉向、死胡同與馬拉松的配速",
+     "paragraphs": [
+      "Ritholtz 從創投經驗切入：新創常從原始構想轉向衍生技術，甚至完全不同的事，職涯轉向該怎麼看？Nohria 引用哈佛商學院同事 Amar Bhide 對數百位創業者的研究：即使是成功案例，八成最後做的事充其量只是起點的「遠親」。職涯也一樣，起點不必是終點，從顧問或記者出發都可能走到很不同的地方，所以人應該永遠對吸引自己的相鄰領域保持開放。",
+      "他也提醒，辨認死胡同往往是最難的事，但不要太快把刺激或摩擦當成死胡同：如果不開心，至少容許自己不開心三到六個月再下判斷；每次不開心就換，就永遠不會有毅力撐過幾乎任何工作都得撐過的難關。被問到職涯是否是馬拉松而非短跑，他說百分之百，但馬拉松不是同一配速跑完——頂尖跑者會早早建立節奏、中段可能放慢，有時跟團、有時獨跑，好的職涯也是如此。"
+     ]
+    },
+    {
+     "heading": "體驗式學習與 AI 工具",
+     "paragraphs": [
+      "談到大學該如何設計教育，Nohria 自承是體驗式學習的堅定擁護者，也坦白自己有偏見。他把哈佛商學院的個案教學法比作商業界最好的飛行模擬器：不可能讓你在現實中經歷一百種商業情境，但能給你九十分鐘的模擬，每次都要你以主角身分、在沒有標準答案下思考問題。他任院長時也要求每位學生出國、實際參與企業情境，因為唯有透過體驗，才能測試所學的概念在實務中如何運作、如何運用判斷。",
+      "他認為在 AI 時代，知識隨手可得，學會在實務情境中應用它，將是培養批判性思考與判斷力最強大的方式。Ritholtz 轉述 JP Morgan 固定收益主管 Bob Michael（照稿內轉錄拼法）對實習生的建議：讓自己脫穎而出的方式，是像他那一代掌握試算表一樣掌握 AI 工具。Nohria 的回答只有一句：非常好的建議。"
+     ]
+    },
+    {
+     "heading": "名牌陷阱與遲來的創業",
+     "paragraphs": [
+      "關於追逐名牌雇主的「聲望陷阱」，Nohria 認為品牌之所以是品牌，是因為反映真實的東西：在 Goldman Sachs、JP Morgan Chase、BCG、Bain、McKinsey，或媒體業的 Bloomberg、Disney，都能學到重要的東西。但他越來越常看到哈佛商學院學生願意從非名牌的地方起步，這股勇氣大幅增加，因為這代人親眼看著 Facebook、Google 在十到十五年內被打造成非凡品牌；他們相信，置身風險更高的環境，一旦成功也能有非凡的學習與回報。",
+      "最後被問到哪些校友職涯最令他意外，Nohria 說最讓他驚訝的是學生何時決定走上創業路：哈佛商學院學生到職涯結束時有 50% 會選擇創業，從開小型顧問公司、成立投資機構、買下小公司，到回家族企業接班都有。人們最終想要「不必向任何老闆匯報、對自己打造的東西擁有所有權」；有人一畢業就做，有人二十五年後才做，而究竟是什麼觸發了那個決定，方式之多令人驚嘆。"
+     ]
+    }
+   ],
+   "quotes": [
+    {
+     "text": "AI 就成了你的漫威戰衣。但你必須把它調校到適合你自己。",
+     "by": "Nitin Nohria",
+     "original": "AI becomes the equivalent of your Marvel suit. But you have to tune it to yourself, right?"
+    },
+    {
+     "text": "我認為這種批判性推理——我們依賴 AI 讓自己獲得資訊，但接著深入詰問它，我們學會如何與它並肩思考。",
+     "by": "Nitin Nohria",
+     "original": "I think this form of critical reasoning where we rely upon AI to inform ourselves, but then we interrogate it deeply, we learn how to think alongside it."
+    },
+    {
+     "text": "如果你不開心，至少容許自己不開心三到六個月，再決定這是不是死胡同。",
+     "by": "Nitin Nohria",
+     "original": "if you're unhappy, allow yourself to be unhappy for at least three to six months before you decide that this is a dead end."
+    },
+    {
+     "text": "哈佛商學院有 50% 的學生，到職涯結束時會選擇走上創業之路。",
+     "by": "Nitin Nohria",
+     "original": "50% of Harvard Business School students by the end of their careers will have chosen an entrepreneurial path."
+    },
+    {
+     "text": "讓自己脫穎而出的方式，是像我這一代必須掌握試算表那樣，掌握 AI 工具。",
+     "by": "Barry Ritholtz（轉述 Bob Michael 的話）",
+     "original": "the way to differentiate yourself is mastering AI tools the way my generation had to master the spreadsheet."
+    }
+   ]
+  }
+ ]
+}
