@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -466,8 +466,8 @@
    "status": "觀察中",
    "verdict": "",
    "verdictDate": "",
-   "reviewNote": "2026-09-30 回訪：查 WebSearch：Anthropic 已於 2026-06-01 秘密遞交 S-1（NPR 等報導），另有未經證實的「9,650 億美元」估值報導；未查到公開版 S-1、10 月掛牌或定價區間的確認消息，毛利率與推論成本結構仍未揭露，維持觀察中。",
-   "lastReviewed": "2026-09-30"
+   "reviewNote": "2026-09-30 回訪：查 WebSearch：Anthropic 已於 2026-06-01 秘密遞交 S-1（NPR 等報導），另有未經證實的「9,650 億美元」估值報導；未查到公開版 S-1、10 月掛牌或定價區間的確認消息，毛利率與推論成本結構仍未揭露，維持觀察中。\n2026-11-01 回訪：S-1 已送件（Bloomberg 10-27 Instant Reaction「Anthropic Files for IPO」、All-In 11-01 集逐項拆解），第一個對照點「是否真的在 10 月送件」成立；All-In 口述 S-1 揭露毛利率約 85%、上半年營收 163 億美元，但定價區間尚未公布，2 兆對 3,000–4,000 億的估值對賭仍未分勝負，維持觀察中（數字為節目口述、未外部核實）。",
+   "lastReviewed": "2026-11-01"
   },
   {
    "id": "obs-20260815-2",
@@ -1373,7 +1373,9 @@
    "due": "2026-12-16",
    "status": "觀察中",
    "source": "Prof G Markets｜Why OpenAI And Anthropic Are Pumping The Brakes",
-   "text": "Anthropic 對外宣稱的「連續兩季獲利」與 80%＋毛利率，在 GAAP 揭露下會顯著縮水。Prof G Markets 拆解《金融時報》該則報導後指出：獲利是「調整後營運」口徑，不含固定成本、折舊與稅，而對外宣稱高於 80% 的毛利率是在扣除分潤協議與模型訓練成本「之前」算出來的——也就是最大的兩項支出可能同時被排除在兩個數字之外；節目的對照組是 OpenAI 去年逾 200 億美元的營運虧損，若 Anthropic 的獲利成立，問題就出在 OpenAI 這家公司而非整個商業模式。檢驗方式：2026-12-16 當日查 Anthropic 是否已提交 S-1 或等效的公開財報揭露，並比對其中的 GAAP 毛利率與營業損益——GAAP 毛利率仍在 80% 以上且營業損益為正記落空（原始宣稱成立）；毛利率顯著低於 80% 或營業損益為負記應驗（調整口徑確實掩蓋了主要支出）；到期仍未提交任何揭露記無法驗證。（到期 2026-12-16）"
+   "text": "Anthropic 對外宣稱的「連續兩季獲利」與 80%＋毛利率，在 GAAP 揭露下會顯著縮水。Prof G Markets 拆解《金融時報》該則報導後指出：獲利是「調整後營運」口徑，不含固定成本、折舊與稅，而對外宣稱高於 80% 的毛利率是在扣除分潤協議與模型訓練成本「之前」算出來的——也就是最大的兩項支出可能同時被排除在兩個數字之外；節目的對照組是 OpenAI 去年逾 200 億美元的營運虧損，若 Anthropic 的獲利成立，問題就出在 OpenAI 這家公司而非整個商業模式。檢驗方式：2026-12-16 當日查 Anthropic 是否已提交 S-1 或等效的公開財報揭露，並比對其中的 GAAP 毛利率與營業損益——GAAP 毛利率仍在 80% 以上且營業損益為正記落空（原始宣稱成立）；毛利率顯著低於 80% 或營業損益為負記應驗（調整口徑確實掩蓋了主要支出）；到期仍未提交任何揭露記無法驗證。（到期 2026-12-16）",
+   "reviewNote": "2026-11-01 回訪：All-In 11-01 集稱 S-1 中約 800 億美元淨損主要來自可轉債隨估值重估的帳面損失、累計淨燒錢約 90–100 億、毛利率約 85%（節目口述，未取得 S-1 原文核對 GAAP 毛利與分潤、訓練成本的口徑），不足以判定「GAAP 揭露下顯著縮水」與否，維持觀察中，到期時直接讀 S-1 財報附註。",
+   "lastReviewed": "2026-11-01"
   },
   {
    "id": "obs-20260917-1",
@@ -2050,8 +2052,8 @@
    "due": "2027-01-07",
    "status": "觀察中",
    "source": "Bloomberg Surveillance｜CPI and the AI Trade；Bloomberg Surveillance｜Bloomberg Surveillance TV: October 14th, 2026",
-   "reviewNote": "2026-10-29 回訪：10-28 FOMC 維持不變（Yahoo Finance、Fox Business、PBS），Rob Sockin「十月 28 日就該升」的附帶主張未成真，已記於此；主 claim「12-31 前至少再升一次」取決於 12 月會議，維持觀察中（due 2027-01-07）。",
-   "lastReviewed": "2026-10-29"
+   "reviewNote": "2026-10-29 回訪：10-28 FOMC 維持不變（Yahoo Finance、Fox Business、PBS），Rob Sockin「十月 28 日就該升」的附帶主張未成真，已記於此；主 claim「12-31 前至少再升一次」取決於 12 月會議，維持觀察中（due 2027-01-07）。\n2026-11-01 回訪：Forward Guidance 11-01 集確認 10-28 FOMC 未升息（主持人稱「最無意義的一次會議」、聲明把成長措辭由 solid 改為 strong），故 Sockin 的「十月就該升」記為未實現；本條主 claim（年底前至少再升一次）取決於 12 月會議，維持觀察中。",
+   "lastReviewed": "2026-11-01"
   },
   {
    "id": "obs-20261015-2",
@@ -2207,7 +2209,9 @@
    "text": "Ed Zitron 與 Ed Elson（Prof G Markets）都判斷超級雲端業者手上的 AI 資產已超過消化能力，投資人遲早會要求縮減資本支出。檢驗方式：2027-01-22 當日，查 Amazon、Microsoft、Alphabet、Meta 四家在 2026 年第三季財報（10 月下旬）及其後公告中的資本支出指引；任一家下修 2026 全年或首次給出低於 2026 年水準的 2027 年資本支出指引記應驗，四家全部維持或上調記落空。（到期 2027-01-22）",
    "due": "2027-01-22",
    "status": "觀察中",
-   "source": "Prof G Markets｜Is Nvidia Selling More Chips Than Anyone Can Use?"
+   "source": "Prof G Markets｜Is Nvidia Selling More Chips Than Anyone Can Use?",
+   "reviewNote": "2026-11-01 回訪：Forward Guidance 11-01 集稱微軟與 Google 本週資本支出指引「低於市場預估」（約少 70 億與 40 億美元），但那是低於預估、不是下修既有 2026 指引或給出低於 2026 的 2027 指引，不符 claim 的應驗條件；Amazon、Meta 未查。維持觀察中，到期時逐家核對財報與法說會原文。",
+   "lastReviewed": "2026-11-01"
   },
   {
    "id": "obs-20261022-2",
@@ -2425,6 +2429,30 @@
    "due": "2027-01-30",
    "source": "Bloomberg Surveillance｜Markets Price in Tech Spending and Midterm Elections",
    "text": "K Hay（高盛固定收益，Bloomberg Surveillance）認為 AI 債利差擴大是供給問題，投資級市場未來兩年可能吸收逾一兆美元發行。本條以「2027-01-29 美國投資級公司債選擇權調整利差高於 2026-10-30」為 claim。檢驗方式：2027-01-30 當日，查 FRED BAMLC0A0CM 在 2027-01-29 與 2026-10-30 的數值；擴大 10 個基點以上記應驗，擴大 0 至 10 個基點記部分應驗，持平或收窄記落空。（到期 2027-01-30）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261101-1",
+   "date": "2026-11-01",
+   "due": "2027-01-05",
+   "source": "Bloomberg Surveillance｜'Ugly' Midterms, Increasing Your Nest Egg, Everywhere Millionaires",
+   "text": "Henrietta Treys（Veda Partners，Bloomberg Surveillance）認為第四季必須處理的預算調和法案（國防、農民紓困與舉債上限）只有 30% 機率通過，破局則舉債上限攻防延到明年。本條以「2026-12-31 前沒有任何預算調和法案經總統簽署成為法律」為 claim。檢驗方式：2027-01-05 當日，查 congress.gov 在 2026-11-01 至 2026-12-31 之間是否有預算調和法案簽署成法；沒有記應驗，有但未含舉債上限調整記部分應驗，有且含舉債上限調整記落空。（到期 2027-01-05）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261101-2",
+   "date": "2026-11-01",
+   "due": "2027-02-01",
+   "source": "Forward Guidance｜The Fed Is A Sideshow While The AI Trade Implodes | Weekly Roundup",
+   "text": "Quinn Thompson（Forward Guidance）認為期中選舉前三個月的油價漲勢發生在「和平期」，選後地緣升級機率上升、油價將單向走高，並主張做多 2027 年初到期的原油合約。本條以「WTI 現貨在 2027-01-29 的價格高於 2026-10-30」為 claim。檢驗方式：2027-02-01 當日，查 FRED DCOILWTICO 在 2027-01-29 與 2026-10-30 的數值（遇無資料取前一個交易日）；上漲 10% 以上記應驗，上漲 0 至 10% 記部分應驗，持平或下跌記落空。（到期 2027-02-01）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261101-3",
+   "date": "2026-11-01",
+   "due": "2027-02-01",
+   "source": "All-In Podcast｜Anthropic S-1 Shocker, Greatest Business Ever? Google's $500B Wipeout, Midterm Predictions",
+   "text": "Google 財報後市值蒸發約 5,000 億美元，David Sacks（All-In）認為搜尋絕對金額仍年增 12%、股價被超賣，Jason Calacanis 錄音時加碼；Chamath Palihapitiya 則質疑廣告拍賣機制改變、獲利品質待澄清。本條以 Sacks 的說法為 claim：「Alphabet（GOOGL）2027-01-29 收盤價高於 2026-10-30 收盤價」。檢驗方式：2027-02-01 當日，比較 GOOGL 在 2027-01-29 與 2026-10-30 的收盤價（遇休市取前一個交易日）；高出 10% 以上記應驗，高出 0 至 10% 記部分應驗，持平或更低記落空。（到期 2027-02-01）",
    "status": "觀察中"
   }
  ]

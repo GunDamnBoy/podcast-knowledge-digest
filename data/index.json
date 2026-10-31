@@ -1,7 +1,23 @@
 {
- "updated": "2026-10-30T19:15:45+00:00",
- "updatedLabel": "10/31 03:15",
+ "updated": "2026-10-31T19:14:36+00:00",
+ "updatedLabel": "11/1 03:14",
  "days": [
+  {
+   "date": "2026-11-01",
+   "label": "2026年11月1日（週日）",
+   "short": "11/1 週日",
+   "episodeCount": 7,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Forward Guidance",
+    "Prof G Markets",
+    "20VC",
+    "Dwarkesh Podcast",
+    "Masters in Business"
+   ],
+   "file": "data/2026-11-01.json"
+  },
   {
    "date": "2026-10-31",
    "label": "2026年10月31日（週六）",
@@ -1329,5 +1345,5 @@
    ]
   }
  ],
- "count": 92
+ "count": 93
 }
