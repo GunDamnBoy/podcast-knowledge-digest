@@ -1,7 +1,19 @@
 {
- "updated": "2026-11-01T19:13:01+00:00",
- "updatedLabel": "11/2 03:13",
+ "updated": "2026-11-02T19:12:40+00:00",
+ "updatedLabel": "11/3 03:12",
  "days": [
+  {
+   "date": "2026-11-03",
+   "label": "2026年11月3日（週二）",
+   "short": "11/3 週二",
+   "episodeCount": 3,
+   "shows": [
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC"
+   ],
+   "file": "data/2026-11-03.json"
+  },
   {
    "date": "2026-11-02",
    "label": "2026年11月2日（週一）",
@@ -1358,5 +1370,5 @@
    ]
   }
  ],
- "count": 94
+ "count": 95
 }
