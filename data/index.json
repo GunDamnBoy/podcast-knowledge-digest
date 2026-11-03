@@ -1,7 +1,21 @@
 {
- "updated": "2026-11-02T19:12:40+00:00",
- "updatedLabel": "11/3 03:12",
+ "updated": "2026-11-03T19:14:23+00:00",
+ "updatedLabel": "11/4 03:14",
  "days": [
+  {
+   "date": "2026-11-04",
+   "label": "2026年11月4日（週三）",
+   "short": "11/4 週三",
+   "episodeCount": 8,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "Latent Space",
+    "Masters in Business"
+   ],
+   "file": "data/2026-11-04.json"
+  },
   {
    "date": "2026-11-03",
    "label": "2026年11月3日（週二）",
@@ -1370,5 +1384,5 @@
    ]
   }
  ],
- "count": 95
+ "count": 96
 }
