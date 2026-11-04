@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-03T19:14:23+00:00",
- "updatedLabel": "11/4 03:14",
+ "updated": "2026-11-04T19:15:29+00:00",
+ "updatedLabel": "11/5 03:15",
  "days": [
+  {
+   "date": "2026-11-05",
+   "label": "2026年11月5日（週四）",
+   "short": "11/5 週四",
+   "episodeCount": 8,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Forward Guidance",
+    "Prof G Markets",
+    "Invest Like the Best",
+    "In Good Company"
+   ],
+   "file": "data/2026-11-05.json"
+  },
   {
    "date": "2026-11-04",
    "label": "2026年11月4日（週三）",
@@ -1384,5 +1400,5 @@
    ]
   }
  ],
- "count": 96
+ "count": 97
 }
