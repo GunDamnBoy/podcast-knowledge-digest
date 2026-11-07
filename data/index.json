@@ -1,7 +1,20 @@
 {
- "updated": "2026-11-06T19:18:04+00:00",
- "updatedLabel": "11/7 03:18",
+ "updated": "2026-11-07T19:14:42+00:00",
+ "updatedLabel": "11/8 03:14",
  "days": [
+  {
+   "date": "2026-11-08",
+   "label": "2026年11月8日（週日）",
+   "short": "11/8 週日",
+   "episodeCount": 6,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Masters in Business",
+    "20VC",
+    "Prof G Markets"
+   ],
+   "file": "data/2026-11-08.json"
+  },
   {
    "date": "2026-11-07",
    "label": "2026年11月7日（週六）",
@@ -1439,5 +1452,5 @@
    ]
   }
  ],
- "count": 99
+ "count": 100
 }
