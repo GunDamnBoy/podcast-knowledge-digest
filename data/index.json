@@ -1,7 +1,18 @@
 {
- "updated": "2026-11-07T19:14:42+00:00",
- "updatedLabel": "11/8 03:14",
+ "updated": "2026-11-08T19:12:39+00:00",
+ "updatedLabel": "11/9 03:12",
  "days": [
+  {
+   "date": "2026-11-09",
+   "label": "2026年11月9日（週一）",
+   "short": "11/9 週一",
+   "episodeCount": 2,
+   "shows": [
+    "All-In Podcast",
+    "We Study Billionaires (TIP)"
+   ],
+   "file": "data/2026-11-09.json"
+  },
   {
    "date": "2026-11-08",
    "label": "2026年11月8日（週日）",
@@ -1452,5 +1463,5 @@
    ]
   }
  ],
- "count": 100
+ "count": 101
 }
