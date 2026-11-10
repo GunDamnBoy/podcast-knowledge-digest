@@ -1,7 +1,20 @@
 {
- "updated": "2026-11-09T19:14:19+00:00",
- "updatedLabel": "11/10 03:14",
+ "updated": "2026-11-10T19:16:21+00:00",
+ "updatedLabel": "11/11 03:16",
  "days": [
+  {
+   "date": "2026-11-11",
+   "label": "2026年11月11日（週三）",
+   "short": "11/11 週三",
+   "episodeCount": 5,
+   "shows": [
+    "Bloomberg Surveillance",
+    "Prof G Markets",
+    "Hard Fork",
+    "Latent Space"
+   ],
+   "file": "data/2026-11-11.json"
+  },
   {
    "date": "2026-11-10",
    "label": "2026年11月10日（週二）",
@@ -1477,5 +1490,5 @@
    ]
   }
  ],
- "count": 102
+ "count": 103
 }
