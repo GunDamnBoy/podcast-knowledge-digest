@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -675,8 +675,8 @@
    "verdict": "",
    "verdictDate": "",
    "due": "2026-11-23",
-   "lastReviewed": "2026-11-09",
-   "reviewNote": "2026-09-16 回訪：本條的條件是「伊朗戰事繼續拖延並引發一次夠深的修正」，指定觀察對象是信用市場而非估值。今日兩項證據同時到位——伊朗戰事確實仍在推高能源（Goldman 的 George Cole 與 Mizuho 的 Constant 都把它列為當前殖利率上行的最新一層，布蘭特 107 美元）；而 AI 資產出現同步賣壓（費半前一日 −5.8%、Nvidia −3%、Oracle −4%、CoreWeave −7%、軟銀 −15%）。但他指定的裁判是信用市場，而今日 Beach Point 的 Sinjin Bowen 報告高評級利差「歷史性地緊、幾乎沒動」，高收益 +1.8%、槓桿貸款 +3.4% 皆為正報酬——**信用市場完全沒有配合**。條件的一半成立、裁判那一半明確不成立，且他給的窗口（2026-10 至 2027-03）尚未開始。維持觀察中，due 2026-11-23。\n2026-09-20 回訪：未做外部信用指標查證（裁判是 2026-11-23 當日的 ICE BofA US HY OAS，提前算不構成結算）。今日五集裡有兩集對這條的**觸發機制**提出了具名的反面主張，記下來以便到期時判讀：（一）20VC 的 Thomas Sohmers（Positron 共同創辦人）明說他**不擔心 AI 債務鏈上的公司達不到營收目標**，反而更相信 Oracle 的執行力勝過美國政府；他把裂縫改押在主權債務、國債複利與貨幣貶值，也就是**觸發器在無風險資產那一端而不是 AI 這一端**。（二）Masters in Business 的 Glen Kacher（Light Street Capital）反駁「蓋太多」的前提本身，主張超大型雲端廠商今天還在落後、瓶頸在記憶體與台積電擴產速度。（三）Odd Lots 的 Gene Sykes（高盛併購共同主管）給了一個結構性差異：這一輪出資者是自由現金流數千億美元的大型平台，不是 2000 年那輪的創投，因此**資金斷鏈式的急停風險較低，風險改以折舊侵蝕與 FCF 轉負的方式慢慢顯現**——若他對，Murdock 指定的信用市場裁判可能根本不會在窗口內響。他的窗口（2026-10 至 2027-03）下個月才開始。維持觀察中，due 2026-11-23。\n2026-09-24 回訪：本條指定的裁判是信用市場（HY OAS 較 2026-08-21 擴張 100bp 以上），不是估值。今日十集對這個裁判**沒有任何直接資料**：Bloomberg 的 Chaudhuri 只說 AI 曝險已透過投資等級債發行滲入固定收益端，並未提及利差水準或方向；The Compound and Friends 談的是股票端寬度（近百年最差，但年初至今跌逾三成的個股僅 4%、1999 年是 14%），並明確把它讀成「少數巨型股太強」而非底層瓦解。**股票端的窄化與信用端的擴張是兩件事，不能互相代入。** 地緣條件那一半今日有增量（Prof G Markets 的 Matt Smith 指布蘭特約 98 美元、摩根大通已放棄原油基準情境預測，伊朗風險溢價仍在），但信用端仍無擴張跡象。維持觀察中，到期 2026-11-23 不變。\n2026-10-22 回訪：讀 10-22 Compound（CoreWeave 最差債券殖利率衝上 17%、Yardeni 稱利差擴大讓泡沫洩氣而非爆破）與 Prof G（Oracle 五年期 CDS 創新高）；AI 發行人信用壓力上升，但檢驗指標是 2026-11-23 的美國高收益債利差，未到期，未另行查指數，維持觀察中。\n2026-11-09 回訪：WebSearch 查 ICE BofA US High Yield OAS（FRED BAMLH0A0HYM2）：第三方鏡像頁（macroradar、govspending）11 月初顯示約 3.48%；未取得 2026-08-21 基準值，無法算擴張幅度。結算日 2026-11-23 未到，維持觀察中；到期時以 FRED 兩日數值相減判定。"
+   "lastReviewed": "2026-11-12",
+   "reviewNote": "2026-09-16 回訪：本條的條件是「伊朗戰事繼續拖延並引發一次夠深的修正」，指定觀察對象是信用市場而非估值。今日兩項證據同時到位——伊朗戰事確實仍在推高能源（Goldman 的 George Cole 與 Mizuho 的 Constant 都把它列為當前殖利率上行的最新一層，布蘭特 107 美元）；而 AI 資產出現同步賣壓（費半前一日 −5.8%、Nvidia −3%、Oracle −4%、CoreWeave −7%、軟銀 −15%）。但他指定的裁判是信用市場，而今日 Beach Point 的 Sinjin Bowen 報告高評級利差「歷史性地緊、幾乎沒動」，高收益 +1.8%、槓桿貸款 +3.4% 皆為正報酬——**信用市場完全沒有配合**。條件的一半成立、裁判那一半明確不成立，且他給的窗口（2026-10 至 2027-03）尚未開始。維持觀察中，due 2026-11-23。\n2026-09-20 回訪：未做外部信用指標查證（裁判是 2026-11-23 當日的 ICE BofA US HY OAS，提前算不構成結算）。今日五集裡有兩集對這條的**觸發機制**提出了具名的反面主張，記下來以便到期時判讀：（一）20VC 的 Thomas Sohmers（Positron 共同創辦人）明說他**不擔心 AI 債務鏈上的公司達不到營收目標**，反而更相信 Oracle 的執行力勝過美國政府；他把裂縫改押在主權債務、國債複利與貨幣貶值，也就是**觸發器在無風險資產那一端而不是 AI 這一端**。（二）Masters in Business 的 Glen Kacher（Light Street Capital）反駁「蓋太多」的前提本身，主張超大型雲端廠商今天還在落後、瓶頸在記憶體與台積電擴產速度。（三）Odd Lots 的 Gene Sykes（高盛併購共同主管）給了一個結構性差異：這一輪出資者是自由現金流數千億美元的大型平台，不是 2000 年那輪的創投，因此**資金斷鏈式的急停風險較低，風險改以折舊侵蝕與 FCF 轉負的方式慢慢顯現**——若他對，Murdock 指定的信用市場裁判可能根本不會在窗口內響。他的窗口（2026-10 至 2027-03）下個月才開始。維持觀察中，due 2026-11-23。\n2026-09-24 回訪：本條指定的裁判是信用市場（HY OAS 較 2026-08-21 擴張 100bp 以上），不是估值。今日十集對這個裁判**沒有任何直接資料**：Bloomberg 的 Chaudhuri 只說 AI 曝險已透過投資等級債發行滲入固定收益端，並未提及利差水準或方向；The Compound and Friends 談的是股票端寬度（近百年最差，但年初至今跌逾三成的個股僅 4%、1999 年是 14%），並明確把它讀成「少數巨型股太強」而非底層瓦解。**股票端的窄化與信用端的擴張是兩件事，不能互相代入。** 地緣條件那一半今日有增量（Prof G Markets 的 Matt Smith 指布蘭特約 98 美元、摩根大通已放棄原油基準情境預測，伊朗風險溢價仍在），但信用端仍無擴張跡象。維持觀察中，到期 2026-11-23 不變。\n2026-10-22 回訪：讀 10-22 Compound（CoreWeave 最差債券殖利率衝上 17%、Yardeni 稱利差擴大讓泡沫洩氣而非爆破）與 Prof G（Oracle 五年期 CDS 創新高）；AI 發行人信用壓力上升，但檢驗指標是 2026-11-23 的美國高收益債利差，未到期，未另行查指數，維持觀察中。\n2026-11-09 回訪：WebSearch 查 ICE BofA US High Yield OAS（FRED BAMLH0A0HYM2）：第三方鏡像頁（macroradar、govspending）11 月初顯示約 3.48%；未取得 2026-08-21 基準值，無法算擴張幅度。結算日 2026-11-23 未到，維持觀察中；到期時以 FRED 兩日數值相減判定。\n2026-11-12 回訪：11-12 版 Bloomberg Surveillance 音訊主集中高盛的 Amanda Lynam 稱高收益利差約 320 個基點、絕對水準偏緊，CCC 走闊屬個別問題；這是節目口述的口徑，非 ICE BofA HY OAS 官方值，亦未取得 2026-08-21 基準值。結算日 2026-11-23 未到，維持觀察中；到期時以 FRED BAMLH0A0HYM2 兩日數值相減判定。"
   },
   {
    "id": "obs-2026-08-23-2",
@@ -1630,7 +1630,9 @@
    "text": "All-In 的 Chamath Palihapitiya 說 Anthropic 的 IPO 最後成交價格很可能遠低於預期，粗估乾淨情境下 2 兆美元的市值可能只剩 1 兆或更少（節目同時引述 Polymarket 今年上市機率從 96% 降到 76%）。檢驗方式：2026-12-27 當日，查 Anthropic 是否已完成 IPO 定價；已定價且以發行價計算的完全稀釋市值不高於 1 兆美元記應驗，介於 1 兆與 1.5 兆美元記部分應驗，高於 1.5 兆美元記落空，截至該日尚未定價記無法驗證。（到期 2026-12-27）",
    "due": "2026-12-27",
    "status": "觀察中",
-   "source": "All-In Podcast｜Anthropic IPO at Risk, Meta's Muse Pop, Token Prices Fall, Open Source Gains Share, Alignment Fails"
+   "source": "All-In Podcast｜Anthropic IPO at Risk, Meta's Muse Pop, Token Prices Fall, Open Source Gains Share, Alignment Fails",
+   "reviewNote": "2026-11-12 回訪：11-12 版四集報了四個估值——Unhedged 引 FT 首頁標題最高 1.4 兆、Odd Lots 稱初步估值 1.4 兆、Bloomberg Surveillance TV 引路透稱每股由區間上限 80 美元改為 78 美元、估值約 1.1–1.2 兆、Prof G 的 Ed Elson 稱目標估值 1.3 兆；WebSearch「Anthropic IPO pricing date valuation November 2026」見 roic.ai 11-09「kicks off Nasdaq IPO roadshow」，另有未核實報導稱目標 11-19／20 開始交易。尚未定價，各報數字皆落在 1–1.5 兆的部分應驗區間但非結果，維持觀察中。",
+   "lastReviewed": "2026-11-12"
   },
   {
    "id": "obs-20260927-2",
@@ -1929,8 +1931,8 @@
    "due": "2026-12-01",
    "status": "觀察中",
    "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B",
-   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。\n2026-10-30 回訪：10-30 版 20VC 與 Odd Lots 都以已公開遞交的 Anthropic S-1 為前提討論（20VC 稱衝刺兩兆美元 IPO），但兩集都沒有提到定價日或掛牌日；仍屬「已公開遞件、尚未交易」，目前落在部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-08 回訪：11-08 版 Bloomberg Surveillance（HSBC 的 Max Catner 稱 IPO 在兩週內）、Bloomberg Surveillance TV（提到修正版 S-1）與 Prof G Markets（拆解修正版 S-1、稱兩週內上市）都把 Anthropic 視為已遞件、尚未定價交易；只是節目口述，未另做外部查證。仍屬「已公開遞件、尚未交易」的部分應驗區間，到期日 2026-12-01 未到，維持觀察中。",
-   "lastReviewed": "2026-11-08"
+   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。\n2026-10-30 回訪：10-30 版 20VC 與 Odd Lots 都以已公開遞交的 Anthropic S-1 為前提討論（20VC 稱衝刺兩兆美元 IPO），但兩集都沒有提到定價日或掛牌日；仍屬「已公開遞件、尚未交易」，目前落在部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-08 回訪：11-08 版 Bloomberg Surveillance（HSBC 的 Max Catner 稱 IPO 在兩週內）、Bloomberg Surveillance TV（提到修正版 S-1）與 Prof G Markets（拆解修正版 S-1、稱兩週內上市）都把 Anthropic 視為已遞件、尚未定價交易；只是節目口述，未另做外部查證。仍屬「已公開遞件、尚未交易」的部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-12 回訪：WebSearch 見 roic.ai 11-09 報導路演已啟動，另有未核實報導稱目標 11-19 或 11-20 開始交易；11-12 版 Bloomberg Surveillance 插播快訊稱數倍超額認購、路演仍在進行。仍屬「已公開遞件、尚未交易」，到期 2026-12-01 未到，維持觀察中。",
+   "lastReviewed": "2026-11-12"
   },
   {
    "id": "obs-20261010-1",
@@ -2280,7 +2282,9 @@
    "due": "2027-01-25",
    "source": "Prof G Markets｜The AI Bubble Isn't Where You Think It Is",
    "text": "Ed Elson（Prof G Markets）判斷 Anthropic 面對公開市場的估值檢驗時，會選擇延後 IPO 而不是降價上市。本條以「Anthropic 在 2027-01-25 前未完成公開上市」為 claim。檢驗方式：2027-01-25 當日，查 Anthropic 股票是否已在任何公開交易所掛牌交易；尚未掛牌記應驗，已掛牌記落空。（到期 2027-01-25）",
-   "status": "觀察中"
+   "status": "觀察中",
+   "reviewNote": "2026-11-12 回訪：反向證據出現——11-12 版 Prof G Markets 中 Ed Elson 本人說 Anthropic 已以約 1.3 兆美元目標估值定價（低於先前 2 兆），亦即選擇降價推進而非延後；Bloomberg Surveillance 稱路演進行中、超額認購。但 claim 是「2027-01-25 前未完成上市」，結果取決於是否真的掛牌，目前尚未交易，維持觀察中（若 11 月下旬掛牌即記落空）。",
+   "lastReviewed": "2026-11-12"
   },
   {
    "id": "obs-20261025-2",
@@ -2676,6 +2680,22 @@
    "due": "2027-02-11",
    "source": "Prof G Markets｜Scandal At Nvidia: Is This The End For Jensen Huang?",
    "text": "Ashley Gold（Semafor，Prof G Markets）預期國會會藉這次風波收緊晶片出口管制，參院版 NDAA 上的出口管制條款可能在年底、最遲明年初通過。本條以「2027-02-11 前，至少一項針對 AI 晶片對中國出口的管制條款（單獨立法或納入 NDAA）經總統簽署成為法律」為 claim。檢驗方式：2027-02-11 當日查 congress.gov 該會期已成為法律的法案；有符合者記應驗，沒有記落空。（到期 2027-02-11）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261112-1",
+   "date": "2026-11-12",
+   "due": "2027-02-12",
+   "source": "Prof G Markets｜Nvidia Has Lost $1.5 Trillion — Is The Worst Still To Come?；Odd Lots｜The Perfect Storm That Clobbered Hedge Funds",
+   "text": "Ed Elson（Prof G Markets）把 Anthropic 以約 1.3 兆美元估值定價、低於幾個月前的 2 兆目標，讀成「AI 狂熱時代即將結束的證據」；Michael Ball（Odd Lots）則認為市場吸收得了這檔 IPO，Bloomberg Surveillance 也插播了數倍超額認購的快訊。本條以「Anthropic 掛牌後，2027-02-12 收盤價高於 IPO 發行價」為 claim。檢驗方式：2027-02-12 當日查 Anthropic 收盤價與公開說明書的最終發行價；收盤價高於發行價記應驗（Ball 一方），低於或等於發行價記落空（Elson 一方）；截至當日仍未掛牌記無法驗證。（到期 2027-02-12）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261112-2",
+   "date": "2026-11-12",
+   "due": "2027-02-12",
+   "source": "Prof G Markets｜Nvidia Has Lost $1.5 Trillion — Is The Worst Still To Come?；The Compound and Friends｜Can the Stock Market Survive a Tech Meltdown?",
+   "text": "Gil Luria（D.A. Davidson，Prof G Markets）建議把輝達移到優先名單後段，改看博通、AMD、美光這類同樣高成長、但沒有黃仁勳事件風險的標的；The Compound and Friends 的 Michael Batnick 則認為在分析師下修預估前，輝達約 14 倍前瞻本益比的低估值論點仍成立。本條以「2026-11-11 收盤至 2027-02-11 收盤，NVDA 的價格報酬落後 AVGO、AMD、MU 三檔的等權平均」為 claim。檢驗方式：2027-02-12 當日，以四檔股票 2026-11-11 與 2027-02-11 的收盤價計算區間報酬；NVDA 落後三檔等權平均 5 個百分點以上記應驗，落後 0 至 5 個百分點記部分應驗，NVDA 領先記落空。（到期 2027-02-12）",
    "status": "觀察中"
   }
  ]

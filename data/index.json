@@ -1,7 +1,26 @@
 {
- "updated": "2026-11-10T19:16:21+00:00",
- "updatedLabel": "11/11 03:16",
+ "updated": "2026-11-11T19:15:28+00:00",
+ "updatedLabel": "11/12 03:15",
  "days": [
+  {
+   "date": "2026-11-12",
+   "label": "2026年11月12日（週四）",
+   "short": "11/12 週四",
+   "episodeCount": 11,
+   "shows": [
+    "All-In Podcast",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Prof G Markets",
+    "Latent Space",
+    "Invest Like the Best",
+    "In Good Company",
+    "Exchanges at Goldman Sachs"
+   ],
+   "file": "data/2026-11-12.json"
+  },
   {
    "date": "2026-11-11",
    "label": "2026年11月11日（週三）",
@@ -1490,5 +1509,5 @@
    ]
   }
  ],
- "count": 103
+ "count": 104
 }
