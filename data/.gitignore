@@ -1,0 +1,7 @@
+# 2026-11-11 加。publish 對本 repo 只做 `git add -- data`，而 Cowork／雲端掛載點
+# 可以建檔、不能刪檔，所以任何人在 data/ 底下留下的暫存檔都刪不掉，
+# 下一次發布就會被一起推上 Public repo。publish 自己的原子寫入也是先寫 .tmp。
+# 這個檔放在 data/ 裡，是因為 publish 會順手把它提交，不必另外跑 git。
+*.tmp
+*.bak
+*.orig
