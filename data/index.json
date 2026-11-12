@@ -1,7 +1,24 @@
 {
- "updated": "2026-11-11T19:15:28+00:00",
- "updatedLabel": "11/12 03:15",
+ "updated": "2026-11-12T19:13:10+00:00",
+ "updatedLabel": "11/13 03:13",
  "days": [
+  {
+   "date": "2026-11-13",
+   "label": "2026年11月13日（週五）",
+   "short": "11/13 週五",
+   "episodeCount": 9,
+   "shows": [
+    "The Market Huddle",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "Prof G Markets",
+    "20VC",
+    "No Priors",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ],
+   "file": "data/2026-11-13.json"
+  },
   {
    "date": "2026-11-12",
    "label": "2026年11月12日（週四）",
@@ -1509,5 +1526,5 @@
    ]
   }
  ],
- "count": 104
+ "count": 105
 }
