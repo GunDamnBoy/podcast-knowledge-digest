@@ -1,7 +1,26 @@
 {
- "updated": "2026-11-12T19:13:10+00:00",
- "updatedLabel": "11/13 03:13",
+ "updated": "2026-11-13T19:16:11+00:00",
+ "updatedLabel": "11/14 03:16",
  "days": [
+  {
+   "date": "2026-11-14",
+   "label": "2026年11月14日（週六）",
+   "short": "11/14 週六",
+   "episodeCount": 11,
+   "shows": [
+    "The Market Huddle",
+    "MacroVoices",
+    "Bloomberg Surveillance",
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Money Stuff: The Podcast",
+    "Prof G Markets",
+    "In Good Company",
+    "Hard Fork"
+   ],
+   "file": "data/2026-11-14.json"
+  },
   {
    "date": "2026-11-13",
    "label": "2026年11月13日（週五）",
@@ -1526,5 +1545,5 @@
    ]
   }
  ],
- "count": 105
+ "count": 106
 }
