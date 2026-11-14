@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -785,8 +785,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "2026 年 S&P 500 全年 EPS 共識在年度進行中不會被往上調。DataTrek 共同創辦人 Nick Colas 在 The Compound and Friends 說今年指數漲幅百分之百來自盈餘上修、估值毫無貢獻，並附了一句機制性斷言：「分析師從來不會在年度進行中把數字往上調。」這兩句互相依賴——若共識在年中被上調，第二句直接落空，第一句的立論基礎也跟著鬆動。檢驗方式：以 2026-08-26 當日的 2026 全年 S&P 500 自下而上 EPS 共識為基準，比對 2026-11-26 的同一數字，持平或下修記應驗，淨上修記落空（到期 2026-11-26）。",
-   "reviewNote": "2026-09-21 回訪：查 2026 全年 S&P 500 自下而上 EPS 共識。找到 FactSet 系列的 2026 年 EPS 估計 309.22 美元（2025 年 12 月口徑），以及一則 2026 年 4 月「Barclays 與 FactSet 把 2026 年 EPS 成長預估上調至 16%」的報導——若屬實，Colas 那句「分析師從來不會在年度進行中把數字往上調」已經落空。但本條的檢驗方式錨在 2026-08-26 當日的共識值，而我取不到那個基準值，也無法確認那則四月報導的口徑與 FactSet 官方一致，所以不足以改判。維持觀察中，下次回訪要直接取 FactSet Earnings Insight 的週報數列比對 08-26 與當期值。",
-   "lastReviewed": "2026-09-21"
+   "reviewNote": "2026-09-21 回訪：查 2026 全年 S&P 500 自下而上 EPS 共識。找到 FactSet 系列的 2026 年 EPS 估計 309.22 美元（2025 年 12 月口徑），以及一則 2026 年 4 月「Barclays 與 FactSet 把 2026 年 EPS 成長預估上調至 16%」的報導——若屬實，Colas 那句「分析師從來不會在年度進行中把數字往上調」已經落空。但本條的檢驗方式錨在 2026-08-26 當日的共識值，而我取不到那個基準值，也無法確認那則四月報導的口徑與 FactSet 官方一致，所以不足以改判。維持觀察中，下次回訪要直接取 FactSet Earnings Insight 的週報數列比對 08-26 與當期值。\n2026-11-15 回訪：WebSearch「FactSet Earnings Insight November 2026 CY2026 S&P 500 EPS estimate」只得到標題層級結果（FactSet 稱分析師連續第三季上調季度 EPS 預估、11-06 財報季更新），方向對本條不利，但那是季度預估而非 2026 全年自下而上共識，也仍無 2026-08-26 基準值，未讀 PDF 內文。未到期（11-26），維持觀察中；到期時須取 08-26 前後與 11-26 前後兩期 Earnings Insight 的 CY2026 EPS 比對。",
+   "lastReviewed": "2026-11-15"
   },
   {
    "id": "obs-2026-08-26-3",
@@ -796,8 +796,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "HBM 的稀缺性會比前沿模型的領先溢價維持得更久。Sail Research 創辦人 Neil Movva 在 Invest Like the Best 主張實驗室為領先三到六個月付出的溢價撐不了太久（企業部署不按這個節奏換模型、蒸餾持續發生），而真正沒有短期解方的瓶頸是 HBM——記憶體產能無法快速擴充、記憶體廠被週期性資本支出燒怕了。檢驗方式：比對 2026-08-26 至 2026-11-26 期間 SK 海力士與美光的 HBM 合約價與擴產宣告，以及非 Nvidia 加速器（AMD MI 系列、Google TPU、AWS Trainium）在主要雲端平台的公開單價；HBM 價格走高或供給仍緊、同時非 Nvidia 加速器單價下滑或上架擴大，記應驗；HBM 鬆動或前沿模型 API 價格維持溢價不墜，記落空（到期 2026-11-26）。",
-   "lastReviewed": "2026-10-22",
-   "reviewNote": "2026-10-22 回訪：讀 10-22 Prof G Markets 逐字稿，Ed Zitron 稱 RAM 等消費電子漲價源自 HBM 被輝達 GPU 大量占用，屬 HBM 仍稀缺的旁證，但未觸及前沿模型溢價那一半；未到期（2026-11-26），維持觀察中。"
+   "lastReviewed": "2026-11-15",
+   "reviewNote": "2026-10-22 回訪：讀 10-22 Prof G Markets 逐字稿，Ed Zitron 稱 RAM 等消費電子漲價源自 HBM 被輝達 GPU 大量占用，屬 HBM 仍稀缺的旁證，但未觸及前沿模型溢價那一半；未到期（2026-11-26），維持觀察中。\n2026-11-15 回訪：讀 11-15 期 20VC，Fractile 的 Walter Goodwin 稱 TPU、MTIA、OpenAI 晶片多走 Broadcom 平台、共用同一種 HBM，HBM 與台積電產能是全產業共同瓶頸，屬「HBM 仍稀缺」那一半的旁證（晶片創業者的利害關係人說法）；仍未取得 HBM 合約價與非輝達加速器雲端單價，前沿模型溢價那一半也無新證據。未到期（11-26），維持觀察中。"
   },
   {
    "id": "obs-2026-08-27-1",
@@ -882,8 +882,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "股債相關性在未來三個月會轉為正值，這是 TS Lombard 的 Freya Beamish 主張「10 年期 4.70% 尚未反映新的總經體制」那條論證鏈的第二環。她的鏈條是：荷莫茲海峽、關稅這類負面供給衝擊削弱債券對股票的避險能力，使股債相關性轉正，因此期限溢酬應該更高，而現在的長端還沒把這件事計價進去；她同時指出財政政策的順週期性比財政部的流動性干預更值得追蹤，後者只有暫時效果。這條之所以值得單獨收，是因為它可以在殖利率本身不動的情況下先被判定——若相關性仍為負，即使長端上行，她給的理由也是錯的。檢驗方式：於 2026-11-29 計算 SPX 日報酬與 10 年期美債價格日報酬在本觀察開帳日之後全部交易日的皮爾森相關係數，若 ≥ +0.10 記應驗；若 ≤ −0.10 記落空；介於兩者之間記部分應驗；若任一序列在到期日無法取得記無法驗證。（到期 2026-11-29）",
-   "reviewNote": "2026-09-26 回訪：首次回訪。查了今日各集可得的方向性證據：本條前提中的長端上行已發生（十年期從開帳時 4.70% 升到約 5.10%–5.22%，MacroVoices、Unhedged、Forward Guidance 三集各自引用），但本條裁判是 SPX 與 10 年期美債價格日報酬的相關係數，需要完整日序列計算，本輪沒有算，逐字稿也不提供。另記一個方向訊號：Unhedged 的 Armstrong 與 42 Macro 的 Dale 皆認為股市尚未受長端拖累，若屬實則股跌債跌的正相關尚未全面成形。無法判定，維持觀察中（due 2026-11-29）。",
-   "lastReviewed": "2026-09-26"
+   "reviewNote": "2026-09-26 回訪：首次回訪。查了今日各集可得的方向性證據：本條前提中的長端上行已發生（十年期從開帳時 4.70% 升到約 5.10%–5.22%，MacroVoices、Unhedged、Forward Guidance 三集各自引用），但本條裁判是 SPX 與 10 年期美債價格日報酬的相關係數，需要完整日序列計算，本輪沒有算，逐字稿也不提供。另記一個方向訊號：Unhedged 的 Armstrong 與 42 Macro 的 Dale 皆認為股市尚未受長端拖累，若屬實則股跌債跌的正相關尚未全面成形。無法判定，維持觀察中（due 2026-11-29）。\n2026-11-15 回訪：讀 11-15 期 Bloomberg Surveillance 電視版，Priya Misra 指輝達風波沒有把資金推進公債，因為市場擔心聯準會落後曲線、一次升 50 個基點——股跌而債未漲，方向上偏向股債相關轉正；但本條裁判是日報酬相關係數，本輪未取得日序列、未計算。未到期（11-29），維持觀察中。",
+   "lastReviewed": "2026-11-15"
   },
   {
    "id": "obs-2026-08-29-3",
@@ -2744,6 +2744,30 @@
    "due": "2027-02-14",
    "source": "The Compound and Friends｜Damn it, Jensen! With JC Parets；Unhedged (FT)｜Bonds, inflation and the Fed. Plus, Nvidia in turmoil；Bloomberg Surveillance｜Bloomberg Surveillance TV: November 12th, 2026",
    "text": "Josh Brown（The Compound and Friends）認為 10 倍遠期本益比已把黃仁勳離職的利空算進去，Robert Armstrong（Unhedged）也認為輝達跌到 160 美元已具吸引力；Greg Peters（PGIM，Unhedged）與 Academy 的 Peter（Bloomberg Surveillance 電視版）則認為 AI 生態系還有一輪重新定價、信用市場不認為事情已結束。本條的 claim 是：輝達（NVDA）2027-02-12 收盤價高於 2026-11-13 收盤價。 檢驗方式：2027-02-14 當日查 NVDA 兩日收盤價（含股票分割調整）；2027-02-12 較高記應驗（已反映一方）；持平或較低記落空。（到期 2027-02-14）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261115-1",
+   "date": "2026-11-15",
+   "due": "2027-02-15",
+   "source": "Odd Lots｜How Wall Street Is Bracing For the Post-Jensen Huang Nvidia Era；Bloomberg Surveillance｜Nvidia's Leadership Crisis, US Retirement Gets a C+ & Anthropic's Big Debut Next Week；All-In Podcast｜Jensen Ousted as Nvidia CEO: \"Spy\" Scandal, Export Restrictions, Market Impact；Bloomberg Surveillance｜Bloomberg Surveillance TV: November 13th, 2026",
+   "text": "Stacy Rasgon（Bernstein，Odd Lots）與 Sarah Frier（Bloomberg Surveillance 週末主集）指出輝達沒有接班計畫、AI 大客戶交易由黃仁勳一人拍板；All-In 與 Odd Lots 點名的人選有內部的 Ian Buck、外部的 Rene Haas 與 Nikesh Arora，Dan Ives（Bloomberg 電視版）認為財務長 Colette Kress 是最自然的暫代人選但長期勝算有限。本條的 claim 是：輝達於 2027-02-15 前正式宣布非代理性質的新任執行長。 檢驗方式：2027-02-15 當日查輝達官方新聞稿；已宣布正式執行長記應驗（並註明內部或外部人選），仍由代理執行長掌舵記落空。（到期 2027-02-15）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261115-2",
+   "date": "2026-11-15",
+   "due": "2027-02-15",
+   "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: November 13th, 2026；Odd Lots｜How Wall Street Is Bracing For the Post-Jensen Huang Nvidia Era；All-In Podcast｜Jensen Ousted as Nvidia CEO: \"Spy\" Scandal, Export Restrictions, Market Impact",
+   "text": "參議員 Chris Coons（Bloomberg 電視版）質疑商務部長 Lutnick 的晶片出口許可與 H200 出貨，Stacy Rasgon（Odd Lots）認為事件之後對中出口管制只會更緊；David Sacks（All-In）與 Rasgon 同時指出 H200 已獲許可、是北京自己擋著不讓進口。本條的 claim 是：美國政府於 2027-02-15 前公開撤銷、暫停或收緊輝達 H200 對中國的出口許可。 檢驗方式：2027-02-15 當日查商務部 BIS 公告與主要財經媒體報導；有正式撤銷、暫停或新增限制記應驗，許可維持不變記落空。（到期 2027-02-15）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261115-3",
+   "date": "2026-11-15",
+   "due": "2027-02-15",
+   "source": "Bloomberg Surveillance｜Bloomberg Surveillance TV: November 13th, 2026",
+   "text": "Priya Misra（Bloomberg Surveillance 電視版）估 10 年期美債合理值在 4.5% 到 5.25%，認為 12 月與 1 月的升息已反映在價格裡、持有一些存續期間合理；她同時警告若聯準會被視為落後曲線、需要一次升 50 個基點以上，公債就不再是避風港。本條的 claim 是：2027-02-12 美國 10 年期公債殖利率收在 4.50% 至 5.25% 之間（含端點）。 檢驗方式：2027-02-15 當日查 FRED DGS10 的 2027-02-12 數值；落在區間內記應驗，高於 5.25% 或低於 4.50% 記落空。（到期 2027-02-15）",
    "status": "觀察中"
   }
  ]
