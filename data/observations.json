@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "note": "觀察點只收「可驗證的預測或檢驗點」。**免責聲明、來源標註、管線自檢、純敘述性總結一律不收**——2026-08-10 回填種子時未過濾，08-11 六條改判裡有四條在處理這類雜訊。新增前先問：這句話三個月後有可能被證明是錯的嗎？不能就不要收。",
  "items": [
   {
@@ -763,8 +763,8 @@
    "verdict": "",
    "verdictDate": "",
    "text": "AI 相關發行人的負自由現金流會反映在新發行利差上。Anne Walsh 說市場已意識到資料中心與 AI 交易的發行人目前自由現金流為負，而她要「付得多很多」才會進場，並以 1990 年代末光纖建置與金融海嘯前的發債潮類比。檢驗方式：比較 2026-08-25 之後超大規模雲端業者與資料中心相關的新發行投資等級債，其發行時的新券溢價與次級市場利差相對同評等指數的走勢，擴大記應驗、持平或收斂記落空（到期 2026-11-25）。",
-   "reviewNote": "2026-09-20 回訪（本條首次回訪）：未做外部新券利差查證（裁判是新發行溢價與次級市場利差相對同評等指數的走勢，需要初級市場資料，本輪無此來源）。今日 Odd Lots 的 Gene Sykes 提供了一個**對本條前提的結構性反駁**，值得在到期時一併判讀：他把這一輪與 2000–2001 年創投出資的光纖過剩對比，指出這次的出資者是自由現金流數千億美元的大型科技平台，稱之為「不可思議的翻轉」。若成立，Anne Walsh 講的「負自由現金流」主要發生在專營資料中心的發行人（CoreWeave、Oracle 那一類）而非平台本身，**利差擴大的訊號會集中在發行人層級而非整個類別**，到期時不宜拿類別平均來判。同集 Sykes 也承認「會不會蓋太多，我們就是不知道」。維持觀察中，due 2026-11-25。\n2026-10-22 回訪：讀 10-22 Compound 引述 Yardeni，CoreWeave、Oracle 等「較可疑借款人」信用利差擴大，方向符合 claim；但 claim 的檢驗口徑是投資等級新券溢價，今日素材沒有新券發行數據，未到期（2026-11-25），維持觀察中。\n2026-11-11 回訪：今日 Bloomberg Surveillance（CPI 那集）Barclays 來賓估明年超大規模業者發債量至少放大 1.5 倍、表外融資讓總供給看不清；First Citizens 固收策略刻意避開這類發行人；Bloomberg 電視版 Bill Dudley 亦指 AI 融資移往表外。方向與本條前提一致，但仍無新券溢價或相對同評等利差的數據，未到期（11-25），維持觀察中。\n2026-11-13 回訪：讀 11-13 期 The Market Huddle，Veritas 的 Scilipoti 點名 Meta 把約 450 億美元的 Hyperion 放在表外、輝達替資料中心租約與營收作保並給 12 個月付款期，與本條「負自由現金流」前提一致，但談的是會計與表外負債，不是新券溢價或相對同評等利差。仍無檢驗口徑的數據，未到期（11-25），維持觀察中。",
-   "lastReviewed": "2026-11-13"
+   "reviewNote": "2026-09-20 回訪（本條首次回訪）：未做外部新券利差查證（裁判是新發行溢價與次級市場利差相對同評等指數的走勢，需要初級市場資料，本輪無此來源）。今日 Odd Lots 的 Gene Sykes 提供了一個**對本條前提的結構性反駁**，值得在到期時一併判讀：他把這一輪與 2000–2001 年創投出資的光纖過剩對比，指出這次的出資者是自由現金流數千億美元的大型科技平台，稱之為「不可思議的翻轉」。若成立，Anne Walsh 講的「負自由現金流」主要發生在專營資料中心的發行人（CoreWeave、Oracle 那一類）而非平台本身，**利差擴大的訊號會集中在發行人層級而非整個類別**，到期時不宜拿類別平均來判。同集 Sykes 也承認「會不會蓋太多，我們就是不知道」。維持觀察中，due 2026-11-25。\n2026-10-22 回訪：讀 10-22 Compound 引述 Yardeni，CoreWeave、Oracle 等「較可疑借款人」信用利差擴大，方向符合 claim；但 claim 的檢驗口徑是投資等級新券溢價，今日素材沒有新券發行數據，未到期（2026-11-25），維持觀察中。\n2026-11-11 回訪：今日 Bloomberg Surveillance（CPI 那集）Barclays 來賓估明年超大規模業者發債量至少放大 1.5 倍、表外融資讓總供給看不清；First Citizens 固收策略刻意避開這類發行人；Bloomberg 電視版 Bill Dudley 亦指 AI 融資移往表外。方向與本條前提一致，但仍無新券溢價或相對同評等利差的數據，未到期（11-25），維持觀察中。\n2026-11-13 回訪：讀 11-13 期 The Market Huddle，Veritas 的 Scilipoti 點名 Meta 把約 450 億美元的 Hyperion 放在表外、輝達替資料中心租約與營收作保並給 12 個月付款期，與本條「負自由現金流」前提一致，但談的是會計與表外負債，不是新券溢價或相對同評等利差。仍無檢驗口徑的數據，未到期（11-25），維持觀察中。\n2026-11-19 回訪：讀 11-19 期 Bloomberg「Nvidia and the AI Trade」，MassMutual 的 Kelly Kowalski 稱超大規模業者已轉為負自由現金流須外部融資，投資級內高品質與邊緣 AI 發行人利差已拉開 140 個基點、預期緩步走寬；同日 Apollo 的 Jim Zelter（Bloomberg TV）只做三到五年頂層融資。方向與本條一致，但仍是相對同業利差的口述，非新券溢價對同評等指數的數據。未到期（11-25），維持觀察中。",
+   "lastReviewed": "2026-11-19"
   },
   {
    "id": "obs-2026-08-26-1",
@@ -1195,7 +1195,9 @@
    "date": "2026-09-09",
    "text": "第三，Gil Luria（DA Davidson）主張資料中心的政治阻力不是逆風而是在替週期踩煞車：黃仁勳給明年成長 70%，而需求足以支撐翻倍，差額是建置的實體限制與地方阻力造成的。如果他對，未來兩季真正的瓶頸應該出現在供給端而非需求端，也就是資料中心相關營收成長被交期而非訂單限制住。這與同集 Voya 的 Barbara 把同一批抗議讀成逆風正好相反。檢驗方式：檢視 Nvidia 最近一次財報與財測中資料中心營收的年增率，以及法說會上管理層對瓶頸的歸因——成長率落在 70% 上下且管理層明確歸因於供給／交期限制記應驗；成長率明顯低於 70% 且歸因於需求放緩記落空（到期 2026-12-09）。",
    "status": "觀察中",
-   "due": "2026-12-09"
+   "due": "2026-12-09",
+   "lastReviewed": "2026-11-19",
+   "reviewNote": "2026-11-19 回訪：讀 11-19 期輝達財報相關各集——總營收年增 103%，但未取得資料中心營收年增率；管理層歸因方面，Prof G 的 Gil Luria 與 Instant Reaction 皆稱供應承諾增加、產能售罄，偏向供給端限制，但也提到中國資料中心營收歸零與經新加坡轉售調查，需求面另有扣項。年增率與歸因都無法機械判定，未到期（12-09），維持觀察中。"
   },
   {
    "id": "obs-20260910-1",
@@ -1606,7 +1608,9 @@
    "text": "黃仁勳（Nvidia，The Ezra Klein Show 經 Hard Fork feed 轉載）說 AI 算力供過於求「不在明年、也不在未來兩三年」；同日 Forward Guidance 的老交易員 DCP 押的是反方向，認為 AI 周邊私人信貸與 Oracle 會最先斷。檢驗方式：2026-12-26 當日，查 Nvidia 2027 會計年度第三季（約 2026 年 11 月發布）財報。資料中心營收季增為正、且下一季營收指引高於本季記應驗；資料中心營收季增為正但下一季指引持平或低於本季記部分應驗；資料中心營收季減記落空。（到期 2026-12-26）",
    "due": "2026-12-26",
    "status": "觀察中",
-   "source": "Hard Fork｜The Ezra Klein Show: Jensen Huang Thinks A.I. Alarmism Has Gone Too Far"
+   "source": "Hard Fork｜The Ezra Klein Show: Jensen Huang Thinks A.I. Alarmism Has Gone Too Far",
+   "lastReviewed": "2026-11-19",
+   "reviewNote": "2026-11-19 回訪：讀 11-19 期 Bloomberg Instant Reaction、Prof G、Compound——輝達 FY27 第三季營收約 1,158 億美元（年增 103%）、資料中心約 1,076 億，第四季指引（節目中更正為 1,261–1,339 億）高於本季，指引那一半成立；但四集都沒有給上一季資料中心營收，WebSearch 只得 2025 年舊報導，資料中心季增是否為正未取得。未到期（12-26），維持觀察中。"
   },
   {
    "id": "obs-20260926-2",
@@ -1933,8 +1937,8 @@
    "due": "2026-12-01",
    "status": "觀察中",
    "source": "20VC｜20VC: Cognition vs Factory: Vinod Khosla Creates a Storm | OpenAI Nears $70B Run Rate: Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B & Salesforce Buys Listen Labs for $2B",
-   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。\n2026-10-30 回訪：10-30 版 20VC 與 Odd Lots 都以已公開遞交的 Anthropic S-1 為前提討論（20VC 稱衝刺兩兆美元 IPO），但兩集都沒有提到定價日或掛牌日；仍屬「已公開遞件、尚未交易」，目前落在部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-08 回訪：11-08 版 Bloomberg Surveillance（HSBC 的 Max Catner 稱 IPO 在兩週內）、Bloomberg Surveillance TV（提到修正版 S-1）與 Prof G Markets（拆解修正版 S-1、稱兩週內上市）都把 Anthropic 視為已遞件、尚未定價交易；只是節目口述，未另做外部查證。仍屬「已公開遞件、尚未交易」的部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-12 回訪：WebSearch 見 roic.ai 11-09 報導路演已啟動，另有未核實報導稱目標 11-19 或 11-20 開始交易；11-12 版 Bloomberg Surveillance 插播快訊稱數倍超額認購、路演仍在進行。仍屬「已公開遞件、尚未交易」，到期 2026-12-01 未到，維持觀察中。\n2026-11-17 回訪：讀 11-17 期 Prof G Markets（Anthropic 預計週三定價、週四掛牌）與 Bloomberg Surveillance（認購超額多倍、募資 904 億美元）；WebSearch 只得 fourweekmba「pricing 18 Nov, trading 19 Nov」等標題，未核實。仍屬已遞件、尚未交易，到期 2026-12-01 未到，維持觀察中。\n2026-11-18 回訪：讀 11-18 期 Bloomberg Surveillance 主集（Nvidia Reports as Trump Heads to Asia，稿稱 Anthropic 週四定價）；WebSearch 只得 fourweekmba「Pricing 18 Nov, Trading 19 Nov」、Renaissance Capital 設定發行條件等標題，未逐頁核實。截至今日仍屬已公開遞件、尚未交易，到期 2026-12-01 未到，維持觀察中。",
-   "lastReviewed": "2026-11-18"
+   "reviewNote": "2026-10-26 回訪：WebSearch「Anthropic IPO filing S-1」查得多篇追蹤文（leverageshares IPO tracker、richnerds「Anthropic Files for IPO」等）與預測市場題目，但未確認是否已公開遞件或排定掛牌日；到期前無法判定，維持觀察中。\n2026-10-27 回訪：Anthropic 已於 2026-10-26 公開遞交 S-1（Bloomberg Surveillance 當日即時反應集），但尚未定價、未開始交易；依檢驗方式目前落在「已公開遞件但尚未交易＝部分應驗」區間，到期日 2026-12-01 未到，維持觀察中。\n2026-10-30 回訪：10-30 版 20VC 與 Odd Lots 都以已公開遞交的 Anthropic S-1 為前提討論（20VC 稱衝刺兩兆美元 IPO），但兩集都沒有提到定價日或掛牌日；仍屬「已公開遞件、尚未交易」，目前落在部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-08 回訪：11-08 版 Bloomberg Surveillance（HSBC 的 Max Catner 稱 IPO 在兩週內）、Bloomberg Surveillance TV（提到修正版 S-1）與 Prof G Markets（拆解修正版 S-1、稱兩週內上市）都把 Anthropic 視為已遞件、尚未定價交易；只是節目口述，未另做外部查證。仍屬「已公開遞件、尚未交易」的部分應驗區間，到期日 2026-12-01 未到，維持觀察中。\n2026-11-12 回訪：WebSearch 見 roic.ai 11-09 報導路演已啟動，另有未核實報導稱目標 11-19 或 11-20 開始交易；11-12 版 Bloomberg Surveillance 插播快訊稱數倍超額認購、路演仍在進行。仍屬「已公開遞件、尚未交易」，到期 2026-12-01 未到，維持觀察中。\n2026-11-17 回訪：讀 11-17 期 Prof G Markets（Anthropic 預計週三定價、週四掛牌）與 Bloomberg Surveillance（認購超額多倍、募資 904 億美元）；WebSearch 只得 fourweekmba「pricing 18 Nov, trading 19 Nov」等標題，未核實。仍屬已遞件、尚未交易，到期 2026-12-01 未到，維持觀察中。\n2026-11-18 回訪：讀 11-18 期 Bloomberg Surveillance 主集（Nvidia Reports as Trump Heads to Asia，稿稱 Anthropic 週四定價）；WebSearch 只得 fourweekmba「Pricing 18 Nov, Trading 19 Nov」、Renaissance Capital 設定發行條件等標題，未逐頁核實。截至今日仍屬已公開遞件、尚未交易，到期 2026-12-01 未到，維持觀察中。\n2026-11-19 回訪：讀 11-19 期 Unhedged 與 Bloomberg「Nvidia and the AI Trade」——兩集皆稱 Anthropic 本週三（11-18）定價、週四開始交易，若屬實會在 11-30 前掛牌；但截至錄音時尚未交易，且未外部查證。未到期（12-01），維持觀察中。",
+   "lastReviewed": "2026-11-19"
   },
   {
    "id": "obs-20261010-1",
@@ -2834,6 +2838,30 @@
    "due": "2027-02-18",
    "source": "Invest Like the Best｜Brad Gerstner & Geoffrey Canada - Raising the Floor for Every American Child",
    "text": "Brad Gerstner（Invest Like the Best）說 Invest America 帳戶本身是永久制度，但每名新生兒 1,000 美元的出生撥款目前只有資金到 2029 年、需每四年重新授權，他有把握能把它永久化，「甚至可能在這次跛腳會期就完成」。本條的 claim 是：2027-02-18 前，國會通過把出生撥款延長到 2029 年之後或改為永久的立法。 檢驗方式：2027-02-18 當日查 congress.gov 與財政部公告；已通過並簽署記應驗，已在一院通過記部分應驗，兩院皆未通過記落空。（到期 2027-02-18）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261119-1",
+   "date": "2026-11-19",
+   "due": "2027-02-19",
+   "source": "Goldman Sachs Exchanges｜Steady Global Economic Growth in 2027 Outlook But Risks Tilted to Downside；Bloomberg Surveillance｜Bloomberg Surveillance TV: November 17th, 2026",
+   "text": "Jan Hatzius（Goldman Sachs Exchanges）預期聯準會 12 月升息 25 個基點、2027 年初再升一次且較可能在 3 月而非 1 月；Veronica Clark（City Research，Bloomberg Surveillance 電視版）則認為 12 月之後 1 月可能再升。本條的 claim 是 Hatzius 的時程：聯準會在 2026 年 12 月 FOMC 升息 25 個基點，2027 年 1 月 FOMC 按兵不動。 檢驗方式：2027-02-19 當日查兩次 FOMC 決議；12 月升 25 個基點且 1 月不動記應驗，12 月升息但 1 月也升記落空，12 月未升息記部分應驗。（到期 2027-02-19）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261119-2",
+   "date": "2026-11-19",
+   "due": "2027-02-19",
+   "source": "Odd Lots｜How GTA VI Became the Most Expensive Video Game Ever Made",
+   "text": "Bloomberg 遊戲記者 Jason Schreier（Odd Lots）以 GTA 5 首日營收約 8 億美元為對照，說 GTA 6 首日營收翻倍他也不意外，外界估計預購逾千萬套。本條的 claim 是：Take-Two 或 Rockstar 在 2027-02-19 前公布的 GTA 6 首日（或首 24 小時）營收不低於 16 億美元。 檢驗方式：2027-02-19 當日查 Take-Two 新聞稿與季報；公布值 ≥16 億美元記應驗，8 億至 16 億美元記部分應驗，低於 8 億美元記落空，只公布套數而無營收數字記無法驗證。（到期 2027-02-19）",
+   "status": "觀察中"
+  },
+  {
+   "id": "obs-20261119-3",
+   "date": "2026-11-19",
+   "due": "2027-02-19",
+   "source": "All-In Podcast｜Databricks CEO: AGI Is Already Here, Why Companies Are Behind, and the Superintelligence Debate",
+   "text": "Databricks 執行長 Ali Ghodsi（All-In）說公司一定會上市，但 AI 轉型期市場起伏太大，目前以每年員工股權收購與私募提供流動性、不急著上市；Jason Calacanis 引述其年營收運行率約 70 億美元、年增 80%。本條的 claim 是：Databricks 在 2027-02-19 前不會公開遞交 S-1，也不會完成 IPO 定價。 檢驗方式：2027-02-19 當日查 SEC EDGAR 與公司新聞稿；無公開 S-1 且無 IPO 記應驗，已公開遞交 S-1 但未掛牌記部分應驗，已完成 IPO 記落空。（到期 2027-02-19）",
    "status": "觀察中"
   }
  ]
