@@ -1,7 +1,19 @@
 {
- "updated": "2026-11-23T19:15:27+00:00",
- "updatedLabel": "11/24 03:15",
+ "updated": "2026-11-24T19:14:07+00:00",
+ "updatedLabel": "11/25 03:14",
  "days": [
+  {
+   "date": "2026-11-25",
+   "label": "2026年11月25日（週三）",
+   "short": "11/25 週三",
+   "episodeCount": 3,
+   "shows": [
+    "All-In Podcast",
+    "The Market Huddle",
+    "Bloomberg Surveillance"
+   ],
+   "file": "data/2026-11-25.json"
+  },
   {
    "date": "2026-11-24",
    "label": "2026年11月24日（週二）",
@@ -1689,5 +1701,5 @@
    ]
   }
  ],
- "count": 116
+ "count": 117
 }
