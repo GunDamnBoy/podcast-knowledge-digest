@@ -155,7 +155,7 @@ https://itunes.apple.com/lookup?id=<AppleID>&media=podcast&entity=podcastEpisode
 
 **注意窗口接縫**：**iTunes 退援路徑**的 26 小時窗口以每天固定同一時刻執行為前提，某天沒跑或延後跑就會在兩次窗口之間留下空隙（主路徑沒有這個問題，它以 `last_run_utc` 為準）。**但這個空隙通常不會真的掉集數**，因為真正決定「有哪幾集」的是 podfetch，而 podfetch 的視窗以 `last_run_utc` 為起點（上限 72 小時）、下次執行會自動往回補（見第 2 節）。
 
-**真正會掉集數的只有一種情況：podfetch 也一起漏跑，而且中斷超過 72 小時。** 此外走 iTunes 退援路徑時沒有 `last_run_utc` 兜底，26 小時窗口就是硬邊界——**這種時候才需要手動把窗口往前延伸到接上前一份檔案為止**。補跑時一律回頭確認前一份檔案的實際涵蓋範圍，別假設它蓋滿整個日曆日。
+**會掉集數的有兩種情況：（一）podfetch 也一起漏跑，而且中斷超過 72 小時；（二）同一集每天都 FAILED，約 72 小時後滑出視窗**（2026-11-25 補第二種：10-27～11-10 latentspace 五集就是這樣遺失的，處置見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之一步）。 此外走 iTunes 退援路徑時沒有 `last_run_utc` 兜底，26 小時窗口就是硬邊界——**這種時候才需要手動把窗口往前延伸到接上前一份檔案為止**。補跑時一律回頭確認前一份檔案的實際涵蓋範圍，別假設它蓋滿整個日曆日。
 
 ---
 
@@ -219,7 +219,7 @@ launchctl list | grep com.kenny.podfetch     # 確認排程存在
 python3 ~/kb-core/scripts/podcast/healthcheck.py  # 一次跑完所有機械式檢查
 ```
 
-`status` 三種值：`OK` 正常；`DEGRADED` 完整度不足，摘譯照做但要在 `source` 註明；`FAILED` 沒有逐字稿，走退援。
+`status` 三種值：`OK` 正常；`DEGRADED` 完整度不足，摘譯照做但要在 `source` 註明；`FAILED` 沒有逐字稿，**日報不收、不走退援**，下一輪 podfetch 會重抓（處置與「連續 FAILED 會滑出視窗而永久遺失」的升級規則見 `kb-core/scripts/podcast/DIGEST-PROMPT.md` 第 1 之一步；2026-11-25 訂正，原寫「走退援」，與 08-26 起 16 天的實際做法相反）。
 
 ### 讀不到當天目錄時的三段排查
 
