@@ -1,7 +1,23 @@
 {
- "updated": "2026-11-25T19:17:42+00:00",
- "updatedLabel": "11/26 03:17",
+ "updated": "2026-11-26T19:16:36+00:00",
+ "updatedLabel": "11/27 03:16",
  "days": [
+  {
+   "date": "2026-11-27",
+   "label": "2026年11月27日（週五）",
+   "short": "11/27 週五",
+   "episodeCount": 7,
+   "shows": [
+    "MacroVoices",
+    "Bloomberg Surveillance",
+    "Odd Lots",
+    "20VC",
+    "Latent Space",
+    "We Study Billionaires (TIP)",
+    "Masters in Business"
+   ],
+   "file": "data/2026-11-27.json"
+  },
   {
    "date": "2026-11-26",
    "label": "2026年11月26日（週四）",
@@ -1721,5 +1737,5 @@
    ]
   }
  ],
- "count": 118
+ "count": 119
 }
