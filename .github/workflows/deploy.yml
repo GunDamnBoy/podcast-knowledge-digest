@@ -12,13 +12,20 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  # 不要中途取消正在進行的部署（GitHub 官方範本也是 false）——取消到一半的部署本身就是一種失敗形態。
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # **2026-11-27 拆成 build／deploy 兩個 job，並在 deploy 失敗時原地重試一次。**
+  # 11-18、11-25、11-26 三次失敗都是同一個形狀：`Upload artifact` 成功、
+  # 那份 `github-pages` artifact 事後查得到（11-26 那份 6.95 MB、19:16:54 建立），
+  # 但幾秒後的 `deploy-pages` 回「No artifacts named "github-pages" were found」——
+  # 是 artifact API 的最終一致性延遲，不是內容問題。
+  # （一）GitHub 官方 Pages 範本本來就是上傳與部署分兩個 job，換 runner 的那段時間就是緩衝；
+  # （二）萬一仍查不到，在**同一個 run、同一個 job 裡**等 60 秒再部署一次。
+  # 不能靠人在原 run 按 Re-run：那會再上傳一份同名 artifact，
+  # 變成 `Multiple artifacts named "github-pages"`（11-26 實例），重跑幾次都一樣。
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,11 +64,33 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
 
-      # verify_live 要用 kb-core，而上一步把它刪了 —— 再取一次。
+      - name: 部署失敗時等 60 秒（artifact 查詢的最終一致性延遲）
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages（重試）
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      # 這個 job 是新 runner，沒有 repo 也沒有 kb-core —— 兩個都要取。
+      # verify_live 拿線上那份去比 repo 裡的 data/index.json。
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: 取驗證程式（部署後）
         uses: actions/checkout@v5
         with:
@@ -75,4 +104,4 @@ jobs:
       - name: 驗證線上那份就是剛上傳的那份
         run: |
           python3 kb-core/tools/verify_live.py \
-            "${{ steps.deployment.outputs.page_url }}" data/index.json
+            "${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}" data/index.json
