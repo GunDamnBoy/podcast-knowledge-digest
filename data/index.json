@@ -1,7 +1,24 @@
 {
- "updated": "2026-11-26T19:16:36+00:00",
- "updatedLabel": "11/27 03:16",
+ "updated": "2026-11-27T19:14:10+00:00",
+ "updatedLabel": "11/28 03:14",
  "days": [
+  {
+   "date": "2026-11-28",
+   "label": "2026年11月28日（週六）",
+   "short": "11/28 週六",
+   "episodeCount": 9,
+   "shows": [
+    "Unhedged (FT)",
+    "The Compound and Friends",
+    "Odd Lots",
+    "Money Stuff: The Podcast",
+    "Prof G Markets",
+    "Latent Space",
+    "In Good Company",
+    "Hard Fork"
+   ],
+   "file": "data/2026-11-28.json"
+  },
   {
    "date": "2026-11-27",
    "label": "2026年11月27日（週五）",
@@ -1737,5 +1754,5 @@
    ]
   }
  ],
- "count": 119
+ "count": 120
 }
